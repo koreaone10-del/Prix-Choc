@@ -5,163 +5,146 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prix Choc - التسوق الذكي</title>
     
-    <!-- مكتبات التصميم -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- استدعاء قاعدة البيانات المدمجة (الولايات والمنتجات) -->
+    <!-- قاعدة البيانات -->
     <script src="database.js"></script>
 
     <style>
         body { 
             font-family: 'Cairo', sans-serif; 
-            margin: 0;
-            min-height: 100vh;
-            /* الخلفية الخرافية: تدرج لوني متحرك انسيابي */
-            background: linear-gradient(-45deg, #0f172a, #1e293b, #0f766e, #047857);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            margin: 0; min-height: 100vh;
+            background: #0f172a; /* لون ليلي عميق */
             color: #333;
+            overflow-x: hidden;
         }
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        /* 🌟 الخلفية الخرافية (المنتجات العائمة) 🌟 */
+        .floating-bg {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -1; overflow: hidden; background: linear-gradient(135deg, #0f172a 0%, #064e3b 100%);
+        }
+        .floating-bg li {
+            position: absolute; display: block; list-style: none;
+            width: 40px; height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(2px); border-radius: 50%;
+            animation: floatUp 20s linear infinite;
+            bottom: -150px; text-align: center; line-height: 40px; font-size: 20px;
+        }
+        /* برمجة كل منتج ليطفو بشكل عشوائي */
+        .floating-bg li:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .floating-bg li:nth-child(2) { left: 20%; width: 60px; height: 60px; animation-delay: 2s; animation-duration: 17s; font-size: 30px; line-height: 60px; }
+        .floating-bg li:nth-child(3) { left: 35%; animation-delay: 4s; }
+        .floating-bg li:nth-child(4) { left: 50%; width: 80px; height: 80px; animation-delay: 0s; animation-duration: 22s; font-size: 40px; line-height: 80px; }
+        .floating-bg li:nth-child(5) { left: 65%; animation-delay: 6s; }
+        .floating-bg li:nth-child(6) { left: 75%; width: 50px; height: 50px; animation-delay: 3s; font-size: 25px; line-height: 50px; }
+        .floating-bg li:nth-child(7) { left: 85%; animation-delay: 7s; }
+        .floating-bg li:nth-child(8) { left: 90%; width: 70px; height: 70px; animation-delay: 1s; font-size: 35px; line-height: 70px; }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
         }
 
-        /* تأثير الزجاج الاحترافي للبطاقة (Glassmorphism) */
+        /* تصميم البطاقة الزجاجي */
         .glass-card {
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
-
-        /* أنيميشن العلم يرفرف */
-        .waving-flag {
-            display: inline-block;
-            transform-origin: bottom center;
-            animation: wave 2.5s ease-in-out infinite;
-        }
-        @keyframes wave {
-            0%, 100% { transform: rotate(0deg) skewY(0deg); }
-            25% { transform: rotate(-4deg) skewY(-2deg); }
-            75% { transform: rotate(4deg) skewY(2deg); }
-        }
     </style>
 </head>
-<body class="antialiased pb-10">
+<body class="pb-10">
 
-    <!-- شريط الثقة العلوي -->
-    <div class="bg-black/40 backdrop-blur-sm text-white text-center py-2 px-4 text-sm font-bold flex justify-center items-center gap-2 border-b border-white/10">
-        <span>🚚 الدفع عند الاستلام | توصيل لجميع الولايات</span>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Algeria.svg" alt="Algeria Flag" class="w-6 h-4 waving-flag rounded-sm">
+    <!-- الخلفية المتحركة -->
+    <ul class="floating-bg">
+        <li>🎧</li><li>📱</li><li>🛒</li><li>⌚</li><li>🎁</li><li>👟</li><li>💻</li><li>🎮</li>
+    </ul>
+
+    <!-- شريط الثقة -->
+    <div class="bg-black/60 text-white text-center py-2 text-sm font-bold flex justify-center items-center gap-2 backdrop-blur-md">
+        <span>🚚 الدفع عند الاستلام | توصيل 69 ولاية</span>
     </div>
 
-    <!-- الحاوية الرئيسية -->
-    <div class="max-w-md mx-auto p-4 mt-6">
-        <div class="glass-card rounded-3xl overflow-hidden">
+    <!-- البطاقة الرئيسية -->
+    <div class="max-w-md mx-auto p-4 mt-4">
+        <div class="glass-card rounded-3xl overflow-hidden shadow-2xl">
             
-            <!-- الهيدر -->
-            <div class="text-center py-6 bg-white/50 border-b border-gray-200">
-                <h1 class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-l from-teal-600 to-green-500 tracking-tight">Prix Choc</h1>
-                <p class="text-xs text-gray-600 mt-1 font-bold"><i class="fa-solid fa-shield-check text-green-500"></i> جودة مضمونة وسرعة في التوصيل</p>
-            </div>
-
-            <!-- حاوية الوسائط (تتغير تلقائياً فيديو/صورة) -->
             <div id="media-container" class="w-full bg-black relative flex justify-center">
                 <!-- سيتم حقن الفيديو أو الصورة هنا -->
             </div>
 
             <div class="p-6">
-                <h2 id="product-title" class="text-2xl font-black mb-2 text-gray-800 leading-tight"></h2>
+                <h2 id="product-title" class="text-2xl font-black mb-2 text-gray-800">جاري التحميل...</h2>
                 
-                <div class="flex justify-between items-center bg-teal-50 p-4 rounded-xl border border-teal-100 mb-6">
-                    <span class="text-teal-800 font-bold">سعر المنتج:</span>
-                    <span id="base-price-display" class="text-2xl font-black text-teal-600"></span>
+                <div class="flex justify-between items-center bg-emerald-50 p-4 rounded-xl border border-emerald-100 mb-6">
+                    <span class="text-emerald-800 font-bold">سعر المنتج:</span>
+                    <span id="base-price-display" class="text-2xl font-black text-emerald-600"></span>
                 </div>
 
-                <!-- استمارة الطلب -->
                 <form id="orderForm" class="space-y-4">
-                    
-                    <input type="text" id="fullName" required placeholder="الاسم الكامل" class="w-full px-5 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-teal-500 outline-none font-semibold bg-white/80">
-                    
-                    <input type="tel" id="phone" required pattern="[0-9]{10}" placeholder="رقم الهاتف (مثال: 0555000000)" class="w-full px-5 py-3 rounded-xl border border-gray-300 text-left focus:ring-2 focus:ring-teal-500 outline-none font-semibold bg-white/80" dir="ltr">
+                    <input type="text" id="fullName" required placeholder="الاسم الكامل" class="w-full px-5 py-3 rounded-xl border-2 border-gray-200 focus:border-emerald-500 outline-none font-bold">
+                    <input type="tel" id="phone" required pattern="[0-9]{10}" placeholder="رقم الهاتف" class="w-full px-5 py-3 rounded-xl border-2 border-gray-200 focus:border-emerald-500 outline-none font-bold text-left" dir="ltr">
 
-                    <!-- قائمة الولايات (ديناميكية) -->
-                    <select id="wilaya" required class="w-full px-5 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-teal-500 outline-none font-bold bg-white/80 cursor-pointer">
+                    <!-- الولاية والبلدية -->
+                    <select id="wilaya" required class="w-full px-5 py-3 rounded-xl border-2 border-gray-200 focus:border-emerald-500 outline-none font-bold bg-white">
                         <option value="" disabled selected>-- اختر ولايتك --</option>
-                        <!-- سيتم ملؤها برمجياً -->
                     </select>
-
-                    <!-- قائمة البلديات (تظهر بعد اختيار الولاية) -->
-                    <select id="commune" required disabled class="w-full px-5 py-3 rounded-xl border border-gray-300 bg-gray-100 opacity-50 font-semibold transition cursor-not-allowed">
+                    
+                    <select id="commune" required disabled class="w-full px-5 py-3 rounded-xl border-2 border-gray-200 bg-gray-100 opacity-50 font-bold">
                         <option value="" disabled selected>-- اختر البلدية --</option>
                     </select>
 
-                    <input type="text" id="address" required placeholder="العنوان التفصيلي (الحي، الشارع...)" class="w-full px-5 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-teal-500 outline-none font-semibold bg-white/80">
+                    <input type="text" id="address" required placeholder="العنوان التفصيلي" class="w-full px-5 py-3 rounded-xl border-2 border-gray-200 focus:border-emerald-500 outline-none font-bold">
 
-                    <!-- خيارات التوصيل (الأسعار تتحدث حسب الولاية) -->
-                    <div id="delivery-options" class="bg-white p-4 rounded-xl border shadow-sm space-y-3 hidden">
-                        <p class="text-sm font-bold text-gray-800 border-b pb-2">طريقة التوصيل:</p>
-                        
-                        <label class="flex items-center justify-between p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition">
-                            <div class="flex items-center gap-3">
-                                <input type="radio" name="delivery" value="standard" checked class="w-5 h-5 text-teal-600">
-                                <span class="font-bold text-gray-700">توصيل عادي (للمكتب)</span>
+                    <!-- التوصيل -->
+                    <div id="delivery-options" class="bg-gray-50 p-4 rounded-xl border-2 border-gray-200 hidden">
+                        <p class="text-sm font-bold text-gray-800 mb-3 border-b pb-2">سعر التوصيل (حسب شركة الشحن):</p>
+                        <label class="flex items-center justify-between p-3 border rounded-lg mb-2 bg-white cursor-pointer">
+                            <div class="flex items-center gap-2">
+                                <input type="radio" name="delivery" value="standard" checked class="w-5 h-5 text-emerald-600">
+                                <span class="font-bold text-gray-700">توصيل للمكتب</span>
                             </div>
-                            <span id="standard-price" class="text-sm font-black text-teal-600"></span>
+                            <span id="standard-price" class="font-black text-emerald-600"></span>
                         </label>
-                        
-                        <label class="flex items-center justify-between p-3 border rounded-lg cursor-pointer hover:bg-gray-50 transition">
-                            <div class="flex items-center gap-3">
-                                <input type="radio" name="delivery" value="express" class="w-5 h-5 text-teal-600">
-                                <span class="font-bold text-gray-800">توصيل سريع (للمنزل)</span>
+                        <label class="flex items-center justify-between p-3 border rounded-lg bg-white cursor-pointer">
+                            <div class="flex items-center gap-2">
+                                <input type="radio" name="delivery" value="express" class="w-5 h-5 text-emerald-600">
+                                <span class="font-bold text-gray-700">توصيل للمنزل</span>
                             </div>
-                            <span id="express-price" class="text-sm font-black text-rose-500"></span>
+                            <span id="express-price" class="font-black text-rose-500"></span>
                         </label>
                     </div>
 
-                    <!-- السعر الإجمالي -->
-                    <div class="bg-gray-900 text-white p-5 rounded-xl text-center shadow-lg transform transition mt-6">
+                    <div class="bg-gray-900 text-white p-5 rounded-xl text-center shadow-lg mt-4">
                         <p class="text-sm text-gray-400 mb-1">المبلغ الإجمالي (المنتج + التوصيل)</p>
                         <p id="total-price-display" class="text-4xl font-black text-yellow-400">--- د.ج</p>
                     </div>
 
-                    <!-- زر التأكيد -->
-                    <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-teal-500 to-green-500 hover:from-teal-600 hover:to-green-600 text-white font-black text-xl py-4 rounded-xl shadow-xl transition transform active:scale-95 mt-4">
-                        🛒 تأكيد الطلب
+                    <button type="submit" id="submitBtn" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black text-xl py-4 rounded-xl shadow-lg mt-4">
+                        تأكيد الطلب
                     </button>
                 </form>
-
-                <!-- رسالة النجاح -->
-                <div id="successMessage" class="hidden text-center py-8">
-                    <i class="fa-solid fa-circle-check text-6xl text-green-500 mb-4"></i>
-                    <h3 class="text-2xl font-black text-gray-800 mb-2">تم تسجيل طلبك بنجاح!</h3>
-                    <p class="text-gray-600 font-bold">فريقنا سيتصل بك لتأكيد الطلبية.</p>
-                </div>
-            </div>
-            
-            <div class="pb-4 text-center">
-                <p class="text-xs text-gray-400 font-semibold"><i class="fa-solid fa-lock text-green-500"></i> بياناتك مشفرة ومحمية بالكامل</p>
             </div>
         </div>
     </div>
 
-    <!-- المنطق البرمجي (المحرك الذكي) -->
     <script>
-        // 1. استخراج المنتج من الرابط (مثال: ?p=1)
         const urlParams = new URLSearchParams(window.location.search);
         const productId = urlParams.get('p') || "1"; 
-        const productData = storeData.products[productId];
+        
+        // استخدام setTimeout للتأكد من تحميل ملف database.js
+        setTimeout(() => {
+            const productData = storeData.products[productId];
+            if (!productData) {
+                document.body.innerHTML = `<h2 class="text-white text-center mt-20 text-3xl font-bold">المنتج غير متوفر</h2>`;
+                return;
+            }
 
-        if (!productData) {
-            document.body.innerHTML = `<h2 class="text-white text-center mt-20 text-3xl font-bold">المنتج غير متوفر</h2>`;
-        } else {
-            // 2. حقن بيانات المنتج
             document.getElementById('product-title').innerText = productData.name;
             document.getElementById('base-price-display').innerText = productData.price + ' د.ج';
             
@@ -172,89 +155,46 @@
                 mediaContainer.innerHTML = `<img src="${productData.mediaUrl}" class="w-full max-h-80 object-cover">`;
             }
 
-            // 3. تهيئة الولايات والأسعار
             const wilayaSelect = document.getElementById('wilaya');
             const communeSelect = document.getElementById('commune');
             const deliveryOptionsBox = document.getElementById('delivery-options');
-            const standardPriceEl = document.getElementById('standard-price');
-            const expressPriceEl = document.getElementById('express-price');
-            const totalPriceDisplay = document.getElementById('total-price-display');
-
             let currentDeliveryPrice = 0;
 
-            // تعبئة قائمة الولايات من ملف database.js
+            // تعبئة الولايات الـ 69
             for (const [id, wData] of Object.entries(storeData.wilayas)) {
                 wilayaSelect.innerHTML += `<option value="${id}">${id} - ${wData.name}</option>`;
             }
 
-            // دالة تحديث السعر الإجمالي
             function updateTotalPrice() {
-                const total = productData.price + currentDeliveryPrice;
-                totalPriceDisplay.innerText = total + ' د.ج';
+                document.getElementById('total-price-display').innerText = (productData.price + currentDeliveryPrice) + ' د.ج';
             }
 
-            // عندما يختار الزبون الولاية
             wilayaSelect.addEventListener('change', function() {
-                const wId = this.value;
-                const wData = storeData.wilayas[wId];
-
-                // تعبئة البلديات
+                const wData = storeData.wilayas[this.value];
+                
                 communeSelect.innerHTML = `<option value="" disabled selected>-- اختر البلدية --</option>`;
-                wData.communes.forEach(commune => {
-                    communeSelect.innerHTML += `<option value="${commune}">${commune}</option>`;
-                });
+                wData.communes.forEach(c => { communeSelect.innerHTML += `<option value="${c}">${c}</option>`; });
                 communeSelect.disabled = false;
-                communeSelect.classList.remove('opacity-50', 'bg-gray-100', 'cursor-not-allowed');
-                communeSelect.classList.add('bg-white/80');
+                communeSelect.classList.remove('opacity-50', 'bg-gray-100');
+                communeSelect.classList.add('bg-white');
 
-                // إظهار أسعار التوصيل الخاصة ببابا الجزائر لهذه الولاية
                 deliveryOptionsBox.classList.remove('hidden');
-                standardPriceEl.innerText = wData.delivery_fees.standard + ' د.ج';
-                expressPriceEl.innerText = wData.delivery_fees.express + ' د.ج';
+                document.getElementById('standard-price').innerText = wData.delivery_fees.standard + ' د.ج';
+                document.getElementById('express-price').innerText = wData.delivery_fees.express + ' د.ج';
 
-                // ضبط السعر الافتراضي للتوصيل وحساب المجموع
-                const selectedDeliveryType = document.querySelector('input[name="delivery"]:checked').value;
-                currentDeliveryPrice = wData.delivery_fees[selectedDeliveryType];
+                currentDeliveryPrice = wData.delivery_fees[document.querySelector('input[name="delivery"]:checked').value];
                 updateTotalPrice();
             });
 
-            // عندما يغير الزبون نوع التوصيل (عادي / سريع)
             document.querySelectorAll('input[name="delivery"]').forEach(radio => {
                 radio.addEventListener('change', function() {
-                    const wId = wilayaSelect.value;
-                    if(wId) {
-                        currentDeliveryPrice = storeData.wilayas[wId].delivery_fees[this.value];
+                    if(wilayaSelect.value) {
+                        currentDeliveryPrice = storeData.wilayas[wilayaSelect.value].delivery_fees[this.value];
                         updateTotalPrice();
                     }
                 });
             });
-
-            // إرسال الطلب
-            document.getElementById('orderForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                const btn = document.getElementById('submitBtn');
-                btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> جاري التأكيد...';
-                
-                // هذه هي البيانات التي سيسحبها السكربت (Bot) الخاص بك لإدخالها في بابا الجزائر
-                const orderData = {
-                    babaId: productData.babaId,
-                    sellingPrice: productData.price, // السعر الذي حددته أنت للمنتج
-                    customerName: document.getElementById('fullName').value,
-                    phone: document.getElementById('phone').value,
-                    wilaya: wilayaSelect.value,
-                    commune: communeSelect.value,
-                    address: document.getElementById('address').value,
-                    deliveryType: document.querySelector('input[name="delivery"]:checked').value
-                };
-
-                console.log("بيانات الطلبية الجاهزة للأتمتة:", orderData);
-
-                setTimeout(() => {
-                    document.getElementById('orderForm').classList.add('hidden');
-                    document.getElementById('successMessage').classList.remove('hidden');
-                }, 1500);
-            });
-        }
+        }, 500);
     </script>
 </body>
 </html>
