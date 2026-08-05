@@ -1,0 +1,40 @@
+<!-- أضف هذا السطر في قسم <head> لاستدعاء قاعدة بياناتك -->
+<script src="products.js"></script>
+
+<!-- ثم في الأسفل، مكان السكربت القديم، نضع هذا المنطق الذكي -->
+<script>
+    // 1. قراءة الرابط لمعرفة أي منتج اختار الزبون (مثلا ?p=1)
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('p');
+
+    // 2. جلب بيانات المنتج من ملف products.js
+    const productData = productsDatabase[productId];
+
+    // 3. التحقق مما إذا كان المنتج موجوداً
+    if (productData) {
+        // حقن البيانات في الصفحة
+        document.getElementById('product-img').src = productData.image;
+        document.getElementById('product-title').innerText = productData.name;
+        document.getElementById('base-price-display').innerText = productData.price + ' د.ج';
+        
+        let currentTotal = productData.price;
+
+        // دالة تحديث السعر بناءً على نوع التوصيل
+        function updatePrice() {
+            const selectedDelivery = document.querySelector('input[name="delivery"]:checked').value;
+            currentTotal = selectedDelivery === 'express' ? productData.price + 200 : productData.price;
+            document.getElementById('total-price-display').innerText = currentTotal + ' د.ج';
+        }
+
+        // تشغيل الحساب الأولي ومراقبة تغييرات التوصيل
+        updatePrice();
+        document.querySelectorAll('input[name="delivery"]').forEach(radio => {
+            radio.addEventListener('change', updatePrice);
+        });
+
+    } else {
+        // إذا كان الرابط خاطئاً أو المنتج غير موجود
+        document.body.innerHTML = "<h2 style='text-align:center; margin-top:50px;'>المنتج غير متوفر أو الرابط خاطئ.</h2>";
+    }
+</script>
+
