@@ -5,18 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prix Choc - التسوق الذكي</title>
     
+    <!-- مكتبات التصميم -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- قاعدة البيانات -->
+    <!-- ربط قاعدة البيانات -->
     <script src="database.js"></script>
 
     <style>
         body { 
             font-family: 'Cairo', sans-serif; 
             margin: 0; min-height: 100vh;
-            background: #0f172a; /* لون ليلي عميق */
+            background: #0f172a; 
             color: #333;
             overflow-x: hidden;
         }
@@ -49,7 +50,7 @@
             100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
         }
 
-        /* تصميم البطاقة الزجاجي */
+        /* تصميم البطاقة الزجاجي الاحترافي */
         .glass-card {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -65,27 +66,29 @@
         <li>🎧</li><li>📱</li><li>🛒</li><li>⌚</li><li>🎁</li><li>👟</li><li>💻</li><li>🎮</li>
     </ul>
 
-    <!-- شريط الثقة -->
+    <!-- شريط الثقة العُلوي -->
     <div class="bg-black/60 text-white text-center py-2 text-sm font-bold flex justify-center items-center gap-2 backdrop-blur-md">
         <span>🚚 الدفع عند الاستلام | توصيل 69 ولاية</span>
     </div>
 
-    <!-- البطاقة الرئيسية -->
+    <!-- الحاوية الرئيسية -->
     <div class="max-w-md mx-auto p-4 mt-4">
         <div class="glass-card rounded-3xl overflow-hidden shadow-2xl">
             
+            <!-- حاوية الصورة أو الفيديو -->
             <div id="media-container" class="w-full bg-black relative flex justify-center">
-                <!-- سيتم حقن الفيديو أو الصورة هنا -->
             </div>
 
             <div class="p-6">
                 <h2 id="product-title" class="text-2xl font-black mb-2 text-gray-800">جاري التحميل...</h2>
                 
+                <!-- سعر المنتج الصافي -->
                 <div class="flex justify-between items-center bg-emerald-50 p-4 rounded-xl border border-emerald-100 mb-6">
                     <span class="text-emerald-800 font-bold">سعر المنتج:</span>
                     <span id="base-price-display" class="text-2xl font-black text-emerald-600"></span>
                 </div>
 
+                <!-- نموذج الطلب -->
                 <form id="orderForm" class="space-y-4">
                     <input type="text" id="fullName" required placeholder="الاسم الكامل" class="w-full px-5 py-3 rounded-xl border-2 border-gray-200 focus:border-emerald-500 outline-none font-bold">
                     <input type="tel" id="phone" required pattern="[0-9]{10}" placeholder="رقم الهاتف" class="w-full px-5 py-3 rounded-xl border-2 border-gray-200 focus:border-emerald-500 outline-none font-bold text-left" dir="ltr">
@@ -99,52 +102,89 @@
                         <option value="" disabled selected>-- اختر البلدية --</option>
                     </select>
 
-                    <input type="text" id="address" required placeholder="العنوان التفصيلي" class="w-full px-5 py-3 rounded-xl border-2 border-gray-200 focus:border-emerald-500 outline-none font-bold">
+                    <input type="text" id="address" required placeholder="العنوان التفصيلي (الحي، الشارع...)" class="w-full px-5 py-3 rounded-xl border-2 border-gray-200 focus:border-emerald-500 outline-none font-bold">
 
-                    <!-- التوصيل -->
-                    <div id="delivery-options" class="bg-gray-50 p-4 rounded-xl border-2 border-gray-200 hidden">
-                        <p class="text-sm font-bold text-gray-800 mb-3 border-b pb-2">سعر التوصيل (حسب شركة الشحن):</p>
-                        <label class="flex items-center justify-between p-3 border rounded-lg mb-2 bg-white cursor-pointer">
-                            <div class="flex items-center gap-2">
-                                <input type="radio" name="delivery" value="standard" checked class="w-5 h-5 text-emerald-600">
-                                <span class="font-bold text-gray-700">توصيل للمكتب</span>
+                    <!-- قسم التوصيل المفصل (يظهر بعد اختيار الولاية) -->
+                    <div id="delivery-options" class="bg-gray-50 p-4 rounded-xl border-2 border-gray-200 hidden space-y-4">
+                        
+                        <!-- نوع التوصيل -->
+                        <div>
+                            <p class="text-sm font-bold text-gray-800 mb-2">نوع التوصيل:</p>
+                            <div class="flex gap-3">
+                                <label class="flex-1 flex items-center justify-center p-3 border rounded-lg bg-white cursor-pointer hover:bg-emerald-50 transition shadow-sm">
+                                    <input type="radio" name="deliveryType" value="standard" checked class="w-5 h-5 text-emerald-600">
+                                    <span class="mr-2 font-bold text-gray-700">توصيل عادي</span>
+                                </label>
+                                <label class="flex-1 flex items-center justify-center p-3 border rounded-lg bg-white cursor-pointer hover:bg-emerald-50 transition shadow-sm">
+                                    <input type="radio" name="deliveryType" value="express" class="w-5 h-5 text-emerald-600">
+                                    <span class="mr-2 font-bold text-gray-700">Express</span>
+                                </label>
                             </div>
-                            <span id="standard-price" class="font-black text-emerald-600"></span>
-                        </label>
-                        <label class="flex items-center justify-between p-3 border rounded-lg bg-white cursor-pointer">
-                            <div class="flex items-center gap-2">
-                                <input type="radio" name="delivery" value="express" class="w-5 h-5 text-emerald-600">
-                                <span class="font-bold text-gray-700">توصيل للمنزل</span>
+                        </div>
+
+                        <!-- مكان الاستلام -->
+                        <div>
+                            <p class="text-sm font-bold text-gray-800 mb-2">مكان الإستلام:</p>
+                            <div class="flex gap-3">
+                                <label class="flex-1 flex items-center justify-center p-3 border rounded-lg bg-white cursor-pointer hover:bg-emerald-50 transition shadow-sm">
+                                    <input type="radio" name="deliveryLocation" value="home" checked class="w-5 h-5 text-emerald-600">
+                                    <span class="mr-2 font-bold text-gray-700">المنزل</span>
+                                </label>
+                                <label class="flex-1 flex items-center justify-center p-3 border rounded-lg bg-white cursor-pointer hover:bg-emerald-50 transition shadow-sm">
+                                    <input type="radio" name="deliveryLocation" value="desk" class="w-5 h-5 text-emerald-600">
+                                    <span class="mr-2 font-bold text-gray-700">مكتب البريد</span>
+                                </label>
                             </div>
-                            <span id="express-price" class="font-black text-rose-500"></span>
-                        </label>
+                        </div>
+
+                        <!-- عرض سعر الشحن الخاص بالولاية -->
+                        <div class="bg-white p-3 rounded-lg text-center border border-gray-200 mt-2 shadow-sm">
+                            <span class="text-sm font-bold text-gray-600">تكلفة الشحن لهذه الولاية: </span>
+                            <span id="shipping-cost-display" class="font-black text-rose-500 text-lg">--- د.ج</span>
+                        </div>
                     </div>
 
+                    <!-- السعر الإجمالي للدفع -->
                     <div class="bg-gray-900 text-white p-5 rounded-xl text-center shadow-lg mt-4">
                         <p class="text-sm text-gray-400 mb-1">المبلغ الإجمالي (المنتج + التوصيل)</p>
                         <p id="total-price-display" class="text-4xl font-black text-yellow-400">--- د.ج</p>
                     </div>
 
-                    <button type="submit" id="submitBtn" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black text-xl py-4 rounded-xl shadow-lg mt-4">
-                        تأكيد الطلب
+                    <button type="submit" id="submitBtn" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black text-xl py-4 rounded-xl shadow-lg mt-4 transition transform active:scale-95">
+                        <i class="fa-solid fa-cart-shopping"></i> تأكيد الطلب
                     </button>
                 </form>
+                
+                <!-- رسالة النجاح -->
+                <div id="successMessage" class="hidden text-center py-8">
+                    <i class="fa-solid fa-circle-check text-6xl text-emerald-500 mb-4"></i>
+                    <h3 class="text-2xl font-black text-gray-800 mb-2">تم تسجيل طلبك بنجاح!</h3>
+                    <p class="text-gray-600 font-bold">فريقنا سيتصل بك لتأكيد الطلبية.</p>
+                </div>
             </div>
         </div>
     </div>
 
+    <!-- المنطق البرمجي السحري -->
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const productId = urlParams.get('p') || "1"; 
         
-        // استخدام setTimeout للتأكد من تحميل ملف database.js
+        // نستخدم setTimeout بمدة بسيطة لضمان أن المتصفح قد قام بتحميل ملف database.js
         setTimeout(() => {
+            // التحقق من وجود قاعدة البيانات
+            if (typeof storeData === 'undefined') {
+                document.body.innerHTML = `<h2 class="text-white text-center mt-20 text-3xl font-bold">خطأ في تحميل قاعدة البيانات (database.js)</h2>`;
+                return;
+            }
+
             const productData = storeData.products[productId];
             if (!productData) {
                 document.body.innerHTML = `<h2 class="text-white text-center mt-20 text-3xl font-bold">المنتج غير متوفر</h2>`;
                 return;
             }
 
+            // حقن بيانات المنتج في الواجهة
             document.getElementById('product-title').innerText = productData.name;
             document.getElementById('base-price-display').innerText = productData.price + ' د.ج';
             
@@ -155,45 +195,84 @@
                 mediaContainer.innerHTML = `<img src="${productData.mediaUrl}" class="w-full max-h-80 object-cover">`;
             }
 
+            // المتغيرات
             const wilayaSelect = document.getElementById('wilaya');
             const communeSelect = document.getElementById('commune');
             const deliveryOptionsBox = document.getElementById('delivery-options');
             let currentDeliveryPrice = 0;
 
-            // تعبئة الولايات الـ 69
+            // جلب الولايات من قاعدة البيانات
             for (const [id, wData] of Object.entries(storeData.wilayas)) {
                 wilayaSelect.innerHTML += `<option value="${id}">${id} - ${wData.name}</option>`;
             }
 
+            // دالة تحديث الحسابات
             function updateTotalPrice() {
+                if(!wilayaSelect.value) return;
+                
+                const wData = storeData.wilayas[wilayaSelect.value];
+                const dType = document.querySelector('input[name="deliveryType"]:checked').value;
+                const dLoc = document.querySelector('input[name="deliveryLocation"]:checked').value;
+                
+                // سحب السعر الدقيق بناءً على الخيارات الثلاثة (الولاية > النوع > المكان)
+                currentDeliveryPrice = wData.delivery_fees[dType][dLoc];
+                
+                // تحديث الواجهة
+                document.getElementById('shipping-cost-display').innerText = currentDeliveryPrice + ' د.ج';
                 document.getElementById('total-price-display').innerText = (productData.price + currentDeliveryPrice) + ' د.ج';
             }
 
+            // عند اختيار الولاية
             wilayaSelect.addEventListener('change', function() {
                 const wData = storeData.wilayas[this.value];
                 
+                // تحديث البلديات
                 communeSelect.innerHTML = `<option value="" disabled selected>-- اختر البلدية --</option>`;
                 wData.communes.forEach(c => { communeSelect.innerHTML += `<option value="${c}">${c}</option>`; });
                 communeSelect.disabled = false;
                 communeSelect.classList.remove('opacity-50', 'bg-gray-100');
                 communeSelect.classList.add('bg-white');
 
+                // إظهار قسم التوصيل وحساب السعر
                 deliveryOptionsBox.classList.remove('hidden');
-                document.getElementById('standard-price').innerText = wData.delivery_fees.standard + ' د.ج';
-                document.getElementById('express-price').innerText = wData.delivery_fees.express + ' د.ج';
-
-                currentDeliveryPrice = wData.delivery_fees[document.querySelector('input[name="delivery"]:checked').value];
                 updateTotalPrice();
             });
 
-            document.querySelectorAll('input[name="delivery"]').forEach(radio => {
-                radio.addEventListener('change', function() {
-                    if(wilayaSelect.value) {
-                        currentDeliveryPrice = storeData.wilayas[wilayaSelect.value].delivery_fees[this.value];
-                        updateTotalPrice();
-                    }
-                });
+            // عند تغيير الزبون لأي خيار توصيل
+            document.querySelectorAll('input[name="deliveryType"], input[name="deliveryLocation"]').forEach(radio => {
+                radio.addEventListener('change', updateTotalPrice);
             });
+
+            // تأكيد الطلبية
+            document.getElementById('orderForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const btn = document.getElementById('submitBtn');
+                btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> جاري التأكيد...';
+                
+                // تجميع البيانات النهائية لإرسالها
+                const orderData = {
+                    babaId: productData.babaId,
+                    sellingPrice: productData.price,
+                    customerName: document.getElementById('fullName').value,
+                    phone: document.getElementById('phone').value,
+                    wilaya: wilayaSelect.value,
+                    commune: communeSelect.value,
+                    address: document.getElementById('address').value,
+                    deliveryType: document.querySelector('input[name="deliveryType"]:checked').value,
+                    deliveryLocation: document.querySelector('input[name="deliveryLocation"]:checked').value,
+                    totalPrice: productData.price + currentDeliveryPrice
+                };
+
+                // طباعة البيانات للتأكد من جاهزيتها للبوت
+                console.log("البيانات الجاهزة:", orderData);
+
+                // إظهار واجهة النجاح
+                setTimeout(() => {
+                    document.getElementById('orderForm').classList.add('hidden');
+                    document.getElementById('successMessage').classList.remove('hidden');
+                }, 1200);
+            });
+
         }, 500);
     </script>
 </body>
