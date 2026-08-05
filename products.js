@@ -14,4 +14,11 @@ const productsDatabase = {
     }
     // يمكنك إضافة "3" و "4" بنفس الطريقة بسهولة
 };
+    "4": {
+        babaId: "NL-210", // استبدل هذا برمز القبعة الحقيقي في موقع بابا الجزائر
+        name: "قبعة صيفية نسائية فاخرة باللؤلؤ والورود (Boho-Chic)",
+        price: 650,     // ضع السعر الخاص بك هنا بالدينار الجزائري
+        type: "image",   // إذا كانت صورة ضع "image"، وإذا كان فيديو ضع "video"
+        mediaUrl: "https://youtube.com/shorts/_XEdVgJk8Ys?si=esU6a_nTUYjejmqs"
+    }
 
