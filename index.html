@@ -22,28 +22,31 @@
             overflow-x: hidden;
         }
 
-        /* 🌟 الخلفية الخرافية (المنتجات العائمة) 🌟 */
+        /* 🌟 الخلفية الخرافية: منتجات كثيرة وسريعة الحركة 🌟 */
         .floating-bg {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
             z-index: -1; overflow: hidden; background: linear-gradient(135deg, #0f172a 0%, #064e3b 100%);
         }
         .floating-bg li {
             position: absolute; display: block; list-style: none;
-            width: 40px; height: 40px;
-            background: rgba(255, 255, 255, 0.05);
+            width: 35px; height: 35px;
+            background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(2px); border-radius: 50%;
-            animation: floatUp 20s linear infinite;
-            bottom: -150px; text-align: center; line-height: 40px; font-size: 20px;
+            /* زيادة السرعة هنا لتصبح الحركة أسرع (7s إلى 11s) */
+            animation: floatUp 9s linear infinite;
+            bottom: -150px; text-align: center; line-height: 35px; font-size: 18px;
         }
-        /* برمجة كل منتج ليطفو بشكل عشوائي */
-        .floating-bg li:nth-child(1) { left: 10%; animation-delay: 0s; }
-        .floating-bg li:nth-child(2) { left: 20%; width: 60px; height: 60px; animation-delay: 2s; animation-duration: 17s; font-size: 30px; line-height: 60px; }
-        .floating-bg li:nth-child(3) { left: 35%; animation-delay: 4s; }
-        .floating-bg li:nth-child(4) { left: 50%; width: 80px; height: 80px; animation-delay: 0s; animation-duration: 22s; font-size: 40px; line-height: 80px; }
-        .floating-bg li:nth-child(5) { left: 65%; animation-delay: 6s; }
-        .floating-bg li:nth-child(6) { left: 75%; width: 50px; height: 50px; animation-delay: 3s; font-size: 25px; line-height: 50px; }
-        .floating-bg li:nth-child(7) { left: 85%; animation-delay: 7s; }
-        .floating-bg li:nth-child(8) { left: 90%; width: 70px; height: 70px; animation-delay: 1s; font-size: 35px; line-height: 70px; }
+        /* تكثيف وتوزيع المنتجات العائمة عشوائياً وبسرعات مختلفة */
+        .floating-bg li:nth-child(1) { left: 5%; animation-duration: 7s; animation-delay: 0s; }
+        .floating-bg li:nth-child(2) { left: 15%; width: 50px; height: 50px; animation-duration: 10s; animation-delay: 1s; font-size: 24px; line-height: 50px; }
+        .floating-bg li:nth-child(3) { left: 25%; animation-duration: 8s; animation-delay: 2s; }
+        .floating-bg li:nth-child(4) { left: 35%; width: 60px; height: 60px; animation-duration: 6s; animation-delay: 0.5s; font-size: 30px; line-height: 60px; }
+        .floating-bg li:nth-child(5) { left: 45%; animation-duration: 11s; animation-delay: 3s; }
+        .floating-bg li:nth-child(6) { left: 55%; width: 45px; height: 45px; animation-duration: 7s; animation-delay: 1.5s; font-size: 22px; line-height: 45px; }
+        .floating-bg li:nth-child(7) { left: 65%; animation-duration: 9s; animation-delay: 2.5s; }
+        .floating-bg li:nth-child(8) { left: 75%; width: 55px; height: 55px; animation-duration: 8s; animation-delay: 0.8s; font-size: 26px; line-height: 55px; }
+        .floating-bg li:nth-child(9) { left: 85%; animation-duration: 10s; animation-delay: 1.2s; }
+        .floating-bg li:nth-child(10) { left: 92%; width: 50px; height: 50px; animation-duration: 7s; animation-delay: 2s; font-size: 25px; line-height: 50px; }
 
         @keyframes floatUp {
             0% { transform: translateY(0) rotate(0deg); opacity: 1; }
@@ -61,9 +64,9 @@
 </head>
 <body class="pb-10">
 
-    <!-- الخلفية المتحركة -->
+    <!-- الخلفية المتحركة المكثفة والسريعة -->
     <ul class="floating-bg">
-        <li>🎧</li><li>📱</li><li>🛒</li><li>⌚</li><li>🎁</li><li>👟</li><li>💻</li><li>🎮</li>
+        <li>🎧</li><li>📱</li><li>🛒</li><li>⌚️</li><li>🎁</li><li>👟</li><li>💻</li><li>🎮</li><li>📷</li><li>📦</li>
     </ul>
 
     <!-- شريط الثقة العُلوي -->
@@ -117,7 +120,7 @@
                                 </label>
                                 <label class="flex-1 flex items-center justify-center p-3 border rounded-lg bg-white cursor-pointer hover:bg-emerald-50 transition shadow-sm">
                                     <input type="radio" name="deliveryType" value="express" class="w-5 h-5 text-emerald-600">
-                                    <span class="mr-2 font-bold text-gray-700">Express</span>
+                                    <span class="mr-2 font-bold text-gray-700">express</span>
                                 </label>
                             </div>
                         </div>
@@ -165,14 +168,12 @@
         </div>
     </div>
 
-    <!-- المنطق البرمجي السحري -->
+    <!-- المنطق البرمجي السحري والربط مع الخادم -->
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const productId = urlParams.get('p') || "1"; 
         
-        // نستخدم setTimeout بمدة بسيطة لضمان أن المتصفح قد قام بتحميل ملف database.js
         setTimeout(() => {
-            // التحقق من وجود قاعدة البيانات
             if (typeof storeData === 'undefined') {
                 document.body.innerHTML = `<h2 class="text-white text-center mt-20 text-3xl font-bold">خطأ في تحميل قاعدة البيانات (database.js)</h2>`;
                 return;
@@ -184,7 +185,6 @@
                 return;
             }
 
-            // حقن بيانات المنتج في الواجهة
             document.getElementById('product-title').innerText = productData.name;
             document.getElementById('base-price-display').innerText = productData.price + ' د.ج';
             
@@ -195,18 +195,15 @@
                 mediaContainer.innerHTML = `<img src="${productData.mediaUrl}" class="w-full max-h-80 object-cover">`;
             }
 
-            // المتغيرات
             const wilayaSelect = document.getElementById('wilaya');
             const communeSelect = document.getElementById('commune');
             const deliveryOptionsBox = document.getElementById('delivery-options');
             let currentDeliveryPrice = 0;
 
-            // جلب الولايات من قاعدة البيانات
             for (const [id, wData] of Object.entries(storeData.wilayas)) {
                 wilayaSelect.innerHTML += `<option value="${id}">${id} - ${wData.name}</option>`;
             }
 
-            // دالة تحديث الحسابات
             function updateTotalPrice() {
                 if(!wilayaSelect.value) return;
                 
@@ -214,42 +211,36 @@
                 const dType = document.querySelector('input[name="deliveryType"]:checked').value;
                 const dLoc = document.querySelector('input[name="deliveryLocation"]:checked').value;
                 
-                // سحب السعر الدقيق بناءً على الخيارات الثلاثة (الولاية > النوع > المكان)
                 currentDeliveryPrice = wData.delivery_fees[dType][dLoc];
                 
-                // تحديث الواجهة
                 document.getElementById('shipping-cost-display').innerText = currentDeliveryPrice + ' د.ج';
                 document.getElementById('total-price-display').innerText = (productData.price + currentDeliveryPrice) + ' د.ج';
             }
 
-            // عند اختيار الولاية
             wilayaSelect.addEventListener('change', function() {
                 const wData = storeData.wilayas[this.value];
                 
-                // تحديث البلديات
                 communeSelect.innerHTML = `<option value="" disabled selected>-- اختر البلدية --</option>`;
                 wData.communes.forEach(c => { communeSelect.innerHTML += `<option value="${c}">${c}</option>`; });
                 communeSelect.disabled = false;
                 communeSelect.classList.remove('opacity-50', 'bg-gray-100');
                 communeSelect.classList.add('bg-white');
 
-                // إظهار قسم التوصيل وحساب السعر
                 deliveryOptionsBox.classList.remove('hidden');
                 updateTotalPrice();
             });
 
-            // عند تغيير الزبون لأي خيار توصيل
             document.querySelectorAll('input[name="deliveryType"], input[name="deliveryLocation"]').forEach(radio => {
                 radio.addEventListener('change', updateTotalPrice);
             });
 
-            // تأكيد الطلبية
-            document.getElementById('orderForm').addEventListener('submit', function(e) {
+            // تأكيد الطلبية وإرسالها لخادم البوت على Render
+            document.getElementById('orderForm').addEventListener('submit', async function(e) {
                 e.preventDefault();
                 const btn = document.getElementById('submitBtn');
-                btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> جاري التأكيد...';
+                btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> جاري الإرسال لبابا الجزائر...';
+                btn.disabled = true;
                 
-                // تجميع البيانات النهائية لإرسالها
                 const orderData = {
                     babaId: productData.babaId,
                     sellingPrice: productData.price,
@@ -263,14 +254,29 @@
                     totalPrice: productData.price + currentDeliveryPrice
                 };
 
-                // طباعة البيانات للتأكد من جاهزيتها للبوت
-                console.log("البيانات الجاهزة:", orderData);
+                try {
+                    const response = await fetch('https://prix-choc-bot.onrender.com/api/order', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(orderData)
+                    });
 
-                // إظهار واجهة النجاح
-                setTimeout(() => {
-                    document.getElementById('orderForm').classList.add('hidden');
-                    document.getElementById('successMessage').classList.remove('hidden');
-                }, 1200);
+                    if (response.ok) {
+                        document.getElementById('orderForm').classList.add('hidden');
+                        document.getElementById('successMessage').classList.remove('hidden');
+                    } else {
+                        alert('حدث خطأ أثناء تسجيل الطلبية. يرجى المحاولة مرة أخرى.');
+                        btn.innerHTML = '<i class="fa-solid fa-cart-shopping"></i> تأكيد الطلب';
+                        btn.disabled = false;
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('لا يمكن الاتصال بالخادم حالياً. يرجى المحاولة بعد قليل.');
+                    btn.innerHTML = '<i class="fa-solid fa-cart-shopping"></i> تأكيد الطلب';
+                    btn.disabled = false;
+                }
             });
 
         }, 500);
