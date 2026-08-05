@@ -289,7 +289,7 @@
                 } catch (error) {
                     console.error('Error:', error);
                     alert('لا يمكن الاتصال بالخادم حالياً. يرجى المحاولة بعد قليل.');
-                    btn.innerHTML = '<i class="fa-solid fa-cart-shopping"></i> تأكيد الطلب';
+                    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> جاري تأكيد الطلبية...';
                     btn.disabled = false;
                 }
             });
