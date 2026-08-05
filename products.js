@@ -14,16 +14,14 @@ const storeData = {
             type: "image",
             mediaUrl: "https://images.unsplash.com/photo-1527011045970-128a30a21fb9?w=500&q=80"
         },
-        "4": {
-            babaId: "NL-210",
-            name: "قبعة صيفية نسائية فاخرة باللؤلؤ والورود (Boho-Chic)",
-            price: 650,
-            type: "image",
-            mediaUrl: "https://images.unsplash.com/photo-1527011045970-128a30a21fb9?w=500&q=80" 
-            /* ملاحظة: رابط يوتيوب Shorts لا يظهر كصورة مباشرة في المتصفح، 
-               لذا الأفضل وضع رابط صورة مباشرة هنا، أو إذا كان فيديو ضع رابط فيديو بصيغة mp4 
-               أو عدل الـ type إلى video إذا كنت تستخدم مشغل يوتيوب. 
-               حالياً وضعت لك صورة مؤقتة لتعمل معك التجربة فوراً بدون أخطاء */
+    "4": {
+        babaId: "NL-210",
+        name: "قبعة صيفية نسائية فاخرة باللؤلؤ والورود (Boho-Chic)",
+        price: 650,
+        type: "image",
+        mediaUrl: "https://www.babaalgeria.com/uploads/products/product_6a2fe1a9add40.jpg"
+    }
+
         }
     },
     
