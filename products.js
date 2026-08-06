@@ -17,12 +17,12 @@ const storeData = {
         },
         "4": {
             // بدلاً من هذا:
-babaId: "NL-210"
+            babaId: "NL-210"
 
-// اجعله هكذا (رقم المنتج من الرابط الذي أرسلته):
-babaId: "323" 
-// أو يمكنك وضع الرابط كاملاً وسيفهمه البوت:
-// babaId: "https://www.babaalgeria.com/product/323"
+            // اجعله هكذا (رقم المنتج من الرابط الذي أرسلته):
+            babaId: "323" 
+            // أو يمكنك وضع الرابط كاملاً وسيفهمه البوت:
+            // babaId: "https://www.babaalgeria.com/product/323"
             type: "image",
             mediaUrl: "https://www.babaalgeria.com/uploads/products/product_6a2fe1a9add40.jpg"
         }
