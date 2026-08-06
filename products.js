@@ -16,9 +16,13 @@ const storeData = {
             mediaUrl: "https://images.unsplash.com/photo-1527011045970-128a30a21fb9?w=500&q=80"
         },
         "4": {
-            babaId: "NL-210",
-            name: "قبعة صيفية نسائية فاخرة باللؤلؤ والورود (Boho-Chic)",
-            price: 650,
+            // بدلاً من هذا:
+babaId: "NL-210"
+
+// اجعله هكذا (رقم المنتج من الرابط الذي أرسلته):
+babaId: "323" 
+// أو يمكنك وضع الرابط كاملاً وسيفهمه البوت:
+// babaId: "https://www.babaalgeria.com/product/323"
             type: "image",
             mediaUrl: "https://www.babaalgeria.com/uploads/products/product_6a2fe1a9add40.jpg"
         }
