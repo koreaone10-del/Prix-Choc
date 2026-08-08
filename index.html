@@ -3,136 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجر Prix Choc | الدفع عند الاستلام</title>
+    <title>Prix Choc | تسوق بأمان</title>
     
-    <!-- ربط قواعد البيانات والمنتجات -->
     <script src="database.js"></script>
     <script src="products.js"></script>
 
     <style>
+        /* خلفية خرافية متحركة */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
         body {
-            background-color: #ECE5DD; 
+            margin: 0; padding: 0;
             font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
-            margin: 0; padding: 0; display: flex; justify-content: center;
+            background: linear-gradient(-45deg, #0a192f, #112240, #233f4e, #0a192f);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            display: flex; justify-content: center; min-height: 100vh; color: #fff;
         }
-        .chat-app {
-            width: 100%; max-width: 500px; min-height: 100vh;
-            background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
-            display: flex; flex-direction: column; box-shadow: 0 0 15px rgba(0,0,0,0.15);
+
+        /* التصميم الزجاجي (Glassmorphism) */
+        .glass-container {
+            width: 100%; max-width: 500px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+            display: flex; flex-direction: column;
         }
-        .chat-header {
-            background-color: #075E54; color: white; padding: 15px; text-align: center;
-            position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+
+        .header { background: rgba(0, 0, 0, 0.4); padding: 15px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .header h1 { margin: 0; font-size: 22px; color: #4ade80; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .badge { background: #f59e0b; color: white; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: bold; margin-top: 8px; display: inline-block; }
+
+        .content { padding: 20px; flex-grow: 1; }
+        
+        .product-card { text-align: center; margin-bottom: 25px; }
+        .product-img { width: 100%; border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); border: 2px solid rgba(255,255,255,0.1); margin-bottom: 15px; }
+        .product-title { font-size: 19px; font-weight: bold; margin-bottom: 10px; line-height: 1.4; }
+        
+        .price-box { background: rgba(0,0,0,0.3); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 20px; }
+        .price-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 15px; color: #ccc; }
+        .price-total { display: flex; justify-content: space-between; margin-top: 10px; padding-top: 10px; border-top: 1px dashed rgba(255,255,255,0.2); font-size: 20px; font-weight: bold; color: #4ade80; }
+
+        .form-input {
+            width: 100%; padding: 14px; margin-bottom: 15px;
+            background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px; color: white; font-size: 15px; box-sizing: border-box;
         }
-        .chat-header h1 { margin: 0; font-size: 22px; }
-        .chat-header .badge { background: #f59e0b; color: #fff; font-size: 12px; padding: 3px 10px; border-radius: 15px; display: inline-block; margin-top: 5px; }
-        .chat-container { padding: 20px; flex-grow: 1; }
-        .message-bubble {
-            background-color: #FFFFFF; padding: 15px; border-radius: 12px; border-top-right-radius: 0;
-            margin-bottom: 20px; width: 88%; box-shadow: 0 1px 2px rgba(0,0,0,0.15); position: relative; box-sizing: border-box;
+        .form-input:focus { outline: none; background: rgba(255, 255, 255, 0.15); border-color: #4ade80; }
+        .form-input option { background-color: #112240; color: white; }
+
+        /* حقل الكمية */
+        .quantity-wrapper { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; background: rgba(255, 255, 255, 0.1); padding: 10px 14px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); }
+        .quantity-wrapper span { font-size: 15px; }
+        .quantity-controls { display: flex; align-items: center; gap: 15px; }
+        .qty-btn { background: #4ade80; color: #000; border: none; width: 30px; height: 30px; border-radius: 5px; font-size: 18px; font-weight: bold; cursor: pointer; }
+        .qty-value { font-size: 18px; font-weight: bold; width: 20px; text-align: center; }
+
+        .submit-btn {
+            width: 100%; padding: 16px; background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: white; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
         }
-        .message-bubble.bot { background-color: #DCF8C6; border-top-right-radius: 12px; border-top-left-radius: 0; margin-left: auto; margin-right: 0; }
-        .product-img { width: 100%; border-radius: 8px; border: 1px solid #ddd; margin-bottom: 10px; }
-        .product-title { font-size: 16px; font-weight: bold; color: #1a1a1a; margin-bottom: 10px; line-height: 1.4; }
-        .price-box { background: #f8f9fa; padding: 10px; border-radius: 8px; margin-bottom: 15px; font-size: 14px; color: #555; }
-        .price-box .total { font-weight: bold; font-size: 18px; color: #075E54; margin-top: 8px; border-top: 1px solid #ddd; padding-top: 8px; }
-        .form-input { width: 100%; padding: 12px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; font-size: 14px; }
-        .btn-order {
-            background-color: #25D366; color: white; border: none; padding: 14px; width: 100%;
-            border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; text-align: center; text-decoration: none; display: block; box-sizing: border-box;
-        }
-        .security-footer { text-align: center; font-size: 12px; color: #666; margin-top: 10px; }
+
+        .footer { background: rgba(0, 0, 0, 0.5); padding: 15px; text-align: center; font-size: 13px; color: rgba(255,255,255,0.7); }
+        .trust-icons { color: #4ade80; margin-bottom: 5px; font-size: 15px; }
+        .success-msg { display: none; background: rgba(34,197,94,0.2); border: 1px solid #22c55e; padding: 20px; border-radius: 12px; text-align: center; line-height: 1.6; }
     </style>
 </head>
 <body>
 
-<div class="chat-app">
-    <div class="chat-header">
-        <h1>🇩🇿 Prix Choc</h1>
-        <div class="badge">🚚 الدفع عند الاستلام متاح</div>
+<div class="glass-container">
+    <div class="header">
+        <h1>🇩🇿 مرحباً بكم في Prix Choc</h1>
+        <div class="badge">🚚 الدفع بعد استلام وفحص المنتج</div>
     </div>
-    <div class="chat-container" id="chat-content"></div>
+
+    <div class="content" id="main-content">
+        <!-- المحتوى سيتم إضافته هنا -->
+    </div>
+
+    <div class="footer">
+        <div class="trust-icons">🛡️ تسوق آمن 100% | 🔒 معلوماتك مشفرة ومحمية</div>
+        جميع الحقوق محفوظة © 2026 Prix Choc
+    </div>
 </div>
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const urlParams = new URLSearchParams(window.location.search);
-        let productId = urlParams.get('p');
-        const chatContent = document.getElementById('chat-content');
+        let productId = urlParams.get('p') || "1";
+        const contentDiv = document.getElementById('main-content');
+        const product = storeData[productId];
 
-        if (!productId || !storeData[productId]) {
-            let html = `<div class="message-bubble bot">مرحباً بك! 👋<br>اختر المنتج الذي يناسبك:</div>`;
-            for (const [id, prod] of Object.entries(storeData)) {
-                html += `
-                    <div class="message-bubble">
-                        <img src="${prod.image}" class="product-img">
-                        <div class="product-title">${prod.name}</div>
-                        <div class="price-box" style="font-weight:bold; color:#075E54; font-size:18px;">${prod.price} د.ج</div>
-                        <a href="?p=${id}" class="btn-order">📝 اطلب الآن</a>
-                    </div>`;
-            }
-            chatContent.innerHTML = html;
+        if (!product) {
+            contentDiv.innerHTML = `<div style="text-align:center;">عذراً، المنتج غير متوفر.</div>`;
             return;
         }
 
-        const product = storeData[productId];
-        
-        chatContent.innerHTML = `
-            <div class="message-bubble">
-                <img src="${product.image}" class="product-img">
-                <div class="product-title">${product.name}</div>
-                <div class="price-box">
-                    <div>ثمن المنتج: <b>${product.price} د.ج</b></div>
-                    <div id="deliveryCostDisplay">سعر التوصيل: <b>الرجاء اختيار الولاية</b></div>
-                    <div class="total" id="finalTotalDisplay">المجموع النهائي: <b>...</b></div>
+        let wilayaOptions = '<option value="">-- اختر الولاية --</option>';
+        for (const w in wilayasData) { wilayaOptions += `<option value="${w}">${w}</option>`; }
+
+        contentDiv.innerHTML = `
+            <div class="success-msg" id="successMsg">
+                🎉 <b>تم تأكيد طلبك بنجاح!</b><br>سيتصل بك فريق الدعم قريباً لتأكيد الشحن.
+            </div>
+
+            <form id="orderForm">
+                <div class="product-card">
+                    <img src="${product.image}" class="product-img">
+                    <div class="product-title">${product.name}</div>
                 </div>
-            </div>
-            
-            <div class="message-bubble bot">ممتاز! يرجى ملء الاستمارة لتأكيد طلبك وتجهيزه للشحن.</div>
-            
-            <div class="message-bubble" style="width:100%;">
-                <form id="orderForm">
-                    <input type="text" id="fullName" class="form-input" placeholder="الاسم الكامل" required>
-                    <input type="tel" id="phone" class="form-input" placeholder="رقم الهاتف" required>
-                    
-                    <select id="wilaya" class="form-input" required></select>
-                    <input type="text" id="commune" class="form-input" placeholder="البلدية / المدينة (مثال: البوني)" required>
-                    <input type="text" id="address" class="form-input" placeholder="العنوان التفصيلي" required>
-                    
-                    <button type="submit" class="btn-order" id="submitBtn">🚀 تأكيد الطلب</button>
-                </form>
-                <div class="security-footer">🔒 تسوق آمن 100% | معلوماتك مشفرة ومحمية</div>
-            </div>
+
+                <div class="quantity-wrapper">
+                    <span>الكمية المطلوبة:</span>
+                    <div class="quantity-controls">
+                        <button type="button" class="qty-btn" id="minusBtn">-</button>
+                        <div class="qty-value" id="qtyDisplay">1</div>
+                        <button type="button" class="qty-btn" id="plusBtn">+</button>
+                    </div>
+                </div>
+
+                <div class="price-box">
+                    <div class="price-row"><span>سعر الوحدة:</span> <span>${product.price} د.ج</span></div>
+                    <div class="price-row"><span>سعر التوصيل:</span> <span id="deliveryDisplay">الرجاء اختيار الولاية</span></div>
+                    <div class="price-total"><span>المجموع النهائي:</span> <span id="totalDisplay">${product.price} د.ج</span></div>
+                </div>
+
+                <input type="text" id="fullName" class="form-input" placeholder="الاسم الكامل" required>
+                <input type="tel" id="phone" class="form-input" placeholder="رقم الهاتف (مثال: 066...)" required>
+                
+                <select id="wilaya" class="form-input" required>${wilayaOptions}</select>
+                <select id="commune" class="form-input" required><option value="">-- اختر البلدية / المدينة --</option></select>
+                
+                <input type="text" id="address" class="form-input" placeholder="العنوان التفصيلي (الحي، الشارع...)" required>
+                
+                <button type="submit" class="submit-btn" id="submitBtn">تأكيد الطلب الآن 🛍️</button>
+            </form>
         `;
 
-        const wilayaSelect = document.getElementById('wilaya');
-        initWilayas(wilayaSelect);
+        let currentQty = 1;
+        let currentDelivery = 0;
 
-        // حساب السعر آلياً عند تغيير الولاية
+        const updatePrices = () => {
+            const total = (product.price * currentQty) + currentDelivery;
+            document.getElementById('totalDisplay').innerText = `${total} د.ج`;
+        };
+
+        document.getElementById('plusBtn').addEventListener('click', () => { currentQty++; document.getElementById('qtyDisplay').innerText = currentQty; updatePrices(); });
+        document.getElementById('minusBtn').addEventListener('click', () => { if(currentQty > 1) { currentQty--; document.getElementById('qtyDisplay').innerText = currentQty; updatePrices(); } });
+
+        const wilayaSelect = document.getElementById('wilaya');
+        const communeSelect = document.getElementById('commune');
+
         wilayaSelect.addEventListener('change', function() {
-            const selectedWilaya = this.value;
-            const deliveryCost = deliveryPrices[selectedWilaya] || 0;
-            const finalTotal = product.price + deliveryCost;
-            
-            if(selectedWilaya) {
-                document.getElementById('deliveryCostDisplay').innerHTML = `سعر التوصيل: <b>${deliveryCost} د.ج</b>`;
-                document.getElementById('finalTotalDisplay').innerHTML = `المجموع النهائي: <b>${finalTotal} د.ج</b>`;
+            const selectedW = this.value;
+            communeSelect.innerHTML = '<option value="">-- اختر البلدية / المدينة --</option>';
+            currentDelivery = 0;
+
+            if(selectedW && wilayasData[selectedW]) {
+                currentDelivery = wilayasData[selectedW].delivery;
+                wilayasData[selectedW].communes.forEach(c => {
+                    communeSelect.innerHTML += `<option value="${c}">${c}</option>`;
+                });
+                document.getElementById('deliveryDisplay').innerText = `${currentDelivery} د.ج`;
+            } else {
+                document.getElementById('deliveryDisplay').innerText = `الرجاء اختيار الولاية`;
             }
+            updatePrices();
         });
 
-        // إرسال الطلبية
         document.getElementById('orderForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const btn = document.getElementById('submitBtn');
-            btn.innerText = "⏳ جاري الإرسال...";
+            btn.innerText = "⏳ جاري إرسال وتأكيد الطلب...";
             btn.disabled = true;
 
             const orderData = {
                 customerName: document.getElementById('fullName').value,
                 phone: document.getElementById('phone').value,
                 wilaya: wilayaSelect.value,
-                commune: document.getElementById('commune').value,
+                commune: communeSelect.value,
                 address: document.getElementById('address').value,
+                quantity: currentQty,
                 sawa9lyLink: product.sawa9lyLink,
                 sellingPrice: product.price
             };
@@ -144,12 +201,13 @@
             })
             .then(res => res.json())
             .then(data => {
-                chatContent.innerHTML += `<div class="message-bubble bot" style="width: 100%;">✅ <b>تم استلام طلبك بنجاح!</b><br>سنتصل بك قريباً للتأكيد.</div>`;
-                window.scrollTo(0, document.body.scrollHeight);
+                document.getElementById('orderForm').style.display = 'none';
+                document.getElementById('successMsg').style.display = 'block';
+                window.scrollTo(0,0);
             })
             .catch(err => {
                 alert("حدث خطأ في الاتصال. يرجى المحاولة.");
-                btn.innerText = "🚀 تأكيد الطلب";
+                btn.innerText = "تأكيد الطلب الآن 🛍️";
                 btn.disabled = false;
             });
         });
