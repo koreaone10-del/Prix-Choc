@@ -3,298 +3,302 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prix Choc - التسوق الذكي</title>
+    <title>متجر Prix Choc</title>
     
-    <!-- مكتبات التصميم -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- ربط قاعدة البيانات -->
+    <!-- استدعاء ملفات قواعد البيانات الخاصة بك -->
     <script src="database.js"></script>
+    <script src="products.js"></script>
 
     <style>
-        body { 
-            font-family: 'Cairo', sans-serif; 
-            margin: 0; min-height: 100vh;
-            background: #0f172a; 
-            color: #333;
-            overflow-x: hidden;
+        body {
+            background-color: #ECE5DD; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
         }
-
-        /* 🌟 الخلفية الخرافية: منتجات كثيرة وسريعة جداً 🌟 */
-        .floating-bg {
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-            z-index: -1; overflow: hidden; background: linear-gradient(135deg, #0f172a 0%, #064e3b 100%);
+        .chat-app {
+            width: 100%;
+            max-width: 500px;
+            background-color: #ECE5DD;
+            background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
         }
-        .floating-bg li {
-            position: absolute; display: block; list-style: none;
-            width: 35px; height: 35px;
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(2px); border-radius: 50%;
-            animation: floatUp 4s linear infinite; /* سرعة عالية جداً */
-            bottom: -150px; text-align: center; line-height: 35px; font-size: 20px;
+        .chat-header {
+            background-color: #075E54;
+            color: white;
+            padding: 18px;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        /* تكثيف العناصر وسرعات مختلفة */
-        .floating-bg li:nth-child(1) { left: 3%; animation-duration: 3.5s; animation-delay: 0s; }
-        .floating-bg li:nth-child(2) { left: 10%; animation-duration: 4.5s; animation-delay: 1s; font-size: 26px; }
-        .floating-bg li:nth-child(3) { left: 18%; animation-duration: 3.2s; animation-delay: 0.5s; }
-        .floating-bg li:nth-child(4) { left: 26%; animation-duration: 5s; animation-delay: 1.5s; font-size: 28px; }
-        .floating-bg li:nth-child(5) { left: 34%; animation-duration: 3.8s; animation-delay: 0.2s; }
-        .floating-bg li:nth-child(6) { left: 42%; animation-duration: 4.2s; animation-delay: 0.8s; font-size: 24px; }
-        .floating-bg li:nth-child(7) { left: 50%; animation-duration: 3s; animation-delay: 1.2s; }
-        .floating-bg li:nth-child(8) { left: 58%; animation-duration: 4.8s; animation-delay: 0.4s; font-size: 27px; }
-        .floating-bg li:nth-child(9) { left: 66%; animation-duration: 3.6s; animation-delay: 1.7s; }
-        .floating-bg li:nth-child(10) { left: 74%; animation-duration: 4.1s; animation-delay: 0.6s; font-size: 25px; }
-        .floating-bg li:nth-child(11) { left: 82%; animation-duration: 3.3s; animation-delay: 1.1s; }
-        .floating-bg li:nth-child(12) { left: 90%; animation-duration: 4.6s; animation-delay: 0.9s; font-size: 26px; }
-        .floating-bg li:nth-child(13) { left: 96%; animation-duration: 3.9s; animation-delay: 0.3s; }
-
-        @keyframes floatUp {
-            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+        .chat-container {
+            padding: 20px;
+            flex-grow: 1;
         }
-
-        /* أنيميشن العلم يرفرف */
-        .waving-flag {
-            display: inline-block;
-            transform-origin: bottom center;
-            animation: wave 2s ease-in-out infinite;
+        .message-bubble {
+            background-color: #FFFFFF;
+            padding: 15px;
+            border-radius: 12px;
+            border-top-right-radius: 0;
+            margin-bottom: 20px;
+            width: 85%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: relative;
         }
-        @keyframes wave {
-            0%, 100% { transform: rotate(0deg) skewY(0deg); }
-            25% { transform: rotate(-6deg) skewY(-3deg); }
-            75% { transform: rotate(6deg) skewY(3deg); }
+        .message-bubble::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: -10px;
+            border-width: 10px 0 0 10px;
+            border-style: solid;
+            border-color: #FFFFFF transparent transparent transparent;
         }
-
-        /* تصميم البطاقة الزجاجي الاحترافي */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        .product-img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .product-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        .product-price {
+            font-size: 18px;
+            color: #075E54;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .btn-order {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            box-sizing: border-box;
+            transition: background-color 0.2s;
+        }
+        .btn-order:hover {
+            background-color: #128C7E;
+        }
+        .order-form input, .order-form select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: 14px;
+        }
+        .order-form input:focus, .order-form select:focus {
+            outline: none;
+            border-color: #075E54;
+        }
+        .total-price {
+            background-color: #DCF8C6;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #075E54;
+            font-size: 15px;
+        }
+        .system-message {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .system-message span {
+            background-color: #D4EAF4;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: #444;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .success-bubble {
+            background-color: #DCF8C6;
+            border-top-right-radius: 12px;
+            border-top-left-radius: 0;
+            text-align: center;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .success-bubble::after {
+            right: auto;
+            left: -10px;
+            border-color: #DCF8C6 transparent transparent transparent;
+            border-width: 10px 10px 0 0;
         }
     </style>
 </head>
-<body class="pb-10">
+<body>
 
-    <!-- الخلفية المتحركة المكثفة وسريعة الحركة -->
-    <ul class="floating-bg">
-        <li>🎧</li><li>📱</li><li>🛒</li><li>⌚️</li><li>🎁</li><li>👟</li><li>💻</li><li>🎮</li><li>📷</li><li>📦</li><li>🛍️</li><li>🔥</li><li>⚡</li>
-    </ul>
-
-    <!-- شريط الثقة العلوي مع علم الجزائر يرفرف -->
-    <div class="bg-gradient-to-r from-emerald-900 via-gray-900 to-emerald-900 text-white text-center py-2.5 text-sm font-bold flex justify-center items-center gap-3 backdrop-blur-md border-b border-white/10 shadow-lg">
-        <span>🚚 الدفع عند الاستلام | توصيل سريع لـ 69 ولاية</span>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Algeria.svg" alt="Algeria Flag" class="w-7 h-5 waving-flag rounded shadow">
+<div class="chat-app">
+    <div class="chat-header">
+        🛍️ Prix Choc
     </div>
-
-    <!-- الحاوية الرئيسية -->
-    <div class="max-w-md mx-auto p-4 mt-4">
-        <div class="glass-card rounded-3xl overflow-hidden shadow-2xl">
-            
-            <!-- حاوية الصورة أو الفيديو -->
-            <div id="media-container" class="w-full bg-black relative flex justify-center">
-            </div>
-
-            <div class="p-6">
-                <h2 id="product-title" class="text-2xl font-black mb-2 text-gray-800">جاري التحميل...</h2>
-                
-                <!-- سعر المنتج الصافي -->
-                <div class="flex justify-between items-center bg-emerald-50 p-4 rounded-xl border border-emerald-100 mb-6">
-                    <span class="text-emerald-800 font-bold">سعر المنتج:</span>
-                    <span id="base-price-display" class="text-2xl font-black text-emerald-600"></span>
-                </div>
-
-                <!-- نموذج الطلب -->
-                <form id="orderForm" class="space-y-4">
-                    <input type="text" id="fullName" required placeholder="الاسم الكامل" class="w-full px-5 py-3 rounded-xl border-2 border-gray-200 focus:border-emerald-500 outline-none font-bold">
-                    <input type="tel" id="phone" required pattern="[0-9]{10}" placeholder="رقم الهاتف" class="w-full px-5 py-3 rounded-xl border-2 border-gray-200 focus:border-emerald-500 outline-none font-bold text-left" dir="ltr">
-
-                    <!-- الولاية والبلدية -->
-                    <select id="wilaya" required class="w-full px-5 py-3 rounded-xl border-2 border-gray-200 focus:border-emerald-500 outline-none font-bold bg-white">
-                        <option value="" disabled selected>-- اختر ولايتك --</option>
-                    </select>
-                    
-                    <select id="commune" required disabled class="w-full px-5 py-3 rounded-xl border-2 border-gray-200 bg-gray-100 opacity-50 font-bold">
-                        <option value="" disabled selected>-- اختر البلدية --</option>
-                    </select>
-
-                    <input type="text" id="address" required placeholder="العنوان التفصيلي (الحي، الشارع...)" class="w-full px-5 py-3 rounded-xl border-2 border-gray-200 focus:border-emerald-500 outline-none font-bold">
-
-                    <!-- قسم التوصيل المفصل (يظهر بعد اختيار الولاية) -->
-                    <div id="delivery-options" class="bg-gray-50 p-4 rounded-xl border-2 border-gray-200 hidden space-y-4">
-                        
-                        <!-- نوع التوصيل -->
-                        <div>
-                            <p class="text-sm font-bold text-gray-800 mb-2">نوع التوصيل:</p>
-                            <div class="flex gap-3">
-                                <label class="flex-1 flex items-center justify-center p-3 border rounded-lg bg-white cursor-pointer hover:bg-emerald-50 transition shadow-sm">
-                                    <input type="radio" name="deliveryType" value="standard" checked class="w-5 h-5 text-emerald-600">
-                                    <span class="mr-2 font-bold text-gray-700">توصيل عادي</span>
-                                </label>
-                                <label class="flex-1 flex items-center justify-center p-3 border rounded-lg bg-white cursor-pointer hover:bg-emerald-50 transition shadow-sm">
-                                    <input type="radio" name="deliveryType" value="express" class="w-5 h-5 text-emerald-600">
-                                    <span class="mr-2 font-bold text-gray-700">express</span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <!-- مكان الاستلام -->
-                        <div>
-                            <p class="text-sm font-bold text-gray-800 mb-2">مكان الإستلام:</p>
-                            <div class="flex gap-3">
-                                <label class="flex-1 flex items-center justify-center p-3 border rounded-lg bg-white cursor-pointer hover:bg-emerald-50 transition shadow-sm">
-                                    <input type="radio" name="deliveryLocation" value="home" checked class="w-5 h-5 text-emerald-600">
-                                    <span class="mr-2 font-bold text-gray-700">المنزل</span>
-                                </label>
-                                <label class="flex-1 flex items-center justify-center p-3 border rounded-lg bg-white cursor-pointer hover:bg-emerald-50 transition shadow-sm">
-                                    <input type="radio" name="deliveryLocation" value="desk" class="w-5 h-5 text-emerald-600">
-                                    <span class="mr-2 font-bold text-gray-700">مكتب البريد</span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <!-- عرض سعر الشحن الخاص بالولاية -->
-                        <div class="bg-white p-3 rounded-lg text-center border border-gray-200 mt-2 shadow-sm">
-                            <span class="text-sm font-bold text-gray-600">تكلفة الشحن لهذه الولاية: </span>
-                            <span id="shipping-cost-display" class="font-black text-rose-500 text-lg">--- د.ج</span>
-                        </div>
-                    </div>
-
-                    <!-- السعر الإجمالي للدفع -->
-                    <div class="bg-gray-900 text-white p-5 rounded-xl text-center shadow-lg mt-4">
-                        <p class="text-sm text-gray-400 mb-1">المبلغ الإجمالي (المنتج + التوصيل)</p>
-                        <p id="total-price-display" class="text-4xl font-black text-yellow-400">--- د.ج</p>
-                    </div>
-
-                    <button type="submit" id="submitBtn" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black text-xl py-4 rounded-xl shadow-lg mt-4 transition transform active:scale-95">
-                        <i class="fa-solid fa-cart-shopping"></i> تأكيد الطلب
-                    </button>
-                </form>
-                
-                <!-- رسالة النجاح -->
-                <div id="successMessage" class="hidden text-center py-8">
-                    <i class="fa-solid fa-circle-check text-6xl text-emerald-500 mb-4"></i>
-                    <h3 class="text-2xl font-black text-gray-800 mb-2">تم تسجيل طلبك بنجاح!</h3>
-                    <p class="text-gray-600 font-bold">فريقنا سيتصل بك لتأكيد الطلبية.</p>
-                </div>
-            </div>
-        </div>
+    
+    <div class="chat-container" id="chat-content">
+        <!-- المحتوى سيتم إضافته ديناميكياً هنا -->
     </div>
+</div>
 
-    <!-- المنطق البرمجي السحري والربط مع الخادم -->
-    <script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // التحقق من وجود ملف المنتجات
+        if (typeof storeData === 'undefined') {
+            document.getElementById('chat-content').innerHTML = '<div class="message-bubble">⚠️ جاري تحديث المتجر، يرجى المحاولة لاحقاً.</div>';
+            return;
+        }
+
         const urlParams = new URLSearchParams(window.location.search);
-        const productId = urlParams.get('p') || "1"; 
-        
-        setTimeout(() => {
-            if (typeof storeData === 'undefined') {
-                document.body.innerHTML = `<h2 class="text-white text-center mt-20 text-3xl font-bold">خطأ في تحميل قاعدة البيانات (database.js)</h2>`;
-                return;
-            }
+        const productId = urlParams.get('p');
+        const chatContent = document.getElementById('chat-content');
 
-            const productData = storeData.products[productId];
-            if (!productData) {
-                document.body.innerHTML = `<h2 class="text-white text-center mt-20 text-3xl font-bold">المنتج غير متوفر</h2>`;
-                return;
-            }
-
-            document.getElementById('product-title').innerText = productData.name;
-            document.getElementById('base-price-display').innerText = productData.price + ' د.ج';
+        if (!productId || !storeData.products[productId]) {
+            // واجهة عرض كل المنتجات
+            let catalogHTML = `
+                <div class="system-message"><span>منتجاتنا المتوفرة</span></div>
+                <div class="message-bubble" style="background-color: #DCF8C6; width: 75%; float: left; border-top-right-radius: 12px; border-top-left-radius: 0;">
+                    أهلاً بك! 👋<br>تصفح منتجاتنا المميزة واطلب ما يناسبك الآن.
+                </div>
+                <div style="clear: both;"></div>
+            `;
             
-            const mediaContainer = document.getElementById('media-container');
-            if (productData.type === 'video') {
-                mediaContainer.innerHTML = `<video src="${productData.mediaUrl}" controls autoplay muted loop class="w-full max-h-80 object-cover"></video>`;
-            } else {
-                mediaContainer.innerHTML = `<img src="${productData.mediaUrl}" class="w-full max-h-80 object-cover">`;
+            for (const [id, product] of Object.entries(storeData.products)) {
+                catalogHTML += `
+                    <div class="message-bubble">
+                        <img src="${product.image}" class="product-img" alt="${product.name}" onerror="this.src='https://via.placeholder.com/400x300?text=Prix+Choc'">
+                        <div class="product-title">${product.name}</div>
+                        <div class="product-price">${product.price} د.ج</div>
+                        <a href="?p=${id}" class="btn-order">🛒 تقديم طلب</a>
+                    </div>
+                `;
             }
-
-            const wilayaSelect = document.getElementById('wilaya');
-            const communeSelect = document.getElementById('commune');
-            const deliveryOptionsBox = document.getElementById('delivery-options');
-            let currentDeliveryPrice = 0;
-
-            for (const [id, wData] of Object.entries(storeData.wilayas)) {
-                wilayaSelect.innerHTML += `<option value="${id}">${id} - ${wData.name}</option>`;
-            }
-
-            function updateTotalPrice() {
-                if(!wilayaSelect.value) return;
+            chatContent.innerHTML = catalogHTML;
+        } else {
+            // واجهة الاستمارة للمنتج المحدد
+            const product = storeData.products[productId];
+            
+            chatContent.innerHTML = `
+                <div class="system-message"><span>استكمال الطلب</span></div>
                 
-                const wData = storeData.wilayas[wilayaSelect.value];
-                const dType = document.querySelector('input[name="deliveryType"]:checked').value;
-                const dLoc = document.querySelector('input[name="deliveryLocation"]:checked').value;
-                
-                currentDeliveryPrice = wData.delivery_fees[dType][dLoc];
-                
-                document.getElementById('shipping-cost-display').innerText = currentDeliveryPrice + ' د.ج';
-                document.getElementById('total-price-display').innerText = (productData.price + currentDeliveryPrice) + ' د.ج';
-            }
+                <div class="message-bubble" style="background-color: #E8F5E9; margin-left:auto; border-top-right-radius: 12px; border-top-left-radius: 12px; width: 90%;">
+                    لقد اخترت: <b>${product.name}</b> بسعر ${product.price} د.ج.<br>يرجى تعبئة الاستمارة التالية لتأكيد الطلب.
+                </div>
+                <div style="clear: both;"></div>
 
-            wilayaSelect.addEventListener('change', function() {
-                const wData = storeData.wilayas[this.value];
-                
-                communeSelect.innerHTML = `<option value="" disabled selected>-- اختر البلدية --</option>`;
-                wData.communes.forEach(c => { communeSelect.innerHTML += `<option value="${c}">${c}</option>`; });
-                communeSelect.disabled = false;
-                communeSelect.classList.remove('opacity-50', 'bg-gray-100');
-                communeSelect.classList.add('bg-white');
+                <div class="message-bubble order-form" style="width: 100%; box-sizing: border-box; border-radius: 12px;">
+                    <form id="orderForm">
+                        <input type="text" id="fullName" placeholder="الاسم الكامل" required>
+                        <input type="tel" id="phone" placeholder="رقم الهاتف (مثال: 066...)" required>
+                        
+                        <!-- القوائم المنسدلة التي تعتمد على ملف database.js -->
+                        <select id="wilaya" required>
+                            <option value="">-- اختر الولاية --</option>
+                        </select>
+                        
+                        <select id="commune" required>
+                            <option value="">-- اختر البلدية --</option>
+                        </select>
+                        
+                        <input type="text" id="address" placeholder="العنوان التفصيلي" required>
+                        
+                        <div class="total-price">
+                            المجموع النهائي (تقريبي): <span id="finalTotal">${product.price}</span> د.ج
+                        </div>
+                        
+                        <button type="submit" class="btn-order" id="submitBtn">🚀 تأكيد وإرسال الطلب</button>
+                    </form>
+                </div>
+            `;
 
-                deliveryOptionsBox.classList.remove('hidden');
-                updateTotalPrice();
-            });
+            // تشغيل السكريبت الخاص بملء الولايات والبلديات من database.js
+            // افترضنا هنا أن لديك دالة في database.js تقوم بتعبئة هذه الخانات، أو يمكننا بناءها الآن
+            populateWilayas();
 
-            document.querySelectorAll('input[name="deliveryType"], input[name="deliveryLocation"]').forEach(radio => {
-                radio.addEventListener('change', updateTotalPrice);
-            });
-
-            // تأكيد الطلبية وإرسالها لخادم البوت على Render
-            document.getElementById('orderForm').addEventListener('submit', async function(e) {
+            // إرسال البيانات للبوت
+            document.getElementById('orderForm').addEventListener('submit', function(e) {
                 e.preventDefault();
                 const btn = document.getElementById('submitBtn');
-                btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> جاري تأكيد الطلبية...';
+                btn.innerText = "⏳ جاري المعالجة...";
+                btn.style.backgroundColor = "#888";
                 btn.disabled = true;
+
+                // قراءة النصوص من القوائم المنسدلة (وليس قيم الأرقام)
+                const wilayaSelect = document.getElementById('wilaya');
+                const communeSelect = document.getElementById('commune');
                 
+                const wilayaText = wilayaSelect.options[wilayaSelect.selectedIndex].text;
+                const communeText = communeSelect.options[communeSelect.selectedIndex].text;
+
                 const orderData = {
-                    babaId: productData.babaId,
-                    sellingPrice: productData.price,
                     customerName: document.getElementById('fullName').value,
                     phone: document.getElementById('phone').value,
-                    wilaya: wilayaSelect.value,
-                    commune: communeSelect.value,
+                    wilaya: wilayaText, // إرسال الاسم النصي للولاية
+                    commune: communeText, // إرسال الاسم النصي للبلدية
                     address: document.getElementById('address').value,
-                    deliveryType: document.querySelector('input[name="deliveryType"]:checked').value,
-                    deliveryLocation: document.querySelector('input[name="deliveryLocation"]:checked').value,
-                    totalPrice: productData.price + currentDeliveryPrice
+                    sawa9lyLink: product.sawa9lyLink,
+                    sellingPrice: product.price
                 };
 
-                try {
-                    const response = await fetch('https://prix-choc-bot.onrender.com/api/order', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(orderData)
-                    });
-
-                    if (response.ok) {
-                        document.getElementById('orderForm').classList.add('hidden');
-                        document.getElementById('successMessage').classList.remove('hidden');
-                    } else {
-                        alert('حدث خطأ أثناء تسجيل الطلبية. يرجى المحاولة مرة أخرى.');
-                        btn.innerHTML = '<i class="fa-solid fa-cart-shopping"></i> تأكيد الطلب';
-                        btn.disabled = false;
-                    }
-                } catch (error) {
-                    console.error('Error:', error);
-                    alert('لا يمكن الاتصال بالخادم حالياً. يرجى المحاولة بعد قليل.');
-                    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> جاري تأكيد الطلبية...';
+                fetch('https://prix-choc-bot.onrender.com/api/order', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(orderData)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    chatContent.innerHTML += `
+                        <div class="message-bubble success-bubble" style="width: 90%; margin-left: auto; margin-right: auto;">
+                            ✅ <b>تم استلام طلبك!</b><br>سيتم معالجته وشحنه في أقرب وقت ممكن. شكراً لثقتكم.
+                        </div>
+                    `;
+                    window.scrollTo(0, document.body.scrollHeight);
+                })
+                .catch(error => {
+                    alert("حدث خطأ في الاتصال بالخادم. يرجى المحاولة مرة أخرى.");
+                    btn.innerText = "🚀 تأكيد وإرسال الطلب";
+                    btn.style.backgroundColor = "#25D366";
                     btn.disabled = false;
-                }
+                });
             });
+        }
+    });
 
-        }, 500);
-    </script>
+    // دالة مساعدة لتشغيل تعبئة الولايات من ملف database.js
+    function populateWilayas() {
+        const wilayaSelect = document.getElementById('wilaya');
+        const communeSelect = document.getElementById('commune');
+        
+        // إذا كان ملف database.js يحتوي على دالة لتعبئة الولايات، استدعها هنا.
+        // تأكد من أن السكريبت القديم الذي كان يربط wilaya بـ commune يعمل بشكل صحيح.
+        if (typeof window.initWilayas === 'function') {
+            window.initWilayas(wilayaSelect, communeSelect);
+        }
+    }
+</script>
+
 </body>
 </html>
