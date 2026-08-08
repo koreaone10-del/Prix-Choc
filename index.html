@@ -3,146 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prix Choc | تسوق بأمان</title>
+    <title>Prix Choc | المتجر الأفضل في الجزائر</title>
     
     <script src="database.js"></script>
     <script src="products.js"></script>
 
     <style>
-        /* خلفية خرافية متحركة */
+        /* 1. إعدادات الخلفية المتحركة الفخمة */
+        body {
+            margin: 0; padding: 0;
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+            background: linear-gradient(-45deg, #0f172a, #1e293b, #020617, #172554);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            display: flex; justify-content: center; min-height: 100vh; color: #fff;
+            overflow-x: hidden;
+            position: relative;
+        }
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-        body {
-            margin: 0; padding: 0;
-            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
-            background: linear-gradient(-45deg, #0a192f, #112240, #233f4e, #0a192f);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            display: flex; justify-content: center; min-height: 100vh; color: #fff;
+
+        /* 2. الأيقونات الطافية في الخلفية */
+        .floating-icons {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 0; overflow: hidden;
+        }
+        .icon {
+            position: absolute; bottom: -50px; font-size: 24px; opacity: 0.15;
+            animation: floatUp linear infinite; filter: drop-shadow(0 0 5px rgba(255,255,255,0.3));
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.2; }
+            90% { opacity: 0.2; }
+            100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
         }
 
-        /* التصميم الزجاجي (Glassmorphism) */
+        /* 3. حاوية التصميم الزجاجي (Glassmorphism) */
         .glass-container {
             width: 100%; max-width: 500px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-            border-left: 1px solid rgba(255, 255, 255, 0.1);
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
-            display: flex; flex-direction: column;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-left: 1px solid rgba(255, 255, 255, 0.05);
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+            display: flex; flex-direction: column; z-index: 10;
         }
 
-        .header { background: rgba(0, 0, 0, 0.4); padding: 15px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .header h1 { margin: 0; font-size: 22px; color: #4ade80; display: flex; align-items: center; justify-content: center; gap: 10px; }
-        .badge { background: #f59e0b; color: white; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: bold; margin-top: 8px; display: inline-block; }
+        /* 4. تصميم المحادثة (الرأس) */
+        .header { 
+            background: rgba(0, 0, 0, 0.6); padding: 15px; text-align: center; 
+            border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        .header h1 { margin: 0; font-size: 22px; color: #4ade80; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .badge { background: #f59e0b; color: white; padding: 4px 15px; border-radius: 20px; font-size: 13px; font-weight: bold; margin-top: 8px; display: inline-block; box-shadow: 0 2px 10px rgba(245, 158, 11, 0.3); }
 
+        /* 5. فقاعات المحادثة (Chat Bubbles) */
         .content { padding: 20px; flex-grow: 1; }
+        .message-bubble {
+            background: rgba(255, 255, 255, 0.95); padding: 15px; border-radius: 15px; 
+            border-top-right-radius: 0; margin-bottom: 20px; width: 88%; box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
+            position: relative; box-sizing: border-box; color: #1a1a1a;
+        }
+        .message-bubble.bot { 
+            background: rgba(220, 248, 198, 0.95); border-top-right-radius: 15px; border-top-left-radius: 0; 
+            margin-left: auto; margin-right: 0; 
+        }
+
+        /* 6. محتوى المنتج والاستمارة */
+        .product-img { width: 100%; border-radius: 10px; margin-bottom: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .product-title { font-size: 18px; font-weight: bold; margin-bottom: 12px; line-height: 1.4; color: #0f172a;}
         
-        .product-card { text-align: center; margin-bottom: 25px; }
-        .product-img { width: 100%; border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); border: 2px solid rgba(255,255,255,0.1); margin-bottom: 15px; }
-        .product-title { font-size: 19px; font-weight: bold; margin-bottom: 10px; line-height: 1.4; }
-        
-        .price-box { background: rgba(0,0,0,0.3); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 20px; }
-        .price-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 15px; color: #ccc; }
-        .price-total { display: flex; justify-content: space-between; margin-top: 10px; padding-top: 10px; border-top: 1px dashed rgba(255,255,255,0.2); font-size: 20px; font-weight: bold; color: #4ade80; }
+        .price-box { background: rgba(0,0,0,0.03); padding: 12px; border-radius: 10px; border: 1px solid rgba(0,0,0,0.05); margin-bottom: 15px; font-size: 15px; color: #475569; }
+        .price-row { display: flex; justify-content: space-between; margin-bottom: 8px; }
+        .price-total { display: flex; justify-content: space-between; margin-top: 10px; padding-top: 10px; border-top: 1px dashed #cbd5e1; font-size: 19px; font-weight: bold; color: #16a34a; }
 
         .form-input {
-            width: 100%; padding: 14px; margin-bottom: 15px;
-            background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 8px; color: white; font-size: 15px; box-sizing: border-box;
+            width: 100%; padding: 14px; margin-bottom: 12px;
+            background: #f8fafc; border: 1px solid #e2e8f0;
+            border-radius: 8px; color: #0f172a; font-size: 15px; box-sizing: border-box;
+            transition: border-color 0.3s;
         }
-        .form-input:focus { outline: none; background: rgba(255, 255, 255, 0.15); border-color: #4ade80; }
-        .form-input option { background-color: #112240; color: white; }
+        .form-input:focus { outline: none; border-color: #10b981; background: #ffffff; }
 
-        /* حقل الكمية */
-        .quantity-wrapper { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; background: rgba(255, 255, 255, 0.1); padding: 10px 14px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); }
-        .quantity-wrapper span { font-size: 15px; }
-        .quantity-controls { display: flex; align-items: center; gap: 15px; }
-        .qty-btn { background: #4ade80; color: #000; border: none; width: 30px; height: 30px; border-radius: 5px; font-size: 18px; font-weight: bold; cursor: pointer; }
+        /* التحكم بالكمية */
+        .qty-wrap { display: flex; align-items: center; justify-content: space-between; background: #f8fafc; padding: 10px 14px; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 15px; }
+        .qty-controls { display: flex; align-items: center; gap: 15px; }
+        .qty-btn { background: #10b981; color: white; border: none; width: 32px; height: 32px; border-radius: 6px; font-size: 18px; font-weight: bold; cursor: pointer; }
         .qty-value { font-size: 18px; font-weight: bold; width: 20px; text-align: center; }
 
         .submit-btn {
-            width: 100%; padding: 16px; background: linear-gradient(135deg, #22c55e, #16a34a);
+            width: 100%; padding: 16px; background: linear-gradient(135deg, #10b981, #059669);
             color: white; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer;
-            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); transition: transform 0.2s;
         }
+        .submit-btn:active { transform: scale(0.98); }
 
-        .footer { background: rgba(0, 0, 0, 0.5); padding: 15px; text-align: center; font-size: 13px; color: rgba(255,255,255,0.7); }
-        .trust-icons { color: #4ade80; margin-bottom: 5px; font-size: 15px; }
-        .success-msg { display: none; background: rgba(34,197,94,0.2); border: 1px solid #22c55e; padding: 20px; border-radius: 12px; text-align: center; line-height: 1.6; }
+        .footer { background: rgba(0, 0, 0, 0.7); padding: 15px; text-align: center; font-size: 13px; color: #94a3b8; }
+        .trust-icons { color: #4ade80; margin-bottom: 5px; font-size: 14px; }
     </style>
 </head>
 <body>
 
+<!-- الأيقونات الطافية في الخلفية -->
+<div class="floating-icons" id="floating-icons"></div>
+
 <div class="glass-container">
     <div class="header">
-        <h1>🇩🇿 مرحباً بكم في Prix Choc</h1>
+        <h1>🇩🇿 Prix Choc</h1>
         <div class="badge">🚚 الدفع بعد استلام وفحص المنتج</div>
     </div>
 
     <div class="content" id="main-content">
-        <!-- المحتوى سيتم إضافته هنا -->
+        <!-- سيتم تعبئة المحتوى ديناميكياً -->
     </div>
 
     <div class="footer">
-        <div class="trust-icons">🛡️ تسوق آمن 100% | 🔒 معلوماتك مشفرة ومحمية</div>
+        <div class="trust-icons">🛡️ تسوق آمن 100% | 🔒 الدفع عند الاستلام</div>
         جميع الحقوق محفوظة © 2026 Prix Choc
     </div>
 </div>
 
 <script>
+    // 1. توليد الأيقونات الطافية في الخلفية
+    const iconsContainer = document.getElementById('floating-icons');
+    const emojis = ['🛍️', '📦', '📱', '⌚', '👟', '👕', '🎧', '🎁'];
+    for(let i = 0; i < 20; i++) {
+        let span = document.createElement('span');
+        span.className = 'icon';
+        span.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+        span.style.left = Math.random() * 100 + 'vw';
+        span.style.animationDuration = (Math.random() * 10 + 10) + 's';
+        span.style.animationDelay = Math.random() * 5 + 's';
+        span.style.fontSize = (Math.random() * 20 + 20) + 'px';
+        iconsContainer.appendChild(span);
+    }
+
+    // 2. منطق عرض المنتج والاستمارة
     document.addEventListener("DOMContentLoaded", () => {
         const urlParams = new URLSearchParams(window.location.search);
         let productId = urlParams.get('p') || "1";
         const contentDiv = document.getElementById('main-content');
-        const product = storeData[productId];
+        
+        // جلب المنتج من products.js
+        const product = typeof storeData !== 'undefined' ? storeData[productId] : null;
 
         if (!product) {
-            contentDiv.innerHTML = `<div style="text-align:center;">عذراً، المنتج غير متوفر.</div>`;
+            contentDiv.innerHTML = `<div class="message-bubble bot" style="text-align:center;">عذراً، هذا المنتج غير متوفر حالياً.</div>`;
             return;
         }
 
+        // توليد خيارات الولايات من database.js
         let wilayaOptions = '<option value="">-- اختر الولاية --</option>';
-        for (const w in wilayasData) { wilayaOptions += `<option value="${w}">${w}</option>`; }
+        if (typeof wilayasData !== 'undefined') {
+            for (const w in wilayasData) { 
+                wilayaOptions += `<option value="${w}">${w}</option>`; 
+            }
+        }
 
+        // بناء واجهة المحادثة (المنتج ثم الاستمارة)
         contentDiv.innerHTML = `
-            <div class="success-msg" id="successMsg">
+            <div id="successMsg" style="display:none;" class="message-bubble bot" style="width:100%; text-align:center;">
                 🎉 <b>تم تأكيد طلبك بنجاح!</b><br>سيتصل بك فريق الدعم قريباً لتأكيد الشحن.
             </div>
 
             <form id="orderForm">
-                <div class="product-card">
+                <div class="message-bubble">
                     <img src="${product.image}" class="product-img">
                     <div class="product-title">${product.name}</div>
-                </div>
+                    
+                    <div class="qty-wrap">
+                        <span style="color:#475569; font-weight:bold;">الكمية:</span>
+                        <div class="qty-controls">
+                            <button type="button" class="qty-btn" id="minusBtn">-</button>
+                            <div class="qty-value" id="qtyDisplay" style="color:#0f172a;">1</div>
+                            <button type="button" class="qty-btn" id="plusBtn">+</button>
+                        </div>
+                    </div>
 
-                <div class="quantity-wrapper">
-                    <span>الكمية المطلوبة:</span>
-                    <div class="quantity-controls">
-                        <button type="button" class="qty-btn" id="minusBtn">-</button>
-                        <div class="qty-value" id="qtyDisplay">1</div>
-                        <button type="button" class="qty-btn" id="plusBtn">+</button>
+                    <div class="price-box">
+                        <div class="price-row"><span>السعر للوحدة:</span> <b>${product.price} د.ج</b></div>
+                        <div class="price-row"><span>سعر التوصيل:</span> <b id="deliveryDisplay">يحدد حسب الولاية</b></div>
+                        <div class="price-total"><span>المجموع:</span> <span id="totalDisplay">${product.price} د.ج</span></div>
                     </div>
                 </div>
 
-                <div class="price-box">
-                    <div class="price-row"><span>سعر الوحدة:</span> <span>${product.price} د.ج</span></div>
-                    <div class="price-row"><span>سعر التوصيل:</span> <span id="deliveryDisplay">الرجاء اختيار الولاية</span></div>
-                    <div class="price-total"><span>المجموع النهائي:</span> <span id="totalDisplay">${product.price} د.ج</span></div>
+                <div class="message-bubble bot">
+                    اختيار ممتاز! 🌟 يرجى ملء بياناتك بالأسفل لتأكيد شحن طلبك فوراً.
                 </div>
 
-                <input type="text" id="fullName" class="form-input" placeholder="الاسم الكامل" required>
-                <input type="tel" id="phone" class="form-input" placeholder="رقم الهاتف (مثال: 066...)" required>
-                
-                <select id="wilaya" class="form-input" required>${wilayaOptions}</select>
-                <select id="commune" class="form-input" required><option value="">-- اختر البلدية / المدينة --</option></select>
-                
-                <input type="text" id="address" class="form-input" placeholder="العنوان التفصيلي (الحي، الشارع...)" required>
-                
-                <button type="submit" class="submit-btn" id="submitBtn">تأكيد الطلب الآن 🛍️</button>
+                <div class="message-bubble" style="width:100%;">
+                    <input type="text" id="fullName" class="form-input" placeholder="الاسم الكامل" required>
+                    <input type="tel" id="phone" class="form-input" placeholder="رقم الهاتف (مثال: 06...)" required>
+                    
+                    <select id="wilaya" class="form-input" required>${wilayaOptions}</select>
+                    <select id="commune" class="form-input" required><option value="">-- اختر البلدية / المدينة --</option></select>
+                    
+                    <input type="text" id="address" class="form-input" placeholder="العنوان التفصيلي" required>
+                    
+                    <button type="submit" class="submit-btn" id="submitBtn">تأكيد الطلب الآن 🛍️</button>
+                </div>
             </form>
         `;
 
@@ -154,9 +218,11 @@
             document.getElementById('totalDisplay').innerText = `${total} د.ج`;
         };
 
+        // أزرار الكمية
         document.getElementById('plusBtn').addEventListener('click', () => { currentQty++; document.getElementById('qtyDisplay').innerText = currentQty; updatePrices(); });
         document.getElementById('minusBtn').addEventListener('click', () => { if(currentQty > 1) { currentQty--; document.getElementById('qtyDisplay').innerText = currentQty; updatePrices(); } });
 
+        // تحديث البلديات وسعر التوصيل بناءً على الولاية
         const wilayaSelect = document.getElementById('wilaya');
         const communeSelect = document.getElementById('commune');
 
@@ -172,15 +238,16 @@
                 });
                 document.getElementById('deliveryDisplay').innerText = `${currentDelivery} د.ج`;
             } else {
-                document.getElementById('deliveryDisplay').innerText = `الرجاء اختيار الولاية`;
+                document.getElementById('deliveryDisplay').innerText = `يحدد حسب الولاية`;
             }
             updatePrices();
         });
 
+        // إرسال البيانات
         document.getElementById('orderForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const btn = document.getElementById('submitBtn');
-            btn.innerText = "⏳ جاري إرسال وتأكيد الطلب...";
+            btn.innerText = "⏳ جاري تأكيد الطلب...";
             btn.disabled = true;
 
             const orderData = {
@@ -206,7 +273,7 @@
                 window.scrollTo(0,0);
             })
             .catch(err => {
-                alert("حدث خطأ في الاتصال. يرجى المحاولة.");
+                alert("حدث خطأ في الاتصال. يرجى التأكد من الإنترنت والمحاولة مجدداً.");
                 btn.innerText = "تأكيد الطلب الآن 🛍️";
                 btn.disabled = false;
             });
