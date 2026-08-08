@@ -4,192 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>متجر Prix Choc</title>
-    
-    <!-- استدعاء ملفات قواعد البيانات الخاصة بك -->
+    <!-- استدعاء ملف قواعد البيانات الخاص بالولايات والبلديات -->
     <script src="database.js"></script>
-    <script src="products.js"></script>
-
     <style>
-        body {
-            background-color: #ECE5DD; 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
-        .chat-app {
-            width: 100%;
-            max-width: 500px;
-            background-color: #ECE5DD;
-            background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
-        }
-        .chat-header {
-            background-color: #075E54;
-            color: white;
-            padding: 18px;
-            text-align: center;
-            font-size: 22px;
-            font-weight: bold;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .chat-container {
-            padding: 20px;
-            flex-grow: 1;
-        }
-        .message-bubble {
-            background-color: #FFFFFF;
-            padding: 15px;
-            border-radius: 12px;
-            border-top-right-radius: 0;
-            margin-bottom: 20px;
-            width: 85%;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            position: relative;
-        }
-        .message-bubble::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: -10px;
-            border-width: 10px 0 0 10px;
-            border-style: solid;
-            border-color: #FFFFFF transparent transparent transparent;
-        }
-        .product-img {
-            width: 100%;
-            border-radius: 8px;
-            margin-bottom: 10px;
-        }
-        .product-title {
-            font-size: 16px;
-            font-weight: bold;
-            color: #1a1a1a;
-            margin-bottom: 8px;
-            line-height: 1.4;
-        }
-        .product-price {
-            font-size: 18px;
-            color: #075E54;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-        .btn-order {
-            background-color: #25D366;
-            color: white;
-            border: none;
-            padding: 12px;
-            width: 100%;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-            font-weight: bold;
-            text-decoration: none;
-            display: block;
-            text-align: center;
-            box-sizing: border-box;
-            transition: background-color 0.2s;
-        }
-        .btn-order:hover {
-            background-color: #128C7E;
-        }
-        .order-form input, .order-form select {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-sizing: border-box;
-            font-family: inherit;
-            font-size: 14px;
-        }
-        .order-form input:focus, .order-form select:focus {
-            outline: none;
-            border-color: #075E54;
-        }
-        .total-price {
-            background-color: #DCF8C6;
-            padding: 12px;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: #075E54;
-            font-size: 15px;
-        }
-        .system-message {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-        .system-message span {
-            background-color: #D4EAF4;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 13px;
-            color: #444;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-        }
-        .success-bubble {
-            background-color: #DCF8C6;
-            border-top-right-radius: 12px;
-            border-top-left-radius: 0;
-            text-align: center;
-            font-size: 16px;
-            line-height: 1.5;
-        }
-        .success-bubble::after {
-            right: auto;
-            left: -10px;
-            border-color: #DCF8C6 transparent transparent transparent;
-            border-width: 10px 10px 0 0;
-        }
+        body { background-color: #ECE5DD; font-family: 'Segoe UI', Tahoma, Arial, sans-serif; margin: 0; display: flex; justify-content: center; }
+        .chat-app { width: 100%; max-width: 500px; background-color: #ECE5DD; min-height: 100vh; display: flex; flex-direction: column; box-shadow: 0 0 15px rgba(0,0,0,0.1); }
+        .chat-header { background-color: #075E54; color: white; padding: 18px; text-align: center; font-size: 22px; font-weight: bold; position: sticky; top: 0; z-index: 100; }
+        .chat-container { padding: 20px; flex-grow: 1; }
+        .message-bubble { background-color: #FFFFFF; padding: 15px; border-radius: 12px; border-top-right-radius: 0; margin-bottom: 20px; width: 85%; box-shadow: 0 1px 3px rgba(0,0,0,0.1); position: relative; }
+        .product-img { width: 100%; border-radius: 8px; margin-bottom: 10px; }
+        .product-title { font-size: 16px; font-weight: bold; color: #1a1a1a; margin-bottom: 8px; line-height: 1.4; }
+        .product-price { font-size: 18px; color: #075E54; font-weight: bold; margin-bottom: 15px; }
+        .btn-order { background-color: #25D366; color: white; border: none; padding: 12px; width: 100%; border-radius: 8px; font-size: 16px; cursor: pointer; font-weight: bold; display: block; text-align: center; text-decoration: none; box-sizing: border-box; }
+        .order-form input, .order-form select { width: 100%; padding: 12px; margin-bottom: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; box-sizing: border-box; }
+        .total-price { background-color: #DCF8C6; padding: 12px; border-radius: 8px; text-align: center; font-weight: bold; margin-bottom: 15px; color: #075E54; }
+        .system-message { text-align: center; margin-bottom: 25px; }
+        .system-message span { background-color: #D4EAF4; padding: 6px 14px; border-radius: 20px; font-size: 13px; color: #444; }
+        .success-bubble { background-color: #DCF8C6; border-top-right-radius: 12px; border-top-left-radius: 0; text-align: center; }
     </style>
 </head>
 <body>
 
 <div class="chat-app">
-    <div class="chat-header">
-        🛍️ Prix Choc
-    </div>
-    
-    <div class="chat-container" id="chat-content">
-        <!-- المحتوى سيتم إضافته ديناميكياً هنا -->
-    </div>
+    <div class="chat-header">🛍️ Prix Choc</div>
+    <div class="chat-container" id="chat-content"></div>
 </div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        // التحقق من وجود ملف المنتجات
-        if (typeof storeData === 'undefined') {
-            document.getElementById('chat-content').innerHTML = '<div class="message-bubble">⚠️ جاري تحديث المتجر، يرجى المحاولة لاحقاً.</div>';
-            return;
+    // المنتجات مدمجة هنا لقتل مشكلة الذاكرة المخبأة (Cache)
+    const storeData = {
+        "1": {
+            sawa9lyLink: "https://sawa9ly.app/product/6067", 
+            name: "عصّارة فواكه وخضروات محمولة بمحرك عالي السرعة",
+            price: 4200, 
+            image: "https://sawa9ly.app/images/products/6067.jpg"
         }
+    };
 
+    document.addEventListener("DOMContentLoaded", () => {
         const urlParams = new URLSearchParams(window.location.search);
         const productId = urlParams.get('p');
         const chatContent = document.getElementById('chat-content');
 
-        if (!productId || !storeData.products[productId]) {
-            // واجهة عرض كل المنتجات
-            let catalogHTML = `
-                <div class="system-message"><span>منتجاتنا المتوفرة</span></div>
-                <div class="message-bubble" style="background-color: #DCF8C6; width: 75%; float: left; border-top-right-radius: 12px; border-top-left-radius: 0;">
-                    أهلاً بك! 👋<br>تصفح منتجاتنا المميزة واطلب ما يناسبك الآن.
-                </div>
-                <div style="clear: both;"></div>
-            `;
-            
-            for (const [id, product] of Object.entries(storeData.products)) {
+        if (!productId || !storeData[productId]) {
+            let catalogHTML = `<div class="system-message"><span>المنتجات المتوفرة</span></div>`;
+            for (const [id, product] of Object.entries(storeData)) {
                 catalogHTML += `
                     <div class="message-bubble">
-                        <img src="${product.image}" class="product-img" alt="${product.name}" onerror="this.src='https://via.placeholder.com/400x300?text=Prix+Choc'">
                         <div class="product-title">${product.name}</div>
                         <div class="product-price">${product.price} د.ج</div>
                         <a href="?p=${id}" class="btn-order">🛒 تقديم طلب</a>
@@ -198,66 +59,46 @@
             }
             chatContent.innerHTML = catalogHTML;
         } else {
-            // واجهة الاستمارة للمنتج المحدد
-            const product = storeData.products[productId];
-            
+            const product = storeData[productId];
             chatContent.innerHTML = `
                 <div class="system-message"><span>استكمال الطلب</span></div>
-                
                 <div class="message-bubble" style="background-color: #E8F5E9; margin-left:auto; border-top-right-radius: 12px; border-top-left-radius: 12px; width: 90%;">
-                    لقد اخترت: <b>${product.name}</b> بسعر ${product.price} د.ج.<br>يرجى تعبئة الاستمارة التالية لتأكيد الطلب.
+                    لقد اخترت: <b>${product.name}</b><br>يرجى تعبئة الاستمارة لتأكيد الطلب.
                 </div>
-                <div style="clear: both;"></div>
-
-                <div class="message-bubble order-form" style="width: 100%; box-sizing: border-box; border-radius: 12px;">
+                <div class="message-bubble order-form" style="width: 100%;">
                     <form id="orderForm">
                         <input type="text" id="fullName" placeholder="الاسم الكامل" required>
-                        <input type="tel" id="phone" placeholder="رقم الهاتف (مثال: 066...)" required>
+                        <input type="tel" id="phone" placeholder="رقم الهاتف" required>
                         
-                        <!-- القوائم المنسدلة التي تعتمد على ملف database.js -->
-                        <select id="wilaya" required>
-                            <option value="">-- اختر الولاية --</option>
-                        </select>
-                        
-                        <select id="commune" required>
-                            <option value="">-- اختر البلدية --</option>
-                        </select>
+                        <!-- يجب أن يتطابق id مع ما يبحث عنه ملف database.js الخاص بك -->
+                        <select id="wilaya" required><option value="">-- اختر الولاية --</option></select>
+                        <select id="commune" required><option value="">-- اختر البلدية --</option></select>
                         
                         <input type="text" id="address" placeholder="العنوان التفصيلي" required>
-                        
-                        <div class="total-price">
-                            المجموع النهائي (تقريبي): <span id="finalTotal">${product.price}</span> د.ج
-                        </div>
-                        
+                        <div class="total-price">المجموع (بدون توصيل): <span id="finalTotal">${product.price}</span> د.ج</div>
                         <button type="submit" class="btn-order" id="submitBtn">🚀 تأكيد وإرسال الطلب</button>
                     </form>
                 </div>
             `;
 
-            // تشغيل السكريبت الخاص بملء الولايات والبلديات من database.js
-            // افترضنا هنا أن لديك دالة في database.js تقوم بتعبئة هذه الخانات، أو يمكننا بناءها الآن
-            populateWilayas();
-
-            // إرسال البيانات للبوت
+            // إرسال البيانات
             document.getElementById('orderForm').addEventListener('submit', function(e) {
                 e.preventDefault();
                 const btn = document.getElementById('submitBtn');
                 btn.innerText = "⏳ جاري المعالجة...";
-                btn.style.backgroundColor = "#888";
                 btn.disabled = true;
 
-                // قراءة النصوص من القوائم المنسدلة (وليس قيم الأرقام)
+                // قراءة النص العربي من القوائم
                 const wilayaSelect = document.getElementById('wilaya');
                 const communeSelect = document.getElementById('commune');
-                
                 const wilayaText = wilayaSelect.options[wilayaSelect.selectedIndex].text;
                 const communeText = communeSelect.options[communeSelect.selectedIndex].text;
 
                 const orderData = {
                     customerName: document.getElementById('fullName').value,
                     phone: document.getElementById('phone').value,
-                    wilaya: wilayaText, // إرسال الاسم النصي للولاية
-                    commune: communeText, // إرسال الاسم النصي للبلدية
+                    wilaya: wilayaText,
+                    commune: communeText,
                     address: document.getElementById('address').value,
                     sawa9lyLink: product.sawa9lyLink,
                     sellingPrice: product.price
@@ -268,37 +109,19 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(orderData)
                 })
-                .then(response => response.json())
+                .then(res => res.json())
                 .then(data => {
-                    chatContent.innerHTML += `
-                        <div class="message-bubble success-bubble" style="width: 90%; margin-left: auto; margin-right: auto;">
-                            ✅ <b>تم استلام طلبك!</b><br>سيتم معالجته وشحنه في أقرب وقت ممكن. شكراً لثقتكم.
-                        </div>
-                    `;
+                    chatContent.innerHTML += `<div class="message-bubble success-bubble" style="width: 90%; margin-left: auto;">✅ <b>تم استلام طلبك بنجاح!</b></div>`;
                     window.scrollTo(0, document.body.scrollHeight);
                 })
-                .catch(error => {
-                    alert("حدث خطأ في الاتصال بالخادم. يرجى المحاولة مرة أخرى.");
+                .catch(err => {
+                    alert("خطأ في الاتصال، يرجى المحاولة.");
                     btn.innerText = "🚀 تأكيد وإرسال الطلب";
-                    btn.style.backgroundColor = "#25D366";
                     btn.disabled = false;
                 });
             });
         }
     });
-
-    // دالة مساعدة لتشغيل تعبئة الولايات من ملف database.js
-    function populateWilayas() {
-        const wilayaSelect = document.getElementById('wilaya');
-        const communeSelect = document.getElementById('commune');
-        
-        // إذا كان ملف database.js يحتوي على دالة لتعبئة الولايات، استدعها هنا.
-        // تأكد من أن السكريبت القديم الذي كان يربط wilaya بـ commune يعمل بشكل صحيح.
-        if (typeof window.initWilayas === 'function') {
-            window.initWilayas(wilayaSelect, communeSelect);
-        }
-    }
 </script>
-
 </body>
 </html>
