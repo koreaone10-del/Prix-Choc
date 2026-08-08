@@ -12,7 +12,7 @@ const storeData = {
     // ==========================================
     // القوالب الجاهزة (قم بتعديل محتوى الأقواس فقط)
     // ==========================================
-    "2": { sawa9lyLink: "رابط_سوقلي", name: "اسم المنتج 2", price: 0, image: "رابط_الصورة" },
+    "2": { sawa9lyLink: "https://sawa9ly.app/product/5859", name: "🎧 سماعات Monster Aura Fit GT29: تكنولوجيا 2026 بين يديك! 🚀", price:4400, image: "https://pub-bfdc1913c5ba4512972387b8d080956f.r2.dev/products/images/1778319662172_easqnrv5_5c02e728205d383d7d0175aca07a4fff.jpg_720x720q80.jpg_.webp" },
     "3": { sawa9lyLink: "رابط_سوقلي", name: "اسم المنتج 3", price: 0, image: "رابط_الصورة" },
     "4": { sawa9lyLink: "رابط_سوقلي", name: "اسم المنتج 4", price: 0, image: "رابط_الصورة" },
     "5": { sawa9lyLink: "رابط_سوقلي", name: "اسم المنتج 5", price: 0, image: "رابط_الصورة" },
