@@ -1,13 +1,10 @@
-// ملف products.js (في Vercel)
 const storeData = {
     products: {
         "1": {
-            babaId: "NL-210", // الرمز المكتوب في بابا الجزائر
-            name: "قبعة صيفية نسائية فاخرة باللؤلؤ والورود",
-            price: 650, // السعر الشامل لفائدتك
-            type: "image",
-            mediaUrl: "https://www.babaalgeria.com/uploads/products/product_6a2fe1a9add40.jpg"
+            sawa9lyLink: "https://sawa9ly.app/product/6067", // رابط عصارة الفواكه
+            name: "عصّارة فواكه وخضروات محمولة بمحرك عالي السرعة",
+            price: 4200, 
+            image: "https://sawa9ly.app/storage/76169/1784994778523_4rrz6dw6_1.jpg" // رابط الصورة
         }
-        // يمكنك إضافة منتجات أخرى هنا بنفس النمط
     }
 };
