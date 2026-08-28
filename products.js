@@ -54,7 +54,7 @@ const storeData = {
     "38": { sawa9lyLink: "رابط_سوقلي", name: "اسم المنتج 38", price: 0, image: "رابط_الصورة" },
     "39": { sawa9lyLink: "رابط_سوقلي", name: "اسم المنتج 39", price: 0, image: "رابط_الصورة" },
     "40": { sawa9lyLink: "رابط_سوقلي", name: "اسم المنتج 40", price: 0, image: "رابط_الصورة" },
-    "RS-28": { Baba Algeria: "https://www.babaalgeria.com/product/176", name: "ساعة رويال آيس الفضية – قمة الفخامة المرصعة ببريق الألماس", price: 605, image: "https://www.babaalgeria.com/uploads/products/product_69727d30c9b33.jpg" }
+    "RS-28": { sawa9lyLink: "https://www.babaalgeria.com/product/176", name: "ساعة رويال آيس الفضية – قمة الفخامة المرصعة ببريق الألماس", price: 605, image: "https://www.babaalgeria.com/uploads/products/product_69727d30c9b33.jpg" }
 };
 const babaData = {
     "RS-28": {
