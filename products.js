@@ -56,14 +56,3 @@ const storeData = {
     "40": { sawa9lyLink: "رابط_سوقلي", name: "اسم المنتج 40", price: 0, image: "رابط_الصورة" },
     "RS-28": { sawa9lyLink: "https://www.babaalgeria.com/product/176", name: "ساعة رويال آيس الفضية – قمة الفخامة المرصعة ببريق الألماس", price: 605, image: "https://www.babaalgeria.com/uploads/products/product_69727d30c9b33.jpg" }
 };
-const babaData = {
-    "RS-28": {
-        provider: "Baba Algeria",
-        code: "RS-28",
-        babaLink: "https://www.babaalgeria.com/product/176",
-        orderLink: "https://www.babaalgeria.com/create-order",
-        name: "ساعة رويال آيس الفضية – قمة الفخامة المرصعة ببريق الألماس",
-        price: 605,
-        image: "https://www.babaalgeria.com/uploads/products/product_69727d30c9b33.jpg"
-    }
-};
