@@ -17,7 +17,7 @@ const storeData = {
     "4": { sawa9lyLink: "https://sawa9ly.app/product/6165", name: "Ensemble 3 PCS sac a dos Élégant et Imperméable pour Homme Avec Port USB Gris Mat-02 - طقم حقائب رجالية أنيقة 3 في 1 مع منفذ شحن", price: 2900, image: "https://sawa9ly.app/storage/76810/1786456637429_d2syf362_magnific_replace-color-of-3pcs-bag_afqe9jwfsh.jpg" },
     "5": { sawa9lyLink: "https://sawa9ly.app/product/6227", name:  " Sac à Dos Femme Antivol en Tissu Vintage avec Fermeture Arrière SACKDS39MR - حقيبة ظهر نسائية كاجوال متعددة الاستخدامات ", price: 2900, image: "https://sawa9ly.app/storage/77146/1787477177096_ser8fou1_1.jpg" },
     "6": { sawa9lyLink: "https://sawa9ly.app/product/6238", name: "Écouteurs Sans Fil Bluetooth TWS Q69 Design Mini Sac à Main Clip Ear Clip-On - سماعة بلوتوث لاسلكية بتصميم علبة حقيبة فاخرة", price: 3450, image: "https://sawa9ly.app/storage/77253/1787837589156_iwf8n5y0_1.jpg" },
-    "7": { sawa9lyLink: "رابط_سوقلي", name: "اسم المنتج 7", price: 0, image: "رابط_الصورة" },
+    "7": { sawa9lyLink: "https://sawa9ly.app/product/6251", name: "Appareil de Massage et Ventouse Électrique Anti-Cellulite Aspiration Réglable 9 Niveaux - جهاز الحجامة والتدليك الكهربائي الذكي بالأشعة الحمراء", price: 2500, image: "https://sawa9ly.app/storage/77302/1788000090570_0vbrrfpa_1.webp" },
     "8": { sawa9lyLink: "رابط_سوقلي", name: "اسم المنتج 8", price: 0, image: "رابط_الصورة" },
     "9": { sawa9lyLink: "رابط_سوقلي", name: "اسم المنتج 9", price: 0, image: "رابط_الصورة" },
     "10": { sawa9lyLink: "رابط_سوقلي", name: "اسم المنتج 10", price: 0, image: "رابط_الصورة" },
