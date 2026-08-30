@@ -18,7 +18,7 @@ const storeData = {
     "5": { sawa9lyLink: "https://sawa9ly.app/product/6227", name:  " Sac à Dos Femme Antivol en Tissu Vintage avec Fermeture Arrière SACKDS39MR - حقيبة ظهر نسائية كاجوال متعددة الاستخدامات ", price: 2900, image: "https://sawa9ly.app/storage/77146/1787477177096_ser8fou1_1.jpg" },
     "6": { sawa9lyLink: "https://sawa9ly.app/product/6238", name: "Écouteurs Sans Fil Bluetooth TWS Q69 Design Mini Sac à Main Clip Ear Clip-On - سماعة بلوتوث لاسلكية بتصميم علبة حقيبة فاخرة", price: 3450, image: "https://sawa9ly.app/storage/77253/1787837589156_iwf8n5y0_1.jpg" },
     "7": { sawa9lyLink: "https://sawa9ly.app/product/6251", name: "Appareil de Massage et Ventouse Électrique Anti-Cellulite Aspiration Réglable 9 Niveaux - جهاز الحجامة والتدليك الكهربائي الذكي بالأشعة الحمراء", price: 2500, image: "https://sawa9ly.app/storage/77302/1788000090570_0vbrrfpa_1.webp" },
-    "8": { sawa9lyLink: "رابط_سوقلي", name: "اسم المنتج 8", price: 0, image: "رابط_الصورة" },
+    "8": { sawa9lyLink: "https://sawa9ly.app/product/6242", name: "Sac à dos Tendance Pour Hommes en tissu Imperméable léger et respirant grande capacité SACHM08GR - حقيبة ظهر لحفظ الكمبيوتر المحمول والأعمال بتصميم عصري ومريح", price: 2450, image: "https://sawa9ly.app/storage/77265/1787825671028_34h9qjcq_1ce7e01169636134_sac-lianxi-7.jpg" },
     "9": { sawa9lyLink: "رابط_سوقلي", name: "اسم المنتج 9", price: 0, image: "رابط_الصورة" },
     "10": { sawa9lyLink: "رابط_سوقلي", name: "اسم المنتج 10", price: 0, image: "رابط_الصورة" },
     
