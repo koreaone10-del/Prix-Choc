@@ -124,6 +124,346 @@
         .product-item img { width: 100%; height: 120px; object-fit: cover; border-radius: 8px; margin-bottom: 10px; }
         .product-item h3 { font-size: 13px; margin: 0 0 5px 0; height: 38px; overflow: hidden; color: #e2e8f0; }
         .product-item p { color: #10b981; font-weight: bold; margin: 0; font-size: 15px; }
+  /* =========================================================
+   PRIX-CHOC — PREMIUM HERO V1
+   لا يلمس نظام الطلب
+========================================================= */
+
+.px-hero {
+    position: relative;
+    min-height: 430px;
+    margin: 0;
+    padding: 42px 22px 38px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background:
+        radial-gradient(circle at 50% 20%, rgba(16,185,129,0.18), transparent 38%),
+        radial-gradient(circle at 10% 80%, rgba(245,158,11,0.08), transparent 35%),
+        linear-gradient(180deg, rgba(2,6,23,0.15), rgba(2,6,23,0.85));
+}
+
+/* ضوء ناعم متحرك */
+.px-hero::before {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: rgba(16,185,129,0.10);
+    filter: blur(55px);
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: pxGlow 6s ease-in-out infinite alternate;
+}
+
+@keyframes pxGlow {
+    from {
+        opacity: .35;
+        transform: translateX(-50%) scale(.85);
+    }
+    to {
+        opacity: .8;
+        transform: translateX(-50%) scale(1.15);
+    }
+}
+
+/* خطوط ضوئية خلفية */
+.px-hero-lines {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.px-hero-lines span {
+    position: absolute;
+    height: 1px;
+    width: 180px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(16,185,129,.35),
+        transparent
+    );
+    animation: pxLineMove linear infinite;
+}
+
+.px-hero-lines span:nth-child(1) {
+    top: 25%;
+    left: -200px;
+    animation-duration: 8s;
+}
+
+.px-hero-lines span:nth-child(2) {
+    top: 55%;
+    left: -300px;
+    animation-duration: 11s;
+    animation-delay: 2s;
+}
+
+.px-hero-lines span:nth-child(3) {
+    top: 78%;
+    left: -250px;
+    animation-duration: 9s;
+    animation-delay: 4s;
+}
+
+@keyframes pxLineMove {
+    0% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    85% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(900px);
+        opacity: 0;
+    }
+}
+
+/* الشعار */
+.px-brand {
+    position: relative;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 17px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.055);
+    border: 1px solid rgba(255,255,255,.12);
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.25),
+        inset 0 1px rgba(255,255,255,.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    animation: pxBrandFloat 4s ease-in-out infinite;
+}
+
+.px-brand-truck {
+    font-size: 28px;
+    filter: drop-shadow(0 0 12px rgba(16,185,129,.55));
+}
+
+.px-brand-name {
+    font-size: 21px;
+    font-weight: 1000;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.px-brand-name strong {
+    color: #10b981;
+}
+
+@keyframes pxBrandFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* العنوان الرئيسي */
+.px-hero-title {
+    position: relative;
+    z-index: 3;
+    margin: 25px 0 10px;
+    max-width: 440px;
+    font-size: clamp(30px, 8vw, 48px);
+    line-height: 1.15;
+    font-weight: 1000;
+    color: #fff;
+    text-shadow:
+        0 4px 30px rgba(0,0,0,.65),
+        0 0 25px rgba(16,185,129,.15);
+}
+
+.px-hero-title span {
+    color: #10b981;
+}
+
+/* الوصف */
+.px-hero-subtitle {
+    position: relative;
+    z-index: 3;
+    max-width: 390px;
+    margin: 0 auto 20px;
+    color: #cbd5e1;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* شارات الثقة */
+.px-hero-trust {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 7px;
+    margin-bottom: 22px;
+}
+
+.px-trust-pill {
+    padding: 7px 11px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.055);
+    border: 1px solid rgba(255,255,255,.09);
+    color: #e2e8f0;
+    font-size: 11px;
+    font-weight: 700;
+    backdrop-filter: blur(8px);
+}
+
+/* زر */
+.px-hero-btn {
+    position: relative;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-width: 190px;
+    padding: 14px 24px;
+    border-radius: 14px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 900;
+    background: linear-gradient(
+        135deg,
+        #10b981,
+        #059669
+    );
+    box-shadow:
+        0 10px 30px rgba(16,185,129,.25),
+        inset 0 1px rgba(255,255,255,.2);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.px-hero-btn:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 15px 35px rgba(16,185,129,.35),
+        inset 0 1px rgba(255,255,255,.2);
+}
+
+/* الشاحنة */
+.px-truck-scene {
+    position: absolute;
+    z-index: 2;
+    bottom: 22px;
+    left: 0;
+    width: 100%;
+    height: 65px;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.px-truck {
+    position: absolute;
+    left: -100px;
+    bottom: 7px;
+    font-size: 42px;
+    filter:
+        drop-shadow(0 7px 8px rgba(0,0,0,.5))
+        drop-shadow(0 0 12px rgba(16,185,129,.18));
+    animation: pxTruckMove 13s linear infinite;
+}
+
+@keyframes pxTruckMove {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(100vw + 180px));
+    }
+}
+
+/* الطريق */
+.px-road {
+    position: absolute;
+    left: 0;
+    bottom: 8px;
+    width: 100%;
+    height: 2px;
+    background: rgba(255,255,255,.12);
+}
+
+.px-road::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent 0 20px,
+        rgba(255,255,255,.28) 20px 55px
+    );
+    animation: pxRoadMove 1.2s linear infinite;
+}
+
+@keyframes pxRoadMove {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-75px);
+    }
+}
+
+/* احترام إعدادات تقليل الحركة */
+@media (prefers-reduced-motion: reduce) {
+    .px-hero *,
+    .px-hero::before {
+        animation: none !important;
+    }
+}
+
+/* الهاتف */
+@media (max-width: 480px) {
+
+    .px-hero {
+        min-height: 410px;
+        padding: 35px 18px 32px;
+    }
+
+    .px-hero-title {
+        font-size: 32px;
+    }
+
+    .px-hero-subtitle {
+        font-size: 14px;
+    }
+
+    .px-trust-pill {
+        font-size: 10px;
+        padding: 6px 9px;
+    }
+
+    .px-truck {
+        font-size: 38px;
+    }
+}
     </style>
 </head>
 <body>
