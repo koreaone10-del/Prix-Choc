@@ -1,95 +1,506 @@
-const wilayasData = {
-    "أدرار": {
-    delivery: 1000,
-    communes: [
-        "أدرار",
-        "تامست",
-        "رقان",
-        "إن زغمير",
-        "تيط",
-        "تسابيت",
-        "زاوية كنتة",
-        "أولف",
-        "تيمقتن",
-        "تامنطيط",
-        "فنوغيل",
-        "سالي",
-        "أقبلي",
-        "أولاد أحمد تيمي",
-        "بودة",
-        "السبع"
-    ]
-},
-    "الشلف": { delivery: 600, communes: ["الشلف", "تنس", "الشطية", "المرسى", "أم الدروع"] },
-    "الأغواط": { delivery: 700, communes: ["الأغواط", "آفلو", "قصر الحيران", "حاسي الرمل"] },
-    "أم البواقي": { delivery: 600, communes: ["أم البواقي", "عين البيضاء", "عين مليلة", "سيقوس"] },
-    "باتنة": { delivery: 600, communes: ["باتنة", "بريكة", "أريس", "مروانة", "عين التوتة"] },
-    "بجاية": { delivery: 600, communes: ["بجاية", "أقبو", "أميزور", "توقجة", "خراطة"] },
-    "بسكرة": { delivery: 700, communes: ["بسكرة", "طولقة", "سيدي عقبة", "زريبة الوادي"] },
-    "بشار": { delivery: 800, communes: ["بشار", "بني عباس", "العبادلة", "تاغيت"] },
-    "البليدة": { delivery: 500, communes: ["البليدة", "بوفاريك", "أولاد يعيش", "العفرون", "موزاية"] },
-    "البويرة": { delivery: 550, communes: ["البويرة", "سور الغزلان", "الأخضرية", "مشدالله"] },
-    "تمنراست": { delivery: 1300, communes: ["تمنراست", "عين صالح", "عين أمقل", "إدلس"] },
-    "تبسة": { delivery: 650, communes: ["تبسة", "الشريعة", "العوينات", "بئر العاتر"] },
-    "تلمسان": { delivery: 600, communes: ["تلمسان", "مغنية", "الغزوات", "سبدو", "الرمشي"] },
-    "تيارت": { delivery: 600, communes: ["تيارت", "السوقر", "فرندة", "قصر الشلالة"] },
-    "تيزي وزو": { delivery: 600, communes: ["تيزي وزو", "عزازقة", "ذراع الميزان", "بوغني"] },
-    "الجزائر": { delivery: 400, communes: ["الجزائر الوسطى", "باب الزوار", "الرويبة", "سيدي امحمد", "الشراقة", "زرالدة"] },
-    "الجلفة": { delivery: 600, communes: ["الجلفة", "عين وسارة", "مسعد", "حاسي بحبح"] },
-    "جيجل": { delivery: 600, communes: ["جيجل", "الميلية", "الطاهير", "العوانة"] },
-    "سطيف": { delivery: 600, communes: ["سطيف", "العلمة", "عين ولمان", "بوقاعة"] },
-    "سعيدة": { delivery: 600, communes: ["سعيدة", "عين الحجر", "سيدي بوبكر"] },
-    "سكيكدة": { delivery: 600, communes: ["سكيكدة", "عزابة", "القل", "الحروش"] },
-    "سيدي بلعباس": { delivery: 600, communes: ["سيدي بلعباس", "سفيزف", "تلاغ", "بن باديس"] },
-    "عنابة": {
-    delivery: 600,
-    communes: [
-        "عنابة",
-        "البوني",
-        "الحجار",
-        "برحال",
-        "العلمة",
-        "وادي العنب",
-        "الشرفة",
-        "سرايدي",
-        "عين الباردة",
-        "شطايبي",
-        "التريعات"
-    ]
-},
-    "قالمة": { delivery: 600, communes: ["قالمة", "وادي الزناتي", "بوشقوف", "هيليوبوليس"] },
-    "قسنطينة": { delivery: 500, communes: ["قسنطينة", "الخروب", "علي منجلي", "عين سمارة", "زيغود يوسف"] },
-    "المدية": { delivery: 600, communes: ["المدية", "البرواقية", "قصر البخاري", "بني سليمان"] },
-    "مستغانم": { delivery: 600, communes: ["مستغانم", "حاسي مماش", "عين النويصي", "ماسرة"] },
-    "المسيلة": { delivery: 650, communes: ["المسيلة", "بوسعادة", "مڤرة", "سيدي عيسى"] },
-    "معسكر": { delivery: 650, communes: ["معسكر", "سيق", "المحمدية", "تيغنيف"] },
-    "ورقلة": { delivery: 800, communes: ["ورقلة", "تقرت", "حاسي مسعود", "الرويسات"] },
-    "وهران": { delivery: 550, communes: ["وهران", "السانية", "بئر الجير", "أرزيو", "عين الترك"] },
-    "البيض": { delivery: 850, communes: ["البيض", "بوقطب", "الأبيض سيدي الشيخ", "الكراكمة"] },
-    "إليزي": { delivery: 1300, communes: ["إليزي", "جانت", "إن أميناس", "برج الحواس"] },
-    "برج بوعريريج": { delivery: 600, communes: ["برج بوعريريج", "رأس الوادي", "مجانة", "برج الغدير"] },
-    "بومرداس": { delivery: 500, communes: ["بومرداس", "بودواو", "دلس", "برج منايل", "الثنية"] },
-    "الطارف": { delivery: 700, communes: ["الطارف", "القالة", "الذرعان", "بوحجار"] },
-    "تندوف": { delivery: 1300, communes: ["تندوف", "أم العسل"] },
-    "تيسمسيلت": { delivery: 700, communes: ["تيسمسيلت", "ثنية الحد", "برج بونعامة", "خميستي"] },
-    "الوادي": { delivery: 800, communes: ["الوادي", "المغير", "جامعة", "الدبيلة", "قمار"] },
-    "خنشلة": { delivery: 700, communes: ["خنشلة", "قايس", "بوحمامة", "بابار"] },
-    "سوق أهراس": { delivery: 800, communes: ["سوق أهراس", "سدراتة", "مداوروش", "تاورة"] },
-    "تيبازة": { delivery: 500, communes: ["تيبازة", "بواسماعيل", "القليعة", "حجوط", "شرشال"] },
-    "ميلة": { delivery: 650, communes: ["ميلة", "شلغوم العيد", "تاجنانت", "القرارم قوقة"] },
-    "عين الدفلى": { delivery: 600, communes: ["عين الدفلى", "خميس مليانة", "العطاف", "مليانة"] },
-    "النعامة": { delivery: 900, communes: ["النعامة", "المشرية", "العين الصفراء"] },
-    "عين تموشنت": { delivery: 600, communes: ["عين تموشنت", "بني صاف", "حمام بوحجر", "ولهاصة"] },
-    "غرداية": { delivery: 850, communes: ["غرداية", "متليلي", "القرارة", "بريان", "زلفانة"] },
-    "غليزان": { delivery: 600, communes: ["غليزان", "وادي ارهيو", "مازونة", "يلل"] },
-    "تيميمون": { delivery: 1200, communes: ["تيميمون", "أوقروت", "شروين"] },
-    "برج باجي مختار": { delivery: 1500, communes: ["برج باجي مختار", "تيمياوين"] },
-    "أولاد جلال": { delivery: 800, communes: ["أولاد جلال", "سيدي خالد", "الدوسن"] },
-    "بني عباس": { delivery: 1100, communes: ["بني عباس", "إقلي", "الواتة"] },
-    "عين صالح": { delivery: 1200, communes: ["عين صالح", "فقارة الزوى", "إنغر"] },
-    "عين قزام": { delivery: 1500, communes: ["عين قزام", "تين زاوتين"] },
-    "تقرت": { delivery: 850, communes: ["تقرت", "تماسين", "المقارين"] },
-    "جانت": { delivery: 1400, communes: ["جانت", "برج الحواس"] },
-    "المغير": { delivery: 900, communes: ["المغير", "جامعة", "أم الطيور"] },
-    "المنيعة": { delivery: 900, communes: ["المنيعة", "حاسي القارة", "حاسي الفحل"] }
+/**
+ * Prix-Choc / Sawa9ly - database.js
+ * ============================================================
+ * قاعدة البيانات الموحدة للموقع + بوت Sawa9ly
+ *
+ * القرار المعتمد:
+ * - 58 ولاية (01 -> 58) كما يعتمدها نظام الشحن القديم/سوقلي.
+ * - 1541 بلدية.
+ * - لا نستعمل الولايات 59 -> 69 في طلبات البوت.
+ *
+ * مصدر بيانات البلديات المفتوح:
+ * https://github.com/DZBuild-com/dzship
+ *
+ * Node.js 18+ مطلوب لأن الملف يستعمل fetch المدمج.
+ * ============================================================
+ */
+
+'use strict';
+
+// ============================================================
+// 🇩🇿 الولايات الـ58
+// ============================================================
+
+const WILAYAS_58 = [
+  ['01', 'Adrar', 'أدرار'],
+  ['02', 'Chlef', 'الشلف'],
+  ['03', 'Laghouat', 'الأغواط'],
+  ['04', 'Oum El Bouaghi', 'أم البواقي'],
+  ['05', 'Batna', 'باتنة'],
+  ['06', 'Béjaïa', 'بجاية'],
+  ['07', 'Biskra', 'بسكرة'],
+  ['08', 'Béchar', 'بشار'],
+  ['09', 'Blida', 'البليدة'],
+  ['10', 'Bouira', 'البويرة'],
+  ['11', 'Tamanrasset', 'تمنراست'],
+  ['12', 'Tébessa', 'تبسة'],
+  ['13', 'Tlemcen', 'تلمسان'],
+  ['14', 'Tiaret', 'تيارت'],
+  ['15', 'Tizi Ouzou', 'تيزي وزو'],
+  ['16', 'Alger', 'الجزائر'],
+  ['17', 'Djelfa', 'الجلفة'],
+  ['18', 'Jijel', 'جيجل'],
+  ['19', 'Sétif', 'سطيف'],
+  ['20', 'Saïda', 'سعيدة'],
+  ['21', 'Skikda', 'سكيكدة'],
+  ['22', 'Sidi Bel Abbès', 'سيدي بلعباس'],
+  ['23', 'Annaba', 'عنابة'],
+  ['24', 'Guelma', 'قالمة'],
+  ['25', 'Constantine', 'قسنطينة'],
+  ['26', 'Médéa', 'المدية'],
+  ['27', 'Mostaganem', 'مستغانم'],
+  ['28', "M'Sila", 'المسيلة'],
+  ['29', 'Mascara', 'معسكر'],
+  ['30', 'Ouargla', 'ورقلة'],
+  ['31', 'Oran', 'وهران'],
+  ['32', 'El Bayadh', 'البيض'],
+  ['33', 'Illizi', 'إليزي'],
+  ['34', 'Bordj Bou Arreridj', 'برج بوعريريج'],
+  ['35', 'Boumerdès', 'بومرداس'],
+  ['36', 'El Tarf', 'الطارف'],
+  ['37', 'Tindouf', 'تندوف'],
+  ['38', 'Tissemsilt', 'تيسمسيلت'],
+  ['39', 'El Oued', 'الوادي'],
+  ['40', 'Khenchela', 'خنشلة'],
+  ['41', 'Souk Ahras', 'سوق أهراس'],
+  ['42', 'Tipaza', 'تيبازة'],
+  ['43', 'Mila', 'ميلة'],
+  ['44', 'Aïn Defla', 'عين الدفلى'],
+  ['45', 'Naâma', 'النعامة'],
+  ['46', 'Aïn Témouchent', 'عين تموشنت'],
+  ['47', 'Ghardaïa', 'غرداية'],
+  ['48', 'Relizane', 'غليزان'],
+  ['49', 'Timimoun', 'تيميمون'],
+  ['50', 'Bordj Badji Mokhtar', 'برج باجي مختار'],
+  ['51', 'Ouled Djellal', 'أولاد جلال'],
+  ['52', 'Béni Abbès', 'بني عباس'],
+  ['53', 'In Salah', 'عين صالح'],
+  ['54', 'In Guezzam', 'عين قزام'],
+  ['55', 'Touggourt', 'تقرت'],
+  ['56', 'Djanet', 'جانت'],
+  ['57', "El M'Ghair", 'المغير'],
+  ['58', 'El Meniaa', 'المنيعة']
+].map(([code, fr, ar]) => ({
+  code,
+  id: Number(code),
+  fr,
+  ar
+}));
+
+
+// ============================================================
+// 🔎 فهارس الولايات
+// ============================================================
+
+const WILAYA_BY_CODE = Object.fromEntries(
+  WILAYAS_58.map(w => [w.code, w])
+);
+
+const WILAYA_BY_ID = Object.fromEntries(
+  WILAYAS_58.map(w => [w.id, w])
+);
+
+
+// ============================================================
+// 🏘️ مصدر البلديات
+// ============================================================
+
+const COMMUNES_SOURCE =
+  'https://raw.githubusercontent.com/DZBuild-com/dzship/main/data/communes.json';
+
+let _communesPromise = null;
+
+
+// ============================================================
+// 🧹 توحيد أسماء الولايات والبلديات
+// ============================================================
+
+function normalizeName(value) {
+  return String(value ?? '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[أإآٱ]/g, 'ا')
+    .replace(/ى/g, 'ي')
+    .replace(/ة/g, 'ه')
+    .replace(/ؤ/g, 'و')
+    .replace(/ئ/g, 'ي')
+    .replace(/ڨ/g, 'ق')
+    .replace(/گ/g, 'ك')
+    .replace(/[’'`]/g, '')
+    .replace(/[-_/.,]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase();
+}
+
+
+// ============================================================
+// 📥 تحميل البلديات
+// ============================================================
+
+async function loadCommunes() {
+
+  // إذا كانت محملة مسبقًا لا نعيد التحميل
+  if (_communesPromise) {
+    return _communesPromise;
+  }
+
+  _communesPromise = (async () => {
+
+    const response = await fetch(COMMUNES_SOURCE, {
+      headers: {
+        'User-Agent': 'Prix-Choc-Sawa9ly-Bot/1.0'
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(
+        `فشل تحميل قاعدة البلديات: HTTP ${response.status}`
+      );
+    }
+
+    const raw = await response.json();
+
+    // ========================================================
+    // نأخذ فقط البلديات التابعة للـ58 ولاية
+    // ========================================================
+
+    const communes = raw
+      .filter(c => {
+        const code = Number(c.wilayaCode);
+        return code >= 1 && code <= 58;
+      })
+      .map((c, index) => ({
+        id: index + 1,
+
+        wilayaCode: String(c.wilayaCode)
+          .padStart(2, '0'),
+
+        fr: c.name,
+        ar: c.nameAr,
+
+        normalizedFr: normalizeName(c.name),
+        normalizedAr: normalizeName(c.nameAr)
+      }));
+
+
+    // ========================================================
+    // حماية من قاعدة ناقصة
+    // ========================================================
+
+    if (communes.length !== 1541) {
+
+      throw new Error(
+        `قاعدة البلديات غير مكتملة: تم العثور على ${communes.length} بدل 1541`
+      );
+
+    }
+
+    return communes;
+
+  })().catch(error => {
+
+    // في حالة فشل التحميل نسمح بإعادة المحاولة
+    _communesPromise = null;
+
+    throw error;
+  });
+
+
+  return _communesPromise;
+}
+
+
+// ============================================================
+// 🏘️ جلب بلديات ولاية معينة
+// ============================================================
+
+async function getCommunes(wilaya) {
+
+  const communes = await loadCommunes();
+
+  const code = resolveWilayaCode(wilaya);
+
+  if (!code) {
+    return [];
+  }
+
+  return communes.filter(
+    c => c.wilayaCode === code
+  );
+}
+
+
+// ============================================================
+// 🇩🇿 تحويل الولاية إلى Code
+// ============================================================
+
+function resolveWilayaCode(value) {
+
+  const n = normalizeName(value);
+
+  // إذا أرسل رقم الولاية
+  if (/^\d+$/.test(String(value).trim())) {
+
+    const id = Number(value);
+
+    if (id >= 1 && id <= 58) {
+      return String(id).padStart(2, '0');
+    }
+
+    return null;
+  }
+
+
+  // البحث بالفرنسية أو العربية
+  const found = WILAYAS_58.find(w => {
+
+    const fr = normalizeName(w.fr);
+    const ar = normalizeName(w.ar);
+
+    return (
+      fr === n ||
+      ar === n ||
+      fr.includes(n) ||
+      n.includes(fr) ||
+      ar.includes(n) ||
+      n.includes(ar)
+    );
+
+  });
+
+
+  return found ? found.code : null;
+}
+
+
+// ============================================================
+// 🏘️ البحث عن بلدية
+// ============================================================
+
+async function findCommune(wilaya, commune) {
+
+  const list = await getCommunes(wilaya);
+
+  const target = normalizeName(commune);
+
+  if (!target) {
+    return null;
+  }
+
+
+  // ========================================================
+  // 1️⃣ تطابق كامل
+  // ========================================================
+
+  let found = list.find(c =>
+    c.normalizedFr === target ||
+    c.normalizedAr === target
+  );
+
+  if (found) {
+    return found;
+  }
+
+
+  // ========================================================
+  // 2️⃣ تطابق جزئي
+  // ========================================================
+
+  found = list.find(c =>
+    c.normalizedFr.includes(target) ||
+    target.includes(c.normalizedFr) ||
+    c.normalizedAr.includes(target) ||
+    target.includes(c.normalizedAr)
+  );
+
+
+  return found || null;
+}
+
+
+// ============================================================
+// ✅ التحقق من موقع الطلب
+// ============================================================
+
+async function validateOrderLocation(wilaya, commune) {
+
+  const wilayaCode = resolveWilayaCode(wilaya);
+
+
+  // الولاية غير موجودة
+  if (!wilayaCode) {
+
+    return {
+      valid: false,
+
+      reason: 'WILAYA_NOT_FOUND',
+
+      message:
+        `الولاية غير موجودة ضمن نظام 58 ولاية: ${wilaya}`
+    };
+
+  }
+
+
+  // البحث عن البلدية
+  const found = await findCommune(
+    wilayaCode,
+    commune
+  );
+
+
+  // البلدية غير موجودة
+  if (!found) {
+
+    return {
+      valid: false,
+
+      reason: 'COMMUNE_NOT_FOUND',
+
+      message:
+        `البلدية غير موجودة ضمن ولاية ${WILAYA_BY_CODE[wilayaCode].ar}: ${commune}`
+    };
+
+  }
+
+
+  return {
+
+    valid: true,
+
+    wilaya:
+      WILAYA_BY_CODE[wilayaCode],
+
+    commune:
+      found
+
+  };
+
+}
+
+
+// ============================================================
+// 🤖 تجهيز الموقع لبوت Sawa9ly
+// ============================================================
+
+async function resolveSawa9lyLocation(
+  wilaya,
+  commune
+) {
+
+  const result =
+    await validateOrderLocation(
+      wilaya,
+      commune
+    );
+
+
+  if (!result.valid) {
+    return result;
+  }
+
+
+  return {
+
+    valid: true,
+
+    wilayaCode:
+      result.wilaya.code,
+
+    wilayaAr:
+      result.wilaya.ar,
+
+    wilayaFr:
+      result.wilaya.fr,
+
+    communeAr:
+      result.commune.ar,
+
+    communeFr:
+      result.commune.fr,
+
+    commune:
+      result.commune
+
+  };
+
+}
+
+
+// ============================================================
+// 🩺 فحص قاعدة البيانات
+// ============================================================
+
+async function healthCheck() {
+
+  const communes =
+    await loadCommunes();
+
+
+  const counts = {};
+
+
+  for (const c of communes) {
+
+    counts[c.wilayaCode] =
+      (counts[c.wilayaCode] || 0) + 1;
+
+  }
+
+
+  return {
+
+    wilayas:
+      WILAYAS_58.length,
+
+    communes:
+      communes.length,
+
+    wilayasWithCommunes:
+      Object.keys(counts).length,
+
+    valid58Wilayas:
+      WILAYAS_58.length === 58,
+
+    valid1541Communes:
+      communes.length === 1541,
+
+    counts
+
+  };
+
+}
+
+
+// ============================================================
+// 📤 EXPORT
+// ============================================================
+
+module.exports = {
+
+  WILAYAS_58,
+
+  WILAYA_BY_CODE,
+
+  WILAYA_BY_ID,
+
+  COMMUNES_SOURCE,
+
+  normalizeName,
+
+  loadCommunes,
+
+  getCommunes,
+
+  resolveWilayaCode,
+
+  findCommune,
+
+  validateOrderLocation,
+
+  resolveSawa9lyLocation,
+
+  healthCheck
+
 };
