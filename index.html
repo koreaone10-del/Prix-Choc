@@ -1,219 +1,350 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prix Choc | المتجر الأفضل في الجزائر</title>
-    
-    <script src="database.js"></script>
-    <script src="products.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        /* 1. خلفية متحركة وفخمة (Dark Premium Theme) */
-        body {
-            margin: 0; padding: 0;
-            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
-            background: linear-gradient(-45deg, #0f172a, #020617, #1e293b, #0f2027);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            color: #f8fafc;
-            display: flex; justify-content: center; min-height: 100vh;
-            overflow-x: hidden; position: relative;
-        }
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+<title>Prix Choc | صفقات تستاهلها 🇩🇿</title>
 
-        /* 2. الجزيئات المضيئة في الخلفية */
-        .particles {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none; z-index: 0; overflow: hidden;
-        }
-        .particle {
-            position: absolute; bottom: -10vh;
-            background: rgba(16, 185, 129, 0.2);
-            box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
-            border-radius: 50%;
-            animation: floatUp linear infinite;
-        }
-        @keyframes floatUp {
-            0% { transform: translateY(0) scale(0.5); opacity: 0; }
-            50% { opacity: 0.8; }
-            100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
-        }
+<script src="database.js"></script>
+<script src="products.js"></script>
 
-        /* 3. حاوية التصميم الزجاجي */
-        .glass-container {
-            width: 100%; max-width: 500px;
-            background: rgba(255, 255, 255, 0.04);
-            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-            border-left: 1px solid rgba(255, 255, 255, 0.08);
-            border-right: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
-            display: flex; flex-direction: column; z-index: 10;
-        }
+<style>
 
-        /* 4. الرأس (Header) */
-        .header { 
-            background: rgba(0, 0, 0, 0.4); padding: 15px; text-align: center; 
-            border-bottom: 1px solid rgba(16, 185, 129, 0.3); position: sticky; top: 0; z-index: 100;
-            backdrop-filter: blur(10px);
-        }
-        .header h1 { margin: 0; font-size: 24px; color: #10b981; font-weight: 900; text-shadow: 0 2px 10px rgba(16,185,129,0.4); }
-        .badge { background: linear-gradient(135deg, #f59e0b, #d97706); color: white; padding: 5px 15px; border-radius: 20px; font-size: 13px; font-weight: bold; margin-top: 8px; display: inline-block; }
+/* =========================================================
+   PRIX-CHOC PREMIUM V2
+   LANDING PAGE + PRODUCT PAGE
+   نظام الطلب محفوظ كما هو
+========================================================= */
 
-        /* 5. قسم المنتج */
-        .content { padding: 20px; }
-        .product-card {
-            background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 15px; padding: 15px; margin-bottom: 25px;
-        }
-        .product-img { width: 100%; border-radius: 10px; margin-bottom: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
-        .product-title { font-size: 20px; font-weight: bold; line-height: 1.4; color: #fff; margin-bottom: 15px; text-align: center; }
-        
-        .features { display: flex; justify-content: space-between; margin-bottom: 15px; padding: 15px; background: rgba(255,255,255,0.03); border-radius: 10px; }
-        .feature-item { text-align: center; font-size: 12px; font-weight: bold; color: #cbd5e1; width: 30%; }
-        .feature-icon { font-size: 24px; margin-bottom: 5px; display: block; filter: drop-shadow(0 2px 5px rgba(16,185,129,0.5)); }
+* {
+    box-sizing: border-box;
+}
 
-        /* 6. نموذج الطلب والتوصيل */
-        .section-title { font-size: 18px; color: #10b981; margin-bottom: 15px; border-right: 3px solid #10b981; padding-right: 10px; }
-        .form-input {
-            width: 100%; padding: 14px; margin-bottom: 15px;
-            background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15);
-            border-radius: 8px; color: #fff; font-size: 15px; box-sizing: border-box; transition: 0.3s;
-        }
-        .form-input:focus { outline: none; border-color: #10b981; background: rgba(255,255,255,0.1); box-shadow: 0 0 10px rgba(16,185,129,0.2); }
-        .form-input option { background: #1e293b; color: #fff; }
+html {
+    scroll-behavior: smooth;
+}
 
-        /* خيارات التوصيل المزدوجة */
-        .delivery-options { display: flex; gap: 10px; margin-bottom: 15px; }
-        .delivery-card {
-            flex: 1; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px;
-            padding: 12px; text-align: center; cursor: pointer; transition: 0.3s;
-            background: rgba(0,0,0,0.3); position: relative;
-        }
-        .delivery-card input { display: none; }
-        .delivery-card.active { border-color: #10b981; background: rgba(16,185,129,0.15); box-shadow: 0 0 15px rgba(16,185,129,0.2); }
-        .delivery-title { font-weight: bold; font-size: 14px; margin-bottom: 5px; color: #fff; }
-        .delivery-price { font-size: 14px; color: #4ade80; font-weight: bold; }
-        
-        .desk-info-box {
-            background: rgba(14, 165, 233, 0.1); border: 1px solid rgba(14, 165, 233, 0.3); border-radius: 8px;
-            padding: 12px; margin-bottom: 15px; font-size: 13px; color: #7dd3fc; display: none; line-height: 1.5;
-        }
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Tahoma, Arial, sans-serif;
 
-        /* الفاتورة والزر */
-        .order-summary { background: rgba(0,0,0,0.4); padding: 15px; border-radius: 10px; border: 1px dashed rgba(255,255,255,0.2); margin-bottom: 20px; }
-        .summary-row { display: flex; justify-content: space-between; margin-bottom: 8px; color: #cbd5e1; }
-        .summary-total { display: flex; justify-content: space-between; margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 20px; font-weight: bold; color: #10b981; }
+    background:
+        radial-gradient(circle at 20% 20%, rgba(16,185,129,.08), transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(245,158,11,.06), transparent 30%),
+        linear-gradient(-45deg, #07111f, #020617, #0b1728, #07151a);
 
-        .submit-btn {
-            width: 100%; padding: 18px; background: linear-gradient(135deg, #10b981, #059669);
-            color: white; border: none; border-radius: 8px; font-size: 20px; font-weight: bold; cursor: pointer;
-            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4); transition: 0.2s; text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-        }
-        .submit-btn:active { transform: scale(0.98); }
+    background-size: 400% 400%;
+    animation: gradientBG 18s ease infinite;
 
-        /* منتجات أخرى */
-        .related-products { padding: 20px; background: rgba(0,0,0,0.2); border-top: 1px solid rgba(255,255,255,0.05); }
-        .grid-products { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .product-item { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 10px; text-align: center; text-decoration: none; color: #fff; transition: 0.3s; }
-        .product-item:hover { background: rgba(255,255,255,0.1); }
-        .product-item img { width: 100%; height: 120px; object-fit: cover; border-radius: 8px; margin-bottom: 10px; }
-        .product-item h3 { font-size: 13px; margin: 0 0 5px 0; height: 38px; overflow: hidden; color: #e2e8f0; }
-        .product-item p { color: #10b981; font-weight: bold; margin: 0; font-size: 15px; }
-  /* =========================================================
-   PRIX-CHOC — PREMIUM HERO V1
-   لا يلمس نظام الطلب
+    color: #f8fafc;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+@keyframes gradientBG {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* =========================================================
+   PARTICLES
+========================================================= */
+
+.particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    bottom: -10vh;
+
+    background: rgba(16,185,129,.16);
+
+    box-shadow:
+        0 0 20px rgba(16,185,129,.25);
+
+    border-radius: 50%;
+
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+
+    0% {
+        transform: translateY(0) scale(.5);
+        opacity: 0;
+    }
+
+    30% {
+        opacity: .55;
+    }
+
+    70% {
+        opacity: .25;
+    }
+
+    100% {
+        transform: translateY(-120vh) scale(1.4);
+        opacity: 0;
+    }
+}
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.glass-container {
+
+    width: 100%;
+    max-width: 520px;
+    min-height: 100vh;
+
+    margin: auto;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.035),
+            rgba(255,255,255,.015)
+        );
+
+    border-left: 1px solid rgba(255,255,255,.07);
+    border-right: 1px solid rgba(255,255,255,.07);
+
+    box-shadow:
+        0 0 60px rgba(0,0,0,.65);
+
+    position: relative;
+    z-index: 10;
+
+    overflow: hidden;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    padding: 13px 15px;
+
+    text-align: center;
+
+    background:
+        rgba(2,6,23,.82);
+
+    border-bottom:
+        1px solid rgba(16,185,129,.22);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.header h1 {
+
+    margin: 0;
+
+    font-size: 23px;
+    font-weight: 1000;
+
+    letter-spacing: .5px;
+
+    color: #fff;
+}
+
+.header h1 span {
+    color: #10b981;
+}
+
+.badge {
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 7px;
+
+    padding: 5px 13px;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f59e0b,
+            #d97706
+        );
+
+    color: white;
+
+    font-size: 11px;
+    font-weight: 900;
+
+    box-shadow:
+        0 5px 18px rgba(245,158,11,.18);
+}
+
+/* =========================================================
+   HERO
 ========================================================= */
 
 .px-hero {
+
     position: relative;
-    min-height: 430px;
-    margin: 0;
-    padding: 42px 22px 38px;
+
+    min-height: 500px;
+
+    padding: 42px 20px 95px;
+
     overflow: hidden;
+
     display: flex;
     flex-direction: column;
-    justify-content: center;
+
     align-items: center;
+    justify-content: center;
+
     text-align: center;
+
     background:
-        radial-gradient(circle at 50% 20%, rgba(16,185,129,0.18), transparent 38%),
-        radial-gradient(circle at 10% 80%, rgba(245,158,11,0.08), transparent 35%),
-        linear-gradient(180deg, rgba(2,6,23,0.15), rgba(2,6,23,0.85));
+
+        radial-gradient(
+            circle at 50% 5%,
+            rgba(16,185,129,.20),
+            transparent 38%
+        ),
+
+        radial-gradient(
+            circle at 10% 80%,
+            rgba(245,158,11,.08),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            180deg,
+            rgba(2,6,23,.05),
+            rgba(2,6,23,.88)
+        );
+
+    border-bottom:
+        1px solid rgba(255,255,255,.07);
 }
 
-/* ضوء ناعم متحرك */
+/* الضوء */
+
 .px-hero::before {
+
     content: "";
+
     position: absolute;
-    width: 280px;
-    height: 280px;
-    border-radius: 50%;
-    background: rgba(16,185,129,0.10);
-    filter: blur(55px);
-    top: -80px;
+
+    width: 300px;
+    height: 300px;
+
+    top: -100px;
     left: 50%;
+
     transform: translateX(-50%);
-    animation: pxGlow 6s ease-in-out infinite alternate;
+
+    border-radius: 50%;
+
+    background:
+        rgba(16,185,129,.10);
+
+    filter: blur(65px);
+
+    animation:
+        pxGlow 7s ease-in-out infinite alternate;
 }
 
 @keyframes pxGlow {
+
     from {
-        opacity: .35;
-        transform: translateX(-50%) scale(.85);
+        opacity: .25;
+        transform:
+            translateX(-50%)
+            scale(.8);
     }
+
     to {
         opacity: .8;
-        transform: translateX(-50%) scale(1.15);
+        transform:
+            translateX(-50%)
+            scale(1.2);
     }
 }
 
-/* خطوط ضوئية خلفية */
+/* =========================================================
+   HERO LIGHT LINES
+========================================================= */
+
 .px-hero-lines {
+
     position: absolute;
     inset: 0;
+
     pointer-events: none;
     overflow: hidden;
 }
 
 .px-hero-lines span {
+
     position: absolute;
+
     height: 1px;
-    width: 180px;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(16,185,129,.35),
-        transparent
-    );
-    animation: pxLineMove linear infinite;
+    width: 190px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(16,185,129,.4),
+            transparent
+        );
+
+    animation:
+        pxLineMove linear infinite;
 }
 
 .px-hero-lines span:nth-child(1) {
-    top: 25%;
-    left: -200px;
+
+    top: 22%;
+    left: -220px;
+
     animation-duration: 8s;
 }
 
 .px-hero-lines span:nth-child(2) {
-    top: 55%;
+
+    top: 48%;
     left: -300px;
+
     animation-duration: 11s;
     animation-delay: 2s;
 }
 
 .px-hero-lines span:nth-child(3) {
-    top: 78%;
+
+    top: 72%;
     left: -250px;
+
     animation-duration: 9s;
     animation-delay: 4s;
 }
 
 @keyframes pxLineMove {
+
     0% {
         transform: translateX(0);
         opacity: 0;
@@ -228,40 +359,67 @@
     }
 
     100% {
-        transform: translateX(900px);
+        transform: translateX(850px);
         opacity: 0;
     }
 }
 
-/* الشعار */
+/* =========================================================
+   BRAND
+========================================================= */
+
 .px-brand {
+
     position: relative;
-    z-index: 3;
+    z-index: 5;
+
     display: inline-flex;
+
     align-items: center;
-    gap: 10px;
+
+    gap: 9px;
+
     padding: 9px 17px;
+
     border-radius: 999px;
-    background: rgba(255,255,255,.055);
-    border: 1px solid rgba(255,255,255,.12);
+
+    background:
+        rgba(255,255,255,.055);
+
+    border:
+        1px solid rgba(255,255,255,.12);
+
     box-shadow:
+
         0 10px 35px rgba(0,0,0,.25),
-        inset 0 1px rgba(255,255,255,.08);
+
+        inset 0 1px
+        rgba(255,255,255,.08);
+
     backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    animation: pxBrandFloat 4s ease-in-out infinite;
+
+    animation:
+        pxBrandFloat 4s ease-in-out infinite;
 }
 
 .px-brand-truck {
-    font-size: 28px;
-    filter: drop-shadow(0 0 12px rgba(16,185,129,.55));
+
+    font-size: 27px;
+
+    filter:
+        drop-shadow(
+            0 0 12px
+            rgba(16,185,129,.55)
+        );
 }
 
 .px-brand-name {
-    font-size: 21px;
+
+    font-size: 20px;
+
     font-weight: 1000;
+
     letter-spacing: 1px;
-    color: #fff;
 }
 
 .px-brand-name strong {
@@ -269,7 +427,8 @@
 }
 
 @keyframes pxBrandFloat {
-    0%, 100% {
+
+    0%,100% {
         transform: translateY(0);
     }
 
@@ -278,248 +437,1255 @@
     }
 }
 
-/* العنوان الرئيسي */
+/* =========================================================
+   HERO TITLE
+========================================================= */
+
 .px-hero-title {
+
     position: relative;
-    z-index: 3;
+    z-index: 5;
+
     margin: 25px 0 10px;
-    max-width: 440px;
-    font-size: clamp(30px, 8vw, 48px);
-    line-height: 1.15;
+
+    max-width: 450px;
+
+    font-size:
+        clamp(31px, 8vw, 48px);
+
+    line-height: 1.17;
+
     font-weight: 1000;
+
     color: #fff;
+
     text-shadow:
-        0 4px 30px rgba(0,0,0,.65),
-        0 0 25px rgba(16,185,129,.15);
+        0 5px 30px rgba(0,0,0,.65);
 }
 
 .px-hero-title span {
     color: #10b981;
 }
 
-/* الوصف */
+/* =========================================================
+   SUBTITLE
+========================================================= */
+
 .px-hero-subtitle {
+
     position: relative;
-    z-index: 3;
+    z-index: 5;
+
     max-width: 390px;
+
     margin: 0 auto 20px;
+
     color: #cbd5e1;
-    font-size: 15px;
+
+    font-size: 14px;
+
     line-height: 1.8;
 }
 
-/* شارات الثقة */
+/* =========================================================
+   TRUST PILLS
+========================================================= */
+
 .px-hero-trust {
+
     position: relative;
-    z-index: 3;
+    z-index: 5;
+
     display: flex;
+
     flex-wrap: wrap;
+
     justify-content: center;
+
     gap: 7px;
+
     margin-bottom: 22px;
 }
 
 .px-trust-pill {
+
     padding: 7px 11px;
+
     border-radius: 999px;
-    background: rgba(255,255,255,.055);
-    border: 1px solid rgba(255,255,255,.09);
+
+    background:
+        rgba(255,255,255,.055);
+
+    border:
+        1px solid
+        rgba(255,255,255,.09);
+
     color: #e2e8f0;
-    font-size: 11px;
-    font-weight: 700;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
     backdrop-filter: blur(8px);
 }
 
-/* زر */
+/* =========================================================
+   HERO BUTTON
+========================================================= */
+
 .px-hero-btn {
+
     position: relative;
-    z-index: 3;
+    z-index: 5;
+
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
+
     gap: 8px;
-    min-width: 190px;
+
+    min-width: 205px;
+
     padding: 14px 24px;
+
     border-radius: 14px;
+
     text-decoration: none;
-    color: #fff;
+
+    color: white;
+
     font-size: 16px;
-    font-weight: 900;
-    background: linear-gradient(
-        135deg,
-        #10b981,
-        #059669
-    );
+
+    font-weight: 1000;
+
+    background:
+        linear-gradient(
+            135deg,
+            #10b981,
+            #059669
+        );
+
     box-shadow:
-        0 10px 30px rgba(16,185,129,.25),
-        inset 0 1px rgba(255,255,255,.2);
-    transition: transform .25s ease, box-shadow .25s ease;
+        0 12px 35px
+        rgba(16,185,129,.30),
+
+        inset 0 1px
+        rgba(255,255,255,.20);
+
+    transition:
+        transform .25s,
+        box-shadow .25s;
 }
 
 .px-hero-btn:hover {
-    transform: translateY(-3px);
+
+    transform:
+        translateY(-3px);
+
     box-shadow:
-        0 15px 35px rgba(16,185,129,.35),
-        inset 0 1px rgba(255,255,255,.2);
+        0 17px 40px
+        rgba(16,185,129,.38);
 }
 
-/* الشاحنة */
+/* =========================================================
+   🚚🚚🚚 TRUCK CONVOY
+   الحركة من اليسار ➜ اليمين
+========================================================= */
+
 .px-truck-scene {
+
     position: absolute;
-    z-index: 2;
-    bottom: 22px;
+
     left: 0;
+    bottom: 8px;
+
     width: 100%;
-    height: 65px;
+    height: 80px;
+
     pointer-events: none;
+
     overflow: hidden;
-}
 
-.px-truck {
-    position: absolute;
-    left: -100px;
-    bottom: 7px;
-    font-size: 42px;
-    filter:
-        drop-shadow(0 7px 8px rgba(0,0,0,.5))
-        drop-shadow(0 0 12px rgba(16,185,129,.18));
-    animation: pxTruckMove 13s linear infinite;
-}
-
-@keyframes pxTruckMove {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(calc(100vw + 180px));
-    }
+    z-index: 6;
 }
 
 /* الطريق */
+
 .px-road {
+
     position: absolute;
+
     left: 0;
-    bottom: 8px;
+    bottom: 10px;
+
     width: 100%;
-    height: 2px;
-    background: rgba(255,255,255,.12);
+    height: 3px;
+
+    background:
+        rgba(255,255,255,.13);
 }
 
 .px-road::after {
+
     content: "";
+
     position: absolute;
+
     top: 0;
     left: 0;
+
     width: 100%;
-    height: 2px;
-    background: repeating-linear-gradient(
-        90deg,
-        transparent 0 20px,
-        rgba(255,255,255,.28) 20px 55px
-    );
-    animation: pxRoadMove 1.2s linear infinite;
+    height: 3px;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            transparent 0 18px,
+            rgba(255,255,255,.30) 18px 52px
+        );
+
+    animation:
+        pxRoadMove 1s linear infinite;
 }
 
 @keyframes pxRoadMove {
+
     from {
-        transform: translateX(0);
+        transform:
+            translateX(0);
     }
 
     to {
-        transform: translateX(-75px);
+        transform:
+            translateX(-70px);
     }
 }
 
-/* احترام إعدادات تقليل الحركة */
-@media (prefers-reduced-motion: reduce) {
-    .px-hero *,
-    .px-hero::before {
-        animation: none !important;
+/* الشاحنات */
+
+.px-truck {
+
+    position: absolute;
+
+    left: -110px;
+
+    bottom: 17px;
+
+    font-size: 38px;
+
+    line-height: 1;
+
+    filter:
+        drop-shadow(
+            0 7px 8px
+            rgba(0,0,0,.55)
+        )
+
+        drop-shadow(
+            0 0 12px
+            rgba(16,185,129,.20)
+        );
+
+    /*
+       نقلب الشاحنة فقط لتصبح مقدمتها
+       في اتجاه الحركة ➜
+    */
+
+    transform:
+        scaleX(-1);
+
+    animation:
+        pxTruckMove 13s linear infinite;
+}
+
+/* الحركة */
+
+@keyframes pxTruckMove {
+
+    0% {
+        left: -110px;
+    }
+
+    100% {
+        left: calc(100% + 110px);
     }
 }
 
-/* الهاتف */
+/* الشاحنة الثانية */
+
+.px-truck:nth-child(3) {
+
+    font-size: 31px;
+
+    bottom: 19px;
+
+    animation-duration: 17s;
+
+    animation-delay: -7s;
+}
+
+/* الشاحنة الثالثة */
+
+.px-truck:nth-child(4) {
+
+    font-size: 44px;
+
+    bottom: 14px;
+
+    animation-duration: 21s;
+
+    animation-delay: -13s;
+}
+
+/* =========================================================
+   TRUST SECTION
+========================================================= */
+
+.px-trust-section {
+
+    padding: 18px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.06);
+}
+
+.px-trust-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 8px;
+}
+
+.px-trust-box {
+
+    padding: 14px 7px;
+
+    text-align: center;
+
+    border-radius: 13px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    border:
+        1px solid rgba(255,255,255,.07);
+}
+
+.px-trust-icon {
+
+    display: block;
+
+    font-size: 25px;
+
+    margin-bottom: 7px;
+}
+
+.px-trust-box strong {
+
+    display: block;
+
+    font-size: 11px;
+
+    color: #fff;
+}
+
+.px-trust-box small {
+
+    display: block;
+
+    margin-top: 4px;
+
+    color: #94a3b8;
+
+    font-size: 9px;
+}
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.content {
+
+    padding: 18px;
+}
+
+/* =========================================================
+   PRODUCT CARD
+========================================================= */
+
+.product-card {
+
+    position: relative;
+
+    padding: 12px;
+
+    margin-bottom: 25px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.075),
+            rgba(0,0,0,.30)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.35);
+}
+
+.product-img {
+
+    display: block;
+
+    width: 100%;
+
+    max-height: 430px;
+
+    object-fit: cover;
+
+    border-radius: 13px;
+
+    margin-bottom: 15px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,.50);
+}
+
+.product-title {
+
+    font-size: 19px;
+
+    font-weight: 1000;
+
+    line-height: 1.5;
+
+    color: #fff;
+
+    margin-bottom: 14px;
+
+    text-align: center;
+}
+
+/* =========================================================
+   PRICE AREA
+========================================================= */
+
+.px-main-price {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin:
+        5px 0 15px;
+
+    flex-wrap: wrap;
+}
+
+.px-old-price {
+
+    color: #94a3b8;
+
+    font-size: 14px;
+
+    text-decoration: line-through;
+}
+
+.px-current-price {
+
+    color: #34d399;
+
+    font-size: 25px;
+
+    font-weight: 1000;
+}
+
+.px-deal-badge {
+
+    padding: 5px 9px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(239,68,68,.13);
+
+    border:
+        1px solid
+        rgba(239,68,68,.25);
+
+    color: #fca5a5;
+
+    font-size: 10px;
+
+    font-weight: 900;
+}
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.features {
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    gap: 7px;
+
+    margin-bottom: 5px;
+
+    padding: 12px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    border-radius: 12px;
+}
+
+.feature-item {
+
+    width: 33.33%;
+
+    text-align: center;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    color: #cbd5e1;
+}
+
+.feature-icon {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 23px;
+
+    filter:
+        drop-shadow(
+            0 2px 5px
+            rgba(16,185,129,.35)
+        );
+}
+
+/* =========================================================
+   SECTION TITLES
+========================================================= */
+
+.section-title {
+
+    font-size: 17px;
+
+    color: #10b981;
+
+    margin:
+        25px 0 14px;
+
+    border-right:
+        3px solid #10b981;
+
+    padding-right: 10px;
+
+    font-weight: 1000;
+}
+
+/* =========================================================
+   CATEGORY CATALOG
+========================================================= */
+
+.px-catalog {
+
+    padding:
+        5px 18px 20px;
+}
+
+.px-catalog-head {
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items: center;
+
+    margin-bottom: 12px;
+}
+
+.px-catalog-head h2 {
+
+    margin: 0;
+
+    font-size: 19px;
+
+    color: white;
+}
+
+.px-catalog-head span {
+
+    color: #64748b;
+
+    font-size: 11px;
+}
+
+.px-category-scroll {
+
+    display: flex;
+
+    gap: 8px;
+
+    overflow-x: auto;
+
+    padding-bottom: 8px;
+
+    scrollbar-width: none;
+}
+
+.px-category-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.px-category {
+
+    flex:
+        0 0 auto;
+
+    border: 1px solid
+        rgba(255,255,255,.08);
+
+    background:
+        rgba(255,255,255,.045);
+
+    color: #dbeafe;
+
+    border-radius: 999px;
+
+    padding:
+        9px 13px;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.px-category.active {
+
+    background:
+        linear-gradient(
+            135deg,
+            #10b981,
+            #059669
+        );
+
+    color: white;
+
+    border-color:
+        rgba(16,185,129,.6);
+
+    box-shadow:
+        0 5px 20px
+        rgba(16,185,129,.20);
+}
+
+/* =========================================================
+   ALL PRODUCTS
+========================================================= */
+
+.related-products {
+
+    padding:
+        20px 18px 30px;
+
+    background:
+        rgba(0,0,0,.17);
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.05);
+}
+
+.grid-products {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 12px;
+}
+
+.product-item {
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.065),
+            rgba(0,0,0,.25)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.09);
+
+    border-radius: 14px;
+
+    padding: 9px;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    color: #fff;
+
+    transition:
+        transform .25s,
+        border-color .25s,
+        background .25s;
+
+    overflow: hidden;
+}
+
+.product-item:hover {
+
+    transform:
+        translateY(-3px);
+
+    border-color:
+        rgba(16,185,129,.35);
+
+    background:
+        rgba(255,255,255,.08);
+}
+
+.product-item img {
+
+    display: block;
+
+    width: 100%;
+
+    height: 145px;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+
+    margin-bottom: 9px;
+}
+
+.product-item h3 {
+
+    font-size: 12px;
+
+    line-height: 1.45;
+
+    margin:
+        0 0 7px;
+
+    height: 36px;
+
+    overflow: hidden;
+
+    color: #e2e8f0;
+}
+
+.product-item p {
+
+    color: #34d399;
+
+    font-weight: 1000;
+
+    margin: 0;
+
+    font-size: 15px;
+}
+
+.px-item-old {
+
+    display: block;
+
+    color: #64748b;
+
+    text-decoration:
+        line-through;
+
+    font-size: 10px;
+
+    margin-bottom: 2px;
+}
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.form-input {
+
+    width: 100%;
+
+    padding: 14px;
+
+    margin-bottom: 13px;
+
+    background:
+        rgba(255,255,255,.055);
+
+    border:
+        1px solid
+        rgba(255,255,255,.13);
+
+    border-radius: 9px;
+
+    color: #fff;
+
+    font-size: 14px;
+
+    transition: .25s;
+}
+
+.form-input:focus {
+
+    outline: none;
+
+    border-color:
+        #10b981;
+
+    background:
+        rgba(255,255,255,.08);
+
+    box-shadow:
+        0 0 15px
+        rgba(16,185,129,.15);
+}
+
+.form-input option {
+
+    background:
+        #172033;
+
+    color: white;
+}
+
+/* =========================================================
+   DELIVERY
+========================================================= */
+
+.delivery-options {
+
+    display: flex;
+
+    gap: 9px;
+
+    margin-bottom: 14px;
+}
+
+.delivery-card {
+
+    flex: 1;
+
+    border:
+        1px solid
+        rgba(255,255,255,.16);
+
+    border-radius: 10px;
+
+    padding: 12px 7px;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    background:
+        rgba(0,0,0,.25);
+
+    transition: .25s;
+}
+
+.delivery-card input {
+    display: none;
+}
+
+.delivery-card.active {
+
+    border-color:
+        #10b981;
+
+    background:
+        rgba(16,185,129,.13);
+
+    box-shadow:
+        0 0 18px
+        rgba(16,185,129,.13);
+}
+
+.delivery-title {
+
+    font-weight: 900;
+
+    font-size: 12px;
+
+    margin-bottom: 5px;
+}
+
+.delivery-price {
+
+    font-size: 13px;
+
+    color: #4ade80;
+
+    font-weight: 900;
+}
+
+.desk-info-box {
+
+    display: none;
+
+    background:
+        rgba(14,165,233,.09);
+
+    border:
+        1px solid
+        rgba(14,165,233,.28);
+
+    border-radius: 9px;
+
+    padding: 11px;
+
+    margin-bottom: 14px;
+
+    font-size: 12px;
+
+    color: #7dd3fc;
+
+    line-height: 1.6;
+}
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+.order-summary {
+
+    background:
+        rgba(0,0,0,.32);
+
+    padding: 14px;
+
+    border-radius: 11px;
+
+    border:
+        1px dashed
+        rgba(255,255,255,.15);
+
+    margin-bottom: 17px;
+}
+
+.summary-row {
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    margin-bottom: 8px;
+
+    color: #cbd5e1;
+
+    font-size: 13px;
+}
+
+.summary-total {
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    margin-top: 12px;
+
+    padding-top: 12px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.10);
+
+    font-size: 19px;
+
+    font-weight: 1000;
+
+    color: #10b981;
+}
+
+/* =========================================================
+   SUBMIT
+========================================================= */
+
+.submit-btn {
+
+    width: 100%;
+
+    padding: 17px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #10b981,
+            #059669
+        );
+
+    color: white;
+
+    border: none;
+
+    border-radius: 10px;
+
+    font-size: 18px;
+
+    font-weight: 1000;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 28px
+        rgba(16,185,129,.30);
+
+    transition: .2s;
+}
+
+.submit-btn:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 12px 34px
+        rgba(16,185,129,.38);
+}
+
+.submit-btn:active {
+
+    transform:
+        scale(.98);
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.px-footer {
+
+    padding:
+        25px 18px 35px;
+
+    text-align: center;
+
+    background:
+        rgba(0,0,0,.25);
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.06);
+}
+
+.px-footer-logo {
+
+    font-size: 19px;
+
+    font-weight: 1000;
+
+    margin-bottom: 7px;
+}
+
+.px-footer-logo span {
+    color: #10b981;
+}
+
+.px-footer p {
+
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 10px;
+
+    line-height: 1.7;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
 @media (max-width: 480px) {
 
+    .glass-container {
+        max-width: 520px;
+    }
+
     .px-hero {
-        min-height: 410px;
-        padding: 35px 18px 32px;
+
+        min-height: 485px;
+
+        padding:
+            35px 17px 90px;
     }
 
     .px-hero-title {
-        font-size: 32px;
+
+        font-size: 31px;
     }
 
     .px-hero-subtitle {
-        font-size: 14px;
-    }
 
-    .px-trust-pill {
-        font-size: 10px;
-        padding: 6px 9px;
+        font-size: 13px;
     }
 
     .px-truck {
-        font-size: 38px;
+
+        font-size: 36px;
+    }
+
+    .grid-products {
+
+        gap: 10px;
+    }
+
+    .product-item img {
+
+        height: 135px;
     }
 }
-    </style>
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation: none !important;
+
+        scroll-behavior: auto !important;
+    }
+}
+
+</style>
 </head>
+
 <body>
 
-<!-- تأثير الجزيئات الطافية -->
-<div class="particles" id="particles"></div>
+<!-- =====================================================
+     PARTICLES
+===================================================== -->
+
+<div
+    class="particles"
+    id="particles">
+</div>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
 
 <div class="glass-container">
-    <div class="header">
 
-    <h1>PRIX CHOC 🇩🇿</h1>
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<div class="header">
+
+    <h1>
+        PRIX <span>CHOC</span> 🇩🇿
+    </h1>
 
     <div class="badge">
         🚚 الدفع بعد استلام وفحص المنتج
     </div>
 
 </div>
+
+
 <!-- =====================================================
-     PRIX-CHOC PREMIUM HERO
+     HERO
 ===================================================== -->
 
 <section class="px-hero">
 
-    <!-- خطوط الضوء -->
     <div class="px-hero-lines">
+
         <span></span>
         <span></span>
         <span></span>
+
     </div>
 
-    <!-- الشعار -->
+
     <div class="px-brand">
 
-        <span class="px-brand-truck">🚚</span>
+        <span class="px-brand-truck">
+            🚚
+        </span>
 
         <span class="px-brand-name">
             PRIX <strong>CHOC</strong>
         </span>
 
-        <span>🇩🇿</span>
+        <span>
+            🇩🇿
+        </span>
 
     </div>
 
-    <!-- العنوان -->
+
     <h2 class="px-hero-title">
-        صفقات <span>تستاهلها</span><br>
+
+        صفقات
+        <span>تستاهلها</span>
+
+        <br>
+
         توصلك حتى لباب دارك
+
     </h2>
 
-    <!-- الوصف -->
+
     <p class="px-hero-subtitle">
-        اكتشف منتجات مختارة، عروض قوية وأسعار منافسة
-        مع الدفع عند الاستلام في الجزائر 🇩🇿
+
+        منتجات مختارة، عروض قوية وأسعار منافسة
+        مع الدفع عند الاستلام والتوصيل عبر الجزائر 🇩🇿
+
     </p>
 
-    <!-- الثقة -->
+
     <div class="px-hero-trust">
 
         <div class="px-trust-pill">
@@ -527,31 +1693,50 @@
         </div>
 
         <div class="px-trust-pill">
+            📦 فحص المنتج
+        </div>
+
+        <div class="px-trust-pill">
             🚚 توصيل سريع
         </div>
 
         <div class="px-trust-pill">
-            🇩🇿 58 ولاية
-        </div>
-
-        <div class="px-trust-pill">
-            📦 فحص عند الاستلام
+            🇩🇿 تغطية 58 ولاية
         </div>
 
     </div>
 
-    <!-- زر -->
+
     <a
         href="#main-content"
-        class="px-hero-btn"
-    >
+        class="px-hero-btn">
+
         🔥 اكتشف العرض
+
     </a>
 
-    <!-- مشهد الشاحنة -->
+
+    <!-- =================================================
+         TRUCK CONVOY
+    ================================================== -->
+
     <div class="px-truck-scene">
 
         <div class="px-road"></div>
+
+        <!-- 🚚 الشاحنة الأولى -->
+
+        <div class="px-truck">
+            🚚
+        </div>
+
+        <!-- 🚚 الشاحنة الثانية -->
+
+        <div class="px-truck">
+            🚚
+        </div>
+
+        <!-- 🚚 الشاحنة الثالثة -->
 
         <div class="px-truck">
             🚚
@@ -560,244 +1745,1593 @@
     </div>
 
 </section>
-    <div class="content" id="main-content">
-        <div class="product-card">
-            <img id="p-image" src="" alt="Product" class="product-img">
-            <div id="p-title" class="product-title">جاري التحميل...</div>
-            
-            <div class="features">
-                <div class="feature-item"><span class="feature-icon">🛡️</span>ضمان الجودة</div>
-                <div class="feature-item"><span class="feature-icon">📦</span>توصيل سريع</div>
-                <div class="feature-item"><span class="feature-icon">🤝</span>دفع عند الاستلام</div>
-            </div>
+
+
+<!-- =====================================================
+     TRUST
+===================================================== -->
+
+<section class="px-trust-section">
+
+    <div class="px-trust-grid">
+
+        <div class="px-trust-box">
+
+            <span class="px-trust-icon">
+                🛡️
+            </span>
+
+            <strong>
+                تسوق بأمان
+            </strong>
+
+            <small>
+                بدون دفع مسبق
+            </small>
+
         </div>
 
-        <h2 class="section-title">أكمل بياناتك لتأكيد الطلب</h2>
-        <form id="orderForm">
-            <input type="text" id="fullName" class="form-input" placeholder="الاسم الكامل (الاسم واللقب)" required>
-            <input type="tel" id="phone" class="form-input" placeholder="رقم الهاتف (مثال: 06... أو 05...)" required>
-            
-            <select id="wilaya" class="form-input" required>
-                <option value="">-- اختر ولايتك --</option>
-            </select>
-            
-            <select id="commune" class="form-input" required>
-                <option value="">-- اختر البلدية / المدينة --</option>
-            </select>
 
-            <div class="delivery-options">
-                <label class="delivery-card active" id="card-home">
-                    <input type="radio" name="deliveryType" value="home" checked>
-                    <div class="delivery-title">توصيل للمنزل 🏠</div>
-                    <div class="delivery-price" id="price-home">-- د.ج</div>
-                </label>
-                
-                <label class="delivery-card" id="card-desk">
-                    <input type="radio" name="deliveryType" value="desk">
-                    <div class="delivery-title">مكتب التوصيل 🏢</div>
-                    <div class="delivery-price" id="price-desk">-- د.ج</div>
-                </label>
-            </div>
+        <div class="px-trust-box">
 
-            <div id="deskInfo" class="desk-info-box"></div>
+            <span class="px-trust-icon">
+                📦
+            </span>
 
-            <input type="text" id="address" class="form-input" placeholder="العنوان التفصيلي (الحي، الشارع...)" required>
+            <strong>
+                افحص طلبك
+            </strong>
 
-            <div class="order-summary">
-                <div class="summary-row"><span>سعر المنتج:</span> <span id="sum-product">0 د.ج</span></div>
-                <div class="summary-row"><span>سعر التوصيل:</span> <span id="sum-delivery" style="color:#f59e0b;">يحدد حسب الولاية</span></div>
-                <div class="summary-total"><span>المبلغ الإجمالي:</span> <span id="sum-total">0 د.ج</span></div>
-            </div>
+            <small>
+                قبل الدفع
+            </small>
 
-            <button type="submit" class="submit-btn" id="submitBtn">تأكيد الطلب الآن 🛍️</button>
-        </form>
+        </div>
+
+
+        <div class="px-trust-box">
+
+            <span class="px-trust-icon">
+                🇩🇿
+            </span>
+
+            <strong>
+                داخل الجزائر
+            </strong>
+
+            <small>
+                توصيل للولايات
+            </small>
+
+        </div>
+
     </div>
 
-    <div class="related-products">
-        <h2 class="section-title">منتجات مميزة قد تعجبك</h2>
-        <div class="grid-products" id="relatedProductsGrid"></div>
+</section>
+
+
+<!-- =====================================================
+     PRODUCT + ORDER
+===================================================== -->
+
+<div
+    class="content"
+    id="main-content">
+
+
+    <!-- PRODUCT -->
+
+    <div class="product-card">
+
+        <img
+            id="p-image"
+            src=""
+            alt="Product"
+            class="product-img">
+
+
+        <div
+            id="p-title"
+            class="product-title">
+
+            جاري التحميل...
+
+        </div>
+
+
+        <!-- PRICE -->
+
+        <div
+            class="px-main-price"
+            id="mainPriceArea">
+
+        </div>
+
+
+        <!-- FEATURES -->
+
+        <div class="features">
+
+            <div class="feature-item">
+
+                <span class="feature-icon">
+                    🛡️
+                </span>
+
+                ضمان الجودة
+
+            </div>
+
+
+            <div class="feature-item">
+
+                <span class="feature-icon">
+                    📦
+                </span>
+
+                توصيل سريع
+
+            </div>
+
+
+            <div class="feature-item">
+
+                <span class="feature-icon">
+                    🤝
+                </span>
+
+                الدفع عند الاستلام
+
+            </div>
+
+        </div>
+
     </div>
+
+
+    <!-- ORDER -->
+
+    <h2 class="section-title">
+
+        أكمل بياناتك لتأكيد الطلب
+
+    </h2>
+
+
+    <form id="orderForm">
+
+
+        <input
+            type="text"
+            id="fullName"
+            class="form-input"
+            placeholder="الاسم الكامل (الاسم واللقب)"
+            required>
+
+
+        <input
+            type="tel"
+            id="phone"
+            class="form-input"
+            placeholder="رقم الهاتف (مثال: 06... أو 05...)"
+            required>
+
+
+        <select
+            id="wilaya"
+            class="form-input"
+            required>
+
+            <option value="">
+                -- اختر ولايتك --
+            </option>
+
+        </select>
+
+
+        <select
+            id="commune"
+            class="form-input"
+            required>
+
+            <option value="">
+                -- اختر البلدية / المدينة --
+            </option>
+
+        </select>
+
+
+        <!-- DELIVERY -->
+
+        <div class="delivery-options">
+
+
+            <label
+                class="delivery-card active"
+                id="card-home">
+
+                <input
+                    type="radio"
+                    name="deliveryType"
+                    value="home"
+                    checked>
+
+                <div class="delivery-title">
+                    توصيل للمنزل 🏠
+                </div>
+
+                <div
+                    class="delivery-price"
+                    id="price-home">
+
+                    -- د.ج
+
+                </div>
+
+            </label>
+
+
+            <label
+                class="delivery-card"
+                id="card-desk">
+
+                <input
+                    type="radio"
+                    name="deliveryType"
+                    value="desk">
+
+                <div class="delivery-title">
+                    مكتب التوصيل 🏢
+                </div>
+
+                <div
+                    class="delivery-price"
+                    id="price-desk">
+
+                    -- د.ج
+
+                </div>
+
+            </label>
+
+
+        </div>
+
+
+        <div
+            id="deskInfo"
+            class="desk-info-box">
+        </div>
+
+
+        <input
+            type="text"
+            id="address"
+            class="form-input"
+            placeholder="العنوان التفصيلي (الحي، الشارع...)"
+            required>
+
+
+        <!-- SUMMARY -->
+
+        <div class="order-summary">
+
+
+            <div class="summary-row">
+
+                <span>
+                    سعر المنتج:
+                </span>
+
+                <span id="sum-product">
+                    0 د.ج
+                </span>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    سعر التوصيل:
+                </span>
+
+                <span
+                    id="sum-delivery"
+                    style="color:#f59e0b;">
+
+                    يحدد حسب الولاية
+
+                </span>
+
+            </div>
+
+
+            <div class="summary-total">
+
+                <span>
+                    المبلغ الإجمالي:
+                </span>
+
+                <span id="sum-total">
+                    0 د.ج
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+        <button
+            type="submit"
+            class="submit-btn"
+            id="submitBtn">
+
+            تأكيد الطلب الآن 🛍️
+
+        </button>
+
+
+    </form>
+
 </div>
 
+
+<!-- =====================================================
+     CATALOG
+===================================================== -->
+
+<section class="px-catalog">
+
+    <div class="px-catalog-head">
+
+        <h2>
+            🛍️ تصفح الكتالوج
+        </h2>
+
+        <span id="productCount">
+            منتجات
+        </span>
+
+    </div>
+
+
+    <div
+        class="px-category-scroll"
+        id="categoryButtons">
+
+        <button
+            class="px-category active"
+            data-category="all">
+
+            🔥 الكل
+
+        </button>
+
+        <button
+            class="px-category"
+            data-category="electronics">
+
+            📱 إلكترونيات
+
+        </button>
+
+        <button
+            class="px-category"
+            data-category="kitchen">
+
+            🍳 المطبخ
+
+        </button>
+
+        <button
+            class="px-category"
+            data-category="car">
+
+            🚗 إكسسوارات السيارات
+
+        </button>
+
+        <button
+            class="px-category"
+            data-category="watches">
+
+            ⌚ ساعات
+
+        </button>
+
+        <button
+            class="px-category"
+            data-category="home">
+
+            🏠 المنزل
+
+        </button>
+
+        <button
+            class="px-category"
+            data-category="beauty">
+
+            💄 الجمال
+
+        </button>
+
+        <button
+            class="px-category"
+            data-category="other">
+
+            🎁 متنوع
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PRODUCTS
+===================================================== -->
+
+<div class="related-products">
+
+    <h2 class="section-title">
+        🔥 منتجات قد تعجبك
+    </h2>
+
+    <div
+        class="grid-products"
+        id="relatedProductsGrid">
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="px-footer">
+
+    <div class="px-footer-logo">
+
+        PRIX <span>CHOC</span> 🇩🇿
+
+    </div>
+
+    <p>
+
+        صفقات مختارة بعناية للزبون الجزائري
+        <br>
+        الدفع عند الاستلام • الثقة • الأمان
+
+    </p>
+
+</footer>
+
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script>
-    // 1. توليد الجزيئات المضيئة في الخلفية للفخامة
-    const particlesContainer = document.getElementById('particles');
-    for(let i = 0; i < 15; i++) {
-        let span = document.createElement('span');
-        span.className = 'particle';
-        let size = Math.random() * 15 + 5;
-        span.style.width = size + 'px';
-        span.style.height = size + 'px';
-        span.style.left = Math.random() * 100 + 'vw';
-        span.style.animationDuration = (Math.random() * 10 + 10) + 's';
-        span.style.animationDelay = Math.random() * 5 + 's';
-        particlesContainer.appendChild(span);
+
+/* =========================================================
+   PARTICLES
+========================================================= */
+
+const particlesContainer =
+    document.getElementById("particles");
+
+for (let i = 0; i < 18; i++) {
+
+    const span =
+        document.createElement("span");
+
+    span.className = "particle";
+
+    const size =
+        Math.random() * 15 + 5;
+
+    span.style.width =
+        size + "px";
+
+    span.style.height =
+        size + "px";
+
+    span.style.left =
+        Math.random() * 100 + "vw";
+
+    span.style.animationDuration =
+        (Math.random() * 10 + 10) + "s";
+
+    span.style.animationDelay =
+        Math.random() * 8 + "s";
+
+    particlesContainer.appendChild(span);
+}
+
+
+/* =========================================================
+   DOM READY
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+
+    /* =====================================================
+       URL PRODUCT
+    ===================================================== */
+
+    const urlParams =
+        new URLSearchParams(
+            window.location.search
+        );
+
+    let productId =
+        urlParams.get("p") || "1";
+
+
+    const product =
+        typeof storeData !== "undefined"
+            ? storeData[productId]
+            : null;
+
+
+    /* =====================================================
+       PRODUCT CHECK
+    ===================================================== */
+
+    if (!product || !product.price) {
+
+        document.getElementById(
+            "main-content"
+        ).innerHTML = `
+
+            <div
+                style="
+                    text-align:center;
+                    padding:60px 15px;
+                ">
+
+                <div style="font-size:55px;">
+                    😔
+                </div>
+
+                <h3
+                    style="
+                        color:#ef4444;
+                        margin-top:15px;
+                    ">
+
+                    عذراً، المنتج غير متوفر.
+
+                </h3>
+
+                <p
+                    style="
+                        color:#94a3b8;
+                        font-size:13px;
+                    ">
+
+                    تحقق من رابط المنتج وحاول مرة أخرى.
+
+                </p>
+
+            </div>
+
+        `;
+
+        return;
     }
 
-    document.addEventListener("DOMContentLoaded", () => {
-        const urlParams = new URLSearchParams(window.location.search);
-        let productId = urlParams.get('p') || "1";
-        const product = typeof storeData !== 'undefined' ? storeData[productId] : null;
 
-        if (!product || !product.price) {
-            document.getElementById('main-content').innerHTML = `<h3 style="text-align:center; padding: 50px; color:#ef4444;">عذراً، المنتج غير متوفر.</h3>`;
+    /* =====================================================
+       DISPLAY PRODUCT
+    ===================================================== */
+
+    document.getElementById(
+        "p-image"
+    ).src = product.image;
+
+
+    document.getElementById(
+        "p-title"
+    ).innerText = product.name;
+
+
+    document.getElementById(
+        "sum-product"
+    ).innerText =
+        product.price + " د.ج";
+
+
+    document.getElementById(
+        "sum-total"
+    ).innerText =
+        product.price + " د.ج";
+
+
+    /* =====================================================
+       DISPLAY PRICE
+       
+       إذا كان products.js يحتوي على oldPrice
+       نستعمله.
+
+       إذا لم يكن موجوداً، نعرض سعرًا مرجعياً
+       محسوباً بشكل محافظ، وليس تغييراً لسعر المنتج.
+    ===================================================== */
+
+    function getReferencePrice(price) {
+
+        const numeric =
+            parseInt(price) || 0;
+
+        if (numeric <= 0) {
+            return numeric;
+        }
+
+        /*
+          السعر المرجعي للعرض البصري فقط.
+          لا يتم إرساله إلى البوت.
+        */
+
+        let percentage = 0.20;
+
+        if (numeric >= 15000) {
+            percentage = 0.15;
+        }
+
+        else if (numeric >= 10000) {
+            percentage = 0.18;
+        }
+
+        else if (numeric >= 5000) {
+            percentage = 0.20;
+        }
+
+        else {
+            percentage = 0.25;
+        }
+
+        return Math.ceil(
+            (numeric * (1 + percentage)) / 50
+        ) * 50;
+    }
+
+
+    const currentPrice =
+        parseInt(product.price) || 0;
+
+
+    const referencePrice =
+        product.oldPrice
+            ? parseInt(product.oldPrice)
+            : getReferencePrice(currentPrice);
+
+
+    let discount = 0;
+
+    if (
+        referencePrice > currentPrice &&
+        referencePrice > 0
+    ) {
+
+        discount =
+            Math.round(
+                ((referencePrice - currentPrice) /
+                referencePrice) * 100
+            );
+
+    }
+
+
+    document.getElementById(
+        "mainPriceArea"
+    ).innerHTML = `
+
+        ${
+            referencePrice > currentPrice
+            ? `
+                <span class="px-old-price">
+                    ${referencePrice} د.ج
+                </span>
+              `
+            : ""
+        }
+
+        <span class="px-current-price">
+            ${currentPrice} د.ج
+        </span>
+
+        ${
+            discount > 0
+            ? `
+                <span class="px-deal-badge">
+                    🔥 خصم ${discount}%
+                </span>
+              `
+            : ""
+        }
+
+    `;
+
+
+    /* =====================================================
+       WILAYAS
+       لا تغيير في النظام
+    ===================================================== */
+
+    const wilayaSelect =
+        document.getElementById(
+            "wilaya"
+        );
+
+    const communeSelect =
+        document.getElementById(
+            "commune"
+        );
+
+
+    if (
+        typeof wilayasData !==
+        "undefined"
+    ) {
+
+        for (
+            const w in wilayasData
+        ) {
+
+            wilayaSelect.innerHTML += `
+
+                <option value="${w}">
+                    ${w}
+                </option>
+
+            `;
+
+        }
+
+    }
+
+
+    /* =====================================================
+       DELIVERY VARIABLES
+    ===================================================== */
+
+    let currentDeliveryPrice = 0;
+
+    let homePriceVal = 0;
+
+    let deskPriceVal = 0;
+
+    let isDeskAvailable = false;
+
+
+    /* =====================================================
+       TOTALS
+    ===================================================== */
+
+    function updateTotals() {
+
+        document.getElementById(
+            "sum-delivery"
+        ).innerText =
+            currentDeliveryPrice +
+            " د.ج";
+
+
+        document.getElementById(
+            "sum-total"
+        ).innerText =
+
+            (
+                parseInt(product.price) +
+                parseInt(currentDeliveryPrice)
+            )
+
+            + " د.ج";
+    }
+
+
+    /* =====================================================
+       DELIVERY CHANGE
+    ===================================================== */
+
+    function handleDeliveryChange() {
+
+        const selectedW =
+            wilayaSelect.value;
+
+
+        const selectedRadio =
+            document.querySelector(
+                'input[name="deliveryType"]:checked'
+            );
+
+
+        if (!selectedRadio) {
             return;
         }
 
-        // تعبئة المنتج
-        document.getElementById('p-image').src = product.image;
-        document.getElementById('p-title').innerText = product.name;
-        document.getElementById('sum-product').innerText = product.price + " د.ج";
-        document.getElementById('sum-total').innerText = product.price + " د.ج";
 
-        // تعبئة الولايات
-        const wilayaSelect = document.getElementById('wilaya');
-        const communeSelect = document.getElementById('commune');
-        if (typeof wilayasData !== 'undefined') {
-            for (const w in wilayasData) { wilayaSelect.innerHTML += `<option value="${w}">${w}</option>`; }
+        const deliveryType =
+            selectedRadio.value;
+
+
+        document
+            .getElementById("card-home")
+            .classList
+            .remove("active");
+
+
+        document
+            .getElementById("card-desk")
+            .classList
+            .remove("active");
+
+
+        document
+            .getElementById(
+                `card-${deliveryType}`
+            )
+            .classList
+            .add("active");
+
+
+        if (
+            selectedW &&
+            wilayasData[selectedW]
+        ) {
+
+            const wData =
+                wilayasData[selectedW];
+
+
+            const deskInfoBox =
+                document.getElementById(
+                    "deskInfo"
+                );
+
+
+            if (
+                deliveryType === "desk"
+            ) {
+
+
+                if (!isDeskAvailable) {
+
+                    alert(
+                        "عذراً، التوصيل للمكتب غير متوفر حالياً في هذه الولاية."
+                    );
+
+
+                    document
+                        .querySelector(
+                            'input[value="home"]'
+                        )
+                        .click();
+
+
+                    return;
+                }
+
+
+                currentDeliveryPrice =
+                    deskPriceVal;
+
+
+                deskInfoBox.style.display =
+                    "block";
+
+
+                const deskAddress =
+                    wData.deskAddress ||
+                    "سيتم توجيهك لأقرب مكتب توصيل في ولايتك عند تأكيد الطلب هاتفياً.";
+
+
+                deskInfoBox.innerHTML = `
+
+                    <b>
+                        📍 معلومات المكتب:
+                    </b>
+
+                    <br>
+
+                    ${deskAddress}
+
+                `;
+
+            }
+
+            else {
+
+                currentDeliveryPrice =
+                    homePriceVal;
+
+
+                deskInfoBox.style.display =
+                    "none";
+
+            }
+
+
+            updateTotals();
+
         }
 
-        let currentDeliveryPrice = 0;
-        let homePriceVal = 0;
-        let deskPriceVal = 0;
-        let isDeskAvailable = false;
+    }
 
-        function updateTotals() {
-            document.getElementById('sum-delivery').innerText = currentDeliveryPrice + " د.ج";
-            document.getElementById('sum-total').innerText = (parseInt(product.price) + parseInt(currentDeliveryPrice)) + " د.ج";
-        }
 
-        function handleDeliveryChange() {
-            const selectedW = wilayaSelect.value;
-            const deliveryType = document.querySelector('input[name="deliveryType"]:checked').value;
-            
-            document.getElementById('card-home').classList.remove('active');
-            document.getElementById('card-desk').classList.remove('active');
-            document.getElementById(`card-${deliveryType}`).classList.add('active');
+    /* =====================================================
+       DELIVERY RADIO LISTENERS
+    ===================================================== */
 
-            if (selectedW && wilayasData[selectedW]) {
-                const wData = wilayasData[selectedW];
-                const deskInfoBox = document.getElementById('deskInfo');
-                
-                if (deliveryType === 'desk') {
-                    if (!isDeskAvailable) {
-                        alert('عذراً، التوصيل للمكتب غير متوفر حالياً في هذه الولاية.');
-                        document.querySelector('input[value="home"]').click();
-                        return;
+    document
+        .querySelectorAll(
+            'input[name="deliveryType"]'
+        )
+        .forEach(
+            radio => {
+
+                radio.addEventListener(
+                    "change",
+                    handleDeliveryChange
+                );
+
+            }
+        );
+
+
+    /* =====================================================
+       WILAYA CHANGE
+    ===================================================== */
+
+    wilayaSelect.addEventListener(
+        "change",
+        function() {
+
+
+        const selectedW =
+            this.value;
+
+
+        communeSelect.innerHTML =
+            '<option value="">-- اختر البلدية --</option>';
+
+
+        document.getElementById(
+            "deskInfo"
+        ).style.display =
+            "none";
+
+
+        if (
+            selectedW &&
+            wilayasData[selectedW]
+        ) {
+
+
+            const wData =
+                wilayasData[selectedW];
+
+
+            /* HOME */
+
+            homePriceVal =
+                wData.homeDelivery !==
+                undefined
+
+                ? wData.homeDelivery
+
+                : (
+                    wData.delivery || 0
+                );
+
+
+            /* DESK */
+
+            if (
+                wData.deskDelivery !==
+                    undefined &&
+
+                wData.deskDelivery !==
+                    "غير متوفر"
+            ) {
+
+                deskPriceVal =
+                    wData.deskDelivery;
+
+                isDeskAvailable = true;
+
+
+                document.getElementById(
+                    "price-desk"
+                ).innerText =
+                    deskPriceVal +
+                    " د.ج";
+
+            }
+
+            else {
+
+                deskPriceVal = 0;
+
+                isDeskAvailable = false;
+
+
+                document.getElementById(
+                    "price-desk"
+                ).innerText =
+                    "غير متوفر";
+
+            }
+
+
+            /* HOME PRICE */
+
+            document.getElementById(
+                "price-home"
+            ).innerText =
+                homePriceVal +
+                " د.ج";
+
+
+            /* COMMUNES */
+
+            if (wData.communes) {
+
+                wData.communes.forEach(
+                    c => {
+
+                        communeSelect.innerHTML += `
+
+                            <option value="${c}">
+                                ${c}
+                            </option>
+
+                        `;
+
                     }
-                    currentDeliveryPrice = deskPriceVal;
-                    deskInfoBox.style.display = 'block';
-                    // استخراج العنوان إذا كان موجوداً، وإلا وضع رسالة افتراضية
-                    let deskAddress = wData.deskAddress || "سيتم توجيهك لأقرب مكتب توصيل في ولايتك عند تأكيد الطلب هاتفياً.";
-                    deskInfoBox.innerHTML = `<b>📍 معلومات المكتب:</b><br>${deskAddress}`;
-                } else {
-                    currentDeliveryPrice = homePriceVal;
-                    deskInfoBox.style.display = 'none';
-                }
-                updateTotals();
+                );
+
             }
+
+
+            /* HOME DEFAULT */
+
+            document
+                .querySelector(
+                    'input[value="home"]'
+                )
+                .click();
+
+
+            handleDeliveryChange();
+
         }
 
-        document.querySelectorAll('input[name="deliveryType"]').forEach(r => r.addEventListener('change', handleDeliveryChange));
+        else {
 
-        wilayaSelect.addEventListener('change', function() {
-            const selectedW = this.value;
-            communeSelect.innerHTML = '<option value="">-- اختر البلدية --</option>';
-            document.getElementById('deskInfo').style.display = 'none';
-            
-            if (selectedW && wilayasData[selectedW]) {
-                const wData = wilayasData[selectedW];
-                
-                // توافق ذكي مع ملف database.js القديم والجديد
-                homePriceVal = wData.homeDelivery !== undefined ? wData.homeDelivery : (wData.delivery || 0);
-                
-                if (wData.deskDelivery !== undefined && wData.deskDelivery !== 'غير متوفر') {
-                    deskPriceVal = wData.deskDelivery;
-                    isDeskAvailable = true;
-                    document.getElementById('price-desk').innerText = deskPriceVal + " د.ج";
-                } else {
-                    deskPriceVal = 0;
-                    isDeskAvailable = false;
-                    document.getElementById('price-desk').innerText = "غير متوفر";
-                }
+            document.getElementById(
+                "price-home"
+            ).innerText =
+                "-- د.ج";
 
-                document.getElementById('price-home').innerText = homePriceVal + " د.ج";
-                
-                if (wData.communes) {
-                    wData.communes.forEach(c => { communeSelect.innerHTML += `<option value="${c}">${c}</option>`; });
-                }
-                
-                document.querySelector('input[value="home"]').click();
-                handleDeliveryChange();
-            } else {
-                document.getElementById('price-home').innerText = "-- د.ج";
-                document.getElementById('price-desk').innerText = "-- د.ج";
-                currentDeliveryPrice = 0;
-                updateTotals();
+
+            document.getElementById(
+                "price-desk"
+            ).innerText =
+                "-- د.ج";
+
+
+            currentDeliveryPrice = 0;
+
+            updateTotals();
+
+        }
+
+    });
+
+
+    /* =====================================================
+       PRODUCT CATEGORY ENGINE
+       
+       يعمل حتى لو products.js لا يحتوي category.
+       لاحقاً يمكننا ربطه بالتصنيف الحقيقي.
+    ===================================================== */
+
+    function detectCategory(item) {
+
+        const text =
+            (
+                (item.name || "") +
+                " " +
+                (item.title || "")
+            ).toLowerCase();
+
+
+        if (
+            /سيارة|سيارات|car|auto|automobile|سيار/.test(text)
+        ) {
+            return "car";
+        }
+
+
+        if (
+            /مطبخ|خلاط|عصارة|طبخ|kitchen|cooking|blender/.test(text)
+        ) {
+            return "kitchen";
+        }
+
+
+        if (
+            /هاتف|سماعة|بروجيكتور|شاحن|إلكترون|الكترون|phone|headphone|projector|usb|led|electronic/.test(text)
+        ) {
+            return "electronics";
+        }
+
+
+        if (
+            /ساعة|ساعات|watch|watches/.test(text)
+        ) {
+            return "watches";
+        }
+
+
+        if (
+            /منزل|بيت|home|house|ديكور|تنظيف/.test(text)
+        ) {
+            return "home";
+        }
+
+
+        if (
+            /جمال|عناية|beauty|makeup|skin|شعر/.test(text)
+        ) {
+            return "beauty";
+        }
+
+
+        return "other";
+    }
+
+
+    /* =====================================================
+       RENDER PRODUCTS
+    ===================================================== */
+
+    const relatedGrid =
+        document.getElementById(
+            "relatedProductsGrid"
+        );
+
+
+    const productCount =
+        document.getElementById(
+            "productCount"
+        );
+
+
+    let activeCategory = "all";
+
+
+    function renderProducts() {
+
+        relatedGrid.innerHTML = "";
+
+
+        let products = [];
+
+
+        for (
+            const id in storeData
+        ) {
+
+            const item =
+                storeData[id];
+
+
+            if (
+                !item ||
+                !item.price ||
+                !item.image ||
+                id === productId
+            ) {
+                continue;
             }
+
+
+            products.push({
+                id: id,
+                item: item,
+                category:
+                    item.category ||
+                    detectCategory(item)
+            });
+
+        }
+
+
+        /* CATEGORY FILTER */
+
+        if (
+            activeCategory !==
+            "all"
+        ) {
+
+            products =
+                products.filter(
+                    p =>
+                        p.category ===
+                        activeCategory
+                );
+
+        }
+
+
+        /* LIMIT FOR PERFORMANCE */
+
+        const visible =
+            products.slice(0, 24);
+
+
+        productCount.innerText =
+            products.length +
+            " منتج";
+
+
+        if (!visible.length) {
+
+            relatedGrid.innerHTML = `
+
+                <div
+                    style="
+                        grid-column:1/-1;
+                        text-align:center;
+                        padding:30px 10px;
+                        color:#64748b;
+                    ">
+
+                    لا توجد منتجات في هذا التصنيف حالياً.
+
+                </div>
+
+            `;
+
+            return;
+        }
+
+
+        visible.forEach(
+            ({id, item}) => {
+
+
+            const price =
+                parseInt(item.price) ||
+                0;
+
+
+            const old =
+                item.oldPrice
+                    ? parseInt(item.oldPrice)
+                    : null;
+
+
+            relatedGrid.innerHTML += `
+
+                <a
+                    href="?p=${id}"
+                    class="product-item">
+
+
+                    <img
+                        src="${item.image}"
+                        alt="${item.name || "منتج"}"
+                        loading="lazy">
+
+
+                    <h3>
+                        ${item.name || "منتج"}
+                    </h3>
+
+
+                    ${
+                        old && old > price
+
+                        ? `
+                            <span class="px-item-old">
+                                ${old} د.ج
+                            </span>
+                          `
+
+                        : ""
+                    }
+
+
+                    <p>
+                        ${price} د.ج
+                    </p>
+
+
+                </a>
+
+            `;
+
         });
 
-        // تعبئة قسم المنتجات ذات الصلة
-        const relatedGrid = document.getElementById('relatedProductsGrid');
-        let count = 0;
-        for (const id in storeData) {
-            if (id !== productId && storeData[id].price > 0 && count < 4) {
-                const item = storeData[id];
-                relatedGrid.innerHTML += `
-                    <a href="?p=${id}" class="product-item">
-                        <img src="${item.image}" alt="Product">
-                        <h3>${item.name}</h3>
-                        <p>${item.price} د.ج</p>
-                    </a>`;
-                count++;
-            }
-        }
+    }
 
-        // إرسال الطلب (بدون تغيير الـ IDs لكي يعمل البوت)
-        document.getElementById('orderForm').addEventListener('submit', function(e) {
+
+    /* =====================================================
+       CATEGORY BUTTONS
+    ===================================================== */
+
+    document
+        .querySelectorAll(
+            ".px-category"
+        )
+        .forEach(
+            button => {
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+
+                        document
+                            .querySelectorAll(
+                                ".px-category"
+                            )
+                            .forEach(
+                                b =>
+                                    b.classList
+                                    .remove(
+                                        "active"
+                                    )
+                            );
+
+
+                        button.classList
+                            .add("active");
+
+
+                        activeCategory =
+                            button.dataset.category;
+
+
+                        renderProducts();
+
+                    }
+                );
+
+            }
+        );
+
+
+    /* INITIAL PRODUCTS */
+
+    if (
+        typeof storeData !==
+        "undefined"
+    ) {
+
+        renderProducts();
+
+    }
+
+
+    /* =====================================================
+       ORDER SUBMIT
+       
+       ⚠️ لا نغير أي شيء هنا
+       لأن البوت يعتمد على هذه البيانات.
+    ===================================================== */
+
+    document
+        .getElementById("orderForm")
+        .addEventListener(
+            "submit",
+            function(e) {
+
+
             e.preventDefault();
-            const btn = document.getElementById('submitBtn');
-            btn.innerHTML = "⏳ جاري إرسال الطلب...";
+
+
+            const btn =
+                document.getElementById(
+                    "submitBtn"
+                );
+
+
+            btn.innerHTML =
+                "⏳ جاري إرسال الطلب...";
+
+
             btn.disabled = true;
 
-            const isDesk = document.querySelector('input[name="deliveryType"]:checked').value === 'desk';
-            let finalAddress = document.getElementById('address').value;
-            if (isDesk) finalAddress += " | (طلب استلام من المكتب)";
+
+            const isDesk =
+                document.querySelector(
+                    'input[name="deliveryType"]:checked'
+                ).value === "desk";
+
+
+            let finalAddress =
+                document.getElementById(
+                    "address"
+                ).value;
+
+
+            if (isDesk) {
+
+                finalAddress +=
+                    " | (طلب استلام من المكتب)";
+
+            }
+
+
+            /*
+             =================================================
+             IMPORTANT:
+             نفس أسماء الحقول الأصلية
+             =================================================
+            */
 
             const orderData = {
-                customerName: document.getElementById('fullName').value,
-                phone: document.getElementById('phone').value,
-                wilaya: wilayaSelect.value,
-                commune: communeSelect.value,
-                address: finalAddress,
-                quantity: 1,
-                sawa9lyLink: product.sawa9lyLink,
-                sellingPrice: product.price
+
+                customerName:
+                    document.getElementById(
+                        "fullName"
+                    ).value,
+
+                phone:
+                    document.getElementById(
+                        "phone"
+                    ).value,
+
+                wilaya:
+                    wilayaSelect.value,
+
+                commune:
+                    communeSelect.value,
+
+                address:
+                    finalAddress,
+
+                quantity:
+                    1,
+
+                sawa9lyLink:
+                    product.sawa9lyLink,
+
+                sellingPrice:
+                    product.price
+
             };
 
-            fetch('https://prix-choc-bot.onrender.com/api/order', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(orderData)
-            })
-            .then(res => res.json())
-            .then(data => {
-                document.getElementById('main-content').innerHTML = `
-                    <div style="text-align:center; padding: 40px 10px;">
-                        <div style="font-size: 60px; margin-bottom: 20px;">🎉</div>
-                        <h2 style="color:#10b981;">تم استلام طلبك بنجاح!</h2>
-                        <p style="color:#cbd5e1; line-height:1.6;">شكراً لثقتك بنا. سنتصل بك في أقرب وقت لتأكيد الشحن.</p>
-                    </div>
-                `;
-                window.scrollTo(0,0);
-            })
-            .catch(err => {
-                alert("حدث خطأ في الاتصال بالخادم. تأكد من الإنترنت وحاول مجدداً.");
-                btn.innerHTML = "تأكيد الطلب الآن 🛍️";
-                btn.disabled = false;
-            });
+
+            /* =================================================
+               BOT
+            ================================================= */
+
+            fetch(
+                "https://prix-choc-bot.onrender.com/api/order",
+                {
+
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:
+                        JSON.stringify(
+                            orderData
+                        )
+
+                }
+            )
+
+            .then(
+                res =>
+                    res.json()
+            )
+
+            .then(
+                data => {
+
+
+                    document.getElementById(
+                        "main-content"
+                    ).innerHTML = `
+
+                        <div
+                            style="
+                                text-align:center;
+                                padding:45px 10px;
+                            ">
+
+                            <div
+                                style="
+                                    font-size:60px;
+                                    margin-bottom:20px;
+                                ">
+
+                                🎉
+
+                            </div>
+
+
+                            <h2
+                                style="
+                                    color:#10b981;
+                                ">
+
+                                تم استلام طلبك بنجاح!
+
+                            </h2>
+
+
+                            <p
+                                style="
+                                    color:#cbd5e1;
+                                    line-height:1.7;
+                                    font-size:14px;
+                                ">
+
+                                شكراً لثقتك بنا.
+                                سنتصل بك في أقرب وقت
+                                لتأكيد الشحن.
+
+                            </p>
+
+                        </div>
+
+                    `;
+
+
+                    window.scrollTo(
+                        0,
+                        0
+                    );
+
+                }
+            )
+
+            .catch(
+                err => {
+
+
+                    alert(
+                        "حدث خطأ في الاتصال بالخادم. تأكد من الإنترنت وحاول مجدداً."
+                    );
+
+
+                    btn.innerHTML =
+                        "تأكيد الطلب الآن 🛍️";
+
+
+                    btn.disabled =
+                        false;
+
+                }
+            );
+
         });
-    });
+
+
+});
+
 </script>
+
 </body>
 </html>
