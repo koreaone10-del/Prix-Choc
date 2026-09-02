@@ -12,14 +12,44 @@ import {
     calculateProfit
 } from "./pricing.js";
 
+
+/* =========================================================
+   CONFIGURATION
+========================================================= */
+
 validateConfig();
 
 const outputDir =
-    path.resolve("./output");
+    config.paths.outputDir;
 
-fs.mkdirSync(outputDir, {
-    recursive: true
-});
+const debugDir =
+    path.resolve(
+        new URL(".", import.meta.url).pathname,
+        "./debug"
+    );
+
+const linksFile =
+    path.resolve(
+        new URL(".", import.meta.url).pathname,
+        "./debug/product-links.json"
+    );
+
+
+/* =========================================================
+   CREATE OUTPUT DIRECTORY
+========================================================= */
+
+fs.mkdirSync(
+    outputDir,
+    {
+        recursive: true
+    }
+);
+
+
+/* =========================================================
+   HELPERS
+========================================================= */
 
 function cleanText(value) {
     if (!value) {
@@ -31,14 +61,16 @@ function cleanText(value) {
         .trim();
 }
 
+
 function parsePrice(value) {
     if (!value) {
         return 0;
     }
 
-    const text = String(value)
-        .replace(/[^\d.,]/g, "")
-        .replace(/\s/g, "");
+    const text =
+        String(value)
+            .replace(/[^\d.,]/g, "")
+            .replace(/\s/g, "");
 
     if (!text) {
         return 0;
@@ -55,6 +87,7 @@ function parsePrice(value) {
         : 0;
 }
 
+
 function extractProductId(url) {
     const match =
         String(url).match(
@@ -66,58 +99,117 @@ function extractProductId(url) {
         : "";
 }
 
-async function extractProduct(page, url) {
+
+/* =========================================================
+   EXTRACT PRODUCT DETAILS
+========================================================= */
+
+async function extractProduct(
+    page,
+    url
+) {
     console.log(
         `\n🔎 Opening: ${url}`
     );
 
-    await page.goto(url, {
-        waitUntil: "domcontentloaded",
-        timeout: 60000
-    });
+    await page.goto(
+        url,
+        {
+            waitUntil:
+                "domcontentloaded",
+            timeout: 60000
+        }
+    );
 
-    await page.waitForTimeout(1200);
+    await page.waitForTimeout(
+        1200
+    );
+
+
+    /* -------------------------
+       PRODUCT NAME
+    ------------------------- */
 
     const title =
-        await page.locator("h1")
+        await page
+            .locator("h1")
             .first()
             .textContent()
-            .catch(() => "");
+            .catch(
+                () => ""
+            );
+
 
     const metaTitle =
         await page
             .locator(
                 'meta[property="og:title"]'
             )
-            .getAttribute("content")
-            .catch(() => "");
+            .getAttribute(
+                "content"
+            )
+            .catch(
+                () => ""
+            );
+
 
     const name =
         cleanText(title) ||
         cleanText(metaTitle);
+
+
+    /* -------------------------
+       PRODUCT IMAGE
+    ------------------------- */
 
     const image =
         await page
             .locator(
                 'meta[property="og:image"]'
             )
-            .getAttribute("content")
-            .catch(() => "");
+            .getAttribute(
+                "content"
+            )
+            .catch(
+                () => ""
+            );
+
+
+    /* -------------------------
+       CANONICAL URL
+    ------------------------- */
 
     const canonical =
         await page
             .locator(
                 'link[rel="canonical"]'
             )
-            .getAttribute("href")
-            .catch(() => "");
+            .getAttribute(
+                "href"
+            )
+            .catch(
+                () => ""
+            );
+
+
+    /* -------------------------
+       BODY TEXT
+    ------------------------- */
 
     const bodyText =
         cleanText(
-            await page.locator("body")
+            await page
+                .locator("body")
                 .innerText()
-                .catch(() => "")
+                .catch(
+                    () => ""
+                )
         );
+
+
+    /* -------------------------
+       BASE PRICE
+    ------------------------- */
 
     let basePrice = 0;
 
@@ -126,29 +218,54 @@ async function extractProduct(page, url) {
         /(?:السعر|prix)\s*[:：]?\s*(\d[\d\s.,]*)/i
     ];
 
+
     for (
-        const pattern of pricePatterns
+        const pattern
+        of pricePatterns
     ) {
         const match =
-            bodyText.match(pattern);
+            bodyText.match(
+                pattern
+            );
 
         if (match) {
             basePrice =
-                parsePrice(match[1]);
+                parsePrice(
+                    match[1]
+                );
 
-            if (basePrice > 0) {
+            if (
+                basePrice > 0
+            ) {
                 break;
             }
         }
     }
 
+
+    /* -------------------------
+       SAWA9LY ID
+    ------------------------- */
+
     const sourceId =
-        extractProductId(url);
+        extractProductId(
+            url
+        );
+
+
+    /* -------------------------
+       SELLING PRICE
+    ------------------------- */
 
     const sellingPrice =
         calculateSellingPrice(
             basePrice
         );
+
+
+    /* -------------------------
+       PROFIT
+    ------------------------- */
 
     const profit =
         calculateProfit(
@@ -156,75 +273,283 @@ async function extractProduct(page, url) {
             sellingPrice
         );
 
+
+    /* -------------------------
+       RESULT
+    ------------------------- */
+
     return {
-        sawa9lyId: sourceId,
-        name,
-        basePrice,
-        sellingPrice,
-        profit,
-        image: cleanText(image),
+        sawa9lyId:
+            sourceId,
+
+        name:
+            name,
+
+        basePrice:
+            basePrice,
+
+        sellingPrice:
+            sellingPrice,
+
+        profit:
+            profit,
+
+        image:
+            cleanText(image),
+
         sawa9lyLink:
-            canonical || url,
+            canonical ||
+            url,
+
         scrapedAt:
             new Date().toISOString()
     };
 }
 
+
+/* =========================================================
+   LOAD DISCOVERED PRODUCT LINKS
+========================================================= */
+
+if (
+    !fs.existsSync(
+        linksFile
+    )
+) {
+    console.error(
+        "\n❌ product-links.json غير موجود."
+    );
+
+    console.error(
+        `📄 Expected: ${linksFile}`
+    );
+
+    console.error(
+        "\nشغّل أولاً:"
+    );
+
+    console.error(
+        "npm run discover"
+    );
+
+    process.exit(1);
+}
+
+
+let discoveredLinks;
+
+try {
+    discoveredLinks =
+        JSON.parse(
+            fs.readFileSync(
+                linksFile,
+                "utf8"
+            )
+        );
+} catch (error) {
+    console.error(
+        "\n❌ فشل قراءة product-links.json."
+    );
+
+    console.error(
+        error.message
+    );
+
+    process.exit(1);
+}
+
+
+/* =========================================================
+   NORMALIZE DISCOVERED LINKS
+========================================================= */
+
+if (
+    !Array.isArray(
+        discoveredLinks
+    )
+) {
+    console.error(
+        "\n❌ product-links.json لا يحتوي على Array."
+    );
+
+    process.exit(1);
+}
+
+
+const productLinks =
+    [
+        ...new Map(
+            discoveredLinks
+                .map(
+                    item => {
+                        if (
+                            typeof item ===
+                            "string"
+                        ) {
+                            return {
+                                href:
+                                    item
+                            };
+                        }
+
+                        return {
+                            href:
+                                item?.href ||
+                                ""
+                        };
+                    }
+                )
+                .filter(
+                    item =>
+                        item.href &&
+                        /\/product\/\d+/i.test(
+                            item.href
+                        )
+                )
+                .map(
+                    item => [
+                        item.href,
+                        item
+                    ]
+                )
+        ).values()
+    ];
+
+
+console.log(
+    `\n🔗 Discovered product links: ${productLinks.length}`
+);
+
+
+/* =========================================================
+   APPLY SCRAPE LIMIT
+========================================================= */
+
+const limitedLinks =
+    productLinks.slice(
+        0,
+        config.automation.scrapeLimit
+    );
+
+
+console.log(
+    `🛍️ Products selected for scraping: ${limitedLinks.length}`
+);
+
+
+if (
+    limitedLinks.length === 0
+) {
+    console.error(
+        "\n❌ No product links available for scraping."
+    );
+
+    process.exit(1);
+}
+
+
+/* =========================================================
+   START BROWSER
+========================================================= */
+
 const browser =
-    await chromium.launch({
-        headless:
-            config.automation.headless
-    });
+    await chromium.launch(
+        {
+            headless:
+                config.automation.headless
+        }
+    );
+
 
 const context =
-    await browser.newContext({
-        viewport: {
-            width: 1440,
-            height: 900
+    await browser.newContext(
+        {
+            viewport: {
+                width: 1440,
+                height: 900
+            }
         }
-    });
+    );
+
 
 const page =
     await context.newPage();
 
-console.log("\n======================================");
-console.log("   PRIX CHOC PRODUCT SCRAPER");
-console.log("======================================\n");
+
+console.log(
+    "\n======================================"
+);
+
+console.log(
+    "   PRIX CHOC PRODUCT SCRAPER"
+);
+
+console.log(
+    "======================================\n"
+);
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+console.log(
+    "🔐 Opening Sawa9ly login..."
+);
+
 
 await page.goto(
     config.sawa9ly.loginUrl,
     {
-        waitUntil: "domcontentloaded",
+        waitUntil:
+            "domcontentloaded",
         timeout: 60000
     }
 );
 
+
 const emailInput =
-    page.locator(
-        'input[type="email"]'
-    ).first();
+    page
+        .locator(
+            'input[type="email"]'
+        )
+        .first();
+
 
 const passwordInput =
-    page.locator(
-        'input[type="password"]'
-    ).first();
+    page
+        .locator(
+            'input[type="password"]'
+        )
+        .first();
+
 
 if (
     await emailInput.count() > 0 &&
     await passwordInput.count() > 0
 ) {
+    console.log(
+        "✍️ Filling login credentials..."
+    );
+
+
     await emailInput.fill(
         config.sawa9ly.email
     );
+
 
     await passwordInput.fill(
         config.sawa9ly.password
     );
 
+
     const submitButton =
-        page.locator(
-            'button[type="submit"]'
-        ).first();
+        page
+            .locator(
+                'button[type="submit"]'
+            )
+            .first();
+
 
     if (
         await submitButton.count() > 0
@@ -236,93 +561,61 @@ if (
         );
     }
 
-    await page.waitForTimeout(3000);
+
+    await page.waitForTimeout(
+        3000
+    );
+
+
+    console.log(
+        "✅ Login step completed."
+    );
+} else {
+    console.log(
+        "ℹ️ Login form was not detected."
+    );
+
+    console.log(
+        "The current session may already be authenticated."
+    );
 }
+
+
+/* =========================================================
+   OPEN DASHBOARD TO CONFIRM SESSION
+========================================================= */
+
+console.log(
+    "\n🔐 Opening Sawa9ly dashboard..."
+);
+
 
 await page.goto(
     config.sawa9ly.dashboardUrl,
     {
-        waitUntil: "domcontentloaded",
+        waitUntil:
+            "domcontentloaded",
         timeout: 60000
     }
 );
 
-await page.waitForTimeout(2000);
 
-const linksFile = path.resolve(
-    "./debug/product-links.json"
+await page.waitForTimeout(
+    2000
 );
 
-if (!fs.existsSync(linksFile)) {
-    console.error(
-        "❌ product-links.json غير موجود."
-    );
-
-    console.error(
-        "شغّل أولاً: npm run discover"
-    );
-
-    await browser.close();
-    process.exit(1);
-}
-
-const discoveredLinks =
-    JSON.parse(
-        fs.readFileSync(
-            linksFile,
-            "utf8"
-        )
-    );
-
-const productLinks = [
-    ...new Map(
-        discoveredLinks
-            .map(item => {
-                if (typeof item === "string") {
-                    return {
-                        href: item
-                    };
-                }
-
-                return {
-                    href: item.href
-                };
-            })
-            .filter(
-                item =>
-                    item.href &&
-                    /\/product\/\d+/i.test(
-                        item.href
-                    )
-            )
-            .map(
-                item => [
-                    item.href,
-                    item
-                ]
-            )
-    ).values()
-];
-
-const limitedLinks =
-    productLinks.slice(
-        0,
-        config.automation.scrapeLimit
-    );
 
 console.log(
-    `🔗 Discovered product links: ${productLinks.length}`
+    `✅ Dashboard opened: ${page.url()}`
 );
 
-console.log(
-    `🛍️ Products selected for scraping: ${limitedLinks.length}`
-);
 
-console.log(
-    `🛍️ Products selected: ${limitedLinks.length}`
-);
+/* =========================================================
+   SCRAPE PRODUCTS
+========================================================= */
 
 const products = [];
+
 
 for (
     const item of limitedLinks
@@ -334,15 +627,22 @@ for (
                 item.href
             );
 
-        products.push(product);
+
+        products.push(
+            product
+        );
+
 
         console.log(
             `✅ ${product.sawa9lyId} | ${product.name} | ${product.basePrice} DA`
         );
+
+
     } catch (error) {
         console.error(
             `❌ Failed: ${item.href}`
         );
+
 
         console.error(
             error.message
@@ -350,11 +650,17 @@ for (
     }
 }
 
+
+/* =========================================================
+   SAVE RAW PRODUCTS
+========================================================= */
+
 const outputFile =
     path.join(
         outputDir,
         "products.raw.json"
     );
+
 
 fs.writeFileSync(
     outputFile,
@@ -366,16 +672,43 @@ fs.writeFileSync(
     "utf8"
 );
 
-console.log("\n======================================");
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+console.log(
+    "\n======================================"
+);
+
 
 console.log(
     `✅ Saved ${products.length} products`
 );
 
+
 console.log(
     `📄 ${outputFile}`
 );
 
-console.log("======================================\n");
+
+console.log(
+    `🔗 Total discovered links: ${productLinks.length}`
+);
+
+
+console.log(
+    `🛍️ Scrape limit: ${config.automation.scrapeLimit}`
+);
+
+
+console.log(
+    "======================================\n"
+);
+
+
+/* =========================================================
+   CLOSE BROWSER
+========================================================= */
 
 await browser.close();
