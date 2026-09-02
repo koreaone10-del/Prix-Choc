@@ -615,22 +615,27 @@ try {
     // ==========================================
 
     const pageOneLinks =
-        await page
-            .locator("a")
-            .evaluateAll(
-                anchors =>
-                    anchors.map(
-                        anchor => ({
-                            text:
-                                cleanText(
-                                    anchor.innerText
-                                ),
+    await page
+        .locator("a")
+        .evaluateAll(
+            anchors =>
+                anchors.map(
+                    anchor => ({
+                        text:
+                            String(
+                                anchor.innerText || ""
+                            )
+                                .replace(
+                                    /\s+/g,
+                                    " "
+                                )
+                                .trim(),
 
-                            href:
-                                anchor.href
-                        })
-                    )
-            );
+                        href:
+                            anchor.href
+                    })
+                )
+        );
 
     const uniqueLinks = [
         ...new Map(
