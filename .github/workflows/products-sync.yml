@@ -13,28 +13,60 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
+      # =====================================================
+      # 1. CHECKOUT
+      # =====================================================
+
       - name: Checkout repository
         uses: actions/checkout@v4
+
+
+      # =====================================================
+      # 2. SETUP NODE
+      # =====================================================
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
+
+      # =====================================================
+      # 3. VERIFY AUTOMATION FILES
+      # =====================================================
+
       - name: Verify automation files
         working-directory: automation
         run: |
           echo "Checking automation files..."
+
           test -f package.json
           test -f discover.js
+          test -f scraper.js
+          test -f sync.js
+          test -f generator.js
+          test -f config.js
+          test -f pricing.js
+
           echo "package.json: OK"
           echo "discover.js: OK"
+          echo "scraper.js: OK"
+          echo "sync.js: OK"
+          echo "generator.js: OK"
+          echo "config.js: OK"
+          echo "pricing.js: OK"
 
           if [ -f package-lock.json ]; then
             echo "package-lock.json: FOUND"
           else
             echo "package-lock.json: NOT FOUND"
           fi
+
+
+      # =====================================================
+      # 4. INSTALL DEPENDENCIES
+      # =====================================================
 
       - name: Install dependencies
         working-directory: automation
@@ -45,9 +77,20 @@ jobs:
             npm install
           fi
 
+
+      # =====================================================
+      # 5. INSTALL CHROMIUM
+      # =====================================================
+
       - name: Install Chromium
         working-directory: automation
-        run: npx playwright install --with-deps chromium
+        run: |
+          npx playwright install --with-deps chromium
+
+
+      # =====================================================
+      # 6. CREATE ENVIRONMENT
+      # =====================================================
 
       - name: Create environment
         working-directory: automation
@@ -57,30 +100,144 @@ jobs:
           SAWA9LY_DASHBOARD_URL=https://sawa9ly.app/dashboard
           SAWA9LY_EMAIL=${{ secrets.SAWA9LY_EMAIL }}
           SAWA9LY_PASSWORD=${{ secrets.SAWA9LY_PASSWORD }}
+
           SCRAPE_LIMIT=20
           HEADLESS=true
           DRY_RUN=false
+
           DEFAULT_MARGIN=1000
           MIN_MARGIN=300
           MAX_MARGIN=5000
+
           PRODUCTS_FILE=../products.js
           OUTPUT_DIR=./output
           EOF
 
+
+      # =====================================================
+      # 7. DISCOVER ALL PRODUCT LINKS
+      # =====================================================
+
       - name: Run product discovery
         working-directory: automation
-        run: npm run discover
+        run: |
+          npm run discover
+
+
+      # =====================================================
+      # 8. VERIFY DISCOVERY RESULT
+      # =====================================================
+
+      - name: Verify discovered product links
+        working-directory: automation
+        run: |
+          echo "Checking discovery output..."
+
+          test -f debug/product-links.json
+
+          echo "product-links.json: FOUND"
+
+          echo "File size:"
+          wc -c debug/product-links.json
+
+          echo "First lines:"
+          head -20 debug/product-links.json
+
+
+      # =====================================================
+      # 9. RUN SCRAPER + GENERATOR
+      # =====================================================
+
+      - name: Run product sync
+        working-directory: automation
+        run: |
+          npm run sync
+
+
+      # =====================================================
+      # 10. VERIFY GENERATED OUTPUT
+      # =====================================================
+
+      - name: Verify generated files
+        working-directory: automation
+        run: |
+          echo "Checking generated files..."
+
+          if [ -f output/products.raw.json ]; then
+            echo "products.raw.json: FOUND"
+
+            echo "Raw file size:"
+            wc -c output/products.raw.json
+
+            echo "Products extracted:"
+            node -e "
+              const fs = require('fs');
+              const data = JSON.parse(
+                fs.readFileSync('output/products.raw.json', 'utf8')
+              );
+              console.log(data.length);
+            "
+          else
+            echo "products.raw.json: NOT FOUND"
+            exit 1
+          fi
+
+
+      # =====================================================
+      # 11. VERIFY PRODUCTS.JS
+      # =====================================================
+
+      - name: Verify products.js
+        run: |
+          echo "Checking products.js..."
+
+          test -f products.js
+
+          echo "products.js: FOUND"
+
+          wc -c products.js
+
+
+      # =====================================================
+      # 12. SHOW GIT STATUS
+      # =====================================================
+
+      - name: Show changes
+        run: |
+          echo "Git status:"
+          git status --short
+
+
+      # =====================================================
+      # 13. COMMIT CHANGES
+      # =====================================================
 
       - name: Commit updated products
         run: |
           git config user.name "Prix Choc Bot"
           git config user.email "actions@users.noreply.github.com"
 
-          git add products.js automation/output automation/debug automation/package-lock.json
+          git add products.js
+
+          if [ -d automation/output ]; then
+            git add automation/output
+          fi
+
+          if [ -d automation/debug ]; then
+            git add automation/debug
+          fi
+
+          if [ -f automation/package-lock.json ]; then
+            git add automation/package-lock.json
+          fi
 
           if git diff --cached --quiet; then
             echo "No product changes."
           else
+            echo "Changes ready to commit:"
+            git diff --cached --stat
+
             git commit -m "Auto update Sawa9ly products"
+
             git push
           fi
