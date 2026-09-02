@@ -16,10 +16,21 @@ function cleanText(value) {
         .trim();
 }
 
+function makePageUrl(baseUrl, pageNumber) {
+    const url = new URL(baseUrl);
+
+    url.searchParams.set(
+        "page",
+        String(pageNumber)
+    );
+
+    return url.toString();
+}
+
 console.log("");
 console.log("======================================");
 console.log("       PRIX CHOC - SAWA9LY");
-console.log("            DISCOVERY");
+console.log("       FULL PRODUCT DISCOVERY");
 console.log("======================================");
 console.log("");
 
@@ -29,22 +40,32 @@ console.log("");
  */
 
 if (!config?.sawa9ly?.email) {
-    console.error("❌ SAWA9LY_EMAIL غير موجود في .env");
+    console.error(
+        "SAWA9LY_EMAIL غير موجود في .env"
+    );
     process.exit(1);
 }
 
 if (!config?.sawa9ly?.password) {
-    console.error("❌ SAWA9LY_PASSWORD غير موجود في .env");
+    console.error(
+        "SAWA9LY_PASSWORD غير موجود في .env"
+    );
     process.exit(1);
 }
 
-console.log("✅ بيانات حساب سوقلي موجودة في .env.");
+console.log(
+    "Login credentials detected."
+);
+
 console.log("");
 
-console.log("🚀 تشغيل Chromium...");
+console.log(
+    "Launching Chromium..."
+);
 
 const browser = await chromium.launch({
-    headless: config.automation?.headless ?? true
+    headless:
+        config.automation?.headless ?? true
 });
 
 const context = await browser.newContext({
@@ -59,10 +80,13 @@ const page = await context.newPage();
 try {
 
     // ==========================================
-    // 1. فتح صفحة تسجيل الدخول
+    // 1. LOGIN
     // ==========================================
 
-    console.log("🌐 فتح صفحة تسجيل الدخول...");
+    console.log("");
+    console.log(
+        "1) Opening Sawa9ly login..."
+    );
 
     await page.goto(
         config.sawa9ly.loginUrl,
@@ -75,7 +99,7 @@ try {
     await page.waitForTimeout(2000);
 
     console.log(
-        "📍 Login URL:",
+        "Login URL:",
         page.url()
     );
 
@@ -88,16 +112,18 @@ try {
     });
 
     // ==========================================
-    // 2. البحث عن حقول الدخول
+    // 2. LOGIN FIELDS
     // ==========================================
 
-    const emailInput = page
-        .locator('input[type="email"]')
-        .first();
+    const emailInput =
+        page.locator(
+            'input[type="email"]'
+        ).first();
 
-    const passwordInput = page
-        .locator('input[type="password"]')
-        .first();
+    const passwordInput =
+        page.locator(
+            'input[type="password"]'
+        ).first();
 
     const emailCount =
         await page.locator(
@@ -110,11 +136,11 @@ try {
         ).count();
 
     console.log(
-        `🔎 حقول البريد الموجودة: ${emailCount}`
+        `Email fields: ${emailCount}`
     );
 
     console.log(
-        `🔎 حقول كلمة السر الموجودة: ${passwordCount}`
+        `Password fields: ${passwordCount}`
     );
 
     if (
@@ -122,16 +148,18 @@ try {
         passwordCount === 0
     ) {
         throw new Error(
-            "لم يتم العثور على حقول تسجيل الدخول في صفحة سوقلي."
+            "لم يتم العثور على حقول تسجيل الدخول."
         );
     }
 
     // ==========================================
-    // 3. إدخال بيانات الحساب
+    // 3. ENTER LOGIN
     // ==========================================
 
     console.log("");
-    console.log("✍️ إدخال بيانات الحساب...");
+    console.log(
+        "2) Entering login credentials..."
+    );
 
     await emailInput.fill(
         config.sawa9ly.email
@@ -142,23 +170,20 @@ try {
     );
 
     // ==========================================
-    // 4. الضغط على زر الدخول
+    // 4. SUBMIT
     // ==========================================
 
-    console.log(
-        "🖱️ البحث عن زر تسجيل الدخول..."
-    );
-
-    const submitButton = page
-        .locator('button[type="submit"]')
-        .first();
+    const submitButton =
+        page.locator(
+            'button[type="submit"]'
+        ).first();
 
     if (
         await submitButton.count() > 0
     ) {
 
         console.log(
-            "✅ تم العثور على زر الدخول."
+            "Submit button found."
         );
 
         await submitButton.click();
@@ -166,11 +191,11 @@ try {
     } else {
 
         console.log(
-            "⚠️ لم يتم العثور على زر Submit."
+            "Submit button not found."
         );
 
         console.log(
-            "⌨️ سيتم الضغط على Enter داخل كلمة السر."
+            "Pressing Enter..."
         );
 
         await passwordInput.press(
@@ -179,22 +204,18 @@ try {
     }
 
     // ==========================================
-    // 5. انتظار تسجيل الدخول
+    // 5. WAIT FOR LOGIN
     // ==========================================
 
     console.log("");
     console.log(
-        "⏳ انتظار انتهاء تسجيل الدخول..."
+        "Waiting for login..."
     );
 
     await page.waitForTimeout(5000);
 
-    console.log("");
     console.log(
-        "📍 الرابط الحالي:"
-    );
-
-    console.log(
+        "After login URL:",
         page.url()
     );
 
@@ -206,51 +227,38 @@ try {
         fullPage: true
     });
 
-    // ==========================================
-    // 6. التأكد من عدم البقاء في Login
-    // ==========================================
-
     if (
         /\/login/i.test(
             page.url()
         )
     ) {
 
-        console.error("");
-        console.error(
-            "❌ لم ينجح تسجيل الدخول."
+        throw new Error(
+            "لم ينجح تسجيل الدخول إلى Sawa9ly."
         );
-
-        console.error("");
-        console.error(
-            "📸 راجع الصورة:"
-        );
-
-        console.error(
-            "debug/02-after-login.png"
-        );
-
-        await browser.close();
-
-        process.exit(1);
     }
 
-    console.log("");
     console.log(
-        "✅ يبدو أن تسجيل الدخول نجح!"
+        "Login successful."
     );
 
     // ==========================================
-    // 7. فتح Dashboard
+    // 6. OPEN DASHBOARD PAGE 1
     // ==========================================
 
     console.log("");
     console.log(
-        "🚀 فتح لوحة تحكم سوقلي..."
+        "3) Opening Sawa9ly dashboard..."
     );
+
+    const firstDashboardUrl =
+        makePageUrl(
+            config.sawa9ly.dashboardUrl,
+            1
+        );
 
     await page.goto(
-        config.sawa9ly.dashboardUrl,
+        firstDashboardUrl,
         {
             waitUntil: "domcontentloaded",
             timeout: 60000
@@ -259,18 +267,10 @@ try {
 
     await page.waitForTimeout(3000);
 
-    console.log("");
     console.log(
-        "📍 Dashboard URL:"
-    );
-
-    console.log(
+        "Dashboard:",
         page.url()
     );
-
-    // ==========================================
-    // 8. حفظ Screenshot
-    // ==========================================
 
     await page.screenshot({
         path: path.join(
@@ -280,11 +280,7 @@ try {
         fullPage: true
     });
 
-    // ==========================================
-    // 9. حفظ HTML
-    // ==========================================
-
-    const html =
+    const dashboardHtml =
         await page.content();
 
     fs.writeFileSync(
@@ -292,24 +288,333 @@ try {
             debugDir,
             "dashboard.html"
         ),
-        html,
+        dashboardHtml,
         "utf8"
     );
 
-    console.log(
-        "💾 تم حفظ dashboard.html"
-    );
-
     // ==========================================
-    // 10. استخراج جميع الروابط
+    // 7. DISCOVER PAGINATION
     // ==========================================
 
     console.log("");
     console.log(
-        "🔎 استخراج الروابط..."
+        "4) Detecting pagination..."
     );
 
-    const links =
+    const paginationLinks =
+        await page
+            .locator("a")
+            .evaluateAll(
+                anchors =>
+                    anchors
+                        .map(
+                            anchor => ({
+                                text:
+                                    String(
+                                        anchor.innerText || ""
+                                    )
+                                        .replace(
+                                            /\s+/g,
+                                            " "
+                                        )
+                                        .trim(),
+
+                                href:
+                                    anchor.href
+                            })
+                        )
+                        .filter(
+                            item =>
+                                item.href &&
+                                /[?&]page=\d+/i.test(
+                                    item.href
+                                )
+                        )
+            );
+
+    const detectedPages = [
+        ...new Set(
+            paginationLinks
+                .map(item => {
+                    try {
+                        const url =
+                            new URL(
+                                item.href
+                            );
+
+                        const value =
+                            url.searchParams.get(
+                                "page"
+                            );
+
+                        return Number(value);
+                    } catch {
+                        return null;
+                    }
+                })
+                .filter(
+                    number =>
+                        Number.isInteger(
+                            number
+                        ) &&
+                        number > 0
+                )
+        )
+    ].sort(
+        (a, b) => a - b
+    );
+
+    console.log(
+        "Detected pagination pages:",
+        detectedPages.length
+            ? detectedPages.join(", ")
+            : "none"
+    );
+
+    let maxPage =
+        detectedPages.length
+            ? Math.max(
+                ...detectedPages
+            )
+            : 1;
+
+    /*
+     * Safety limit.
+     * We never blindly crawl thousands of pages.
+     */
+
+    const MAX_PAGES = 100;
+
+    if (
+        maxPage > MAX_PAGES
+    ) {
+        maxPage = MAX_PAGES;
+    }
+
+    console.log(
+        "Pages to scan:",
+        maxPage
+    );
+
+    // ==========================================
+    // 8. COLLECT PRODUCTS FROM ALL PAGES
+    // ==========================================
+
+    console.log("");
+    console.log(
+        "5) Collecting product links..."
+    );
+
+    const allProductLinks = new Map();
+
+    for (
+        let pageNumber = 1;
+        pageNumber <= maxPage;
+        pageNumber++
+    ) {
+
+        const pageUrl =
+            makePageUrl(
+                config.sawa9ly.dashboardUrl,
+                pageNumber
+            );
+
+        console.log("");
+        console.log(
+            `--- PAGE ${pageNumber}/${maxPage} ---`
+        );
+
+        console.log(
+            pageUrl
+        );
+
+        try {
+
+            await page.goto(
+                pageUrl,
+                {
+                    waitUntil:
+                        "domcontentloaded",
+                    timeout: 60000
+                }
+            );
+
+            await page.waitForTimeout(
+                1800
+            );
+
+            /*
+             * Make sure the page is authenticated.
+             */
+
+            if (
+                /\/login/i.test(
+                    page.url()
+                )
+            ) {
+                throw new Error(
+                    "Session expired / redirected to login."
+                );
+            }
+
+            /*
+             * Extract every anchor on this page.
+             */
+
+            const pageLinks =
+                await page
+                    .locator("a")
+                    .evaluateAll(
+                        anchors =>
+                            anchors.map(
+                                anchor => ({
+                                    text:
+                                        String(
+                                            anchor.innerText ||
+                                            ""
+                                        )
+                                            .replace(
+                                                /\s+/g,
+                                                " "
+                                            )
+                                            .trim(),
+
+                                    href:
+                                        anchor.href
+                                })
+                            )
+                    );
+
+            /*
+             * Only product URLs.
+             */
+
+            const pageProducts =
+                pageLinks.filter(
+                    item =>
+                        /\/product\/\d+/i.test(
+                            item.href
+                        )
+                );
+
+            /*
+             * Remove duplicates inside page.
+             */
+
+            const uniquePageProducts = [
+                ...new Map(
+                    pageProducts.map(
+                        item => [
+                            item.href,
+                            item
+                        ]
+                    )
+                ).values()
+            ];
+
+            /*
+             * Add to global collection.
+             */
+
+            for (
+                const product
+                of uniquePageProducts
+            ) {
+
+                allProductLinks.set(
+                    product.href,
+                    product
+                );
+            }
+
+            console.log(
+                "Products on page:",
+                uniquePageProducts.length
+            );
+
+            console.log(
+                "Total unique products:",
+                allProductLinks.size
+            );
+
+            /*
+             * Save progress after every page.
+             * This protects the results if the process stops.
+             */
+
+            fs.writeFileSync(
+                path.join(
+                    debugDir,
+                    "product-links-progress.json"
+                ),
+                JSON.stringify(
+                    [
+                        ...allProductLinks.values()
+                    ],
+                    null,
+                    2
+                ),
+                "utf8"
+            );
+
+        } catch (pageError) {
+
+            console.error(
+                `ERROR ON PAGE ${pageNumber}:`,
+                pageError.message
+            );
+
+            /*
+             * Save the failed page screenshot.
+             */
+
+            try {
+
+                await page.screenshot({
+                    path: path.join(
+                        debugDir,
+                        `ERROR-page-${pageNumber}.png`
+                    ),
+                    fullPage: true
+                });
+
+            } catch {}
+
+            /*
+             * Stop rather than silently producing
+             * incomplete catalog data.
+             */
+
+            throw pageError;
+        }
+    }
+
+    // ==========================================
+    // 9. FINAL PRODUCT LINKS
+    // ==========================================
+
+    const finalProductLinks = [
+        ...allProductLinks.values()
+    ];
+
+    fs.writeFileSync(
+        path.join(
+            debugDir,
+            "product-links.json"
+        ),
+        JSON.stringify(
+            finalProductLinks,
+            null,
+            2
+        ),
+        "utf8"
+    );
+
+    // ==========================================
+    // 10. ALL LINKS FROM PAGE 1
+    // ==========================================
+
+    const pageOneLinks =
         await page
             .locator("a")
             .evaluateAll(
@@ -327,11 +632,9 @@ try {
                     )
             );
 
-    // إزالة الروابط المكررة
-
     const uniqueLinks = [
         ...new Map(
-            links
+            pageOneLinks
                 .filter(
                     item =>
                         item.href
@@ -358,41 +661,8 @@ try {
         "utf8"
     );
 
-    console.log(
-        `🔗 إجمالي الروابط: ${uniqueLinks.length}`
-    );
-
     // ==========================================
-    // 11. استخراج روابط المنتجات
-    // ==========================================
-
-    const productLinks =
-        uniqueLinks.filter(
-            item =>
-                /\/product\/\d+/i.test(
-                    item.href
-                )
-        );
-
-    fs.writeFileSync(
-        path.join(
-            debugDir,
-            "product-links.json"
-        ),
-        JSON.stringify(
-            productLinks,
-            null,
-            2
-        ),
-        "utf8"
-    );
-
-    console.log(
-        `🛍️ روابط المنتجات: ${productLinks.length}`
-    );
-
-    // ==========================================
-    // 12. النهاية
+    // 11. FINAL REPORT
     // ==========================================
 
     console.log("");
@@ -402,32 +672,60 @@ try {
     console.log("");
 
     console.log(
-        "📁 الملفات التي تم إنشاؤها:"
+        "Pages scanned:",
+        maxPage
     );
 
     console.log(
-        "   debug/01-login.png"
+        "Unique product links found:",
+        finalProductLinks.length
+    );
+
+    console.log("");
+
+    console.log(
+        "Output:"
     );
 
     console.log(
-        "   debug/02-after-login.png"
+        "debug/product-links.json"
     );
 
     console.log(
-        "   debug/03-dashboard.png"
+        "debug/product-links-progress.json"
     );
 
     console.log(
-        "   debug/dashboard.html"
+        "debug/links.json"
     );
 
-    console.log(
-        "   debug/links.json"
-    );
+    console.log("");
 
-    console.log(
-        "   debug/product-links.json"
-    );
+    if (
+        finalProductLinks.length === 0
+    ) {
+
+        console.error(
+            "WARNING: No product links found."
+        );
+
+    } else {
+
+        console.log(
+            "FIRST 5 PRODUCTS:"
+        );
+
+        finalProductLinks
+            .slice(0, 5)
+            .forEach(
+                (item, index) => {
+
+                    console.log(
+                        `${index + 1}. ${item.href}`
+                    );
+                }
+            );
+    }
 
     console.log("");
 
@@ -435,13 +733,9 @@ try {
 
     console.error("");
     console.error("======================================");
-    console.error("             ERROR");
+    console.error("              ERROR");
     console.error("======================================");
     console.error("");
-
-    console.error(
-        "❌ حدث خطأ:"
-    );
 
     console.error(
         error.message
@@ -460,10 +754,7 @@ try {
         });
 
         console.error(
-            "📸 تم حفظ صورة الخطأ:"
-        );
-
-        console.error(
+            "Screenshot:",
             "debug/ERROR.png"
         );
 
