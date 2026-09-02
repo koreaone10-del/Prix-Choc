@@ -1010,487 +1010,255 @@ body {
     font-weight: 1000;
 }
 
-/* =========================================================
-   CATEGORY CATALOG
-========================================================= */
+<!-- =====================================================
+     PREMIUM CATALOG
+===================================================== -->
 
-.px-catalog {
+<section class="px-catalog">
 
-    padding:
-        5px 18px 20px;
-}
+    <div class="px-catalog-head">
 
-.px-catalog-head {
+        <div>
+            <span class="px-mini-label">
+                🇩🇿 PRIX CHOC
+            </span>
 
-    display: flex;
+            <h2>
+                🛍️ اكتشف عروضنا
+            </h2>
 
-    justify-content:
-        space-between;
+            <p>
+                منتجات مختارة وأسعار تنافسية للزبون الجزائري
+            </p>
+        </div>
 
-    align-items: center;
+        <div
+            class="px-catalog-count"
+            id="productCount">
+            0 منتج
+        </div>
 
-    margin-bottom: 12px;
-}
+    </div>
 
-.px-catalog-head h2 {
 
-    margin: 0;
+    <!-- SEARCH -->
 
-    font-size: 19px;
+    <div class="px-search-box">
 
-    color: white;
-}
+        <span>
+            🔎
+        </span>
 
-.px-catalog-head span {
+        <input
+            type="search"
+            id="productSearch"
+            placeholder="ابحث عن منتج..."
+            autocomplete="off">
 
-    color: #64748b;
+    </div>
 
-    font-size: 11px;
-}
 
-.px-category-scroll {
+    <!-- CATEGORIES -->
 
-    display: flex;
+    <div
+        class="px-category-scroll"
+        id="categoryButtons">
 
-    gap: 8px;
+        <button
+            class="px-category active"
+            data-category="all">
 
-    overflow-x: auto;
+            🔥 الكل
 
-    padding-bottom: 8px;
+        </button>
 
-    scrollbar-width: none;
-}
+        <button
+            class="px-category"
+            data-category="electronics">
 
-.px-category-scroll::-webkit-scrollbar {
-    display: none;
-}
+            📱 إلكترونيات
 
-.px-category {
+        </button>
 
-    flex:
-        0 0 auto;
+        <button
+            class="px-category"
+            data-category="kitchen">
 
-    border: 1px solid
-        rgba(255,255,255,.08);
+            🍳 المطبخ
 
-    background:
-        rgba(255,255,255,.045);
+        </button>
 
-    color: #dbeafe;
+        <button
+            class="px-category"
+            data-category="car">
 
-    border-radius: 999px;
+            🚗 السيارات
 
-    padding:
-        9px 13px;
+        </button>
 
-    font-size: 11px;
+        <button
+            class="px-category"
+            data-category="watches">
 
-    font-weight: 800;
+            ⌚ الساعات
 
-    cursor: pointer;
+        </button>
 
-    transition: .25s;
-}
+        <button
+            class="px-category"
+            data-category="fashion">
 
-.px-category.active {
+            👗 الموضة
 
-    background:
-        linear-gradient(
-            135deg,
-            #10b981,
-            #059669
-        );
+        </button>
 
-    color: white;
+        <button
+            class="px-category"
+            data-category="home">
 
-    border-color:
-        rgba(16,185,129,.6);
+            🏠 المنزل
 
-    box-shadow:
-        0 5px 20px
-        rgba(16,185,129,.20);
-}
+        </button>
 
-/* =========================================================
-   ALL PRODUCTS
-========================================================= */
+        <button
+            class="px-category"
+            data-category="beauty">
 
-.related-products {
+            💄 الجمال
 
-    padding:
-        20px 18px 30px;
+        </button>
 
-    background:
-        rgba(0,0,0,.17);
+        <button
+            class="px-category"
+            data-category="sports">
 
-    border-top:
-        1px solid
-        rgba(255,255,255,.05);
-}
+            🏋️ الرياضة
 
-.grid-products {
+        </button>
 
-    display: grid;
+        <button
+            class="px-category"
+            data-category="other">
 
-    grid-template-columns:
-        1fr 1fr;
+            🎁 متنوع
 
-    gap: 12px;
-}
+        </button>
 
-.product-item {
+    </div>
 
-    position: relative;
+</section>
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.065),
-            rgba(0,0,0,.25)
-        );
 
-    border:
-        1px solid
-        rgba(255,255,255,.09);
+<!-- =====================================================
+     TRENDING PRODUCTS
+===================================================== -->
 
-    border-radius: 14px;
+<section class="px-product-section">
 
-    padding: 9px;
+    <div class="px-section-heading">
 
-    text-align: center;
+        <div>
 
-    text-decoration: none;
+            <span>
+                الأكثر طلباً
+            </span>
 
-    color: #fff;
+            <h2>
+                🔥 منتجات رائجة
+            </h2>
 
-    transition:
-        transform .25s,
-        border-color .25s,
-        background .25s;
+        </div>
 
-    overflow: hidden;
-}
+        <button
+            class="px-see-all"
+            data-scroll="all-products">
 
-.product-item:hover {
+            عرض الكل
+        </button>
 
-    transform:
-        translateY(-3px);
+    </div>
 
-    border-color:
-        rgba(16,185,129,.35);
 
-    background:
-        rgba(255,255,255,.08);
-}
+    <div
+        class="px-horizontal-products"
+        id="trendingProductsGrid">
+    </div>
 
-.product-item img {
+</section>
 
-    display: block;
 
-    width: 100%;
+<!-- =====================================================
+     NEW PRODUCTS
+===================================================== -->
 
-    height: 145px;
+<section class="px-product-section px-new-section">
 
-    object-fit: cover;
+    <div class="px-section-heading">
 
-    border-radius: 10px;
+        <div>
 
-    margin-bottom: 9px;
-}
+            <span>
+                وصلت حديثاً
+            </span>
 
-.product-item h3 {
+            <h2>
+                🆕 منتجات جديدة
+            </h2>
 
-    font-size: 12px;
+        </div>
 
-    line-height: 1.45;
+    </div>
 
-    margin:
-        0 0 7px;
 
-    height: 36px;
+    <div
+        class="grid-products px-new-grid"
+        id="newProductsGrid">
+    </div>
 
-    overflow: hidden;
+</section>
 
-    color: #e2e8f0;
-}
 
-.product-item p {
+<!-- =====================================================
+     ALL PRODUCTS
+===================================================== -->
 
-    color: #34d399;
+<section
+    class="related-products"
+    id="all-products">
 
-    font-weight: 1000;
+    <div class="px-section-heading">
 
-    margin: 0;
+        <div>
 
-    font-size: 15px;
-}
+            <span>
+                متجر Prix Choc
+            </span>
 
-.px-item-old {
+            <h2>
+                🛍️ جميع المنتجات
+            </h2>
 
-    display: block;
+        </div>
 
-    color: #64748b;
+    </div>
 
-    text-decoration:
-        line-through;
 
-    font-size: 10px;
+    <div
+        class="grid-products"
+        id="relatedProductsGrid">
+    </div>
 
-    margin-bottom: 2px;
-}
 
-/* =========================================================
-   FORM
-========================================================= */
+    <button
+        id="loadMoreProducts"
+        class="px-load-more"
+        type="button">
 
-.form-input {
+        ⬇️ عرض المزيد من المنتجات
 
-    width: 100%;
+    </button>
 
-    padding: 14px;
-
-    margin-bottom: 13px;
-
-    background:
-        rgba(255,255,255,.055);
-
-    border:
-        1px solid
-        rgba(255,255,255,.13);
-
-    border-radius: 9px;
-
-    color: #fff;
-
-    font-size: 14px;
-
-    transition: .25s;
-}
-
-.form-input:focus {
-
-    outline: none;
-
-    border-color:
-        #10b981;
-
-    background:
-        rgba(255,255,255,.08);
-
-    box-shadow:
-        0 0 15px
-        rgba(16,185,129,.15);
-}
-
-.form-input option {
-
-    background:
-        #172033;
-
-    color: white;
-}
-
-/* =========================================================
-   DELIVERY
-========================================================= */
-
-.delivery-options {
-
-    display: flex;
-
-    gap: 9px;
-
-    margin-bottom: 14px;
-}
-
-.delivery-card {
-
-    flex: 1;
-
-    border:
-        1px solid
-        rgba(255,255,255,.16);
-
-    border-radius: 10px;
-
-    padding: 12px 7px;
-
-    text-align: center;
-
-    cursor: pointer;
-
-    background:
-        rgba(0,0,0,.25);
-
-    transition: .25s;
-}
-
-.delivery-card input {
-    display: none;
-}
-
-.delivery-card.active {
-
-    border-color:
-        #10b981;
-
-    background:
-        rgba(16,185,129,.13);
-
-    box-shadow:
-        0 0 18px
-        rgba(16,185,129,.13);
-}
-
-.delivery-title {
-
-    font-weight: 900;
-
-    font-size: 12px;
-
-    margin-bottom: 5px;
-}
-
-.delivery-price {
-
-    font-size: 13px;
-
-    color: #4ade80;
-
-    font-weight: 900;
-}
-
-.desk-info-box {
-
-    display: none;
-
-    background:
-        rgba(14,165,233,.09);
-
-    border:
-        1px solid
-        rgba(14,165,233,.28);
-
-    border-radius: 9px;
-
-    padding: 11px;
-
-    margin-bottom: 14px;
-
-    font-size: 12px;
-
-    color: #7dd3fc;
-
-    line-height: 1.6;
-}
-
-/* =========================================================
-   SUMMARY
-========================================================= */
-
-.order-summary {
-
-    background:
-        rgba(0,0,0,.32);
-
-    padding: 14px;
-
-    border-radius: 11px;
-
-    border:
-        1px dashed
-        rgba(255,255,255,.15);
-
-    margin-bottom: 17px;
-}
-
-.summary-row {
-
-    display: flex;
-
-    justify-content:
-        space-between;
-
-    margin-bottom: 8px;
-
-    color: #cbd5e1;
-
-    font-size: 13px;
-}
-
-.summary-total {
-
-    display: flex;
-
-    justify-content:
-        space-between;
-
-    margin-top: 12px;
-
-    padding-top: 12px;
-
-    border-top:
-        1px solid
-        rgba(255,255,255,.10);
-
-    font-size: 19px;
-
-    font-weight: 1000;
-
-    color: #10b981;
-}
-
-/* =========================================================
-   SUBMIT
-========================================================= */
-
-.submit-btn {
-
-    width: 100%;
-
-    padding: 17px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #10b981,
-            #059669
-        );
-
-    color: white;
-
-    border: none;
-
-    border-radius: 10px;
-
-    font-size: 18px;
-
-    font-weight: 1000;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 8px 28px
-        rgba(16,185,129,.30);
-
-    transition: .2s;
-}
-
-.submit-btn:hover {
-
-    transform:
-        translateY(-2px);
-
-    box-shadow:
-        0 12px 34px
-        rgba(16,185,129,.38);
-}
-
-.submit-btn:active {
-
-    transform:
-        scale(.98);
-}
+</section>
 
 /* =========================================================
    FOOTER
