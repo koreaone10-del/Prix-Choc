@@ -1,0 +1,17 @@
+{
+  "name": "prix-choc-automation",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Prix Choc automatic Sawa9ly product synchronization system",
+  "type": "module",
+  "scripts": {
+    "discover": "node discover.js",
+    "scrape": "node scraper.js",
+    "sync": "node sync.js",
+    "generate": "node generator.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "playwright": "^1.55.0"
+  }
+}
