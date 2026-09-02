@@ -19,10 +19,10 @@ const storeData = {
     "6": { sawa9lyLink: "https://sawa9ly.app/product/6238", name: "Écouteurs Sans Fil Bluetooth TWS Q69 Design Mini Sac à Main Clip Ear Clip-On - سماعة بلوتوث لاسلكية بتصميم علبة حقيبة فاخرة", price: 3450, image: "https://sawa9ly.app/storage/77253/1787837589156_iwf8n5y0_1.jpg" },
     "7": { sawa9lyLink: "https://sawa9ly.app/product/6251", name: "Appareil de Massage et Ventouse Électrique Anti-Cellulite Aspiration Réglable 9 Niveaux - جهاز الحجامة والتدليك الكهربائي الذكي بالأشعة الحمراء", price: 2500, image: "https://sawa9ly.app/storage/77302/1788000090570_0vbrrfpa_1.webp" },
     "8": { sawa9lyLink: "https://sawa9ly.app/product/6242", name: "Sac à dos Tendance Pour Hommes en tissu Imperméable léger et respirant grande capacité SACHM08GR - حقيبة ظهر لحفظ الكمبيوتر المحمول والأعمال بتصميم عصري ومريح", price: 2450, image: "https://sawa9ly.app/storage/77265/1787825671028_34h9qjcq_1ce7e01169636134_sac-lianxi-7.jpg" },
-    "9": { sawa9lyLink: "رابط_سوقلي", name: "اسم المنتج 9", price: 0, image: "رابط_الصورة" },
-    "10": { sawa9lyLink: "رابط_سوقلي", name: "اسم المنتج 10", price: 0, image: "رابط_الصورة" },
+    "9": { sawa9lyLink: "https://sawa9ly.app/product/5433", name: "Feu arrière clignotant triangulaire à LED multicolore 2PCS – مصباح إشارة متعدد الألوان", price: 5200, image: "https://sawa9ly.app/storage/65608/brake-lamp-cnc.jpg" },
+    "10": { sawa9lyLink: "https://sawa9ly.app/product/2630", name: "Casque Moto avec Lunettes Amovibles Coloré Anti-Bouée", price: 1900, image: "https://sawaqli.fra1.cdn.digitaloceanspaces.com/23907/MASK-Moto-cnc.jpg" },
     
-    "11": { sawa9lyLink: "رابط_سوقلي", name: "اسم المنتج 11", price: 0, image: "رابط_الصورة" },
+    "11": { sawa9lyLink: "https://sawa9ly.app/product/3394", name: "Système d’alarme antivol avec capteur de vibrations puissant de 110 dB", price: 3350, image: "https://sawaqli.fra1.cdn.digitaloceanspaces.com/34850/alarme-moto-bike-cnc.jpg" },
     "12": { sawa9lyLink: "رابط_سوقلي", name: "اسم المنتج 12", price: 0, image: "رابط_الصورة" },
     "13": { sawa9lyLink: "رابط_سوقلي", name: "اسم المنتج 13", price: 0, image: "رابط_الصورة" },
     "14": { sawa9lyLink: "رابط_سوقلي", name: "اسم المنتج 14", price: 0, image: "رابط_الصورة" },
