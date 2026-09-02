@@ -249,24 +249,48 @@ await page.goto(
 
 await page.waitForTimeout(2000);
 
-const links =
-    await page.locator("a")
-        .evaluateAll(
-            anchors =>
-                anchors.map(a => ({
-                    text:
-                        cleanText(
-                            a.innerText
-                        ),
-                    href: a.href
-                }))
-        );
+const linksFile = path.resolve(
+    "./debug/product-links.json"
+);
+
+if (!fs.existsSync(linksFile)) {
+    console.error(
+        "❌ product-links.json غير موجود."
+    );
+
+    console.error(
+        "شغّل أولاً: npm run discover"
+    );
+
+    await browser.close();
+    process.exit(1);
+}
+
+const discoveredLinks =
+    JSON.parse(
+        fs.readFileSync(
+            linksFile,
+            "utf8"
+        )
+    );
 
 const productLinks = [
     ...new Map(
-        links
+        discoveredLinks
+            .map(item => {
+                if (typeof item === "string") {
+                    return {
+                        href: item
+                    };
+                }
+
+                return {
+                    href: item.href
+                };
+            })
             .filter(
                 item =>
+                    item.href &&
                     /\/product\/\d+/i.test(
                         item.href
                     )
@@ -285,6 +309,14 @@ const limitedLinks =
         0,
         config.automation.scrapeLimit
     );
+
+console.log(
+    `🔗 Discovered product links: ${productLinks.length}`
+);
+
+console.log(
+    `🛍️ Products selected for scraping: ${limitedLinks.length}`
+);
 
 console.log(
     `🛍️ Products selected: ${limitedLinks.length}`
