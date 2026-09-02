@@ -18,29 +18,33 @@ function cleanText(value) {
 
 console.log("");
 console.log("======================================");
-console.log("   PRIX CHOC - SAWA9LY DISCOVERY");
+console.log("       PRIX CHOC - SAWA9LY");
+console.log("            DISCOVERY");
 console.log("======================================");
 console.log("");
 
-console.log("🔐 قراءة بيانات الدخول من .env...");
+/*
+ * التأكد من وجود بيانات الدخول
+ * بدون طباعة البريد أو كلمة السر
+ */
 
-if (!config.sawa9ly.email) {
+if (!config?.sawa9ly?.email) {
     console.error("❌ SAWA9LY_EMAIL غير موجود في .env");
     process.exit(1);
 }
 
-if (!config.sawa9ly.password) {
+if (!config?.sawa9ly?.password) {
     console.error("❌ SAWA9LY_PASSWORD غير موجود في .env");
     process.exit(1);
 }
 
-console.log("✅ بيانات الدخول موجودة.");
+console.log("✅ بيانات حساب سوقلي موجودة في .env.");
 console.log("");
 
 console.log("🚀 تشغيل Chromium...");
 
 const browser = await chromium.launch({
-    headless: config.automation.headless
+    headless: config.automation?.headless ?? true
 });
 
 const context = await browser.newContext({
@@ -54,6 +58,10 @@ const page = await context.newPage();
 
 try {
 
+    // ==========================================
+    // 1. فتح صفحة تسجيل الدخول
+    // ==========================================
+
     console.log("🌐 فتح صفحة تسجيل الدخول...");
 
     await page.goto(
@@ -66,6 +74,11 @@ try {
 
     await page.waitForTimeout(2000);
 
+    console.log(
+        "📍 Login URL:",
+        page.url()
+    );
+
     await page.screenshot({
         path: path.join(
             debugDir,
@@ -74,35 +87,48 @@ try {
         fullPage: true
     });
 
+    // ==========================================
+    // 2. البحث عن حقول الدخول
+    // ==========================================
+
+    const emailInput = page
+        .locator('input[type="email"]')
+        .first();
+
+    const passwordInput = page
+        .locator('input[type="password"]')
+        .first();
+
+    const emailCount =
+        await page.locator(
+            'input[type="email"]'
+        ).count();
+
+    const passwordCount =
+        await page.locator(
+            'input[type="password"]'
+        ).count();
+
     console.log(
-        "📍 صفحة الدخول:",
-        page.url()
+        `🔎 حقول البريد الموجودة: ${emailCount}`
     );
 
-    const emailInput = page.locator(
-        'input[type="email"]'
-    ).first();
-
-    const passwordInput = page.locator(
-        'input[type="password"]'
-    ).first();
-
     console.log(
-        `🔎 حقول البريد: ${await emailInput.count()}`
-    );
-
-    console.log(
-        `🔎 حقول كلمة السر: ${await passwordInput.count()}`
+        `🔎 حقول كلمة السر الموجودة: ${passwordCount}`
     );
 
     if (
-        await emailInput.count() === 0 ||
-        await passwordInput.count() === 0
+        emailCount === 0 ||
+        passwordCount === 0
     ) {
         throw new Error(
-            "لم يتم العثور على حقول تسجيل الدخول."
+            "لم يتم العثور على حقول تسجيل الدخول في صفحة سوقلي."
         );
     }
+
+    // ==========================================
+    // 3. إدخال بيانات الحساب
+    // ==========================================
 
     console.log("");
     console.log("✍️ إدخال بيانات الحساب...");
@@ -115,22 +141,36 @@ try {
         config.sawa9ly.password
     );
 
-    console.log("🖱️ البحث عن زر تسجيل الدخول...");
+    // ==========================================
+    // 4. الضغط على زر الدخول
+    // ==========================================
 
-    const submitButton = page.locator(
-        'button[type="submit"]'
-    ).first();
+    console.log(
+        "🖱️ البحث عن زر تسجيل الدخول..."
+    );
+
+    const submitButton = page
+        .locator('button[type="submit"]')
+        .first();
 
     if (
         await submitButton.count() > 0
     ) {
+
+        console.log(
+            "✅ تم العثور على زر الدخول."
+        );
 
         await submitButton.click();
 
     } else {
 
         console.log(
-            "⌨️ زر Submit غير موجود، استخدام Enter..."
+            "⚠️ لم يتم العثور على زر Submit."
+        );
+
+        console.log(
+            "⌨️ سيتم الضغط على Enter داخل كلمة السر."
         );
 
         await passwordInput.press(
@@ -138,6 +178,11 @@ try {
         );
     }
 
+    // ==========================================
+    // 5. انتظار تسجيل الدخول
+    // ==========================================
+
+    console.log("");
     console.log(
         "⏳ انتظار انتهاء تسجيل الدخول..."
     );
@@ -146,7 +191,7 @@ try {
 
     console.log("");
     console.log(
-        "📍 الرابط بعد تسجيل الدخول:"
+        "📍 الرابط الحالي:"
     );
 
     console.log(
@@ -161,17 +206,24 @@ try {
         fullPage: true
     });
 
+    // ==========================================
+    // 6. التأكد من عدم البقاء في Login
+    // ==========================================
+
     if (
-        /\/login/i.test(page.url())
+        /\/login/i.test(
+            page.url()
+        )
     ) {
 
         console.error("");
         console.error(
-            "❌ تسجيل الدخول لم ينتقل من صفحة Login."
+            "❌ لم ينجح تسجيل الدخول."
         );
 
+        console.error("");
         console.error(
-            "راجع الصورة:"
+            "📸 راجع الصورة:"
         );
 
         console.error(
@@ -185,12 +237,16 @@ try {
 
     console.log("");
     console.log(
-        "✅ يبدو أن تسجيل الدخول نجح."
+        "✅ يبدو أن تسجيل الدخول نجح!"
     );
+
+    // ==========================================
+    // 7. فتح Dashboard
+    // ==========================================
 
     console.log("");
     console.log(
-        "🚀 فتح لوحة التحكم..."
+        "🚀 فتح لوحة تحكم سوقلي..."
     );
 
     await page.goto(
@@ -205,12 +261,16 @@ try {
 
     console.log("");
     console.log(
-        "📍 Dashboard:"
+        "📍 Dashboard URL:"
     );
 
     console.log(
         page.url()
     );
+
+    // ==========================================
+    // 8. حفظ Screenshot
+    // ==========================================
 
     await page.screenshot({
         path: path.join(
@@ -219,6 +279,10 @@ try {
         ),
         fullPage: true
     });
+
+    // ==========================================
+    // 9. حفظ HTML
+    // ==========================================
 
     const html =
         await page.content();
@@ -232,22 +296,38 @@ try {
         "utf8"
     );
 
+    console.log(
+        "💾 تم حفظ dashboard.html"
+    );
+
+    // ==========================================
+    // 10. استخراج جميع الروابط
+    // ==========================================
+
+    console.log("");
+    console.log(
+        "🔎 استخراج الروابط..."
+    );
+
     const links =
         await page
             .locator("a")
             .evaluateAll(
                 anchors =>
                     anchors.map(
-                        a => ({
+                        anchor => ({
                             text:
                                 cleanText(
-                                    a.innerText
+                                    anchor.innerText
                                 ),
+
                             href:
-                                a.href
+                                anchor.href
                         })
                     )
             );
+
+    // إزالة الروابط المكررة
 
     const uniqueLinks = [
         ...new Map(
@@ -278,6 +358,14 @@ try {
         "utf8"
     );
 
+    console.log(
+        `🔗 إجمالي الروابط: ${uniqueLinks.length}`
+    );
+
+    // ==========================================
+    // 11. استخراج روابط المنتجات
+    // ==========================================
+
     const productLinks =
         uniqueLinks.filter(
             item =>
@@ -299,57 +387,46 @@ try {
         "utf8"
     );
 
-    console.log("");
-    console.log(
-        "======================================"
-    );
-
-    console.log(
-        "       DISCOVERY COMPLETED"
-    );
-
-    console.log(
-        "======================================"
-    );
-
-    console.log("");
-
-    console.log(
-        `🔗 إجمالي الروابط: ${uniqueLinks.length}`
-    );
-
     console.log(
         `🛍️ روابط المنتجات: ${productLinks.length}`
     );
 
+    // ==========================================
+    // 12. النهاية
+    // ==========================================
+
+    console.log("");
+    console.log("======================================");
+    console.log("       DISCOVERY COMPLETED");
+    console.log("======================================");
     console.log("");
 
     console.log(
-        "📁 تم إنشاء:"
+        "📁 الملفات التي تم إنشاؤها:"
     );
 
     console.log(
-        "debug/01-login.png"
+        "   debug/01-login.png"
     );
 
     console.log(
-        "debug/02-after-login.png"
+        "   debug/02-after-login.png"
     );
 
     console.log(
-        "debug/03-dashboard.png"
+        "   debug/03-dashboard.png"
     );
 
     console.log(
-        "debug/dashboard.html"
+        "   debug/dashboard.html"
     );
 
     console.log(
-        "debug/links.json"
+        "   debug/links.json"
     );
 
     console.log(
-        "debug/product-links.json"
+        "   debug/product-links.json"
     );
 
     console.log("");
@@ -357,6 +434,11 @@ try {
 } catch (error) {
 
     console.error("");
+    console.error("======================================");
+    console.error("             ERROR");
+    console.error("======================================");
+    console.error("");
+
     console.error(
         "❌ حدث خطأ:"
     );
