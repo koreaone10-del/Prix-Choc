@@ -1,0 +1,68 @@
+name: Prix Choc - Product Sync
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */6 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  sync-products:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: automation/package-lock.json
+
+      - name: Install dependencies
+        working-directory: automation
+        run: npm ci
+
+      - name: Install Chromium
+        working-directory: automation
+        run: npx playwright install --with-deps chromium
+
+      - name: Create environment
+        working-directory: automation
+        run: |
+          cat > .env <<'EOF'
+          SAWA9LY_LOGIN_URL=https://sawa9ly.app/login
+          SAWA9LY_DASHBOARD_URL=https://sawa9ly.app/dashboard
+          SAWA9LY_EMAIL=${{ secrets.SAWA9LY_EMAIL }}
+          SAWA9LY_PASSWORD=${{ secrets.SAWA9LY_PASSWORD }}
+          SCRAPE_LIMIT=20
+          HEADLESS=true
+          DRY_RUN=false
+          DEFAULT_MARGIN=1000
+          MIN_MARGIN=300
+          MAX_MARGIN=5000
+          PRODUCTS_FILE=../products.js
+          OUTPUT_DIR=./output
+          EOF
+
+      - name: Run product discovery
+        working-directory: automation
+        run: npm run discover
+
+      - name: Commit updated products
+        run: |
+          git config user.name "Prix Choc Bot"
+          git config user.email "actions@users.noreply.github.com"
+
+          git add products.js automation/output automation/debug
+
+          if git diff --cached --quiet; then
+            echo "No product changes."
+          else
+            git commit -m "Auto update Sawa9ly products"
+            git push
+          fi
