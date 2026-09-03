@@ -2068,47 +2068,184 @@ console.log(
 
 
 /* =========================================================
-   SCRAPE PRODUCTS
+   SCRAPE PRODUCTS - CONTROLLED CONCURRENCY
 ========================================================= */
 
 const products = [];
 
 
+/*
+   Number of product pages running at the same time.
+
+   Default:
+   5 concurrent pages.
+
+   You can override it from GitHub Actions with:
+
+   SCRAPE_CONCURRENCY=5
+
+   We intentionally keep this controlled
+   to avoid overloading Sawa9ly.
+*/
+
+const scrapeConcurrency =
+    Math.max(
+        1,
+        Number(
+            process.env.SCRAPE_CONCURRENCY || 5
+        )
+    );
+
+
+const workerCount =
+    Math.min(
+        scrapeConcurrency,
+        limitedLinks.length
+    );
+
+
+console.log(
+    `\n🚀 Starting parallel scraping with ${workerCount} workers...`
+);
+
+console.log(
+    `📦 Total products selected: ${limitedLinks.length}`
+);
+
+
+/*
+   The original page was used for login.
+   We keep it and create additional pages
+   inside the same authenticated browser context.
+
+   Cookies/session are therefore shared.
+*/
+
+const scrapingPages =
+    [page];
+
+
 for (
-    const item
-    of limitedLinks
+    let i = 1;
+    i < workerCount;
+    i++
 ) {
 
-    try {
+    const workerPage =
+        await context.newPage();
 
-        const product =
-            await extractProduct(
-                page,
-                item.href
-            );
+    scrapingPages.push(
+        workerPage
+    );
+}
 
 
-        products.push(
-            product
-        );
+/*
+   Shared queue index.
+
+   JavaScript executes this increment
+   synchronously, so each worker receives
+   a different product index.
+*/
+
+let nextIndex = 0;
+
+
+async function scrapeWorker(
+    workerPage,
+    workerNumber
+) {
+
+    while (true) {
+
+        const currentIndex =
+            nextIndex++;
+
+        if (
+            currentIndex >=
+            limitedLinks.length
+        ) {
+            break;
+        }
+
+
+        const item =
+            limitedLinks[
+                currentIndex
+            ];
+
+
+        const position =
+            currentIndex + 1;
 
 
         console.log(
-            `\n✅ ${product.sawa9lyId} | ${product.name || "NAME MISSING"} | ${product.basePrice} DA`
+            `\n👷 Worker ${workerNumber} → ${position}/${limitedLinks.length}`
         );
 
 
-    } catch (error) {
+        try {
 
-        console.error(
-            `\n❌ Failed: ${item.href}`
-        );
+            const product =
+                await extractProduct(
+                    workerPage,
+                    item.href
+                );
 
-        console.error(
-            error.message
-        );
+
+            products.push(
+                product
+            );
+
+
+            console.log(
+                `\n✅ Worker ${workerNumber} → ${position}/${limitedLinks.length} → ${product.sawa9lyId} | ${product.name || "NAME MISSING"} | ${product.basePrice} DA`
+            );
+
+
+        } catch (error) {
+
+            console.error(
+                `\n❌ Worker ${workerNumber} failed → ${position}/${limitedLinks.length}`
+            );
+
+            console.error(
+                `🔗 ${item.href}`
+            );
+
+            console.error(
+                error?.message ||
+                error
+            );
+        }
     }
 }
+
+
+/*
+   Start all workers simultaneously.
+
+   Promise.all waits until every worker
+   has finished its queue.
+*/
+
+await Promise.all(
+    scrapingPages.map(
+        (
+            workerPage,
+            index
+        ) =>
+            scrapeWorker(
+                workerPage,
+                index + 1
+            )
+    )
+);
+
+
+console.log(
+    `\n🏁 Parallel scraping completed. ${products.length}/${limitedLinks.length} products scraped.`
+);
 
 
 /* =========================================================
@@ -2269,6 +2406,10 @@ console.log(
 
 console.log(
     `🛍️ Scrape limit: ${config.automation.scrapeLimit}`
+);
+
+console.log(
+    `⚡ Scrape concurrency: ${scrapeConcurrency}`
 );
 
 console.log(
