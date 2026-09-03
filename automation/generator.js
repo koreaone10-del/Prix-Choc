@@ -235,9 +235,9 @@ function findProductBlock(
 function buildProductObject(
     product
 ) {
-
     return `{
         name: "${escapeString(product.name)}",
+        description: "${escapeString(product.description)}",
         price: ${Number(product.sellingPrice || 0)},
         image: "${escapeString(product.image)}",
         sawa9lyLink: "${escapeString(product.sawa9lyLink)}",
