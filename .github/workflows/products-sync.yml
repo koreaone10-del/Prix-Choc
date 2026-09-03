@@ -184,7 +184,7 @@ jobs:
 
 
       # =====================================================
-      # 11. VERIFY PRODUCTS.JS
+      # 11. VERIFY PRODUCTS.JS EXISTS
       # =====================================================
 
       - name: Verify products.js
@@ -199,7 +199,20 @@ jobs:
 
 
       # =====================================================
-      # 12. SHOW GIT STATUS
+      # 12. VALIDATE PRODUCTS.JS SYNTAX
+      # =====================================================
+
+      - name: Validate products.js syntax
+        run: |
+          echo "Validating products.js JavaScript syntax..."
+
+          node --check products.js
+
+          echo "products.js syntax: OK"
+
+
+      # =====================================================
+      # 13. SHOW GIT STATUS
       # =====================================================
 
       - name: Show changes
@@ -209,7 +222,7 @@ jobs:
 
 
       # =====================================================
-      # 13. COMMIT CHANGES
+      # 14. COMMIT CHANGES
       # =====================================================
 
       - name: Commit updated products
