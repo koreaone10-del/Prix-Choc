@@ -101,7 +101,7 @@ jobs:
           SAWA9LY_EMAIL=${{ secrets.SAWA9LY_EMAIL }}
           SAWA9LY_PASSWORD=${{ secrets.SAWA9LY_PASSWORD }}
 
-          SCRAPE_LIMIT=20
+          SCRAPE_LIMIT=2093
           HEADLESS=true
           DRY_RUN=false
 
