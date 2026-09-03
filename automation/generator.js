@@ -201,25 +201,36 @@ if (
     process.exit(1);
 }
 
+const beforeInsert = updatedContent.slice(
+  0,
+  insertPosition
+);
+
+const afterInsert = updatedContent.slice(
+  insertPosition
+);
+
+// نتأكد أن آخر منتج قديم ينتهي بفاصلة
+// حتى لا ينكسر products.js عند إضافة أول منتج جديد.
+const normalizedBeforeInsert =
+  beforeInsert.trimEnd().endsWith(",")
+    ? beforeInsert
+    : beforeInsert.trimEnd() + ",\n";
+
 const additionText =
-    "\n" +
-    additions
-        .map(
-            item =>
-                `    "${item.id}": ${buildProductObject(item.product)},`
-        )
-        .join("\n") +
-    "\n";
+  "\n" +
+  additions
+    .map(
+      item =>
+        ` "${item.id}": ${buildProductObject(item.product)},`
+    )
+    .join("\n") +
+  "\n";
 
 updatedContent =
-    updatedContent.slice(
-        0,
-        insertPosition
-    ) +
-    additionText +
-    updatedContent.slice(
-        insertPosition
-    );
+  normalizedBeforeInsert +
+  additionText +
+  afterInsert;
 
 fs.writeFileSync(
     productsFile,
