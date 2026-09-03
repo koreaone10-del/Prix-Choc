@@ -71,32 +71,112 @@ fs.mkdirSync(
 ========================================================= */
 
 function cleanText(value) {
+
     if (!value) {
         return "";
     }
 
     return String(value)
+        .replace(/\u00a0/g, " ")
         .replace(/\s+/g, " ")
         .trim();
 }
 
 
+/* =========================================================
+   REMOVE UNWANTED TITLE TEXT
+========================================================= */
+
+function cleanProductName(value) {
+
+    let text =
+        cleanText(value);
+
+    if (!text) {
+        return "";
+    }
+
+    /* Remove common website suffixes */
+
+    text =
+        text
+            .replace(/\s*[-|]\s*Sawa9ly.*$/i, "")
+            .replace(/\s*[-|]\s*سوقلي.*$/i, "");
+
+    /* Remove copy button text */
+
+    text =
+        text
+            .replace(
+                /اضغط\s+لنسخ(?:\s+النص)?/gi,
+                ""
+            )
+            .replace(
+                /اضغط\s+للنسخ/gi,
+                ""
+            )
+            .replace(
+                /copy\s+text/gi,
+                ""
+            )
+            .replace(
+                /copy/gi,
+                ""
+            );
+
+    return cleanText(text);
+}
+
+
+/* =========================================================
+   PRICE PARSER
+========================================================= */
+
 function parsePrice(value) {
+
     if (!value) {
         return 0;
     }
 
     const text =
         String(value)
-            .replace(/[^\d.,]/g, "")
-            .replace(/\s/g, "");
+            .replace(/[^\d.,\s]/g, "")
+            .replace(/\s+/g, "");
 
     if (!text) {
         return 0;
     }
 
-    const normalized =
-        text.replace(/,/g, "");
+    /*
+       Algerian prices normally appear like:
+
+       12,500
+       12 500
+       12500
+       12.500
+    */
+
+    let normalized =
+        text;
+
+    /*
+       If both comma and dot exist,
+       assume the separators are thousands.
+    */
+
+    if (
+        normalized.includes(",") &&
+        normalized.includes(".")
+    ) {
+        normalized =
+            normalized
+                .replace(/[.,]/g, "");
+    } else {
+        normalized =
+            normalized
+                .replace(/,/g, "")
+                .replace(/\./g, "");
+    }
 
     const number =
         Number(normalized);
@@ -107,7 +187,12 @@ function parsePrice(value) {
 }
 
 
+/* =========================================================
+   PRODUCT ID
+========================================================= */
+
 function extractProductId(url) {
+
     const match =
         String(url).match(
             /\/product\/(\d+)/i
@@ -119,65 +204,65 @@ function extractProductId(url) {
 }
 
 
-function normalizeImageUrl(
-    imageUrl,
+/* =========================================================
+   NORMALIZE URL
+========================================================= */
+
+function normalizeUrl(
+    value,
     pageUrl
 ) {
-    if (!imageUrl) {
-        return "";
-    }
-
-    const value =
-        String(imageUrl).trim();
 
     if (!value) {
         return "";
     }
 
+    const text =
+        String(value).trim();
+
+    if (!text) {
+        return "";
+    }
+
     try {
+
         return new URL(
-            value,
+            text,
             pageUrl
         ).href;
+
     } catch {
-        return value;
+
+        return text;
     }
 }
 
 
 /* =========================================================
-   EXTRACT PRODUCT IMAGE
+   EXTRACT IMAGE
 ========================================================= */
 
 async function extractProductImage(
     page
 ) {
-    /*
-       Try several image sources.
-
-       Priority:
-       1. og:image
-       2. twitter:image
-       3. JSON-LD image
-       4. main product image
-       5. first useful large image
-    */
 
     const image =
         await page.evaluate(() => {
 
             function clean(value) {
+
                 if (!value) {
                     return "";
                 }
 
-                return String(value).trim();
+                return String(value)
+                    .trim();
             }
 
 
-            /* -------------------------
-               OG IMAGE
-            ------------------------- */
+            /* -----------------------------------------
+               1. OG IMAGE
+            ----------------------------------------- */
 
             const ogImage =
                 document.querySelector(
@@ -187,15 +272,16 @@ async function extractProductImage(
             if (
                 ogImage?.content
             ) {
+
                 return clean(
                     ogImage.content
                 );
             }
 
 
-            /* -------------------------
-               TWITTER IMAGE
-            ------------------------- */
+            /* -----------------------------------------
+               2. TWITTER IMAGE
+            ----------------------------------------- */
 
             const twitterImage =
                 document.querySelector(
@@ -205,15 +291,16 @@ async function extractProductImage(
             if (
                 twitterImage?.content
             ) {
+
                 return clean(
                     twitterImage.content
                 );
             }
 
 
-            /* -------------------------
-               JSON-LD
-            ------------------------- */
+            /* -----------------------------------------
+               3. JSON-LD IMAGE
+            ----------------------------------------- */
 
             const scripts =
                 Array.from(
@@ -226,11 +313,12 @@ async function extractProductImage(
                 const script
                 of scripts
             ) {
+
                 try {
+
                     const data =
                         JSON.parse(
-                            script.textContent ||
-                            ""
+                            script.textContent || ""
                         );
 
                     const objects =
@@ -242,64 +330,83 @@ async function extractProductImage(
                         const item
                         of objects
                     ) {
+
                         if (
-                            item &&
-                            item.image
+                            !item ||
+                            !item.image
                         ) {
-                            if (
-                                typeof item.image ===
-                                "string"
-                            ) {
-                                return clean(
-                                    item.image
-                                );
-                            }
+                            continue;
+                        }
 
-                            if (
-                                Array.isArray(
-                                    item.image
-                                ) &&
-                                item.image.length
-                            ) {
-                                return clean(
-                                    item.image[0]
-                                );
-                            }
+                        if (
+                            typeof item.image ===
+                            "string"
+                        ) {
 
-                            if (
-                                typeof item.image ===
+                            return clean(
+                                item.image
+                            );
+                        }
+
+                        if (
+                            Array.isArray(
+                                item.image
+                            ) &&
+                            item.image.length
+                        ) {
+
+                            return clean(
+                                item.image[0]
+                            );
+                        }
+
+                        if (
+                            typeof item.image ===
                                 "object" &&
+                            item.image.url
+                        ) {
+
+                            return clean(
                                 item.image.url
-                            ) {
-                                return clean(
-                                    item.image.url
-                                );
-                            }
+                            );
                         }
                     }
+
                 } catch {
-                    /* Ignore invalid JSON-LD */
+                    /* Ignore invalid JSON */
                 }
             }
 
 
-            /* -------------------------
-               PRODUCT IMAGE SELECTORS
-            ------------------------- */
+            /* -----------------------------------------
+               4. PRODUCT/GALLERY IMAGES
+            ----------------------------------------- */
 
             const selectors = [
+
                 '[class*="product"] img',
+
                 '[class*="Product"] img',
+
                 '[class*="gallery"] img',
+
                 '[class*="Gallery"] img',
+
+                '[class*="swiper"] img',
+
+                '[class*="carousel"] img',
+
                 'main img',
+
                 'article img'
             ];
+
 
             for (
                 const selector
                 of selectors
             ) {
+
                 const images =
                     Array.from(
                         document.querySelectorAll(
@@ -311,26 +418,19 @@ async function extractProductImage(
                     const img
                     of images
                 ) {
+
                     const src =
-                        img.getAttribute(
-                            "src"
-                        ) ||
-                        img.getAttribute(
-                            "data-src"
-                        ) ||
-                        img.getAttribute(
-                            "data-lazy-src"
-                        ) ||
-                        img.getAttribute(
-                            "data-original"
-                        );
+                        img.getAttribute("src") ||
+                        img.getAttribute("data-src") ||
+                        img.getAttribute("data-lazy-src") ||
+                        img.getAttribute("data-original") ||
+                        img.getAttribute("data-image");
 
                     if (
                         src &&
-                        !src.startsWith(
-                            "data:"
-                        )
+                        !src.startsWith("data:")
                     ) {
+
                         return clean(
                             src
                         );
@@ -339,9 +439,9 @@ async function extractProductImage(
             }
 
 
-            /* -------------------------
-               ANY USEFUL IMAGE
-            ------------------------- */
+            /* -----------------------------------------
+               5. ANY USEFUL IMAGE
+            ----------------------------------------- */
 
             const allImages =
                 Array.from(
@@ -350,43 +450,44 @@ async function extractProductImage(
                     )
                 );
 
+
             for (
                 const img
                 of allImages
             ) {
+
                 const src =
-                    img.getAttribute(
-                        "src"
-                    ) ||
-                    img.getAttribute(
-                        "data-src"
-                    ) ||
-                    img.getAttribute(
-                        "data-lazy-src"
-                    ) ||
-                    img.getAttribute(
-                        "data-original"
-                    );
+                    img.getAttribute("src") ||
+                    img.getAttribute("data-src") ||
+                    img.getAttribute("data-lazy-src") ||
+                    img.getAttribute("data-original") ||
+                    img.getAttribute("data-image");
+
+                if (!src) {
+                    continue;
+                }
+
+                const lower =
+                    src.toLowerCase();
 
                 if (
-                    src &&
-                    !src.startsWith(
-                        "data:"
-                    ) &&
-                    !src.includes(
-                        "logo"
-                    ) &&
-                    !src.includes(
-                        "icon"
-                    ) &&
-                    !src.includes(
-                        "avatar"
-                    )
+                    lower.startsWith("data:")
                 ) {
-                    return clean(
-                        src
-                    );
+                    continue;
                 }
+
+                if (
+                    lower.includes("logo") ||
+                    lower.includes("icon") ||
+                    lower.includes("avatar") ||
+                    lower.includes("favicon")
+                ) {
+                    continue;
+                }
+
+                return clean(
+                    src
+                );
             }
 
 
@@ -394,7 +495,7 @@ async function extractProductImage(
         });
 
 
-    return normalizeImageUrl(
+    return normalizeUrl(
         image,
         page.url()
     );
@@ -402,87 +503,988 @@ async function extractProductImage(
 
 
 /* =========================================================
-   EXTRACT PRODUCT DETAILS
+   EXTRACT PRODUCT NAME
 ========================================================= */
 
-async function extractProduct(
-    page,
-    url
+async function extractProductName(
+    page
 ) {
-    console.log(
-        `\n🔎 Opening: ${url}`
-    );
 
-    await page.goto(
-        url,
-        {
-            waitUntil:
-                "domcontentloaded",
-            timeout: 60000
-        }
-    );
+    const result =
+        await page.evaluate(() => {
 
-    await page.waitForTimeout(
-        1500
-    );
+            function clean(value) {
 
+                if (!value) {
+                    return "";
+                }
 
-    /* -------------------------
-       PRODUCT NAME
-    ------------------------- */
-
-    const title =
-        await page
-            .locator("h1")
-            .first()
-            .textContent()
-            .catch(
-                () => ""
-            );
+                return String(value)
+                    .replace(/\u00a0/g, " ")
+                    .replace(/\s+/g, " ")
+                    .trim();
+            }
 
 
-    const metaTitle =
-        await page
-            .locator(
-                'meta[property="og:title"]'
-            )
-            .getAttribute(
-                "content"
-            )
-            .catch(
-                () => ""
-            );
+            function useful(value) {
+
+                const text =
+                    clean(value);
+
+                if (!text) {
+                    return "";
+                }
+
+                if (
+                    text.length < 5 ||
+                    text.length > 500
+                ) {
+                    return "";
+                }
+
+                const lower =
+                    text.toLowerCase();
+
+                /*
+                   Ignore navigation,
+                   buttons and generic website text.
+                */
+
+                const ignored = [
+
+                    "اضغط لنسخ",
+
+                    "اضغط للنسخ",
+
+                    "إضافة إلى السلة",
+
+                    "أضف إلى السلة",
+
+                    "اطلب الآن",
+
+                    "طلباتي",
+
+                    "الرئيسية",
+
+                    "سوقلي",
+
+                    "تسجيل الدخول",
+
+                    "تسجيل",
+
+                    "login",
+
+                    "register",
+
+                    "add to cart",
+
+                    "buy now",
+
+                    "wishlist",
+
+                    "description",
+
+                    "الوصف",
+
+                    "تفاصيل المنتج"
+                ];
+
+                for (
+                    const word
+                    of ignored
+                ) {
+
+                    if (
+                        lower ===
+                        word.toLowerCase()
+                    ) {
+                        return "";
+                    }
+                }
+
+                return text;
+            }
+
+
+            /* -----------------------------------------
+               1. H1
+            ----------------------------------------- */
+
+            const h1 =
+                document.querySelector(
+                    "h1"
+                );
+
+            const h1Text =
+                useful(
+                    h1?.innerText
+                );
+
+            if (h1Text) {
+                return {
+                    name: h1Text,
+                    method: "h1"
+                };
+            }
+
+
+            /* -----------------------------------------
+               2. OG TITLE
+            ----------------------------------------- */
+
+            const ogTitle =
+                document.querySelector(
+                    'meta[property="og:title"]'
+                );
+
+            const ogText =
+                useful(
+                    ogTitle?.content
+                );
+
+            if (ogText) {
+
+                return {
+                    name: ogText,
+                    method: "og:title"
+                };
+            }
+
+
+            /* -----------------------------------------
+               3. TWITTER TITLE
+            ----------------------------------------- */
+
+            const twitterTitle =
+                document.querySelector(
+                    'meta[name="twitter:title"]'
+                );
+
+            const twitterText =
+                useful(
+                    twitterTitle?.content
+                );
+
+            if (twitterText) {
+
+                return {
+                    name: twitterText,
+                    method: "twitter:title"
+                };
+            }
+
+
+            /* -----------------------------------------
+               4. JSON-LD PRODUCT NAME
+            ----------------------------------------- */
+
+            const scripts =
+                Array.from(
+                    document.querySelectorAll(
+                        'script[type="application/ld+json"]'
+                    )
+                );
+
+            for (
+                const script
+                of scripts
+            ) {
+
+                try {
+
+                    const data =
+                        JSON.parse(
+                            script.textContent || ""
+                        );
+
+                    const objects =
+                        Array.isArray(data)
+                            ? data
+                            : [data];
+
+                    for (
+                        const item
+                        of objects
+                    ) {
+
+                        if (
+                            item &&
+                            item.name
+                        ) {
+
+                            const value =
+                                useful(
+                                    item.name
+                                );
+
+                            if (value) {
+
+                                return {
+                                    name: value,
+                                    method: "json-ld"
+                                };
+                            }
+                        }
+                    }
+
+                } catch {
+                    /* Ignore invalid JSON */
+                }
+            }
+
+
+            /* -----------------------------------------
+               5. COMMON TITLE CLASSES
+            ----------------------------------------- */
+
+            const titleSelectors = [
+
+                '[class*="product-title"]',
+
+                '[class*="Product-title"]',
+
+                '[class*="product_title"]',
+
+                '[class*="Product_title"]',
+
+                '[class*="product-name"]',
+
+                '[class*="Product-name"]',
+
+                '[class*="product_name"]',
+
+                '[class*="Product_name"]',
+
+                '[class*="title"]',
+
+                '[class*="Title"]'
+            ];
+
+
+            for (
+                const selector
+                of titleSelectors
+            ) {
+
+                const elements =
+                    Array.from(
+                        document.querySelectorAll(
+                            selector
+                        )
+                    );
+
+                for (
+                    const element
+                    of elements
+                ) {
+
+                    const value =
+                        useful(
+                            element.innerText
+                        );
+
+                    if (!value) {
+                        continue;
+                    }
+
+                    /*
+                       Don't accept huge blocks of text.
+                    */
+
+                    if (
+                        value.length > 250
+                    ) {
+                        continue;
+                    }
+
+                    return {
+                        name: value,
+                        method: selector
+                    };
+                }
+            }
+
+
+            /* -----------------------------------------
+               6. AREA AROUND "اضغط لنسخ"
+            ----------------------------------------- */
+
+            const copyWords = [
+
+                "اضغط لنسخ",
+
+                "اضغط للنسخ",
+
+                "copy text",
+
+                "copy"
+            ];
+
+
+            const elements =
+                Array.from(
+                    document.querySelectorAll(
+                        "button, a, span, div"
+                    )
+                );
+
+
+            for (
+                const element
+                of elements
+            ) {
+
+                const elementText =
+                    clean(
+                        element.innerText
+                    );
+
+                if (!elementText) {
+                    continue;
+                }
+
+
+                const lower =
+                    elementText.toLowerCase();
+
+
+                let isCopyButton =
+                    false;
+
+
+                for (
+                    const word
+                    of copyWords
+                ) {
+
+                    if (
+                        lower.includes(
+                            word.toLowerCase()
+                        )
+                    ) {
+
+                        isCopyButton =
+                            true;
+
+                        break;
+                    }
+                }
+
+
+                if (!isCopyButton) {
+                    continue;
+                }
+
+
+                /*
+                   Search nearby parent containers.
+                */
+
+                let parent =
+                    element;
+
+
+                for (
+                    let level = 0;
+                    level < 6 && parent;
+                    level++
+                ) {
+
+                    const parentText =
+                        clean(
+                            parent.innerText
+                        );
+
+                    if (
+                        parentText &&
+                        parentText.length >= 10 &&
+                        parentText.length <= 800
+                    ) {
+
+                        /*
+                           Search for lines that look
+                           like a product title.
+                        */
+
+                        const lines =
+                            parentText
+                                .split("\n")
+                                .map(
+                                    line =>
+                                        clean(line)
+                                )
+                                .filter(
+                                    line =>
+                                        line.length >= 8 &&
+                                        line.length <= 250
+                                );
+
+
+                        /*
+                           The title is usually a
+                           relatively short line,
+                           while the description is
+                           much longer.
+                        */
+
+                        const candidates =
+                            lines.filter(
+                                line => {
+
+                                    const l =
+                                        line.toLowerCase();
+
+                                    if (
+                                        l.includes(
+                                            "اضغط لنسخ"
+                                        )
+                                    ) {
+                                        return false;
+                                    }
+
+                                    if (
+                                        l.includes(
+                                            "اضغط للنسخ"
+                                        )
+                                    ) {
+                                        return false;
+                                    }
+
+                                    if (
+                                        l.includes(
+                                            "السعر"
+                                        ) &&
+                                        line.length < 80
+                                    ) {
+                                        return false;
+                                    }
+
+                                    if (
+                                        /\b\d[\d\s,.]*\s*(da|dzd)\b/i.test(
+                                            line
+                                        )
+                                    ) {
+                                        return false;
+                                    }
+
+                                    return true;
+                                }
+                            );
+
+
+                        if (
+                            candidates.length
+                        ) {
+
+                            /*
+                               Prefer the first candidate
+                               that looks like a title.
+                            */
+
+                            const candidate =
+                                candidates
+                                    .sort(
+                                        (
+                                            a,
+                                            b
+                                        ) =>
+                                            a.length -
+                                            b.length
+                                    )[0];
+
+                            if (
+                                candidate
+                            ) {
+
+                                return {
+                                    name:
+                                        candidate,
+                                    method:
+                                        "copy-area"
+                                };
+                            }
+                        }
+                    }
+
+
+                    parent =
+                        parent.parentElement;
+                }
+            }
+
+
+            /* -----------------------------------------
+               7. PAGE TITLE AS LAST RESORT
+            ----------------------------------------- */
+
+            const documentTitle =
+                useful(
+                    document.title
+                );
+
+            if (
+                documentTitle
+            ) {
+
+                return {
+                    name:
+                        documentTitle,
+                    method:
+                        "document.title"
+                };
+            }
+
+
+            return {
+                name: "",
+                method: "not-found"
+            };
+        });
 
 
     const name =
-        cleanText(title) ||
-        cleanText(metaTitle);
-
-
-    /* -------------------------
-       PRODUCT IMAGE
-    ------------------------- */
-
-    const image =
-        await extractProductImage(
-            page
+        cleanProductName(
+            result?.name
         );
 
 
-    if (!image) {
+    if (name) {
+
         console.log(
-            "⚠️ Product image not found."
+            `📝 Name found (${result.method}): ${name}`
         );
+
     } else {
+
         console.log(
-            `🖼️ Image found: ${image}`
+            "⚠️ Product name not found."
         );
     }
 
 
-    /* -------------------------
-       CANONICAL URL
-    ------------------------- */
+    return name;
+}
+
+
+/* =========================================================
+   EXTRACT DESCRIPTION
+========================================================= */
+
+async function extractProductDescription(
+    page,
+    productName
+) {
+
+    const description =
+        await page.evaluate(
+            (knownName) => {
+
+                function clean(value) {
+
+                    if (!value) {
+                        return "";
+                    }
+
+                    return String(value)
+                        .replace(/\u00a0/g, " ")
+                        .replace(/\s+/g, " ")
+                        .trim();
+                }
+
+
+                function isBadText(text) {
+
+                    if (!text) {
+                        return true;
+                    }
+
+                    const lower =
+                        text.toLowerCase();
+
+                    const badWords = [
+
+                        "اضغط لنسخ",
+
+                        "اضغط للنسخ",
+
+                        "إضافة إلى السلة",
+
+                        "أضف إلى السلة",
+
+                        "اطلب الآن",
+
+                        "الرئيسية",
+
+                        "طلباتي",
+
+                        "تسجيل الدخول",
+
+                        "wishlist",
+
+                        "add to cart",
+
+                        "buy now",
+
+                        "login",
+
+                        "register"
+                    ];
+
+
+                    return badWords.some(
+                        word =>
+                            lower.includes(
+                                word.toLowerCase()
+                            )
+                    );
+                }
+
+
+                /*
+                   First try obvious description containers.
+                */
+
+                const selectors = [
+
+                    '[class*="description"]',
+
+                    '[class*="Description"]',
+
+                    '[class*="product-description"]',
+
+                    '[class*="Product-description"]',
+
+                    '[class*="product_description"]',
+
+                    '[class*="Product_description"]',
+
+                    '[id*="description"]',
+
+                    '[id*="Description"]',
+
+                    'article'
+                ];
+
+
+                for (
+                    const selector
+                    of selectors
+                ) {
+
+                    const elements =
+                        Array.from(
+                            document.querySelectorAll(
+                                selector
+                            )
+                        );
+
+
+                    for (
+                        const element
+                        of elements
+                    ) {
+
+                        const text =
+                            clean(
+                                element.innerText
+                            );
+
+
+                        if (
+                            text.length < 30 ||
+                            text.length > 10000
+                        ) {
+                            continue;
+                        }
+
+
+                        if (
+                            isBadText(text)
+                        ) {
+                            continue;
+                        }
+
+
+                        /*
+                           If the known product name
+                           appears inside the container,
+                           remove it from the description.
+                        */
+
+                        let result =
+                            text;
+
+
+                        if (
+                            knownName &&
+                            result.includes(
+                                knownName
+                            )
+                        ) {
+
+                            result =
+                                result.replace(
+                                    knownName,
+                                    ""
+                                );
+                        }
+
+
+                        result =
+                            clean(
+                                result
+                            );
+
+
+                        if (
+                            result.length >= 30
+                        ) {
+
+                            return result;
+                        }
+                    }
+                }
+
+
+                /*
+                   Second strategy:
+                   locate the "copy" button and inspect
+                   the surrounding content.
+                */
+
+                const elements =
+                    Array.from(
+                        document.querySelectorAll(
+                            "button, a, span, div"
+                        )
+                    );
+
+
+                for (
+                    const element
+                    of elements
+                ) {
+
+                    const text =
+                        clean(
+                            element.innerText
+                        );
+
+
+                    if (!text) {
+                        continue;
+                    }
+
+
+                    const lower =
+                        text.toLowerCase();
+
+
+                    if (
+                        !lower.includes(
+                            "اضغط لنسخ"
+                        ) &&
+                        !lower.includes(
+                            "اضغط للنسخ"
+                        ) &&
+                        !lower.includes(
+                            "copy"
+                        )
+                    ) {
+                        continue;
+                    }
+
+
+                    let parent =
+                        element;
+
+
+                    for (
+                        let level = 0;
+                        level < 6 && parent;
+                        level++
+                    ) {
+
+                        const parentText =
+                            clean(
+                                parent.innerText
+                            );
+
+
+                        if (
+                            parentText.length >= 30 &&
+                            parentText.length <= 15000
+                        ) {
+
+                            let result =
+                                parentText;
+
+
+                            if (
+                                knownName &&
+                                result.includes(
+                                    knownName
+                                )
+                            ) {
+
+                                result =
+                                    result.replace(
+                                        knownName,
+                                        ""
+                                    );
+                            }
+
+
+                            result =
+                                result
+                                    .replace(
+                                        /اضغط\s+لنسخ(?:\s+النص)?/gi,
+                                        ""
+                                    )
+                                    .replace(
+                                        /اضغط\s+للنسخ/gi,
+                                        ""
+                                    )
+                                    .replace(
+                                        /copy\s+text/gi,
+                                        ""
+                                    );
+
+
+                            result =
+                                clean(
+                                    result
+                                );
+
+
+                            if (
+                                result.length >= 30
+                            ) {
+
+                                return result;
+                            }
+                        }
+
+
+                        parent =
+                            parent.parentElement;
+                    }
+                }
+
+
+                return "";
+            },
+            productName
+        );
+
+
+    const result =
+        cleanText(
+            description
+        );
+
+
+    if (result) {
+
+        console.log(
+            `📄 Description found: ${result.length} characters`
+        );
+
+    } else {
+
+        console.log(
+            "⚠️ Description not found."
+        );
+    }
+
+
+    return result;
+}
+
+
+/* =========================================================
+   EXTRACT PRICE
+========================================================= */
+
+async function extractBasePrice(
+    page
+) {
+
+    const bodyText =
+        cleanText(
+            await page
+                .locator("body")
+                .innerText()
+                .catch(
+                    () => ""
+                )
+        );
+
+
+    /*
+       Price patterns used by Sawa9ly.
+    */
+
+    const pricePatterns = [
+
+        /(\d[\d\s.,]{2,})\s*(?:دج|DA|DZD)/i,
+
+        /(?:السعر|prix|price)\s*[:：]?\s*(\d[\d\s.,]*)/i
+    ];
+
+
+    for (
+        const pattern
+        of pricePatterns
+    ) {
+
+        const match =
+            bodyText.match(
+                pattern
+            );
+
+
+        if (!match) {
+            continue;
+        }
+
+
+        const price =
+            parsePrice(
+                match[1]
+            );
+
+
+        if (
+            price > 0
+        ) {
+
+            console.log(
+                `💰 Base price found: ${price} DA`
+            );
+
+            return price;
+        }
+    }
+
+
+    console.log(
+        "⚠️ Base price not found."
+    );
+
+
+    return 0;
+}
+
+
+/* =========================================================
+   EXTRACT CANONICAL URL
+========================================================= */
+
+async function extractCanonicalUrl(
+    page,
+    fallbackUrl
+) {
 
     const canonical =
         await page
@@ -497,60 +1499,116 @@ async function extractProduct(
             );
 
 
-    /* -------------------------
-       BODY TEXT
-    ------------------------- */
+    return normalizeUrl(
+        canonical || fallbackUrl,
+        fallbackUrl
+    );
+}
 
-    const bodyText =
-        cleanText(
-            await page
-                .locator("body")
-                .innerText()
-                .catch(
-                    () => ""
-                )
+
+/* =========================================================
+   EXTRACT COMPLETE PRODUCT
+========================================================= */
+
+async function extractProduct(
+    page,
+    url
+) {
+
+    console.log(
+        `\n🔎 Opening: ${url}`
+    );
+
+
+    await page.goto(
+        url,
+        {
+            waitUntil:
+                "domcontentloaded",
+            timeout:
+                60000
+        }
+    );
+
+
+    /*
+       Give Sawa9ly JavaScript time to
+       render the product page.
+    */
+
+    await page.waitForTimeout(
+        2000
+    );
+
+
+    /*
+       Small additional wait for
+       lazy-loaded product content.
+    */
+
+    await page.waitForTimeout(
+        1000
+    );
+
+
+    /* -----------------------------------------
+       NAME
+    ----------------------------------------- */
+
+    const name =
+        await extractProductName(
+            page
         );
 
 
-    /* -------------------------
-       BASE PRICE
-    ------------------------- */
+    /* -----------------------------------------
+       IMAGE
+    ----------------------------------------- */
 
-    let basePrice = 0;
-
-    const pricePatterns = [
-        /(\d[\d\s.,]{2,})\s*(?:دج|DA|DZD)/i,
-        /(?:السعر|prix)\s*[:：]?\s*(\d[\d\s.,]*)/i
-    ];
+    const image =
+        await extractProductImage(
+            page
+        );
 
 
-    for (
-        const pattern
-        of pricePatterns
-    ) {
-        const match =
-            bodyText.match(
-                pattern
-            );
+    if (image) {
 
-        if (match) {
-            basePrice =
-                parsePrice(
-                    match[1]
-                );
+        console.log(
+            `🖼️ Image found: ${image}`
+        );
 
-            if (
-                basePrice > 0
-            ) {
-                break;
-            }
-        }
+    } else {
+
+        console.log(
+            "⚠️ Product image not found."
+        );
     }
 
 
-    /* -------------------------
-       SAWA9LY ID
-    ------------------------- */
+    /* -----------------------------------------
+       DESCRIPTION
+    ----------------------------------------- */
+
+    const description =
+        await extractProductDescription(
+            page,
+            name
+        );
+
+
+    /* -----------------------------------------
+       PRICE
+    ----------------------------------------- */
+
+    const basePrice =
+        await extractBasePrice(
+            page
+        );
+
+
+    /* -----------------------------------------
+       PRODUCT ID
+    ----------------------------------------- */
 
     const sourceId =
         extractProductId(
@@ -558,9 +1616,9 @@ async function extractProduct(
         );
 
 
-    /* -------------------------
+    /* -----------------------------------------
        SELLING PRICE
-    ------------------------- */
+    ----------------------------------------- */
 
     const sellingPrice =
         calculateSellingPrice(
@@ -568,9 +1626,9 @@ async function extractProduct(
         );
 
 
-    /* -------------------------
+    /* -----------------------------------------
        PROFIT
-    ------------------------- */
+    ----------------------------------------- */
 
     const profit =
         calculateProfit(
@@ -579,16 +1637,76 @@ async function extractProduct(
         );
 
 
-    /* -------------------------
+    /* -----------------------------------------
+       CANONICAL
+    ----------------------------------------- */
+
+    const sawa9lyLink =
+        await extractCanonicalUrl(
+            page,
+            url
+        );
+
+
+    /* -----------------------------------------
+       VALIDATION LOG
+    ----------------------------------------- */
+
+    console.log(
+        "\n📦 PRODUCT DATA"
+    );
+
+    console.log(
+        `   ID: ${sourceId || "MISSING"}`
+    );
+
+    console.log(
+        `   NAME: ${name || "MISSING"}`
+    );
+
+    console.log(
+        `   BASE PRICE: ${basePrice || "MISSING"} DA`
+    );
+
+    console.log(
+        `   SELLING PRICE: ${sellingPrice || "MISSING"} DA`
+    );
+
+    console.log(
+        `   PROFIT: ${profit || "MISSING"} DA`
+    );
+
+    console.log(
+        `   IMAGE: ${image ? "FOUND" : "MISSING"}`
+    );
+
+    console.log(
+        `   DESCRIPTION: ${
+            description
+                ? `${description.length} chars`
+                : "MISSING"
+        }`
+    );
+
+    console.log(
+        `   LINK: ${sawa9lyLink}`
+    );
+
+
+    /* -----------------------------------------
        RESULT
-    ------------------------- */
+    ----------------------------------------- */
 
     return {
+
         sawa9lyId:
             sourceId,
 
         name:
             name,
+
+        description:
+            description,
 
         basePrice:
             basePrice,
@@ -603,8 +1721,7 @@ async function extractProduct(
             cleanText(image),
 
         sawa9lyLink:
-            canonical ||
-            url,
+            sawa9lyLink,
 
         scrapedAt:
             new Date().toISOString()
@@ -613,7 +1730,7 @@ async function extractProduct(
 
 
 /* =========================================================
-   LOAD DISCOVERED PRODUCT LINKS
+   LOAD DISCOVERED LINKS
 ========================================================= */
 
 if (
@@ -621,6 +1738,7 @@ if (
         linksFile
     )
 ) {
+
     console.error(
         "\n❌ product-links.json غير موجود."
     );
@@ -643,7 +1761,9 @@ if (
 
 let discoveredLinks;
 
+
 try {
+
     discoveredLinks =
         JSON.parse(
             fs.readFileSync(
@@ -651,7 +1771,9 @@ try {
                 "utf8"
             )
         );
+
 } catch (error) {
+
     console.error(
         "\n❌ فشل قراءة product-links.json."
     );
@@ -665,7 +1787,7 @@ try {
 
 
 /* =========================================================
-   NORMALIZE DISCOVERED LINKS
+   VALIDATE DISCOVERED LINKS
 ========================================================= */
 
 if (
@@ -673,6 +1795,7 @@ if (
         discoveredLinks
     )
 ) {
+
     console.error(
         "\n❌ product-links.json لا يحتوي على Array."
     );
@@ -681,21 +1804,30 @@ if (
 }
 
 
+/* =========================================================
+   NORMALIZE PRODUCT LINKS
+========================================================= */
+
 const productLinks =
     [
         ...new Map(
+
             discoveredLinks
+
                 .map(
                     item => {
+
                         if (
                             typeof item ===
                             "string"
                         ) {
+
                             return {
                                 href:
                                     item
                             };
                         }
+
 
                         return {
                             href:
@@ -704,6 +1836,7 @@ const productLinks =
                         };
                     }
                 )
+
                 .filter(
                     item =>
                         item.href &&
@@ -711,12 +1844,16 @@ const productLinks =
                             item.href
                         )
                 )
+
                 .map(
                     item => [
+
                         item.href,
+
                         item
                     ]
                 )
+
         ).values()
     ];
 
@@ -745,6 +1882,7 @@ console.log(
 if (
     limitedLinks.length === 0
 ) {
+
     console.error(
         "\n❌ No product links available for scraping."
     );
@@ -772,7 +1910,9 @@ const context =
             viewport: {
                 width: 1440,
                 height: 900
-            }
+            },
+
+            locale: "ar-DZ"
         }
     );
 
@@ -780,6 +1920,10 @@ const context =
 const page =
     await context.newPage();
 
+
+/* =========================================================
+   PRODUCT SCRAPER HEADER
+========================================================= */
 
 console.log(
     "\n======================================"
@@ -808,7 +1952,8 @@ await page.goto(
     {
         waitUntil:
             "domcontentloaded",
-        timeout: 60000
+        timeout:
+            60000
     }
 );
 
@@ -833,6 +1978,7 @@ if (
     await emailInput.count() > 0 &&
     await passwordInput.count() > 0
 ) {
+
     console.log(
         "✍️ Filling login credentials..."
     );
@@ -859,8 +2005,11 @@ if (
     if (
         await submitButton.count() > 0
     ) {
+
         await submitButton.click();
+
     } else {
+
         await passwordInput.press(
             "Enter"
         );
@@ -875,7 +2024,9 @@ if (
     console.log(
         "✅ Login step completed."
     );
+
 } else {
+
     console.log(
         "ℹ️ Login form was not detected."
     );
@@ -887,7 +2038,7 @@ if (
 
 
 /* =========================================================
-   OPEN DASHBOARD TO CONFIRM SESSION
+   OPEN DASHBOARD
 ========================================================= */
 
 console.log(
@@ -900,7 +2051,8 @@ await page.goto(
     {
         waitUntil:
             "domcontentloaded",
-        timeout: 60000
+        timeout:
+            60000
     }
 );
 
@@ -926,7 +2078,9 @@ for (
     const item
     of limitedLinks
 ) {
+
     try {
+
         const product =
             await extractProduct(
                 page,
@@ -940,13 +2094,14 @@ for (
 
 
         console.log(
-            `✅ ${product.sawa9lyId} | ${product.name} | ${product.basePrice} DA`
+            `\n✅ ${product.sawa9lyId} | ${product.name || "NAME MISSING"} | ${product.basePrice} DA`
         );
 
 
     } catch (error) {
+
         console.error(
-            `❌ Failed: ${item.href}`
+            `\n❌ Failed: ${item.href}`
         );
 
         console.error(
@@ -968,12 +2123,122 @@ const outputFile =
 
 
 fs.writeFileSync(
+
     outputFile,
+
     JSON.stringify(
         products,
         null,
         2
     ),
+
+    "utf8"
+);
+
+
+/* =========================================================
+   SAVE DEBUG REPORT
+========================================================= */
+
+const debugOutput =
+    path.join(
+        debugDir,
+        "scraper-debug.json"
+    );
+
+
+const debugReport = {
+
+    generatedAt:
+        new Date().toISOString(),
+
+    discovered:
+        productLinks.length,
+
+    selected:
+        limitedLinks.length,
+
+    scraped:
+        products.length,
+
+    validNames:
+        products.filter(
+            product =>
+                Boolean(
+                    product.name
+                )
+        ).length,
+
+    validImages:
+        products.filter(
+            product =>
+                Boolean(
+                    product.image
+                )
+        ).length,
+
+    validPrices:
+        products.filter(
+            product =>
+                Number(
+                    product.basePrice
+                ) > 0
+        ).length,
+
+    validDescriptions:
+        products.filter(
+            product =>
+                Boolean(
+                    product.description
+                )
+        ).length,
+
+    products:
+        products.map(
+            product => ({
+
+                sawa9lyId:
+                    product.sawa9lyId,
+
+                name:
+                    product.name,
+
+                basePrice:
+                    product.basePrice,
+
+                sellingPrice:
+                    product.sellingPrice,
+
+                profit:
+                    product.profit,
+
+                hasImage:
+                    Boolean(
+                        product.image
+                    ),
+
+                hasDescription:
+                    Boolean(
+                        product.description
+                    ),
+
+                sawa9lyLink:
+                    product.sawa9lyLink
+            })
+        )
+};
+
+
+fs.writeFileSync(
+
+    debugOutput,
+
+    JSON.stringify(
+        debugReport,
+        null,
+        2
+    ),
+
     "utf8"
 );
 
@@ -986,26 +2251,60 @@ console.log(
     "\n======================================"
 );
 
-
 console.log(
     `✅ Saved ${products.length} products`
 );
-
 
 console.log(
     `📄 ${outputFile}`
 );
 
+console.log(
+    `🧪 Debug report: ${debugOutput}`
+);
 
 console.log(
     `🔗 Total discovered links: ${productLinks.length}`
 );
 
-
 console.log(
     `🛍️ Scrape limit: ${config.automation.scrapeLimit}`
 );
 
+console.log(
+    `📝 Names found: ${
+        products.filter(
+            p => Boolean(p.name)
+        ).length
+    }/${products.length}`
+);
+
+console.log(
+    `🖼️ Images found: ${
+        products.filter(
+            p => Boolean(p.image)
+        ).length
+    }/${products.length}`
+);
+
+console.log(
+    `💰 Prices found: ${
+        products.filter(
+            p =>
+                Number(
+                    p.basePrice
+                ) > 0
+        ).length
+    }/${products.length}`
+);
+
+console.log(
+    `📄 Descriptions found: ${
+        products.filter(
+            p => Boolean(p.description)
+        ).length
+    }/${products.length}`
+);
 
 console.log(
     "======================================\n"
