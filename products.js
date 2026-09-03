@@ -64,7 +64,7 @@ const storeData = {
         automated: true,
         updatedAt: "2026-09-03T05:45:33.578Z"
     },
-    "42": {
+"42": {
         name: "Produit : Haut Parleur Bluetooth Urso Lotso-a3 mini sans fil V5.3 - مكبر صوت بلوتوث محمول",
         price: 3200,
         image: "https://sawa9ly.app/storage/70079/1774775958996_d7dfrydg_latso-a3-cnc.jpg",
@@ -72,9 +72,9 @@ const storeData = {
         basePrice: 2200,
         profit: 1000,
         automated: true,
-        updatedAt: "2026-09-03T05:46:07.074Z"
+        updatedAt: "2026-09-03T09:34:18.699Z"
     },
-    "43": {
+"43": {
         name: "Produit : Haut Parleur Bluetooth Urso Lotso-a2 8W sans fil V5.3 - مكبر صوت بلوتوث محمول",
         price: 3200,
         image: "https://sawa9ly.app/storage/70071/1774774808454_0sc9zesy_d_nq_np_2x_792426-mlb75377811374_042024-f.webp",
@@ -82,9 +82,9 @@ const storeData = {
         basePrice: 2200,
         profit: 1000,
         automated: true,
-        updatedAt: "2026-09-03T05:46:40.569Z"
+        updatedAt: "2026-09-03T09:34:52.194Z"
     },
-    "44": {
+"44": {
         name: "Produit : Pistolet de massage pour soulager la douleur 6 vitesses 4 têtes LM-810T - جهاز تدليك بعدة رِؤوس",
         price: 5650,
         image: "https://sawa9ly.app/storage/69478/massage-3head-cnc.jpg",
@@ -92,9 +92,9 @@ const storeData = {
         basePrice: 4650,
         profit: 1000,
         automated: true,
-        updatedAt: "2026-09-03T05:47:14.047Z"
+        updatedAt: "2026-09-03T09:35:25.657Z"
     },
-    "45": {
+"45": {
         name: "Produit : Boite Chargeur Anker Zolo Original 20W USB-C - شاحن أصلي",
         price: 3250,
         image: "https://sawa9ly.app/storage/69330/anker-zelo-cnc.jpg",
@@ -102,9 +102,9 @@ const storeData = {
         basePrice: 2250,
         profit: 1000,
         automated: true,
-        updatedAt: "2026-09-03T05:47:47.514Z"
+        updatedAt: "2026-09-03T09:35:59.145Z"
     },
-    "46": {
+"46": {
         name: "Produit : Porte-Manteau Mural Design Piano en Bois avec Touches Dorées - علاقة ملابس خشبية",
         price: 3800,
         image: "https://sawa9ly.app/storage/69201/porte-manteau-piano-3.jpg",
@@ -112,9 +112,9 @@ const storeData = {
         basePrice: 2800,
         profit: 1000,
         automated: true,
-        updatedAt: "2026-09-03T05:48:20.999Z"
+        updatedAt: "2026-09-03T09:36:32.574Z"
     },
-    "47": {
+"47": {
         name: "Produit : Panier de rangement pour salle de bain en feutre tissé 4 compartiments – سلة تنظيم الأغراض في الحمام",
         price: 2500,
         image: "https://sawa9ly.app/storage/67197/8724-103-7.jpg",
@@ -122,9 +122,9 @@ const storeData = {
         basePrice: 1500,
         profit: 1000,
         automated: true,
-        updatedAt: "2026-09-03T05:49:28.006Z"
+        updatedAt: "2026-09-03T09:37:39.554Z"
     },
-    "48": {
+"48": {
         name: "Produit : Lampe de table LED tactile rechargeable 3 couleurs design classique - مصباح ديكور بعدة درجات ضوئية",
         price: 3800,
         image: "https://sawa9ly.app/storage/66829/Lampe-RD-V2-CNC.jpg",
@@ -132,9 +132,9 @@ const storeData = {
         basePrice: 2800,
         profit: 1000,
         automated: true,
-        updatedAt: "2026-09-03T05:50:01.475Z"
+        updatedAt: "2026-09-03T09:38:13.004Z"
     },
-    "49": {
+"49": {
         name: "Produit : Dentifrice blanchissant à la niacinamide UTOGRU Triple action blanchissante – معجون تبييض الأسنان",
         price: 3300,
         image: "https://sawa9ly.app/storage/66583/Utogru-5.jpg",
@@ -142,9 +142,9 @@ const storeData = {
         basePrice: 2300,
         profit: 1000,
         automated: true,
-        updatedAt: "2026-09-03T05:50:35.008Z"
+        updatedAt: "2026-09-03T09:38:46.476Z"
     },
-    "50": {
+"50": {
         name: "Produit : Lampe d'Avertissement Multifonction avec Klaxon et Énergie Solaire Hurry Bolt HB-7139 - مصباح تحذيري متعدد الوظائف مع منبه وشحن بالطاقة الشمسية",
         price: 100999,
         image: "https://sawa9ly.app/storage/77412/1788340622756_wkavq1jx_1.png",
@@ -152,9 +152,9 @@ const storeData = {
         basePrice: 99999,
         profit: 1000,
         automated: true,
-        updatedAt: "2026-09-03T05:51:08.547Z"
+        updatedAt: "2026-09-03T09:39:19.939Z"
     },
-    "51": {
+"51": {
         name: "Produit : Amplificateur Audio Voiture DSP 80W×4 Égaliseur EQ Sortie 4 Canaux Son HI-FI - مكبر صوت للسيارة عالي الجودة",
         price: 7200,
         image: "https://sawa9ly.app/storage/77404/1788271819567_g3wf06zi_0.jpg",
@@ -162,9 +162,9 @@ const storeData = {
         basePrice: 6200,
         profit: 1000,
         automated: true,
-        updatedAt: "2026-09-03T05:51:42.014Z"
+        updatedAt: "2026-09-03T09:39:53.438Z"
     },
-    "52": {
+"52": {
         name: "Produit : Aspirateur Sans Fil Portatif 4en1 Pour Voiture et Maison Suction 5000Pa - مكنسة لاسلكية محمولة للسيارة والمنزل 4 في 1",
         price: 3250,
         image: "https://sawa9ly.app/storage/77417/1788362750000_rs4nm80x_e9a2a58b-8e31-48e3-82de-2c13731f479e.png",
@@ -172,9 +172,9 @@ const storeData = {
         basePrice: 2250,
         profit: 1000,
         automated: true,
-        updatedAt: "2026-09-03T05:52:15.525Z"
+        updatedAt: "2026-09-03T09:40:26.913Z"
     },
-    "53": {
+"53": {
         name: "Produit : Caméra de Recul HD Auto Angle 170° Étanche Assistance au Stationnement - كاميرا الروئية الخلفية للسيارة عالية الدقة",
         price: 3100,
         image: "https://sawa9ly.app/storage/77394/1788253703409_1zfauvhr_1.png",
@@ -182,9 +182,9 @@ const storeData = {
         basePrice: 2100,
         profit: 1000,
         automated: true,
-        updatedAt: "2026-09-03T05:52:49.023Z"
+        updatedAt: "2026-09-03T09:41:00.407Z"
     },
-    "54": {
+"54": {
         name: "Produit : Kit de Pédicure et Manucure Élimination des Callosités Soin des Ongles et Pieds Doux - مجموعة العناية بالأظافر والقدمين المتكاملة",
         price: 2050,
         image: "https://sawa9ly.app/storage/77389/1788189220735_8cg22vab_0ef0a8db-10c7-4e61-b1bc-1a04f68bff8a.png",
@@ -192,9 +192,9 @@ const storeData = {
         basePrice: 1050,
         profit: 1000,
         automated: true,
-        updatedAt: "2026-09-03T05:53:22.503Z"
+        updatedAt: "2026-09-03T09:41:33.879Z"
     },
-    "55": {
+"55": {
         name: "Produit : Masseur Oculaire Intelligent 12 Nœuds Compresses Chaudes et Froides Musique Intégrée - جهاز مساج العين الذكي مع خاصية التبريد والحرارة والموسيقى",
         price: 6250,
         image: "https://sawa9ly.app/storage/77388/1788185543002_g5e1c4mv_1.jpg",
@@ -202,19 +202,19 @@ const storeData = {
         basePrice: 5250,
         profit: 1000,
         automated: true,
-        updatedAt: "2026-09-03T05:53:56.014Z"
+        updatedAt: "2026-09-03T09:42:07.307Z"
     },
-    "56": {
-        name: "SONY DualShock Manette PS4 Sans Fil, Batterie Rechargeable (High ) – Edition Street Fighter 3,000 دج",
+"56": {
+        name: "Produit : Poêle et Marmite Électrique Multifonctionnelle 26cm Anti-Adhésif 3 Niveaux de Chauffe - مقلاة ووعاء الطهي الكهربائي متعدد الوظائف",
         price: 4850,
         image: "https://sawa9ly.app/storage/77384/1788181229050_20cuntlh_1.jpeg",
         sawa9lyLink: "https://sawa9ly.app/product/6263",
         basePrice: 3850,
         profit: 1000,
         automated: true,
-        updatedAt: "2026-09-03T05:54:29.495Z"
+        updatedAt: "2026-09-03T09:42:40.806Z"
     },
-    "57": {
+"57": {
         name: "Produit : Marmite Électrique Multifonctionnelle 1.8L Avec Panier Vapeur Anti-Adhésive - وعاء الطبخ الكهربائي المتعدد الوظائف بحجم 18 سم وسعة 1.8 لتر",
         price: 4250,
         image: "https://sawa9ly.app/storage/77379/1788171714019_nzaitr86_1.jpg",
@@ -222,9 +222,9 @@ const storeData = {
         basePrice: 3250,
         profit: 1000,
         automated: true,
-        updatedAt: "2026-09-03T05:55:02.965Z"
+        updatedAt: "2026-09-03T09:43:14.292Z"
     },
-    "58": {
+"58": {
         name: "Produit : Corde à Linge Rétractable Automatique 15m Fixation Murale Supporte 10kg - حبل غسيل ملابس أوتوماتيكي قابل للسحب بطول 15 متراً",
         price: 2900,
         image: "https://sawa9ly.app/storage/77374/1788166582086_56tmi14v_1.jpg",
@@ -232,9 +232,9 @@ const storeData = {
         basePrice: 1900,
         profit: 1000,
         automated: true,
-        updatedAt: "2026-09-03T05:55:36.475Z"
+        updatedAt: "2026-09-03T09:43:47.750Z"
     },
-    "59": {
+"59": {
         name: "Produit : Double Corde à Linge Rétractable Automatique 30m Fixation Murale 2 Lignes Indépendantes - حبل غسيل أوتوماتيكي مزدوج قابل للسحب بطول 30 متراً (15×2)",
         price: 4700,
         image: "https://sawa9ly.app/storage/77373/1788168764959_i0ohwjmc_1.jpg",
@@ -242,6 +242,28 @@ const storeData = {
         basePrice: 3700,
         profit: 1000,
         automated: true,
-        updatedAt: "2026-09-03T05:56:09.975Z"
+        updatedAt: "2026-09-03T09:44:21.314Z"
+    },
+
+    "60": {
+        name: "Produit : Adaptateur sans fil Android pour voiture Carplay et Android Auto - محول \"كاربلاي\" اللاسلكي 2 في 1",
+        price: 5500,
+        image: "https://sawa9ly.app/storage/70292/1774951652224_1027qk1e_wireless-adapter-carplay-cnc.jpg",
+        sawa9lyLink: "https://sawa9ly.app/product/5724",
+        basePrice: 4500,
+        profit: 1000,
+        automated: true,
+        updatedAt: "2026-09-03T09:33:45.186Z"
+    },
+
+    "61": {
+        name: "Produit : Projecteur portable Full HD HY300 Mini Android 11 WiFi6 et Bluetooth 5.0 - جهاز عرض ذكي",
+        price: 15500,
+        image: "https://sawa9ly.app/storage/69128/hy320-mini-cnc.jpg",
+        sawa9lyLink: "https://sawa9ly.app/product/5663",
+        basePrice: 14500,
+        profit: 1000,
+        automated: true,
+        updatedAt: "2026-09-03T09:37:06.069Z"
     },
 };
