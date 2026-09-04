@@ -225,20 +225,27 @@ jobs:
       # 14. COMMIT CHANGES
       # =====================================================
 
-      - name: Commit updated products
+            - name: Commit updated products
         run: |
           git config user.name "Prix Choc Bot"
-          git config user.email "actions@users.noreply.github.com"
+          git config user.email "prix-choc-bot@users.noreply.github.com"
 
+          echo "Preparing changes..."
           git add -A
 
           if git diff --cached --quiet; then
-            echo "No product changes."
-          else
-            echo "Changes ready to commit:"
-            git diff --cached --stat
+            echo "No changes to commit."
+            exit 0
+          fi
 
-            git commit -m "Auto update Sawa9ly products"
+          git commit -m "🤖 Auto update Sawa9ly products"
 
-            git push
+          echo "Fetching latest main..."
+          git fetch origin main
+
+          echo "Rebasing local commit on latest main..."
+          git rebase origin/main
+
+          echo "Pushing updated products..."
+          git push origin main
           fi
