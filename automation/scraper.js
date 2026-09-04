@@ -691,65 +691,495 @@ async function extractProductImage(
                         );
 
                     const objects =
-                        Array.isArray(data)
-                            ? data
-                            : [data];
+/* =========================================================
+   EXTRACT PRODUCT IMAGES
+========================================================= */
 
-                    for (
-                        const item
-                        of objects
-                    ) {
+async function extractProductImage(page) {
 
-                        if (
-                            !item ||
-                            !item.image
-                        ) {
-                            continue;
-                        }
+    const result = await page.evaluate(() => {
 
-                        if (
-                            typeof item.image ===
-                            "string"
-                        ) {
+        function clean(value) {
+            if (!value) {
+                return "";
+            }
 
-                            return clean(
-                                item.image
-                            );
-                        }
+            return String(value)
+                .trim();
+        }
 
-                        if (
-                            Array.isArray(
-                                item.image
-                            ) &&
-                            item.image.length
-                        ) {
+        function addImage(list, value) {
 
-                            return clean(
-                                item.image[0]
-                            );
-                        }
+            if (!value) {
+                return;
+            }
 
-                        if (
-                            typeof item.image ===
-                                "object" &&
-                            item.image.url
-                        ) {
+            const src = clean(value);
 
-                            return clean(
-                                item.image.url
-                            );
-                        }
-                    }
+            if (!src) {
+                return;
+            }
 
-                } catch {
-                    /* Ignore invalid JSON */
+            if (src.startsWith("data:")) {
+                return;
+            }
+
+            const lower = src.toLowerCase();
+
+            /*
+             * Ignore common non-product images.
+             */
+            if (
+                lower.includes("logo") ||
+                lower.includes("favicon") ||
+                lower.includes("avatar") ||
+                lower.includes("icon")
+            ) {
+                return;
+            }
+
+            if (!list.includes(src)) {
+                list.push(src);
+            }
+        }
+
+        function addFromImage(list, img) {
+
+            if (!img) {
+                return;
+            }
+
+            addImage(
+                list,
+                img.getAttribute("src")
+            );
+
+            addImage(
+                list,
+                img.getAttribute("data-src")
+            );
+
+            addImage(
+                list,
+                img.getAttribute("data-lazy-src")
+            );
+
+            addImage(
+                list,
+                img.getAttribute("data-original")
+            );
+
+            addImage(
+                list,
+                img.getAttribute("data-image")
+            );
+
+            /*
+             * Extract all srcset candidates.
+             */
+            const srcset =
+                img.getAttribute("srcset");
+
+            if (srcset) {
+
+                const candidates =
+                    srcset
+                        .split(",")
+                        .map(item =>
+                            item
+                                .trim()
+                                .split(/\s+/)[0]
+                        )
+                        .filter(Boolean);
+
+                for (const candidate of candidates) {
+
+                    addImage(
+                        list,
+                        candidate
+                    );
                 }
             }
-return {
-    image: uniqueImages[0] || "",
-    images: uniqueImages
-};
+        }
+
+        const images = [];
+
+        /*
+         * =====================================================
+         * 1. PRODUCT / GALLERY IMAGES
+         * =====================================================
+         */
+
+        const gallerySelectors = [
+
+            '[class*="product"] img',
+
+            '[class*="Product"] img',
+
+            '[class*="gallery"] img',
+
+            '[class*="Gallery"] img',
+
+            '[class*="swiper"] img',
+
+            '[class*="Swiper"] img',
+
+            '[class*="carousel"] img',
+
+            '[class*="Carousel"] img',
+
+            '[class*="slider"] img',
+
+            '[class*="Slider"] img',
+
+            'main img',
+
+            'article img'
+        ];
+
+        for (
+            const selector
+            of gallerySelectors
+        ) {
+
+            const elements =
+                Array.from(
+                    document.querySelectorAll(
+                        selector
+                    )
+                );
+
+            for (
+                const img
+                of elements
+            ) {
+
+                addFromImage(
+                    images,
+                    img
+                );
+            }
+        }
+
+        /*
+         * =====================================================
+         * 2. THUMBNAILS / BUTTON IMAGES
+         * =====================================================
+         */
+
+        const thumbnailSelectors = [
+
+            '[class*="thumb"] img',
+
+            '[class*="Thumb"] img',
+
+            '[class*="thumbnail"] img',
+
+            '[class*="Thumbnail"] img',
+
+            '[data-thumb] img',
+
+            '[data-thumbnail] img'
+        ];
+
+        for (
+            const selector
+            of thumbnailSelectors
+        ) {
+
+            const elements =
+                Array.from(
+                    document.querySelectorAll(
+                        selector
+                    )
+                );
+
+            for (
+                const img
+                of elements
+            ) {
+
+                addFromImage(
+                    images,
+                    img
+                );
+            }
+        }
+
+        /*
+         * =====================================================
+         * 3. IMAGE LINKS
+         * =====================================================
+         */
+
+        const imageLinks =
+            Array.from(
+                document.querySelectorAll(
+                    'a[href]'
+                )
+            );
+
+        for (
+            const link
+            of imageLinks
+        ) {
+
+            const href =
+                link.getAttribute("href");
+
+            if (!href) {
+                continue;
+            }
+
+            const lower =
+                href.toLowerCase();
+
+            if (
+                lower.includes(".jpg") ||
+                lower.includes(".jpeg") ||
+                lower.includes(".png") ||
+                lower.includes(".webp") ||
+                lower.includes(".avif")
+            ) {
+
+                addImage(
+                    images,
+                    href
+                );
+            }
+        }
+
+        /*
+         * =====================================================
+         * 4. JSON-LD PRODUCT IMAGES
+         * =====================================================
+         */
+
+        const scripts =
+            Array.from(
+                document.querySelectorAll(
+                    'script[type="application/ld+json"]'
+                )
+            );
+
+        for (
+            const script
+            of scripts
+        ) {
+
+            try {
+
+                const data =
+                    JSON.parse(
+                        script.textContent || ""
+                    );
+
+                const objects =
+                    Array.isArray(data)
+                        ? data
+                        : [data];
+
+                for (
+                    const item
+                    of objects
+                ) {
+
+                    if (
+                        !item ||
+                        !item.image
+                    ) {
+                        continue;
+                    }
+
+                    if (
+                        typeof item.image ===
+                        "string"
+                    ) {
+
+                        addImage(
+                            images,
+                            item.image
+                        );
+
+                    } else if (
+                        Array.isArray(
+                            item.image
+                        )
+                    ) {
+
+                        for (
+                            const image
+                            of item.image
+                        ) {
+
+                            if (
+                                typeof image ===
+                                "string"
+                            ) {
+
+                                addImage(
+                                    images,
+                                    image
+                                );
+
+                            } else if (
+                                image &&
+                                typeof image ===
+                                "object"
+                            ) {
+
+                                addImage(
+                                    images,
+                                    image.url
+                                );
+                            }
+                        }
+
+                    } else if (
+                        typeof item.image ===
+                        "object"
+                    ) {
+
+                        addImage(
+                            images,
+                            item.image.url
+                        );
+                    }
+                }
+
+            } catch {
+                /*
+                 * Ignore invalid JSON-LD.
+                 */
+            }
+        }
+
+        /*
+         * =====================================================
+         * 5. OPEN GRAPH IMAGE
+         * =====================================================
+         */
+
+        const ogImage =
+            document.querySelector(
+                'meta[property="og:image"]'
+            );
+
+        addImage(
+            images,
+            ogImage?.content
+        );
+
+        /*
+         * =====================================================
+         * 6. TWITTER IMAGE
+         * =====================================================
+         */
+
+        const twitterImage =
+            document.querySelector(
+                'meta[name="twitter:image"]'
+            );
+
+        addImage(
+            images,
+            twitterImage?.content
+        );
+
+        /*
+         * =====================================================
+         * 7. FINAL FALLBACK
+         * =====================================================
+         */
+
+        if (
+            images.length === 0
+        ) {
+
+            const allImages =
+                Array.from(
+                    document.querySelectorAll(
+                        "img"
+                    )
+                );
+
+            for (
+                const img
+                of allImages
+            ) {
+
+                addFromImage(
+                    images,
+                    img
+                );
+            }
+        }
+
+        /*
+         * =====================================================
+         * RETURN ALL UNIQUE IMAGES
+         * =====================================================
+         */
+
+        return {
+            images
+        };
+    });
+
+    /*
+     * Normalize URLs outside page.evaluate()
+     * so relative image URLs become absolute.
+     */
+
+    const images =
+        Array.isArray(
+            result?.images
+        )
+            ? result.images
+                .map(
+                    image =>
+                        normalizeUrl(
+                            image,
+                            page.url()
+                        )
+                )
+                .filter(Boolean)
+            : [];
+
+    /*
+     * Remove duplicates one final time.
+     */
+
+    const uniqueImages =
+        [
+            ...new Set(
+                images
+            )
+        ];
+
+    return {
+
+        /*
+         * Backward compatibility:
+         * old code continues using image.
+         */
+
+        image:
+            uniqueImages[0] || "",
+
+        /*
+         * New gallery system.
+         */
+
+        images:
+            uniqueImages
+    };
 }
+
+
+/* =========================================================
+   EXTRACT PRODUCT NAME
+========================================================= */
 
 
 /* =========================================================
