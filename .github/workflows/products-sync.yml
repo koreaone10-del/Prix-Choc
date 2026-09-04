@@ -2,8 +2,9 @@ name: Prix Choc - Product Sync
 
 on:
   workflow_dispatch:
+
   schedule:
-    - cron: "0 */6 * * *"
+    - cron: "0 2 * * *"
 
 permissions:
   contents: write
@@ -13,7 +14,9 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+
   sync-products:
+
     runs-on: ubuntu-latest
 
     steps:
@@ -23,7 +26,9 @@ jobs:
       # =====================================================
 
       - name: Checkout repository
+
         uses: actions/checkout@v4
+
         with:
           fetch-depth: 0
 
@@ -33,7 +38,9 @@ jobs:
       # =====================================================
 
       - name: Setup Node.js
+
         uses: actions/setup-node@v4
+
         with:
           node-version: 20
 
@@ -43,8 +50,11 @@ jobs:
       # =====================================================
 
       - name: Verify automation files
+
         working-directory: automation
+
         run: |
+
           echo "Checking automation files..."
 
           test -f package.json
@@ -64,9 +74,13 @@ jobs:
           echo "pricing.js: OK"
 
           if [ -f package-lock.json ]; then
+
             echo "package-lock.json: FOUND"
+
           else
+
             echo "package-lock.json: NOT FOUND"
+
           fi
 
 
@@ -75,12 +89,19 @@ jobs:
       # =====================================================
 
       - name: Install dependencies
+
         working-directory: automation
+
         run: |
+
           if [ -f package-lock.json ]; then
+
             npm ci
+
           else
+
             npm install
+
           fi
 
 
@@ -89,8 +110,11 @@ jobs:
       # =====================================================
 
       - name: Install Chromium
+
         working-directory: automation
+
         run: |
+
           npx playwright install --with-deps chromium
 
 
@@ -99,11 +123,16 @@ jobs:
       # =====================================================
 
       - name: Create environment
+
         working-directory: automation
+
         run: |
+
           cat > .env <<'EOF'
+
           SAWA9LY_LOGIN_URL=https://sawa9ly.app/login
           SAWA9LY_DASHBOARD_URL=https://sawa9ly.app/dashboard
+
           SAWA9LY_EMAIL=${{ secrets.SAWA9LY_EMAIL }}
           SAWA9LY_PASSWORD=${{ secrets.SAWA9LY_PASSWORD }}
 
@@ -119,26 +148,33 @@ jobs:
 
           PRODUCTS_FILE=../products.js
           OUTPUT_DIR=./output
+
           EOF
 
 
       # =====================================================
-      # 7. DISCOVER ALL PRODUCT LINKS
+      # 7. DISCOVER PRODUCT LINKS
       # =====================================================
 
       - name: Run product discovery
+
         working-directory: automation
+
         run: |
+
           npm run discover
 
 
       # =====================================================
-      # 8. VERIFY DISCOVERY RESULT
+      # 8. VERIFY DISCOVERY
       # =====================================================
 
       - name: Verify discovered product links
+
         working-directory: automation
+
         run: |
+
           echo "Checking discovery output..."
 
           test -f debug/product-links.json
@@ -146,19 +182,24 @@ jobs:
           echo "product-links.json: FOUND"
 
           echo "File size:"
+
           wc -c debug/product-links.json
 
           echo "First lines:"
+
           head -20 debug/product-links.json
 
 
       # =====================================================
-      # 9. RUN SCRAPER + GENERATOR
+      # 9. RUN PRODUCT SYNC
       # =====================================================
 
       - name: Run product sync
+
         working-directory: automation
+
         run: |
+
           npm run sync
 
 
@@ -167,38 +208,53 @@ jobs:
       # =====================================================
 
       - name: Verify generated files
+
         working-directory: automation
+
         run: |
+
           echo "Checking generated files..."
 
           if [ -f output/products.raw.json ]; then
+
             echo "products.raw.json: FOUND"
 
             echo "Raw file size:"
+
             wc -c output/products.raw.json
 
             echo "Products extracted:"
+
             node -e "
               const fs = require('fs');
 
               const data = JSON.parse(
-                fs.readFileSync('output/products.raw.json', 'utf8')
+                fs.readFileSync(
+                  'output/products.raw.json',
+                  'utf8'
+                )
               );
 
               console.log(data.length);
             "
+
           else
+
             echo "products.raw.json: NOT FOUND"
+
             exit 1
+
           fi
 
 
       # =====================================================
-      # 11. VERIFY PRODUCTS.JS EXISTS
+      # 11. VERIFY PRODUCTS.JS
       # =====================================================
 
       - name: Verify products.js
+
         run: |
+
           echo "Checking products.js..."
 
           test -f products.js
@@ -209,11 +265,13 @@ jobs:
 
 
       # =====================================================
-      # 12. VALIDATE PRODUCTS.JS SYNTAX
+      # 12. VALIDATE PRODUCTS.JS
       # =====================================================
 
       - name: Validate products.js syntax
+
         run: |
+
           echo "Validating products.js JavaScript syntax..."
 
           node --check products.js
@@ -226,12 +284,17 @@ jobs:
       # =====================================================
 
       - name: Show changes
+
         run: |
+
           echo "Git status:"
+
           git status --short
 
           echo ""
+
           echo "Changed files:"
+
           git diff --name-only
 
 
@@ -240,44 +303,82 @@ jobs:
       # =====================================================
 
       - name: Commit updated products
+
         run: |
+
           git config user.name "Prix Choc Bot"
+
           git config user.email "prix-choc-bot@users.noreply.github.com"
+
 
           echo "Preparing changes..."
 
-          # IMPORTANT:
-          # Only products.js is committed.
-          # automation/.env contains secrets and must NEVER
-          # be committed.
+
+          # -------------------------------------------------
+          # .env contains secrets.
+          # It must never remain in the working tree
+          # during fetch/rebase/push.
+          # -------------------------------------------------
+
+          rm -f automation/.env
+
+
+          echo "Checking working tree..."
+
+          git status --short
+
+
+          # -------------------------------------------------
+          # ONLY products.js is committed.
+          # -------------------------------------------------
 
           git add products.js
 
+
           if git diff --cached --quiet; then
+
             echo "No product changes to commit."
+
             exit 0
+
           fi
+
 
           echo "Creating commit..."
 
-          git commit -m "🤖 Auto update Sawa9ly products"
+
+          git commit \
+            -m "🤖 Auto update Sawa9ly products"
+
 
           echo ""
+
           echo "Fetching latest main..."
+
 
           git fetch origin main
 
+
           echo ""
+
           echo "Rebasing local commit on latest main..."
+
 
           git rebase origin/main
 
+
           echo ""
+
           echo "Pushing updated products..."
+
 
           git push origin main
 
+
           echo ""
+
           echo "=========================================="
+
           echo "PRODUCTS PUSHED SUCCESSFULLY"
+
           echo "=========================================="
