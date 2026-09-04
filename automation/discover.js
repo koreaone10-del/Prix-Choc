@@ -5,10 +5,14 @@ import path from "path";
 import { config } from "./config.js";
 
 const debugDir = path.resolve("./debug");
+fs.mkdirSync(debugDir, { recursive: true });
 
-fs.mkdirSync(debugDir, {
-    recursive: true
-});
+const linksFile = path.join(debugDir, "product-links.json");
+const progressFile = path.join(debugDir, "product-links-progress.json");
+const reportFile = path.join(debugDir, "discovery-report.json");
+const historyFile = path.join(debugDir, "discovery-history.json");
+
+const MAX_PAGES = 100;
 
 function cleanText(value) {
     return String(value || "")
@@ -18,13 +22,48 @@ function cleanText(value) {
 
 function makePageUrl(baseUrl, pageNumber) {
     const url = new URL(baseUrl);
-
-    url.searchParams.set(
-        "page",
-        String(pageNumber)
-    );
-
+    url.searchParams.set("page", String(pageNumber));
     return url.toString();
+}
+
+function extractProductId(value) {
+    const match = String(value || "").match(/\/product\/(\d+)/i);
+    return match ? match[1] : "";
+}
+
+function normalizeProductUrl(value) {
+    try {
+        const url = new URL(value);
+        url.hash = "";
+        return url.toString();
+    } catch {
+        return "";
+    }
+}
+
+function readJson(file, fallback = null) {
+    try {
+        if (!fs.existsSync(file)) return fallback;
+        return JSON.parse(fs.readFileSync(file, "utf8"));
+    } catch {
+        return fallback;
+    }
+}
+
+function writeJson(file, value) {
+    fs.writeFileSync(file, JSON.stringify(value, null, 2), "utf8");
+}
+
+function removeStaleDiscoveryOutputs() {
+    for (const file of [
+        linksFile,
+        progressFile,
+        reportFile
+    ]) {
+        try {
+            if (fs.existsSync(file)) fs.unlinkSync(file);
+        } catch {}
+    }
 }
 
 console.log("");
@@ -34,740 +73,299 @@ console.log("       FULL PRODUCT DISCOVERY");
 console.log("======================================");
 console.log("");
 
-/*
- * التأكد من وجود بيانات الدخول
- * بدون طباعة البريد أو كلمة السر
- */
+const previousReport = readJson(reportFile, null) || readJson(historyFile, null);
+
+removeStaleDiscoveryOutputs();
 
 if (!config?.sawa9ly?.email) {
-    console.error(
-        "SAWA9LY_EMAIL غير موجود في .env"
-    );
+    console.error("❌ SAWA9LY_EMAIL غير موجود في .env");
     process.exit(1);
 }
 
 if (!config?.sawa9ly?.password) {
-    console.error(
-        "SAWA9LY_PASSWORD غير موجود في .env"
-    );
+    console.error("❌ SAWA9LY_PASSWORD غير موجود في .env");
     process.exit(1);
 }
 
-console.log(
-    "Login credentials detected."
-);
-
-console.log("");
-
-console.log(
-    "Launching Chromium..."
-);
+console.log("Login credentials detected.");
+console.log("Launching Chromium...");
 
 const browser = await chromium.launch({
-    headless:
-        config.automation?.headless ?? true
+    headless: config.automation?.headless ?? true
 });
 
 const context = await browser.newContext({
-    viewport: {
-        width: 1440,
-        height: 900
-    }
+    viewport: { width: 1440, height: 900 },
+    locale: "ar-DZ"
 });
 
 const page = await context.newPage();
 
 try {
+    console.log("\n1) Opening Sawa9ly login...");
 
-    // ==========================================
-    // 1. LOGIN
-    // ==========================================
-
-    console.log("");
-    console.log(
-        "1) Opening Sawa9ly login..."
-    );
-
-    await page.goto(
-        config.sawa9ly.loginUrl,
-        {
-            waitUntil: "domcontentloaded",
-            timeout: 60000
-        }
-    );
+    await page.goto(config.sawa9ly.loginUrl, {
+        waitUntil: "domcontentloaded",
+        timeout: 60000
+    });
 
     await page.waitForTimeout(2000);
 
-    console.log(
-        "Login URL:",
-        page.url()
-    );
-
-    await page.screenshot({
-        path: path.join(
-            debugDir,
-            "01-login.png"
-        ),
-        fullPage: true
-    });
-
-    // ==========================================
-    // 2. LOGIN FIELDS
-    // ==========================================
-
-    const emailInput =
-        page.locator(
-            'input[type="email"]'
-        ).first();
-
-    const passwordInput =
-        page.locator(
-            'input[type="password"]'
-        ).first();
-
-    const emailCount =
-        await page.locator(
-            'input[type="email"]'
-        ).count();
-
-    const passwordCount =
-        await page.locator(
-            'input[type="password"]'
-        ).count();
-
-    console.log(
-        `Email fields: ${emailCount}`
-    );
-
-    console.log(
-        `Password fields: ${passwordCount}`
-    );
+    const emailInput = page.locator('input[type="email"]').first();
+    const passwordInput = page.locator('input[type="password"]').first();
 
     if (
-        emailCount === 0 ||
-        passwordCount === 0
+        await page.locator('input[type="email"]').count() === 0 ||
+        await page.locator('input[type="password"]').count() === 0
     ) {
-        throw new Error(
-            "لم يتم العثور على حقول تسجيل الدخول."
-        );
+        throw new Error("لم يتم العثور على حقول تسجيل الدخول.");
     }
 
-    // ==========================================
-    // 3. ENTER LOGIN
-    // ==========================================
+    await emailInput.fill(config.sawa9ly.email);
+    await passwordInput.fill(config.sawa9ly.password);
 
-    console.log("");
-    console.log(
-        "2) Entering login credentials..."
-    );
+    const submitButton = page.locator('button[type="submit"]').first();
 
-    await emailInput.fill(
-        config.sawa9ly.email
-    );
-
-    await passwordInput.fill(
-        config.sawa9ly.password
-    );
-
-    // ==========================================
-    // 4. SUBMIT
-    // ==========================================
-
-    const submitButton =
-        page.locator(
-            'button[type="submit"]'
-        ).first();
-
-    if (
-        await submitButton.count() > 0
-    ) {
-
-        console.log(
-            "Submit button found."
-        );
-
+    if (await submitButton.count() > 0) {
         await submitButton.click();
-
     } else {
-
-        console.log(
-            "Submit button not found."
-        );
-
-        console.log(
-            "Pressing Enter..."
-        );
-
-        await passwordInput.press(
-            "Enter"
-        );
+        await passwordInput.press("Enter");
     }
-
-    // ==========================================
-    // 5. WAIT FOR LOGIN
-    // ==========================================
-
-    console.log("");
-    console.log(
-        "Waiting for login..."
-    );
 
     await page.waitForTimeout(5000);
 
-    console.log(
-        "After login URL:",
-        page.url()
-    );
-
-    await page.screenshot({
-        path: path.join(
-            debugDir,
-            "02-after-login.png"
-        ),
-        fullPage: true
-    });
-
-    if (
-        /\/login/i.test(
-            page.url()
-        )
-    ) {
-
-        throw new Error(
-            "لم ينجح تسجيل الدخول إلى Sawa9ly."
-        );
+    if (/\/login/i.test(page.url())) {
+        throw new Error("لم ينجح تسجيل الدخول إلى Sawa9ly.");
     }
 
-    console.log(
-        "Login successful."
-    );
+    console.log("✅ Login successful.");
 
-    // ==========================================
-    // 6. OPEN DASHBOARD PAGE 1
-    // ==========================================
+    console.log("\n2) Opening Sawa9ly dashboard...");
 
-    console.log("");
-    console.log(
-        "3) Opening Sawa9ly dashboard..."
-    );
-
-    const firstDashboardUrl =
-        makePageUrl(
-            config.sawa9ly.dashboardUrl,
-            1
-        );
-
-    await page.goto(
-        firstDashboardUrl,
-        {
-            waitUntil: "domcontentloaded",
-            timeout: 60000
-        }
-    );
+    await page.goto(makePageUrl(config.sawa9ly.dashboardUrl, 1), {
+        waitUntil: "domcontentloaded",
+        timeout: 60000
+    });
 
     await page.waitForTimeout(3000);
 
-    console.log(
-        "Dashboard:",
-        page.url()
+    if (/\/login/i.test(page.url())) {
+        throw new Error("تمت إعادة التوجيه إلى صفحة تسجيل الدخول.");
+    }
+
+    const dashboardHtml = await page.content();
+    fs.writeFileSync(path.join(debugDir, "dashboard.html"), dashboardHtml, "utf8");
+
+    console.log("\n3) Detecting pagination...");
+
+    const paginationLinks = await page.locator("a").evaluateAll(anchors =>
+        anchors
+            .map(anchor => ({
+                text: String(anchor.innerText || "").replace(/\s+/g, " ").trim(),
+                href: anchor.href
+            }))
+            .filter(item => item.href && /[?&]page=\d+/i.test(item.href))
     );
-
-    await page.screenshot({
-        path: path.join(
-            debugDir,
-            "03-dashboard.png"
-        ),
-        fullPage: true
-    });
-
-    const dashboardHtml =
-        await page.content();
-
-    fs.writeFileSync(
-        path.join(
-            debugDir,
-            "dashboard.html"
-        ),
-        dashboardHtml,
-        "utf8"
-    );
-
-    // ==========================================
-    // 7. DISCOVER PAGINATION
-    // ==========================================
-
-    console.log("");
-    console.log(
-        "4) Detecting pagination..."
-    );
-
-    const paginationLinks =
-        await page
-            .locator("a")
-            .evaluateAll(
-                anchors =>
-                    anchors
-                        .map(
-                            anchor => ({
-                                text:
-                                    String(
-                                        anchor.innerText || ""
-                                    )
-                                        .replace(
-                                            /\s+/g,
-                                            " "
-                                        )
-                                        .trim(),
-
-                                href:
-                                    anchor.href
-                            })
-                        )
-                        .filter(
-                            item =>
-                                item.href &&
-                                /[?&]page=\d+/i.test(
-                                    item.href
-                                )
-                        )
-            );
 
     const detectedPages = [
         ...new Set(
             paginationLinks
                 .map(item => {
                     try {
-                        const url =
-                            new URL(
-                                item.href
-                            );
-
-                        const value =
-                            url.searchParams.get(
-                                "page"
-                            );
-
-                        return Number(value);
+                        return Number(new URL(item.href).searchParams.get("page"));
                     } catch {
                         return null;
                     }
                 })
-                .filter(
-                    number =>
-                        Number.isInteger(
-                            number
-                        ) &&
-                        number > 0
-                )
+                .filter(number => Number.isInteger(number) && number > 0)
         )
-    ].sort(
-        (a, b) => a - b
-    );
+    ].sort((a, b) => a - b);
+
+    let maxPage = detectedPages.length ? Math.max(...detectedPages) : 1;
+    const paginationCapped = maxPage > MAX_PAGES;
+
+    if (paginationCapped) {
+        throw new Error(
+            `Pagination exceeds safety limit: ${maxPage} pages detected, maximum is ${MAX_PAGES}.`
+        );
+    }
 
     console.log(
         "Detected pagination pages:",
-        detectedPages.length
-            ? detectedPages.join(", ")
-            : "none"
+        detectedPages.length ? detectedPages.join(", ") : "none"
     );
+    console.log("Pages to scan:", maxPage);
 
-    let maxPage =
-        detectedPages.length
-            ? Math.max(
-                ...detectedPages
-            )
-            : 1;
-
-    /*
-     * Safety limit.
-     * We never blindly crawl thousands of pages.
-     */
-
-    const MAX_PAGES = 100;
-
-    if (
-        maxPage > MAX_PAGES
-    ) {
-        maxPage = MAX_PAGES;
-    }
-
-    console.log(
-        "Pages to scan:",
-        maxPage
-    );
-
-    // ==========================================
-    // 8. COLLECT PRODUCTS FROM ALL PAGES
-    // ==========================================
-
-    console.log("");
-    console.log(
-        "5) Collecting product links..."
-    );
+    console.log("\n4) Collecting product links...");
 
     const allProductLinks = new Map();
+    const pageCounts = {};
 
-    for (
-        let pageNumber = 1;
-        pageNumber <= maxPage;
-        pageNumber++
-    ) {
+    for (let pageNumber = 1; pageNumber <= maxPage; pageNumber++) {
+        const pageUrl = makePageUrl(config.sawa9ly.dashboardUrl, pageNumber);
 
-        const pageUrl =
-            makePageUrl(
-                config.sawa9ly.dashboardUrl,
-                pageNumber
-            );
+        console.log(`--- PAGE ${pageNumber}/${maxPage} ---`);
 
-        console.log("");
-        console.log(
-            `--- PAGE ${pageNumber}/${maxPage} ---`
+        await page.goto(pageUrl, {
+            waitUntil: "domcontentloaded",
+            timeout: 60000
+        });
+
+        await page.waitForTimeout(1800);
+
+        if (/\/login/i.test(page.url())) {
+            throw new Error(`Session expired / redirected to login on page ${pageNumber}.`);
+        }
+
+        const pageLinks = await page.locator("a").evaluateAll(anchors =>
+            anchors.map(anchor => ({
+                text: String(anchor.innerText || "").replace(/\s+/g, " ").trim(),
+                href: anchor.href
+            }))
         );
 
+        const uniquePageProducts = [
+            ...new Map(
+                pageLinks
+                    .map(item => ({
+                        ...item,
+                        href: normalizeProductUrl(item.href)
+                    }))
+                    .filter(item => item.href && /\/product\/\d+/i.test(item.href))
+                    .map(item => [extractProductId(item.href), item])
+            ).values()
+        ];
+
+        pageCounts[String(pageNumber)] = uniquePageProducts.length;
+
+        if (uniquePageProducts.length === 0) {
+            throw new Error(
+                `Page ${pageNumber} returned zero product links. Discovery is considered incomplete.`
+            );
+        }
+
+        for (const product of uniquePageProducts) {
+            allProductLinks.set(extractProductId(product.href), product);
+        }
+
+        writeJson(progressFile, [...allProductLinks.values()]);
+
         console.log(
-            pageUrl
+            `Products on page: ${uniquePageProducts.length} | Total unique: ${allProductLinks.size}`
         );
+    }
 
-        try {
+    const finalProductLinks = [...allProductLinks.values()];
+    const discoveredIds = [
+        ...new Set(finalProductLinks.map(item => extractProductId(item.href)).filter(Boolean))
+    ];
 
-            await page.goto(
-                pageUrl,
-                {
-                    waitUntil:
-                        "domcontentloaded",
-                    timeout: 60000
-                }
-            );
+    if (finalProductLinks.length === 0 || discoveredIds.length === 0) {
+        throw new Error("Discovery completed with zero product links. Refusing to publish an empty catalog.");
+    }
 
-            await page.waitForTimeout(
-                1800
-            );
+    const previousIds = new Set(
+        Array.isArray(previousReport?.discoveredIds)
+            ? previousReport.discoveredIds.map(String)
+            : []
+    );
 
-            /*
-             * Make sure the page is authenticated.
-             */
+    const previousStreaks =
+        previousReport?.missingStreaks &&
+        typeof previousReport.missingStreaks === "object"
+            ? previousReport.missingStreaks
+            : {};
 
-            if (
-                /\/login/i.test(
-                    page.url()
-                )
-            ) {
-                throw new Error(
-                    "Session expired / redirected to login."
-                );
+    const currentIds = new Set(discoveredIds.map(String));
+    const missingStreaks = {};
+    const confirmedMissingIds = [];
+
+    for (const id of previousIds) {
+        if (!currentIds.has(id)) {
+            const streak = Number(previousStreaks[id] || 0) + 1;
+            missingStreaks[id] = streak;
+
+            if (streak >= 2) {
+                confirmedMissingIds.push(id);
             }
-
-            /*
-             * Extract every anchor on this page.
-             */
-
-            const pageLinks =
-                await page
-                    .locator("a")
-                    .evaluateAll(
-                        anchors =>
-                            anchors.map(
-                                anchor => ({
-                                    text:
-                                        String(
-                                            anchor.innerText ||
-                                            ""
-                                        )
-                                            .replace(
-                                                /\s+/g,
-                                                " "
-                                            )
-                                            .trim(),
-
-                                    href:
-                                        anchor.href
-                                })
-                            )
-                    );
-
-            /*
-             * Only product URLs.
-             */
-
-            const pageProducts =
-                pageLinks.filter(
-                    item =>
-                        /\/product\/\d+/i.test(
-                            item.href
-                        )
-                );
-
-            /*
-             * Remove duplicates inside page.
-             */
-
-            const uniquePageProducts = [
-                ...new Map(
-                    pageProducts.map(
-                        item => [
-                            item.href,
-                            item
-                        ]
-                    )
-                ).values()
-            ];
-
-            /*
-             * Add to global collection.
-             */
-
-            for (
-                const product
-                of uniquePageProducts
-            ) {
-
-                allProductLinks.set(
-                    product.href,
-                    product
-                );
-            }
-
-            console.log(
-                "Products on page:",
-                uniquePageProducts.length
-            );
-
-            console.log(
-                "Total unique products:",
-                allProductLinks.size
-            );
-
-            /*
-             * Save progress after every page.
-             * This protects the results if the process stops.
-             */
-
-            fs.writeFileSync(
-                path.join(
-                    debugDir,
-                    "product-links-progress.json"
-                ),
-                JSON.stringify(
-                    [
-                        ...allProductLinks.values()
-                    ],
-                    null,
-                    2
-                ),
-                "utf8"
-            );
-
-        } catch (pageError) {
-
-            console.error(
-                `ERROR ON PAGE ${pageNumber}:`,
-                pageError.message
-            );
-
-            /*
-             * Save the failed page screenshot.
-             */
-
-            try {
-
-                await page.screenshot({
-                    path: path.join(
-                        debugDir,
-                        `ERROR-page-${pageNumber}.png`
-                    ),
-                    fullPage: true
-                });
-
-            } catch {}
-
-            /*
-             * Stop rather than silently producing
-             * incomplete catalog data.
-             */
-
-            throw pageError;
         }
     }
 
-    // ==========================================
-    // 9. FINAL PRODUCT LINKS
-    // ==========================================
+    const previousCount = previousIds.size;
+    const currentCount = currentIds.size;
 
-    const finalProductLinks = [
-        ...allProductLinks.values()
-    ];
+    /*
+     * A discovery is eligible for availability decisions only when:
+     * - every requested page completed successfully;
+     * - no safety cap was hit;
+     * - every scanned page contained product links;
+     * - the result is non-empty.
+     *
+     * Missing products are still confirmed separately after two
+     * consecutive successful discovery runs.
+     */
+    const availabilitySafe =
+        !paginationCapped &&
+        maxPage >= 1 &&
+        Object.keys(pageCounts).length === maxPage &&
+        Object.values(pageCounts).every(count => Number(count) > 0) &&
+        finalProductLinks.length > 0;
 
-    fs.writeFileSync(
-        path.join(
-            debugDir,
-            "product-links.json"
-        ),
-        JSON.stringify(
-            finalProductLinks,
-            null,
-            2
-        ),
-        "utf8"
-    );
+    const report = {
+        complete: true,
+        availabilitySafe,
+        pagesScanned: maxPage,
+        detectedPages,
+        paginationCapped,
+        productsFound: finalProductLinks.length,
+        discoveredIds,
+        previousProductsFound: previousCount,
+        countDelta: currentCount - previousCount,
+        pageCounts,
+        confirmedMissingIds,
+        missingStreaks,
+        generatedAt: new Date().toISOString()
+    };
 
-    // ==========================================
-    // 10. ALL LINKS FROM PAGE 1
-    // ==========================================
+    writeJson(linksFile, finalProductLinks);
+    writeJson(reportFile, report);
+    writeJson(historyFile, report);
 
-    const pageOneLinks =
-    await page
-        .locator("a")
-        .evaluateAll(
-            anchors =>
-                anchors.map(
-                    anchor => ({
-                        text:
-                            String(
-                                anchor.innerText || ""
-                            )
-                                .replace(
-                                    /\s+/g,
-                                    " "
-                                )
-                                .trim(),
-
-                        href:
-                            anchor.href
-                    })
-                )
-        );
-
-    const uniqueLinks = [
-        ...new Map(
-            pageOneLinks
-                .filter(
-                    item =>
-                        item.href
-                )
-                .map(
-                    item => [
-                        item.href,
-                        item
-                    ]
-                )
-        ).values()
-    ];
-
-    fs.writeFileSync(
-        path.join(
-            debugDir,
-            "links.json"
-        ),
-        JSON.stringify(
-            uniqueLinks,
-            null,
-            2
-        ),
-        "utf8"
-    );
-
-    // ==========================================
-    // 11. FINAL REPORT
-    // ==========================================
-
-    console.log("");
-    console.log("======================================");
+    console.log("\n======================================");
     console.log("       DISCOVERY COMPLETED");
     console.log("======================================");
+    console.log(`Pages scanned: ${maxPage}`);
+    console.log(`Unique product links found: ${finalProductLinks.length}`);
+    console.log(`Availability safe: ${availabilitySafe ? "YES" : "NO"}`);
+    console.log(`Confirmed missing after 2 scans: ${confirmedMissingIds.length}`);
+    console.log("Output: debug/product-links.json");
+    console.log("Report: debug/discovery-report.json");
     console.log("");
 
-    console.log(
-        "Pages scanned:",
-        maxPage
-    );
+    finalProductLinks.slice(0, 5).forEach((item, index) => {
+        console.log(`${index + 1}. ${item.href}`);
+    });
 
-    console.log(
-        "Unique product links found:",
-        finalProductLinks.length
-    );
-
-    console.log("");
-
-    console.log(
-        "Output:"
-    );
-
-    console.log(
-        "debug/product-links.json"
-    );
-
-    console.log(
-        "debug/product-links-progress.json"
-    );
-
-    console.log(
-        "debug/links.json"
-    );
-
-    console.log("");
-
-    if (
-        finalProductLinks.length === 0
-    ) {
-
-        console.error(
-            "WARNING: No product links found."
-        );
-
-    } else {
-
-        console.log(
-            "FIRST 5 PRODUCTS:"
-        );
-
-        finalProductLinks
-            .slice(0, 5)
-            .forEach(
-                (item, index) => {
-
-                    console.log(
-                        `${index + 1}. ${item.href}`
-                    );
-                }
-            );
-    }
-
-    console.log("");
-
+    await browser.close();
 } catch (error) {
-
     console.error("");
     console.error("======================================");
     console.error("              ERROR");
     console.error("======================================");
     console.error("");
-
-    console.error(
-        error.message
-    );
-
+    console.error(error?.message || error);
     console.error("");
 
     try {
-
         await page.screenshot({
-            path: path.join(
-                debugDir,
-                "ERROR.png"
-            ),
+            path: path.join(debugDir, "ERROR.png"),
             fullPage: true
         });
-
-        console.error(
-            "Screenshot:",
-            "debug/ERROR.png"
-        );
-
     } catch {}
 
-    await browser.close();
+    try {
+        await browser.close();
+    } catch {}
 
     process.exit(1);
 }
-
-await browser.close();
