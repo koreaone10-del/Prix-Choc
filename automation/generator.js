@@ -18,7 +18,6 @@ const linksFile = path.resolve(
 const productsFile =
     config.paths.productsFile;
 
-
 /* =========================================================
    CHECK FILES
 ========================================================= */
@@ -209,6 +208,7 @@ const discoveredIds =
 
 
 console.log("");
+
 console.log(
     `🔗 Discovered Sawa9ly products: ${discoveredIds.size}`
 );
@@ -275,6 +275,7 @@ const discoveryComplete =
 if (!discoveryComplete) {
 
     console.log("");
+
     console.log(
         "🛡️ Availability safety: FULL SCAN NOT VERIFIED."
     );
@@ -286,6 +287,7 @@ if (!discoveryComplete) {
 } else {
 
     console.log("");
+
     console.log(
         "🛡️ Availability safety: FULL SCAN candidate verified."
     );
@@ -454,7 +456,6 @@ function setAvailability(
             ? "true"
             : "false";
 
-
     if (
         /available:\s*(true|false)/.test(
             block
@@ -477,17 +478,47 @@ function setAvailability(
 
 /* =========================================================
    BUILD PRODUCT OBJECT
+   Supports multiple Sawa9ly images
 ========================================================= */
 
 function buildProductObject(
     product
 ) {
 
+    const images =
+        Array.isArray(
+            product.images
+        )
+            ? product.images
+                .filter(Boolean)
+                .map(
+                    image =>
+                        escapeString(
+                            image
+                        )
+                )
+            : [];
+
+
+    const imagesCode =
+        images.length > 0
+            ? `[
+${images
+    .map(
+        image =>
+            `            "${image}"`
+    )
+    .join(",\n")}
+        ]`
+            : "[]";
+
+
     return `{
         name: "${escapeString(product.name)}",
         description: "${escapeString(product.description)}",
         price: ${Number(product.sellingPrice || 0)},
         image: "${escapeString(product.image)}",
+        images: ${imagesCode},
         sawa9lyLink: "${escapeString(product.sawa9lyLink)}",
         basePrice: ${Number(product.basePrice || 0)},
         profit: ${Number(product.profit || 0)},
@@ -536,6 +567,7 @@ let skippedCount = 0;
 /*
    IDs successfully scraped.
 */
+
 const scrapedIds =
     new Set();
 
@@ -656,6 +688,7 @@ for (
                 localId
             )
         ) {
+
             break;
         }
 
@@ -745,6 +778,7 @@ const scrapeComplete =
 
 console.log("");
 
+
 if (scrapeComplete) {
 
     console.log(
@@ -814,6 +848,7 @@ if (
                 item.block
             )
         ) {
+
             continue;
         }
 
@@ -839,6 +874,7 @@ if (
                 sawa9lyId
             )
         ) {
+
             continue;
         }
 
@@ -857,6 +893,7 @@ if (
         if (
             !wasAvailable
         ) {
+
             continue;
         }
 
@@ -902,6 +939,7 @@ const hasChanges =
 if (!hasChanges) {
 
     console.log("");
+
     console.log(
         "ℹ️ لا توجد تغييرات على المنتجات."
     );
