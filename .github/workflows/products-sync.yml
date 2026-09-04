@@ -2,7 +2,6 @@ name: Prix Choc - Product Sync
 
 on:
   workflow_dispatch:
-
   schedule:
     - cron: "0 2 * * *"
 
@@ -14,49 +13,22 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-
   sync-products:
-
     runs-on: ubuntu-latest
-
     steps:
-
-      # =====================================================
-      # 1. CHECKOUT
-      # =====================================================
-
       - name: Checkout repository
-
         uses: actions/checkout@v4
-
         with:
           fetch-depth: 0
 
-
-      # =====================================================
-      # 2. SETUP NODE
-      # =====================================================
-
       - name: Setup Node.js
-
         uses: actions/setup-node@v4
-
         with:
           node-version: 20
 
-
-      # =====================================================
-      # 3. VERIFY AUTOMATION FILES
-      # =====================================================
-
       - name: Verify automation files
-
         working-directory: automation
-
         run: |
-
-          echo "Checking automation files..."
-
           test -f package.json
           test -f discover.js
           test -f scraper.js
@@ -64,321 +36,81 @@ jobs:
           test -f generator.js
           test -f config.js
           test -f pricing.js
-
-          echo "package.json: OK"
-          echo "discover.js: OK"
-          echo "scraper.js: OK"
-          echo "sync.js: OK"
-          echo "generator.js: OK"
-          echo "config.js: OK"
-          echo "pricing.js: OK"
-
-          if [ -f package-lock.json ]; then
-
-            echo "package-lock.json: FOUND"
-
-          else
-
-            echo "package-lock.json: NOT FOUND"
-
-          fi
-
-
-      # =====================================================
-      # 4. INSTALL DEPENDENCIES
-      # =====================================================
+          echo "Automation files: OK"
 
       - name: Install dependencies
-
         working-directory: automation
-
         run: |
-
-          if [ -f package-lock.json ]; then
-
-            npm ci
-
-          else
-
-            npm install
-
-          fi
-
-
-      # =====================================================
-      # 5. INSTALL CHROMIUM
-      # =====================================================
+          if [ -f package-lock.json ]; then npm ci; else npm install; fi
 
       - name: Install Chromium
-
         working-directory: automation
-
-        run: |
-
-          npx playwright install --with-deps chromium
-
-
-      # =====================================================
-      # 6. CREATE ENVIRONMENT
-      # =====================================================
+        run: npx playwright install --with-deps chromium
 
       - name: Create environment
-
         working-directory: automation
-
         run: |
-
           cat > .env <<'EOF'
-
           SAWA9LY_LOGIN_URL=https://sawa9ly.app/login
           SAWA9LY_DASHBOARD_URL=https://sawa9ly.app/dashboard
-
           SAWA9LY_EMAIL=${{ secrets.SAWA9LY_EMAIL }}
           SAWA9LY_PASSWORD=${{ secrets.SAWA9LY_PASSWORD }}
-
           SCRAPE_LIMIT=2094
           SCRAPE_CONCURRENCY=10
-
           HEADLESS=true
           DRY_RUN=false
-
           DEFAULT_MARGIN=1000
           MIN_MARGIN=300
           MAX_MARGIN=5000
-
           PRODUCTS_FILE=../products.js
           OUTPUT_DIR=./output
-
           EOF
 
-
-      # =====================================================
-      # 7. DISCOVER PRODUCT LINKS
-      # =====================================================
-
       - name: Run product discovery
-
         working-directory: automation
+        run: npm run discover
 
-        run: |
-
-          npm run discover
-
-
-      # =====================================================
-      # 8. VERIFY DISCOVERY
-      # =====================================================
-
-      - name: Verify discovered product links
-
+      - name: Verify discovery
         working-directory: automation
-
         run: |
-
-          echo "Checking discovery output..."
-
           test -f debug/product-links.json
-
-          echo "product-links.json: FOUND"
-
-          echo "File size:"
-
-          wc -c debug/product-links.json
-
-          echo "First lines:"
-
-          head -20 debug/product-links.json
-
-
-      # =====================================================
-      # 9. RUN PRODUCT SYNC
-      # =====================================================
+          test -f debug/discovery-report.json
+          test -f state/discovery-history.json
+          node -e "const r=require('./debug/discovery-report.json'); if(r.complete!==true) process.exit(1); if(!r.availabilitySafe) process.exit(1); console.log('Discovery complete:',r.productsFound); console.log('Availability safe:',r.availabilitySafe); console.log('Confirmed missing:',(r.confirmedMissingIds||[]).length);"
 
       - name: Run product sync
-
         working-directory: automation
+        run: npm run sync
 
-        run: |
-
-          npm run sync
-
-
-      # =====================================================
-      # 10. VERIFY GENERATED OUTPUT
-      # =====================================================
-
-      - name: Verify generated files
-
+      - name: Verify generated output
         working-directory: automation
-
         run: |
-
-          echo "Checking generated files..."
-
-          if [ -f output/products.raw.json ]; then
-
-            echo "products.raw.json: FOUND"
-
-            echo "Raw file size:"
-
-            wc -c output/products.raw.json
-
-            echo "Products extracted:"
-
-            node -e "
-              const fs = require('fs');
-
-              const data = JSON.parse(
-                fs.readFileSync(
-                  'output/products.raw.json',
-                  'utf8'
-                )
-              );
-
-              console.log(data.length);
-            "
-
-          else
-
-            echo "products.raw.json: NOT FOUND"
-
-            exit 1
-
-          fi
-
-
-      # =====================================================
-      # 11. VERIFY PRODUCTS.JS
-      # =====================================================
+          test -f output/products.raw.json
+          node -e "const d=require('./output/products.raw.json'); if(!Array.isArray(d)) process.exit(1); console.log('Products extracted:',d.length);"
 
       - name: Verify products.js
-
         run: |
-
-          echo "Checking products.js..."
-
           test -f products.js
-
-          echo "products.js: FOUND"
-
-          wc -c products.js
-
-
-      # =====================================================
-      # 12. VALIDATE PRODUCTS.JS
-      # =====================================================
-
-      - name: Validate products.js syntax
-
-        run: |
-
-          echo "Validating products.js JavaScript syntax..."
-
           node --check products.js
-
           echo "products.js syntax: OK"
 
-
-      # =====================================================
-      # 13. SHOW GIT STATUS
-      # =====================================================
-
       - name: Show changes
-
         run: |
-
-          echo "Git status:"
-
           git status --short
-
-          echo ""
-
-          echo "Changed files:"
-
           git diff --name-only
 
-
-      # =====================================================
-      # 14. COMMIT CHANGES
-      # =====================================================
-
-      - name: Commit updated products
-
+      - name: Commit updated products and discovery state
         run: |
-
           git config user.name "Prix Choc Bot"
-
           git config user.email "prix-choc-bot@users.noreply.github.com"
-
-
-          echo "Preparing changes..."
-
-
-          # -------------------------------------------------
-          # .env contains secrets.
-          # It must never remain in the working tree
-          # during fetch/rebase/push.
-          # -------------------------------------------------
-
           rm -f automation/.env
-
-
-          echo "Checking working tree..."
-
-          git status --short
-
-
-          # -------------------------------------------------
-          # ONLY products.js is committed.
-          # -------------------------------------------------
-
-          git add products.js
-
-
+          git add products.js automation/state/discovery-history.json
           if git diff --cached --quiet; then
-
-            echo "No product changes to commit."
-
+            echo "No product/state changes to commit."
             exit 0
-
           fi
-
-
-          echo "Creating commit..."
-
-
-          git commit \
-            -m "🤖 Auto update Sawa9ly products"
-
-
-          echo ""
-
-          echo "Fetching latest main..."
-
-
+          git commit -m "🤖 Auto update Sawa9ly products"
           git fetch origin main
-
-
-          echo ""
-
-          echo "Rebasing local commit on latest main..."
-
-
           git rebase origin/main
-
-
-          echo ""
-
-          echo "Pushing updated products..."
-
-
           git push origin main
-
-
-          echo ""
-
-          echo "=========================================="
-
-          echo "PRODUCTS PUSHED SUCCESSFULLY"
-
-          echo "=========================================="
+          echo "PRODUCTS AND DISCOVERY STATE PUSHED SUCCESSFULLY"
