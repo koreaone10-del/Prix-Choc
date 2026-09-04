@@ -15,6 +15,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const stateDir = path.join(__dirname, "state");
 const historyFile = path.join(stateDir, "discovery-history.json");
+fs.mkdirSync(stateDir, { recursive: true });
 
 const MAX_PAGES = 100;
 
