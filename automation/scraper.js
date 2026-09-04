@@ -1181,11 +1181,6 @@ async function extractProductImage(page) {
    EXTRACT PRODUCT NAME
 ========================================================= */
 
-
-/* =========================================================
-   EXTRACT PRODUCT NAME
-========================================================= */
-
 async function extractProductName(
     page
 ) {
