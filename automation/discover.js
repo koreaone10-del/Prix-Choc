@@ -1,6 +1,7 @@
 import { chromium } from "playwright";
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
 
 import { config } from "./config.js";
 
@@ -10,6 +11,8 @@ fs.mkdirSync(debugDir, { recursive: true });
 const linksFile = path.join(debugDir, "product-links.json");
 const progressFile = path.join(debugDir, "product-links-progress.json");
 const reportFile = path.join(debugDir, "discovery-report.json");
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const stateDir = path.join(__dirname, "state");
 const historyFile = path.join(stateDir, "discovery-history.json");
 
