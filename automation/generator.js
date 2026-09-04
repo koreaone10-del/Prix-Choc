@@ -189,7 +189,30 @@ function normalizeProductLink(
 
 
 /* =========================================================
-   GET DISCOVERED PRODUCT COUNT
+   EXTRACT SAWA9LY ID
+========================================================= */
+
+function extractSawa9lyId(
+    value
+) {
+
+    if (!value) {
+        return "";
+    }
+
+    const match =
+        String(value).match(
+            /\/product\/(\d+)/i
+        );
+
+    return match
+        ? match[1]
+        : "";
+}
+
+
+/* =========================================================
+   DISCOVERED PRODUCT IDS
 ========================================================= */
 
 const uniqueDiscoveredLinks =
@@ -204,6 +227,16 @@ const uniqueDiscoveredLinks =
     );
 
 
+const discoveredSawa9lyIds =
+    new Set(
+        uniqueDiscoveredLinks
+            .map(
+                extractSawa9lyId
+            )
+            .filter(Boolean)
+    );
+
+
 /* =========================================================
    GET SCRAPE LIMIT
 ========================================================= */
@@ -212,31 +245,6 @@ const scrapeLimit =
     Number(
         config.automation.scrapeLimit || 0
     );
-
-
-/* =========================================================
-   VERIFY FULL SCAN SAFETY
-========================================================= */
-
-/*
-   We ONLY mark missing automated products as unavailable
-   when the scraper has demonstrably processed the complete
-   discovered catalog.
-
-   If there are more discovered products than SCRAPE_LIMIT,
-   we do NOT mark anything unavailable because some products
-   were intentionally not scanned.
-*/
-
-const fullCatalogCanBeVerified =
-    uniqueDiscoveredLinks.length > 0 &&
-    (
-        scrapeLimit <= 0 ||
-        uniqueDiscoveredLinks.length <=
-            scrapeLimit
-    ) &&
-    products.length ===
-        uniqueDiscoveredLinks.length;
 
 
 /* =========================================================
@@ -296,29 +304,6 @@ function getNextLocalId(
     return String(
         max + 1
     );
-}
-
-
-/* =========================================================
-   EXTRACT SAWA9LY ID
-========================================================= */
-
-function extractSawa9lyId(
-    value
-) {
-
-    if (!value) {
-        return "";
-    }
-
-    const match =
-        String(value).match(
-            /\/product\/(\d+)/i
-        );
-
-    return match
-        ? match[1]
-        : "";
 }
 
 
@@ -549,7 +534,8 @@ for (
 
 
     /*
-       Remember every successfully scraped Sawa9ly product.
+       Remember every successfully scraped
+       and valid Sawa9ly product.
     */
 
     scrapedSawa9lyIds.add(
@@ -678,11 +664,6 @@ for (
         );
 
 
-    /*
-       Make sure the previous
-       product ends with comma.
-    */
-
     const normalizedBeforeInsert =
         beforeInsert
             .trimEnd()
@@ -712,6 +693,60 @@ for (
 
 
 /* =========================================================
+   VERIFY COMPLETE CATALOG
+========================================================= */
+
+/*
+   VERY IMPORTANT:
+
+   We NEVER mark missing products unavailable
+   based only on product counts.
+
+   We require an exact ID-set match between:
+
+   1. Products discovered from Sawa9ly
+   2. Products successfully scraped
+
+   This prevents false "unavailable" statuses caused
+   by temporary scraping failures, duplicates, or
+   incomplete results.
+*/
+
+let fullCatalogCanBeVerified = false;
+
+
+if (
+    discoveredSawa9lyIds.size > 0 &&
+    (
+        scrapeLimit <= 0 ||
+        discoveredSawa9lyIds.size <= scrapeLimit
+    ) &&
+    scrapedSawa9lyIds.size ===
+        discoveredSawa9lyIds.size
+) {
+
+    fullCatalogCanBeVerified = true;
+
+
+    for (
+        const id of discoveredSawa9lyIds
+    ) {
+
+        if (
+            !scrapedSawa9lyIds.has(
+                id
+            )
+        ) {
+
+            fullCatalogCanBeVerified = false;
+
+            break;
+        }
+    }
+}
+
+
+/* =========================================================
    MARK MISSING AUTOMATED PRODUCTS
 ========================================================= */
 
@@ -724,16 +759,16 @@ if (
     );
 
     console.log(
-        `📦 Discovered: ${uniqueDiscoveredLinks.length}`
+        `📦 Discovered Sawa9ly IDs: ${discoveredSawa9lyIds.size}`
     );
 
     console.log(
-        `📥 Scraped successfully: ${products.length}`
+        `📥 Successfully scraped IDs: ${scrapedSawa9lyIds.size}`
     );
 
 
     /*
-       We need to inspect all current product blocks.
+       Find every product currently stored.
     */
 
     const allBlocksRegex =
@@ -762,9 +797,7 @@ if (
 
 
     /*
-       Process blocks from the end toward the beginning
-       so replacing one block never invalidates the
-       position of blocks that still need processing.
+       Process from the end toward the beginning.
     */
 
     for (
@@ -779,8 +812,10 @@ if (
 
 
         /*
-           Only automated products are controlled
-           by the Sawa9ly synchronization.
+           ONLY automated products are controlled
+           by Sawa9ly synchronization.
+
+           Manual products remain untouched.
         */
 
         if (
@@ -808,9 +843,7 @@ if (
 
 
         /*
-           Product was found in the complete scan.
-           It is already handled above and therefore
-           should remain available.
+           Product exists in the complete Sawa9ly scan.
         */
 
         if (
@@ -824,8 +857,12 @@ if (
 
 
         /*
-           Product was NOT found in the complete catalog.
-           Mark it unavailable instead of deleting it.
+           Product no longer appears in Sawa9ly.
+
+           IMPORTANT:
+           We DO NOT delete it.
+
+           We only mark it unavailable.
         */
 
         const freshBlock =
@@ -973,6 +1010,14 @@ console.log(
 
 console.log(
     `🔍 Discovered links: ${uniqueDiscoveredLinks.length}`
+);
+
+console.log(
+    `🔑 Discovered IDs: ${discoveredSawa9lyIds.size}`
+);
+
+console.log(
+    `🔑 Scraped IDs: ${scrapedSawa9lyIds.size}`
 );
 
 console.log(
