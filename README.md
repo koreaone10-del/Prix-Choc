@@ -1,25 +1,29 @@
-# Prix Choc — Automation Phase 1
+# Prix Choc — Phase 2
 
-Files in this package replace these files in the repository:
+Cette archive contient les fichiers complets à remplacer dans le dépôt GitHub.
 
-- automation/scraper.js
-- automation/discover.js
-- automation/generator.js
-
-## What is included
-
-1. scraper.js: repaired image extraction, multiple images, new-products-only scraping, existing price parser preserved.
-2. discover.js: full discovery report, stale-output protection, non-empty/full-page validation, two-successful-scan confirmation for missing products.
-3. generator.js: availability is based on the verified discovery catalog rather than requiring every existing product to be scraped; unavailable products can be restored when discovered again.
+## Fichiers
+- `automation/discover.js` — découverte complète et état persistant des produits absents.
+- `automation/scraper.js` — scraper corrigé avec galerie d'images et scraping des nouveaux produits.
+- `automation/generator.js` — génération/restauration et gestion sûre de `available`.
+- `.github/workflows/products-sync.yml` — sauvegarde de l'état persistant dans Git.
 
 ## Important
+Ne modifiez pas des lignes à l'intérieur des fichiers. Remplacez les fichiers complets.
 
-Do not manually delete sections from these files. Replace the complete files.
+Le fichier d'état persistant sera créé automatiquement ici :
+`automation/state/discovery-history.json`
 
-Validation performed before packaging:
-- node --check automation/scraper.js
-- node --check automation/discover.js
-- node --check automation/generator.js
+Le workflow le commit explicitement avec `products.js`, sans utiliser `git add .`.
 
-No changes were made to wilayasData or the existing price parsing logic.
+## Logique disponibilité
+- Une absence lors d'un seul scan ne désactive pas le produit.
+- Après deux scans réussis consécutifs où le produit reste absent, il peut devenir `available: false`.
+- Si son identifiant Sawa9ly réapparaît, le produit est restauré automatiquement à `available: true`.
+- Les produits manuels ne sont pas désactivés par cette logique.
 
+## Vérifications effectuées avant livraison
+- `node --check automation/discover.js` OK
+- `node --check automation/scraper.js` OK
+- `node --check automation/generator.js` OK
+- YAML du workflow analysé sans erreur de syntaxe.
