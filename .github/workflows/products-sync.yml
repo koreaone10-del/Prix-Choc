@@ -8,6 +8,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: prix-choc-product-sync
+  cancel-in-progress: false
+
 jobs:
   sync-products:
     runs-on: ubuntu-latest
@@ -104,6 +108,8 @@ jobs:
           SAWA9LY_PASSWORD=${{ secrets.SAWA9LY_PASSWORD }}
 
           SCRAPE_LIMIT=2093
+          SCRAPE_CONCURRENCY=10
+
           HEADLESS=true
           DRY_RUN=false
 
@@ -240,12 +246,10 @@ jobs:
 
           echo "Preparing changes..."
 
-          # -------------------------------------------------
           # IMPORTANT:
           # Only products.js is committed.
           # automation/.env contains secrets and must NEVER
           # be committed.
-          # -------------------------------------------------
 
           git add products.js
 
