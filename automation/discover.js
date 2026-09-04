@@ -10,7 +10,8 @@ fs.mkdirSync(debugDir, { recursive: true });
 const linksFile = path.join(debugDir, "product-links.json");
 const progressFile = path.join(debugDir, "product-links-progress.json");
 const reportFile = path.join(debugDir, "discovery-report.json");
-const historyFile = path.join(debugDir, "discovery-history.json");
+const stateDir = path.join(__dirname, "state");
+const historyFile = path.join(stateDir, "discovery-history.json");
 
 const MAX_PAGES = 100;
 
