@@ -1864,30 +1864,230 @@ console.log(
 
 
 /* =========================================================
-   APPLY SCRAPE LIMIT
+/* =========================================================
+   SELECT NEW PRODUCTS ONLY
+========================================================= */
+
+console.log(
+    "\n🔎 Checking existing products.js..."
+);
+
+let existingProductsSource = "";
+
+try {
+
+    existingProductsSource =
+        fs.readFileSync(
+            config.paths.productsFile,
+            "utf8"
+        );
+
+} catch (error) {
+
+    console.error(
+        "\n❌ Could not read products.js."
+    );
+
+    console.error(
+        error?.message || error
+    );
+
+    process.exit(1);
+}
+
+
+/*
+   Extract all Sawa9ly IDs already present
+   in products.js.
+
+   We intentionally use the sawa9lyLink field
+   instead of local product IDs because the
+   local IDs are not the supplier IDs.
+*/
+
+const existingSawa9lyIds =
+    new Set();
+
+const existingLinkPattern =
+    /sawa9lyLink\s*:\s*["'`](https?:\/\/[^"'`]+)["'`]/g;
+
+let existingLinkMatch;
+
+while (
+    (
+        existingLinkMatch =
+            existingLinkPattern.exec(
+                existingProductsSource
+            )
+    ) !== null
+) {
+
+    const existingLink =
+        existingLinkMatch[1];
+
+    const existingId =
+        extractProductId(
+            existingLink
+        );
+
+    if (existingId) {
+
+        existingSawa9lyIds.add(
+            existingId
+        );
+    }
+}
+
+
+console.log(
+    `📦 Existing Sawa9ly products: ${existingSawa9lyIds.size}`
+);
+
+
+/* =========================================================
+   FILTER NEW PRODUCTS
+========================================================= */
+
+const newProductLinks =
+    productLinks.filter(
+        item => {
+
+            const sawa9lyId =
+                extractProductId(
+                    item.href
+                );
+
+            return (
+                sawa9lyId &&
+                !existingSawa9lyIds.has(
+                    sawa9lyId
+                )
+            );
+        }
+    );
+
+
+console.log(
+    `🆕 New Sawa9ly products found: ${newProductLinks.length}`
+);
+
+
+/* =========================================================
+   APPLY SAFETY LIMIT TO NEW PRODUCTS
 ========================================================= */
 
 const limitedLinks =
-    productLinks.slice(
+    newProductLinks.slice(
         0,
         config.automation.scrapeLimit
     );
 
 
 console.log(
-    `🛍️ Products selected for scraping: ${limitedLinks.length}`
+    `🛍️ New products selected for scraping: ${limitedLinks.length}`
 );
 
+
+/*
+   IMPORTANT:
+
+   Zero new products is NOT an error.
+
+   We create an empty products list and allow
+   generator.js to run normally. This means the
+   daily workflow can finish successfully even
+   when Sawa9ly has no new products.
+*/
 
 if (
     limitedLinks.length === 0
 ) {
 
-    console.error(
-        "\n❌ No product links available for scraping."
+    console.log(
+        "\n✅ No new products found."
     );
 
-    process.exit(1);
+    console.log(
+        "ℹ️ Existing products will not be scraped again."
+    );
+
+    const outputFile =
+        path.join(
+            outputDir,
+            "products.raw.json"
+        );
+
+    fs.writeFileSync(
+        outputFile,
+        JSON.stringify(
+            [],
+            null,
+            2
+        ),
+        "utf8"
+    );
+
+    const debugOutput =
+        path.join(
+            debugDir,
+            "scraper-debug.json"
+        );
+
+    const debugReport = {
+
+        generatedAt:
+            new Date().toISOString(),
+
+        discovered:
+            productLinks.length,
+
+        existing:
+            existingSawa9lyIds.size,
+
+        newProducts:
+            0,
+
+        selected:
+            0,
+
+        scraped:
+            0,
+
+        validNames:
+            0,
+
+        validImages:
+            0,
+
+        validPrices:
+            0,
+
+        validDescriptions:
+            0,
+
+        products:
+            []
+    };
+
+    fs.writeFileSync(
+        debugOutput,
+        JSON.stringify(
+            debugReport,
+            null,
+            2
+        ),
+        "utf8"
+    );
+
+    console.log(
+        `📄 Saved empty product list: ${outputFile}`
+    );
+
+    console.log(
+        "======================================\n"
+    );
+
+    process.exit(0);
 }
 
 
