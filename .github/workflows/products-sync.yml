@@ -20,6 +20,8 @@ jobs:
 
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
 
       # =====================================================
@@ -172,9 +174,11 @@ jobs:
             echo "Products extracted:"
             node -e "
               const fs = require('fs');
+
               const data = JSON.parse(
                 fs.readFileSync('output/products.raw.json', 'utf8')
               );
+
               console.log(data.length);
             "
           else
@@ -220,32 +224,56 @@ jobs:
           echo "Git status:"
           git status --short
 
+          echo ""
+          echo "Changed files:"
+          git diff --name-only
+
 
       # =====================================================
       # 14. COMMIT CHANGES
       # =====================================================
 
-            - name: Commit updated products
+      - name: Commit updated products
         run: |
           git config user.name "Prix Choc Bot"
           git config user.email "prix-choc-bot@users.noreply.github.com"
 
           echo "Preparing changes..."
-          git add -A
+
+          # -------------------------------------------------
+          # IMPORTANT:
+          # Only products.js is committed.
+          # automation/.env contains secrets and must NEVER
+          # be committed.
+          # -------------------------------------------------
+
+          git add products.js
 
           if git diff --cached --quiet; then
-            echo "No changes to commit."
+            echo "No product changes to commit."
             exit 0
           fi
 
+          echo "Creating commit..."
+
           git commit -m "🤖 Auto update Sawa9ly products"
 
+          echo ""
           echo "Fetching latest main..."
+
           git fetch origin main
 
+          echo ""
           echo "Rebasing local commit on latest main..."
+
           git rebase origin/main
 
+          echo ""
           echo "Pushing updated products..."
+
           git push origin main
-          fi
+
+          echo ""
+          echo "=========================================="
+          echo "PRODUCTS PUSHED SUCCESSFULLY"
+          echo "=========================================="
