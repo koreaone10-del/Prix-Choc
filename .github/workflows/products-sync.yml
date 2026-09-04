@@ -104,7 +104,19 @@ jobs:
           git config user.name "Prix Choc Bot"
           git config user.email "prix-choc-bot@users.noreply.github.com"
           rm -f automation/.env
-          git add products.js automation/state/discovery-history.json
+          # Force-add the persistent discovery state even if a repository rule
+          # happens to ignore the state directory.
+          git add -f products.js automation/state/discovery-history.json
+
+          echo "Staged files:"
+          git diff --cached --name-only
+
+          # Safety check: the discovery state must be part of the same commit.
+          git diff --cached --name-only | grep -Fx "automation/state/discovery-history.json" >/dev/null || {
+            echo "ERROR: discovery state was not staged."
+            exit 1
+          }
+
           if git diff --cached --quiet; then
             echo "No product/state changes to commit."
             exit 0
