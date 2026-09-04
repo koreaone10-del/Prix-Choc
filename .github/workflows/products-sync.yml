@@ -15,6 +15,7 @@ concurrency:
 jobs:
   sync-products:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -41,7 +42,11 @@ jobs:
       - name: Install dependencies
         working-directory: automation
         run: |
-          if [ -f package-lock.json ]; then npm ci; else npm install; fi
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
 
       - name: Install Chromium
         working-directory: automation
@@ -99,30 +104,82 @@ jobs:
           git status --short
           git diff --name-only
 
-      - name: Commit updated products and discovery state
+      - name: Commit and push safely
+        shell: bash
         run: |
+          set -euo pipefail
+
           git config user.name "Prix Choc Bot"
           git config user.email "prix-choc-bot@users.noreply.github.com"
-          rm -f automation/.env
-          # Force-add the persistent discovery state even if a repository rule
-          # happens to ignore the state directory.
-          git add -f products.js automation/state/discovery-history.json
+
+          # CRITICAL:
+          # automation/.env is created for the scraper. If .env is tracked in
+          # this old repository, deleting it creates an unstaged deletion.
+          # That is exactly what makes git rebase fail with:
+          # "You have unstaged changes."
+          #
+          # Restore the repository version instead of deleting a tracked file.
+          if git ls-files --error-unmatch automation/.env >/dev/null 2>&1; then
+            git restore -- automation/.env
+          else
+            rm -f automation/.env
+          fi
+
+          # Only commit the two intentional generated files.
+          git add products.js
+          git add -f automation/state/discovery-history.json
+
+          echo "Working tree after cleanup:"
+          git status --short
 
           echo "Staged files:"
           git diff --cached --name-only
-
-          # Safety check: the discovery state must be part of the same commit.
-          git diff --cached --name-only | grep -Fx "automation/state/discovery-history.json" >/dev/null || {
-            echo "ERROR: discovery state was not staged."
-            exit 1
-          }
 
           if git diff --cached --quiet; then
             echo "No product/state changes to commit."
             exit 0
           fi
+
           git commit -m "🤖 Auto update Sawa9ly products"
+
+          # FIRST METHOD:
+          # Try a normal fast-forward push. This is safest when main did not
+          # move while the workflow was running.
+          if git push origin HEAD:main; then
+            echo "SAFE PUSH SUCCESSFUL (method 1)"
+            exit 0
+          fi
+
+          echo "Method 1 failed. Starting fallback method 2..."
+
+          # FALLBACK METHOD:
+          # The remote main moved while the job was running. Rebase the local
+          # automation commit on the new remote main, then push.
           git fetch origin main
-          git rebase origin/main
-          git push origin main
-          echo "PRODUCTS AND DISCOVERY STATE PUSHED SUCCESSFULLY"
+
+          if git rebase origin/main; then
+            if git push origin HEAD:main; then
+              echo "SAFE PUSH SUCCESSFUL (method 2 - rebase)"
+              exit 0
+            fi
+          else
+            echo "Rebase fallback failed; aborting rebase."
+            git rebase --abort || true
+          fi
+
+          echo "Rebase fallback did not succeed. Trying final non-destructive merge fallback..."
+
+          # FINAL FALLBACK:
+          # Merge remote main without rewriting existing history.
+          if git merge --no-edit origin/main; then
+            if git push origin HEAD:main; then
+              echo "SAFE PUSH SUCCESSFUL (method 3 - merge)"
+              exit 0
+            fi
+          else
+            echo "Merge fallback failed; aborting merge."
+            git merge --abort || true
+          fi
+
+          echo "ERROR: All push methods failed. No force-push is performed."
+          exit 1
