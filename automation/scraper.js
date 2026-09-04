@@ -242,15 +242,18 @@ function normalizeUrl(
    EXTRACT IMAGE
 ========================================================= */
 
+/* =========================================================
+   EXTRACT PRODUCT IMAGES
+========================================================= */
+
 async function extractProductImage(
     page
 ) {
 
-    const image =
+    const result =
         await page.evaluate(() => {
 
             function clean(value) {
-
                 if (!value) {
                     return "";
                 }
@@ -258,6 +261,372 @@ async function extractProductImage(
                 return String(value)
                     .trim();
             }
+
+            function addImage(
+                list,
+                value
+            ) {
+
+                if (!value) {
+                    return;
+                }
+
+                const src =
+                    clean(value);
+
+                if (!src) {
+                    return;
+                }
+
+                if (
+                    src.startsWith("data:")
+                ) {
+                    return;
+                }
+
+                const lower =
+                    src.toLowerCase();
+
+                if (
+                    lower.includes("logo") ||
+                    lower.includes("favicon") ||
+                    lower.includes("avatar")
+                ) {
+                    return;
+                }
+
+                if (
+                    !list.includes(src)
+                ) {
+                    list.push(src);
+                }
+            }
+
+            function addFromImage(
+                list,
+                img
+            ) {
+
+                if (!img) {
+                    return;
+                }
+
+                addImage(
+                    list,
+                    img.getAttribute("src")
+                );
+
+                addImage(
+                    list,
+                    img.getAttribute("data-src")
+                );
+
+                addImage(
+                    list,
+                    img.getAttribute("data-lazy-src")
+                );
+
+                addImage(
+                    list,
+                    img.getAttribute("data-original")
+                );
+
+                addImage(
+                    list,
+                    img.getAttribute("data-image")
+                );
+
+                /*
+                   srcset can contain several
+                   versions of the same image.
+                */
+                const srcset =
+                    img.getAttribute(
+                        "srcset"
+                    );
+
+                if (srcset) {
+
+                    const candidates =
+                        srcset
+                            .split(",")
+                            .map(
+                                item =>
+                                    item
+                                        .trim()
+                                        .split(/\s+/)[0]
+                            )
+                            .filter(Boolean);
+
+                    for (
+                        const candidate
+                        of candidates
+                    ) {
+                        addImage(
+                            list,
+                            candidate
+                        );
+                    }
+                }
+            }
+
+            const images = [];
+
+            /*
+               -------------------------------------------------
+               1. PRODUCT / GALLERY IMAGES
+               -------------------------------------------------
+            */
+
+            const gallerySelectors = [
+
+                '[class*="product"] img',
+
+                '[class*="Product"] img',
+
+                '[class*="gallery"] img',
+
+                '[class*="Gallery"] img',
+
+                '[class*="swiper"] img',
+
+                '[class*="Swiper"] img',
+
+                '[class*="carousel"] img',
+
+                '[class*="Carousel"] img',
+
+                '[class*="slider"] img',
+
+                '[class*="Slider"] img',
+
+                'main img',
+
+                'article img'
+            ];
+
+            for (
+                const selector
+                of gallerySelectors
+            ) {
+
+                const elements =
+                    Array.from(
+                        document.querySelectorAll(
+                            selector
+                        )
+                    );
+
+                for (
+                    const img
+                    of elements
+                ) {
+
+                    addFromImage(
+                        images,
+                        img
+                    );
+                }
+            }
+
+            /*
+               -------------------------------------------------
+               2. JSON-LD PRODUCT IMAGES
+               -------------------------------------------------
+            */
+
+            const scripts =
+                Array.from(
+                    document.querySelectorAll(
+                        'script[type="application/ld+json"]'
+                    )
+                );
+
+            for (
+                const script
+                of scripts
+            ) {
+
+                try {
+
+                    const data =
+                        JSON.parse(
+                            script.textContent || ""
+                        );
+
+                    const objects =
+                        Array.isArray(data)
+                            ? data
+                            : [data];
+
+                    for (
+                        const item
+                        of objects
+                    ) {
+
+                        if (
+                            !item ||
+                            !item.image
+                        ) {
+                            continue;
+                        }
+
+                        if (
+                            typeof item.image ===
+                            "string"
+                        ) {
+
+                            addImage(
+                                images,
+                                item.image
+                            );
+                        }
+
+                        else if (
+                            Array.isArray(
+                                item.image
+                            )
+                        ) {
+
+                            for (
+                                const image
+                                of item.image
+                            ) {
+
+                                if (
+                                    typeof image ===
+                                    "string"
+                                ) {
+
+                                    addImage(
+                                        images,
+                                        image
+                                    );
+
+                                } else if (
+                                    image &&
+                                    typeof image ===
+                                    "object"
+                                ) {
+
+                                    addImage(
+                                        images,
+                                        image.url
+                                    );
+                                }
+                            }
+                        }
+
+                        else if (
+                            typeof item.image ===
+                                "object"
+                        ) {
+
+                            addImage(
+                                images,
+                                item.image.url
+                            );
+                        }
+                    }
+
+                } catch {
+                    /*
+                       Ignore invalid JSON-LD.
+                    */
+                }
+            }
+
+            /*
+               -------------------------------------------------
+               3. META IMAGE AS FALLBACK
+               -------------------------------------------------
+            */
+
+            const ogImage =
+                document.querySelector(
+                    'meta[property="og:image"]'
+                );
+
+            addImage(
+                images,
+                ogImage?.content
+            );
+
+            const twitterImage =
+                document.querySelector(
+                    'meta[name="twitter:image"]'
+                );
+
+            addImage(
+                images,
+                twitterImage?.content
+            );
+
+            /*
+               -------------------------------------------------
+               4. FINAL FALLBACK
+               -------------------------------------------------
+            */
+
+            if (
+                images.length === 0
+            ) {
+
+                const allImages =
+                    Array.from(
+                        document.querySelectorAll(
+                            "img"
+                        )
+                    );
+
+                for (
+                    const img
+                    of allImages
+                ) {
+
+                    addFromImage(
+                        images,
+                        img
+                    );
+                }
+            }
+
+            return {
+                images:
+                    images
+            };
+        });
+
+    const images =
+        Array.isArray(
+            result?.images
+        )
+            ? result.images
+                .map(
+                    image =>
+                        normalizeUrl(
+                            image,
+                            page.url()
+                        )
+                )
+                .filter(Boolean)
+            : [];
+
+    const uniqueImages =
+        [
+            ...new Set(
+                images
+            )
+        ];
+
+    return {
+        image:
+            uniqueImages[0] || "",
+
+        images:
+            uniqueImages
+    };
+}
 
 
             /* -----------------------------------------
@@ -1565,10 +1934,20 @@ async function extractProduct(
        IMAGE
     ----------------------------------------- */
 
-    const image =
-        await extractProductImage(
-            page
-        );
+    const imageData =
+    await extractProductImage(
+        page
+    );
+
+const image =
+    imageData?.image || "";
+
+const images =
+    Array.isArray(
+        imageData?.images
+    )
+        ? imageData.images
+        : [];
 
 
     if (image) {
@@ -1677,8 +2056,12 @@ async function extractProduct(
     );
 
     console.log(
-        `   IMAGE: ${image ? "FOUND" : "MISSING"}`
-    );
+    `   IMAGE: ${image ? "FOUND" : "MISSING"}`
+);
+
+console.log(
+    `   IMAGES: ${images.length} found`
+);
 
     console.log(
         `   DESCRIPTION: ${
@@ -1718,10 +2101,13 @@ async function extractProduct(
             profit,
 
         image:
-            cleanText(image),
+    cleanText(image),
 
-        sawa9lyLink:
-            sawa9lyLink,
+images:
+    images,
+
+sawa9lyLink:
+    sawa9lyLink,
 
         scrapedAt:
             new Date().toISOString()
