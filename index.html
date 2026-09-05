@@ -182,6 +182,42 @@ body{background:linear-gradient(180deg,#e3f0ea 0,#edf6f2 48%,#deece6 100%)}
 /* When an unavailable product is opened, keep the page clean without touching the order form for available products. */
 .product-mode .order-panel:has(#orderForm[style*="display: none"]){display:none!important}
 .product-mode .product-card:has(.stock.off){display:none!important}
+
+/* V8 SAFE PATCH — homepage top cleanup + calm blue theme only. */
+:root{
+  --green:#187fa8;
+  --green2:#2a9ac1;
+  --ink:#102a3a;
+  --muted:#607987;
+  --cream:#eef8fb;
+  --line:#dcecf2;
+  --gold:#e6b94a;
+  --shadow:0 24px 70px rgba(24,91,119,.12);
+}
+body{background:linear-gradient(180deg,#eaf6fa 0%,#f2f9fb 48%,#e5f3f7 100%)}
+.nav{background:rgba(244,251,253,.92)}
+.nav-btn{background:#f8fcfd;border-color:#d9eaf1}
+.nav-btn.green{background:#187fa8;border-color:#187fa8}
+.brand-mark{background:linear-gradient(145deg,#187fa8,#12647f)}
+.hero{background:radial-gradient(circle at 20% 20%,rgba(255,255,255,.96),transparent 36%),linear-gradient(135deg,#eaf7fb,#dceff5);border-color:#d4e8ef}
+.eyebrow,.pill{background:#f9fdfe;border-color:#d9eaf1}
+.hero-cta{background:linear-gradient(135deg,#187fa8,#126d8a);box-shadow:0 14px 30px rgba(24,127,168,.20)}
+.trust,.card{background:#f7fcfd;border-color:#d9eaf1}
+.trust-icon{background:#e5f4f8}
+.order-head{background:linear-gradient(135deg,#eaf7fb,#f8fcfd)}
+.form-input{background:#f8fcfd;border-color:#d8e9ef}
+.form-input:focus{border-color:#66b4cf;box-shadow:0 0 0 4px rgba(24,127,168,.08);background:#fff}
+.delivery-card{background:#f9fdfe;border-color:#d8e9ef}
+.delivery-card.active{border-color:#187fa8;background:#eaf7fb;box-shadow:0 8px 22px rgba(24,127,168,.08)}
+.home-mode body{background:linear-gradient(180deg,#e6f4f8 0%,#eef9fb 52%,#e2f2f6 100%)}
+.home-mode .home-page{background:transparent}
+.home-mode .home-category-btn.active,.home-mode .home-all-btn{background:#187fa8!important;border-color:#187fa8!important}
+.home-mode .home-products,.home-mode .home-offers,.home-mode .home-category-block{border-color:#d8eaf0}
+.home-mode #product-area{display:none!important;height:0!important;min-height:0!important;margin:0!important;padding:0!important;overflow:hidden!important;visibility:hidden!important}
+.home-mode .home-page{margin-top:0!important}
+.home-mode .footer{background:#0d526b}
+/* Keep the red Algerian accent; only the primary green/white palette becomes blue. */
+.topline{background:linear-gradient(90deg,#187fa8 0 48%,#eaf6fa 48% 52%,#d7193f 52%)}
 </style>
 </head>
 <body>
@@ -377,5 +413,12 @@ if(valid(product)&&product.available!==false){orderForm.addEventListener("submit
 });
 
 </script>
+<script>
+// Homepage guard: the product/order area belongs only to ?p=<product-id> pages.
+if(_prixChocHome){
+  document.documentElement.classList.add("hide-home-product-area");
+}
+</script>
+
 </body>
 </html>
