@@ -1,29 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
-  <!-- ========================================== -->
-  <!-- الصفحة الرئيسية                           -->
-  <!-- ========================================== -->
   <url>
     <loc>https://prix-choc.vercel.app/</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.00</priority>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://prix-choc.vercel.app/" />
     <image:image>
       <image:loc>https://raw.githubusercontent.com/koreaone10-del/Prix-Choc/main/%D8%A7%D9%84%D8%BA%D9%84%D8%A7%D9%81.png</image:loc>
       <image:caption>Prix-Choc – متجر جزائري بصفقات رائعة</image:caption>
     </image:image>
   </url>
 
-  <!-- ========================================== -->
-  <!-- صفحات المنتجات (جميع المنتجات)            -->
-  <!-- ========================================== -->
-  
-  <!-- 1. ساعة رجالية -->
   <url>
     <loc>https://prix-choc.vercel.app/?p=1</loc>
     <lastmod>2026-09-05</lastmod>
@@ -35,7 +24,6 @@
     </image:image>
   </url>
 
-  <!-- 2. خلاط كهربائي -->
   <url>
     <loc>https://prix-choc.vercel.app/?p=2</loc>
     <lastmod>2026-09-05</lastmod>
@@ -47,7 +35,6 @@
     </image:image>
   </url>
 
-  <!-- 3. سماعة لاسلكية -->
   <url>
     <loc>https://prix-choc.vercel.app/?p=3</loc>
     <lastmod>2026-09-05</lastmod>
@@ -59,7 +46,6 @@
     </image:image>
   </url>
 
-  <!-- 4. حقيبة جلدية -->
   <url>
     <loc>https://prix-choc.vercel.app/?p=4</loc>
     <lastmod>2026-09-05</lastmod>
@@ -71,7 +57,6 @@
     </image:image>
   </url>
 
-  <!-- 5. بروجيكتور محمول -->
   <url>
     <loc>https://prix-choc.vercel.app/?p=5</loc>
     <lastmod>2026-09-05</lastmod>
@@ -83,7 +68,6 @@
     </image:image>
   </url>
 
-  <!-- 6. طقم أواني منزلية -->
   <url>
     <loc>https://prix-choc.vercel.app/?p=6</loc>
     <lastmod>2026-09-05</lastmod>
@@ -95,7 +79,6 @@
     </image:image>
   </url>
 
-  <!-- 7. ساعة رياضية -->
   <url>
     <loc>https://prix-choc.vercel.app/?p=7</loc>
     <lastmod>2026-09-05</lastmod>
@@ -107,7 +90,6 @@
     </image:image>
   </url>
 
-  <!-- 8. خلاط يدوي -->
   <url>
     <loc>https://prix-choc.vercel.app/?p=8</loc>
     <lastmod>2026-09-05</lastmod>
@@ -119,7 +101,6 @@
     </image:image>
   </url>
 
-  <!-- 9. سماعة ألعاب -->
   <url>
     <loc>https://prix-choc.vercel.app/?p=9</loc>
     <lastmod>2026-09-05</lastmod>
@@ -131,7 +112,6 @@
     </image:image>
   </url>
 
-  <!-- 10. حقيبة سفر -->
   <url>
     <loc>https://prix-choc.vercel.app/?p=10</loc>
     <lastmod>2026-09-05</lastmod>
@@ -143,7 +123,6 @@
     </image:image>
   </url>
 
-  <!-- 11. عدسة كاميرا -->
   <url>
     <loc>https://prix-choc.vercel.app/?p=11</loc>
     <lastmod>2026-09-05</lastmod>
@@ -155,7 +134,6 @@
     </image:image>
   </url>
 
-  <!-- 12. طقم أدوات مطبخ -->
   <url>
     <loc>https://prix-choc.vercel.app/?p=12</loc>
     <lastmod>2026-09-05</lastmod>
@@ -167,7 +145,6 @@
     </image:image>
   </url>
 
-  <!-- 13. قلم ذكي -->
   <url>
     <loc>https://prix-choc.vercel.app/?p=13</loc>
     <lastmod>2026-09-05</lastmod>
@@ -179,7 +156,6 @@
     </image:image>
   </url>
 
-  <!-- 14. حامل هاتف سيارة -->
   <url>
     <loc>https://prix-choc.vercel.app/?p=14</loc>
     <lastmod>2026-09-05</lastmod>
@@ -191,7 +167,6 @@
     </image:image>
   </url>
 
-  <!-- 15. طقم مفكات كهربائي -->
   <url>
     <loc>https://prix-choc.vercel.app/?p=15</loc>
     <lastmod>2026-09-05</lastmod>
@@ -203,7 +178,6 @@
     </image:image>
   </url>
 
-  <!-- 16. مكبر صوت محمول -->
   <url>
     <loc>https://prix-choc.vercel.app/?p=16</loc>
     <lastmod>2026-09-05</lastmod>
@@ -215,7 +189,6 @@
     </image:image>
   </url>
 
-  <!-- 17. سجادة يوجا -->
   <url>
     <loc>https://prix-choc.vercel.app/?p=17</loc>
     <lastmod>2026-09-05</lastmod>
@@ -227,7 +200,6 @@
     </image:image>
   </url>
 
-  <!-- 18. حافظة نقود رجالية -->
   <url>
     <loc>https://prix-choc.vercel.app/?p=18</loc>
     <lastmod>2026-09-05</lastmod>
@@ -239,7 +211,6 @@
     </image:image>
   </url>
 
-  <!-- 19. طقم أكواب -->
   <url>
     <loc>https://prix-choc.vercel.app/?p=19</loc>
     <lastmod>2026-09-05</lastmod>
@@ -251,7 +222,6 @@
     </image:image>
   </url>
 
-  <!-- 20. نظارة شمسية -->
   <url>
     <loc>https://prix-choc.vercel.app/?p=20</loc>
     <lastmod>2026-09-05</lastmod>
