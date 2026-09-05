@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://prix-choc.vercel.app/sitemap.xml
