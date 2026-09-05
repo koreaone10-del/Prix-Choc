@@ -2105,8 +2105,8 @@
     "4",
     "2"
   ],
-  "previousProductsFound": 0,
-  "countDelta": 2086,
+  "previousProductsFound": 2086,
+  "countDelta": 0,
   "pageCounts": {
     "1": 34,
     "2": 34,
@@ -2198,5 +2198,5 @@
   },
   "confirmedMissingIds": [],
   "missingStreaks": {},
-  "generatedAt": "2026-09-04T23:14:25.186Z"
+  "generatedAt": "2026-09-05T06:49:05.135Z"
 }
