@@ -64,30 +64,102 @@ const LEGACY_WILAYAS_FALLBACK = {"أدرار": [1000, ["أدرار", "فنوغي
 }
 
 
-/* === V6 PREMIUM HOMEPAGE — home only; product/order logic untouched === */
+/* === V7 PREMIUM ALGERIAN HOMEPAGE === */
+:root{
+  --green:#087e59;--green2:#0aa86e;--red:#d7193f;--ink:#102b25;--muted:#627a70;
+  --cream:#e8f3ee;--line:#cfe3da;--gold:#e7bb50;--shadow:0 20px 55px rgba(5,55,40,.11);--radius:24px
+}
+body{background:linear-gradient(180deg,#e3f0ea 0,#edf6f2 48%,#deece6 100%)}
+.card,.catalog,.fb-strip{background:#eef7f3;border-color:#cfe3da}
+.form-input,.form-select,.search input,.home-search input{background:#e8f3ee;border-color:#c9dfd5}
 .home-page{display:none}
-.home-mode body{background:#edf4f0}
-.home-mode .home-page{display:block;margin:0 18px 30px}
-.home-mode .nav{box-shadow:0 8px 28px rgba(8,42,31,.10)}
-.home-hero{position:relative;margin:18px auto 14px;max-width:1400px;min-height:390px;border-radius:30px;overflow:hidden;background:#062f25;box-shadow:0 24px 70px rgba(7,44,33,.22);border:1px solid rgba(255,255,255,.5)}
-.home-hero img{width:100%;height:100%;min-height:390px;object-fit:cover;display:block;filter:saturate(1.04) contrast(1.02)}
-.home-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,37,29,.10),rgba(3,37,29,0) 55%,rgba(3,37,29,.14));pointer-events:none}
-.home-hero-badge{position:absolute;z-index:2;right:24px;bottom:20px;background:rgba(3,43,33,.82);backdrop-filter:blur(12px);color:#fff;border:1px solid rgba(255,255,255,.18);padding:10px 15px;border-radius:999px;font-size:11px;font-weight:1000;box-shadow:0 10px 28px rgba(0,0,0,.18)}
-.home-strip{max-width:1400px;margin:0 auto 14px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.home-benefit{background:linear-gradient(135deg,#063c2e,#075b43);color:#fff;border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:14px 15px;display:flex;align-items:center;gap:11px;box-shadow:0 12px 28px rgba(6,60,46,.12)}
-.home-benefit b{font-size:22px}.home-benefit strong{display:block;font-size:11px}.home-benefit span{display:block;font-size:8px;color:#cce9dd;margin-top:3px}
-.home-section{max-width:1400px;margin:14px auto;background:#f6faf8;border:1px solid #dbeae3;border-radius:26px;padding:18px;box-shadow:0 16px 50px rgba(8,42,31,.07)}
-.home-section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:13px}.home-section-head h2{margin:0;font-size:23px;letter-spacing:-.8px}.home-section-head p{margin:5px 0 0;color:#6d7f78;font-size:9px}.home-link{background:#087e59;color:#fff;padding:9px 13px;border-radius:12px;font-size:9px;font-weight:1000}
-.home-products{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}.home-products .catalog-card{background:#fff;border-color:#dbe9e3;box-shadow:0 8px 25px rgba(9,48,37,.06)}
-.home-products .catalog-image-wrap{height:185px}.home-products .catalog-body{padding:11px}.home-products .catalog-name{font-size:10px;min-height:34px}.home-products .catalog-price{font-size:14px;color:#d7193f;font-weight:1000}.home-products .catalog-order{font-size:9px;padding:9px}.home-products .catalog-tag{font-size:7px}
-.home-unbox{max-width:1400px;margin:14px auto;border-radius:26px;overflow:hidden;display:grid;grid-template-columns:1fr 1.05fr;min-height:280px;background:#063b2d;box-shadow:0 20px 55px rgba(5,47,36,.16)}
-.home-unbox-copy{padding:28px;display:flex;flex-direction:column;justify-content:center;color:#fff}.home-unbox-copy .mini{color:#bcebd8;font-size:9px;font-weight:1000}.home-unbox-copy h2{font-size:28px;line-height:1.25;margin:9px 0}.home-unbox-copy p{font-size:10px;line-height:1.9;color:#d2eee3;max-width:430px}.home-unbox-copy a{align-self:flex-start;margin-top:9px;background:#e9b84b;color:#173b2e;border-radius:12px;padding:11px 16px;font-size:9px;font-weight:1000}.home-unbox-media{min-height:280px;position:relative}.home-unbox-media img{width:100%;height:100%;object-fit:cover;display:block}.home-unbox-media:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#063b2d 0,rgba(6,59,45,.15) 25%,transparent 55%)}
-.home-motion-title{max-width:1400px;margin:18px auto 8px;font-size:18px;font-weight:1000;color:#073a2d}.home-mode .motion-showcase{background:linear-gradient(135deg,#05392d,#07523f);border:1px solid #0d6950;box-shadow:0 16px 45px rgba(4,52,40,.16)}
-.home-mode .catalog{background:#f6faf8;border-color:#dbeae3}
-.home-mode .footer{background:#062d24}
-@media(max-width:900px){.home-mode .home-page{margin:0 10px 20px}.home-hero,.home-hero img{min-height:220px}.home-hero{margin-top:10px;border-radius:20px}.home-strip{grid-template-columns:repeat(2,1fr)}.home-benefit{padding:10px}.home-section{padding:12px;border-radius:20px}.home-products{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.home-products .catalog-image-wrap{height:155px}.home-unbox{grid-template-columns:1fr;min-height:0}.home-unbox-media{height:220px;min-height:220px;order:-1}.home-unbox-copy{padding:20px}.home-unbox-copy h2{font-size:22px}.home-motion-title{font-size:15px}}
-@media(max-width:500px){.home-hero,.home-hero img{min-height:190px}.home-hero-badge{right:10px;bottom:10px;font-size:8px;padding:7px 10px}.home-strip{gap:7px}.home-benefit{border-radius:13px}.home-benefit b{font-size:17px}.home-benefit strong{font-size:9px}.home-benefit span{font-size:6px}.home-products .catalog-image-wrap{height:145px}.home-section-head h2{font-size:18px}.home-link{padding:7px 9px;font-size:8px}}
-
+.home-mode body{background:linear-gradient(180deg,#dcece5 0,#edf6f2 50%,#dcece5 100%)}
+.home-mode .home-page{display:block;margin:0 14px 32px}
+.home-mode .nav{box-shadow:0 8px 28px rgba(8,42,31,.12)}
+.home-hero{position:relative;margin:12px auto 12px;max-width:1400px;height:330px;border-radius:28px;overflow:hidden;background:#073d2e;box-shadow:0 22px 55px rgba(5,55,40,.20);border:1px solid rgba(255,255,255,.45)}
+.home-hero img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05) contrast(1.02)}
+.home-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,48,37,.05),rgba(4,48,37,0) 62%,rgba(4,48,37,.13));pointer-events:none}
+.home-hero-badge{position:absolute;z-index:2;right:18px;bottom:16px;background:rgba(4,54,42,.84);backdrop-filter:blur(12px);color:#fff;border:1px solid rgba(255,255,255,.2);padding:9px 13px;border-radius:999px;font-size:10px;font-weight:1000;box-shadow:0 9px 25px rgba(0,0,0,.16)}
+.home-welcome{max-width:1400px;margin:0 auto 12px;padding:17px 20px;border:1px solid #cfe3da;border-radius:22px;background:linear-gradient(135deg,#eaf6f1,#dceee6);display:flex;align-items:center;justify-content:space-between;gap:15px;box-shadow:0 12px 35px rgba(6,60,46,.07)}
+.home-kicker{display:inline-block;color:#087e59;font-size:9px;font-weight:1000;letter-spacing:.2px}
+.home-welcome h1{margin:4px 0 3px;font-size:24px;letter-spacing:-.7px}
+.home-welcome p{margin:0;color:#637970;font-size:9px}
+.home-welcome-stats{display:flex;gap:8px}
+.home-welcome-stats div{min-width:74px;text-align:center;padding:9px 10px;border-radius:15px;background:#f0f8f4;border:1px solid #cfe3da}
+.home-welcome-stats b{display:block;color:#087e59;font-size:16px}
+.home-welcome-stats span{font-size:7px;color:#73867f;font-weight:800}
+.home-section{max-width:1400px;margin:12px auto;background:#eaf5f0;border:1px solid #cfe3da;border-radius:24px;padding:17px;box-shadow:0 14px 40px rgba(8,42,31,.07)}
+.home-section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:13px}
+.home-section-head-stack{align-items:center}
+.home-section-head h2{margin:3px 0 0;font-size:21px;letter-spacing:-.6px}
+.home-section-head p{margin:5px 0 0;color:#6d8179;font-size:9px}
+.home-link{background:#087e59;color:#fff;padding:9px 13px;border-radius:12px;font-size:9px;font-weight:1000}
+.home-search{width:min(370px,100%);display:flex;align-items:center;gap:8px;background:#f0f8f4;border:1px solid #c8ded4;border-radius:14px;padding:0 12px}
+.home-search span{font-size:20px;color:#087e59}
+.home-search input{width:100%;border:0!important;outline:0;background:transparent!important;padding:11px 2px;color:#18352d;font-size:10px}
+.home-category-nav{display:flex;gap:8px;overflow-x:auto;padding:2px 1px 5px;scrollbar-width:none}
+.home-category-nav::-webkit-scrollbar{display:none}
+.home-category-btn{flex:0 0 auto;border:1px solid #c7ddd3;background:#f1f8f5;color:#35564b;border-radius:999px;padding:9px 13px;font-size:9px;font-weight:1000;transition:.2s}
+.home-category-btn:hover,.home-category-btn.active{background:#087e59;color:#fff;border-color:#087e59;transform:translateY(-1px)}
+.home-products{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:11px}
+.home-products .catalog-card{background:#f4faf7;border-color:#cfe3da;box-shadow:0 8px 24px rgba(9,48,37,.07)}
+.home-products .catalog-card:hover{transform:translateY(-4px);box-shadow:0 15px 30px rgba(9,48,37,.12)}
+.home-products .catalog-image-wrap{height:180px;background:#e4f0eb}
+.home-products .catalog-body{padding:10px}
+.home-products .catalog-name{font-size:10px;min-height:34px}
+.home-products .catalog-price{font-size:14px;color:#087e59;font-weight:1000}
+.home-products .catalog-order{font-size:8px;padding:8px;background:#e0f1e9;color:#087e59}
+.home-products .catalog-tag{font-size:7px}
+.home-deals-section{background:linear-gradient(135deg,#edf8f4,#e2f0eb)}
+.home-categories{max-width:1400px;margin:12px auto}
+.home-category-block{background:#eaf5f0;border:1px solid #cfe3da;border-radius:24px;padding:17px;margin-bottom:12px;box-shadow:0 13px 38px rgba(8,42,31,.06)}
+.home-category-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+.home-category-title{margin:0;font-size:18px;color:#17372e}
+.home-category-count{font-size:8px;color:#087e59;background:#dceee7;padding:7px 10px;border-radius:999px;font-weight:1000}
+.home-trust-grid{max-width:1400px;margin:12px auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.home-trust-card{background:#eaf5f0;border:1px solid #cfe3da;border-radius:17px;padding:12px 13px;display:flex;align-items:center;gap:10px}
+.home-trust-card b{font-size:21px}.home-trust-card strong{display:block;font-size:10px}.home-trust-card span{display:block;font-size:7px;color:#71847d;margin-top:3px}
+.home-mode .product-area,.home-mode .hero,.home-mode .trust,.home-mode .catalog,.home-mode .motion-showcase,.home-mode .fb-strip{display:none!important}
+.home-mode .site{display:flex;flex-direction:column}
+.home-mode .nav{order:1}
+.home-mode .home-page{order:2}
+.home-mode .footer{order:3}
+.home-mode #productNav{display:none}
+.home-mode .footer{background:#06382b}
+@media(max-width:1000px){
+ .home-products{grid-template-columns:repeat(4,minmax(0,1fr))}
+ .home-hero{height:290px}
+}
+@media(max-width:760px){
+ .home-mode .home-page{margin:0 9px 20px}
+ .home-hero{height:205px;border-radius:19px;margin-top:8px}
+ .home-hero-badge{right:9px;bottom:9px;font-size:7px;padding:6px 9px}
+ .home-welcome{padding:13px;border-radius:17px;align-items:flex-start}
+ .home-welcome h1{font-size:18px}
+ .home-welcome p{font-size:8px}
+ .home-welcome-stats{gap:4px}
+ .home-welcome-stats div{min-width:53px;padding:7px 5px}
+ .home-welcome-stats b{font-size:12px}.home-welcome-stats span{font-size:6px}
+ .home-section{padding:12px;border-radius:19px}
+ .home-section-head,.home-section-head-stack{align-items:stretch;flex-direction:column}
+ .home-section-head h2{font-size:18px}
+ .home-search{width:100%}
+ .home-products{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .home-products .catalog-image-wrap{height:145px}
+ .home-category-block{padding:12px;border-radius:19px}
+ .home-category-title{font-size:16px}
+ .home-trust-grid{grid-template-columns:repeat(2,1fr);gap:7px}
+ .home-trust-card{padding:9px;border-radius:13px}
+ .home-trust-card b{font-size:17px}.home-trust-card strong{font-size:8px}.home-trust-card span{font-size:6px}
+}
+@media(max-width:500px){
+ .home-hero{height:170px}
+ .home-welcome-stats{display:none}
+ .home-welcome h1{font-size:17px}
+ .home-section-head p{font-size:8px}
+ .home-category-btn{font-size:8px;padding:8px 11px}
+ .home-products .catalog-image-wrap{height:135px}
+}
 /* === Prix-Choc homepage mode: / and ?p=0 === */
 .home-mode .product-area{display:none!important}
 .home-mode .site{display:flex;flex-direction:column}
@@ -105,24 +177,73 @@ const LEGACY_WILAYAS_FALLBACK = {"أدرار": [1000, ["أدرار", "فنوغي
  .home-mode .motion-showcase{margin-top:10px}
 }
 </style>
+
+<style>
+/* When an unavailable product is opened, keep the page clean without touching the order form for available products. */
+.product-mode .order-panel:has(#orderForm[style*="display: none"]){display:none!important}
+.product-mode .product-card:has(.stock.off){display:none!important}
+</style>
 </head>
 <body>
 
 <div class="topline"></div><div class="site">
 <header class="nav"><div class="nav-in"><a class="brand" href="./"><span class="brand-mark">PC</span><span><span class="brand-name">Prix<i>-</i>Choc 🇩🇿</span><span class="brand-sub">اختيارات جزائرية تستاهل</span></span></a><nav class="navlinks"><a href="#catalog">العروض</a><a id="productNav" href="#product-area">المنتج</a><a href="#order">اطلب الآن</a><a href="#trust">لماذا نحن؟</a></nav><div class="nav-actions"><a class="nav-btn" href="#catalog">🔎 تصفح</a><a class="nav-btn green" href="#catalog">🛍️ تصفح المتجر</a></div></div></header><section class="home-page" id="homePage">
-<div class="home-hero"><img src="https://raw.githubusercontent.com/koreaone10-del/Prix-Choc/main/%D8%A7%D9%84%D8%BA%D9%84%D8%A7%D9%81.png" alt="Prix-Choc الجزائر — المتجر والعروض" fetchpriority="high"><div class="home-hero-badge">🇩🇿 منتجات مختارة • أسعار منافسة • توصيل داخل الجزائر</div></div>
-<div class="home-strip">
-<div class="home-benefit"><b>🛡️</b><div><strong>تسوق بثقة</strong><span>الدفع عند الاستلام</span></div></div>
-<div class="home-benefit"><b>🚚</b><div><strong>توصيل سريع</strong><span>حسب الولاية</span></div></div>
-<div class="home-benefit"><b>⭐</b><div><strong>اختيارات مميزة</strong><span>منتجات مختارة</span></div></div>
-<div class="home-benefit"><b>🇩🇿</b><div><strong>Prix-Choc الجزائر</strong><span>لكل الولايات</span></div></div>
-</div>
-<section class="home-section"><div class="home-section-head"><div><h2>🔥 العروض التي تستاهل</h2><p>منتجات حقيقية من قاعدة متجرك — اضغط على أي منتج لمعرفة التفاصيل والطلب.</p></div><a class="home-link" href="#homeAll">عرض كل المنتجات ←</a></div><div class="home-products" id="homeOffers"></div></section>
-<section class="home-unbox"><div class="home-unbox-copy"><div class="mini">PRIX-CHOC 🇩🇿 • تجربة الزبون</div><h2>وصلتك الطلبية؟<br>افتحها وفرح بها ❤️</h2><p>نحن لا نبيع منتجًا فقط؛ نريد أن تصل طلبيتك إليك براحة وثقة، من الاختيار إلى الاستلام.</p><a href="#homeAll">🛍️ اكتشف المنتجات</a></div><div class="home-unbox-media"><img src="https://raw.githubusercontent.com/koreaone10-del/Prix-Choc/main/%D8%B5%D9%88%D8%B1%D8%A91.png" alt="زبون سعيد يفتح طلب Prix-Choc" loading="lazy"></div></section>
-<section class="home-section" id="homeAll"><div class="home-section-head"><div><h2>🛍️ منتجات المتجر</h2><p>تصفح المنتجات واختَر ما يناسبك، ثم انتقل مباشرة إلى صفحة الطلب.</p></div><span id="homeProductCount" class="count">جاري التحميل...</span></div><div class="home-products" id="homeAllGrid"></div></section>
+  <div class="home-hero">
+    <img src="https://raw.githubusercontent.com/koreaone10-del/Prix-Choc/main/%D8%A7%D9%84%D8%BA%D9%84%D8%A7%D9%81.png" alt="Prix-Choc الجزائر" fetchpriority="high">
+    <div class="home-hero-badge">🇩🇿 تسوّق براحة • الدفع عند الاستلام • توصيل داخل الجزائر</div>
+  </div>
+
+  <div class="home-welcome">
+    <div class="home-welcome-main">
+      <span class="home-kicker">PRIX-CHOC 🇩🇿</span>
+      <h1>اكتشف ما يستاهل الشراء اليوم 🔥</h1>
+      <p>منتجات مختارة، أسعار منافسة، وطلب بسيط من هاتفك.</p>
+    </div>
+    <div class="home-welcome-stats">
+      <div><b id="homeProductCount">0</b><span>منتج</span></div>
+      <div><b>58</b><span>ولاية</span></div>
+      <div><b>24/7</b><span>طلب أونلاين</span></div>
+    </div>
+  </div>
+
+  <section class="home-section home-category-section" id="homeCatalog">
+    <div class="home-section-head home-section-head-stack">
+      <div>
+        <span class="home-kicker">اختَر ما تبحث عنه</span>
+        <h2>🛍️ تصفّح حسب التصنيف</h2>
+        <p>كل قسم يعرض المنتجات التابعة له مباشرة، بدون قوائم ثابتة أو منتجات وهمية.</p>
+      </div>
+      <div class="home-search">
+        <span>⌕</span>
+        <input type="search" id="homeProductSearch" placeholder="ابحث عن منتج..." autocomplete="off">
+      </div>
+    </div>
+    <div class="home-category-nav" id="homeCategoryNav"></div>
+  </section>
+
+  <section class="home-section home-deals-section" id="homeOffersSection">
+    <div class="home-section-head">
+      <div>
+        <span class="home-kicker">الأكثر جاذبية الآن</span>
+        <h2>🔥 العروض التي تستاهل</h2>
+        <p>اختيارات من المنتجات المتوفرة حاليًا، مرتبة حسب قوة العرض.</p>
+      </div>
+      <a class="home-link" href="#homeCategories">كل التصنيفات ←</a>
+    </div>
+    <div class="home-products" id="homeOffers"></div>
+  </section>
+
+  <div id="homeCategories" class="home-categories"></div>
+
+  <section class="home-trust-grid">
+    <div class="home-trust-card"><b>🛡️</b><div><strong>تسوّق بثقة</strong><span>الدفع عند الاستلام</span></div></div>
+    <div class="home-trust-card"><b>📦</b><div><strong>اطلب بسهولة</strong><span>معلومات بسيطة فقط</span></div></div>
+    <div class="home-trust-card"><b>🚚</b><div><strong>توصيل للولايات</strong><span>حسب بيانات التوصيل</span></div></div>
+    <div class="home-trust-card"><b>🇩🇿</b><div><strong>متجر جزائري</strong><span>اختيارات للزبون الجزائري</span></div></div>
+  </section>
 </section>
 <main class="content" id="product-area"><section class="card product-card"><div class="gallery"><div class="main-image-wrap"><img id="p-image" class="main-image" src="" alt="Produit Prix Choc"><button class="gallery-nav prev" id="galleryPrev" type="button">›</button><button class="gallery-nav next" id="galleryNext" type="button">‹</button><button class="fullscreen" id="fullscreenBtn" type="button">⛶</button></div><div class="thumbs" id="thumbs"></div></div><div class="product-info"><div class="product-meta"><span id="p-availability" class="stock">🟢 متوفر</span><span style="font-size:8px;color:#82929a;font-weight:900">Prix-Choc • منتج مختار</span></div><h1 id="p-title" class="product-title">جاري تحميل المنتج...</h1><div id="p-description" class="product-desc" style="display:none"></div><div class="price-line"><span id="p-current-price" class="price">0 د.ج</span><span id="p-old-price" class="old" style="display:none"></span><span id="p-deal" class="deal" style="display:none"></span><span id="p-reference" style="display:none;width:100%;font-size:8px;color:#8a999f"></span></div><div class="feature-row"><div class="feature"><b>🛡️</b>اختيار مطمئن</div><div class="feature"><b>🚚</b>توصيل سريع</div><div class="feature"><b>💵</b>الدفع عند الاستلام</div></div></div></section>
-<aside class="card order-panel" id="order"><div class="order-head"><div class="mini">🇩🇿 PRIX-CHOC</div><h2>أكمل طلبك بكل راحة ❤️</h2><p>أدخل معلومات التوصيل فقط. سنتواصل معك لتأكيد الطلب قبل الشحن.</p></div><div class="order-body"><form id="orderForm"><label class="form-label" for="fullName">الاسم الكامل</label><input type="text" id="fullName" class="form-input" placeholder="الاسم واللقب" required><label class="form-label" for="phone">رقم الهاتف</label><input type="tel" id="phone" class="form-input" placeholder="06... أو 05... أو 07..." inputmode="tel" required><label class="form-label" for="wilaya">الولاية</label><select id="wilaya" class="form-input" required><option value="">-- اختر ولايتك --</option></select><label class="form-label" for="commune">البلدية / المدينة</label><select id="commune" class="form-input" required><option value="">-- اختر البلدية / المدينة --</option></select><div class="delivery-options"><label class="delivery-card active" id="card-home"><input type="radio" name="deliveryType" value="home" checked><div class="delivery-title">🏠 توصيل للمنزل</div><div class="delivery-price" id="price-home">-- د.ج</div></label><label class="delivery-card" id="card-desk"><input type="radio" name="deliveryType" value="desk"><div class="delivery-title">🏢 مكتب التوصيل</div><div class="delivery-price" id="price-desk">غير متوفر</div></label></div><div id="deskInfo" class="desk-info-box"></div><label class="form-label" for="address">العنوان التفصيلي</label><input type="text" id="address" class="form-input" placeholder="الحي، الشارع، رقم المنزل..." required><div class="summary"><div class="summary-row"><span>سعر المنتج</span><span id="sum-product">0 د.ج</span></div><div class="summary-row"><span>سعر التوصيل</span><span id="sum-delivery">يحدد حسب الولاية</span></div><div class="summary-total"><span>المبلغ الإجمالي</span><span id="sum-total">0 د.ج</span></div></div><button type="submit" class="submit-btn" id="submitBtn">تأكيد الطلب الآن 🛍️</button><div class="secure-note">🔒 <b>طلب آمن</b> • لا يوجد دفع إلكتروني مسبق</div></form></div></aside></main><section class="motion-showcase" aria-label="صور زبائن ومشتريات Prix-Choc"><div class="motion-window"><div class="motion-track"><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXFcwT3XXU_4wF4n9aeVFCxDVAcvP4d5od1fFuoZXjJnzUGMkxynWjR7mL&s=10" alt="زبون Prix-Choc 🇩🇿" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>زبون Prix-Choc 🇩🇿</strong><span>✓</span></div></article><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYYH-RcN_B9MGsR77_X3kiAzGT18ZeCzbbtkQlcwGUPA&s" alt="مشتريات جديدة 🛍️" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>مشتريات جديدة 🛍️</strong><span>✓</span></div></article><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkyZYpbD1PlMDLj7N44bKKxTdVZLK1E_T1UYkkiEsJD6Zcq7hnHN62SGhV&s=10" alt="طلبية وصلت 📦" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>طلبية وصلت 📦</strong><span>✓</span></div></article><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBbkxwT3EDvFD3_dL6BJ93xw_mCXaKgd6PjLFg_WRH9o7Q8CSA2Q2fnViQ&s=10" alt="فرحة الزبون ❤️" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>فرحة الزبون ❤️</strong><span>✓</span></div></article><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxAhiwYDfGZwZSOunyw9HOvCFAflTk_z0tNvvDSmvaaDhNBPoR8apwyBY&s=10" alt="اختيار موفق ✨" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>اختيار موفق ✨</strong><span>✓</span></div></article><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://cdn.lapatrienews.dz/ar/wp-content/uploads/2024/06/6666.jpg" alt="توصيل داخل الجزائر 🚚" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>توصيل داخل الجزائر 🚚</strong><span>✓</span></div></article><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://raqmanah.net/wp-content/uploads/2020/12/%D8%B7%D8%B1%D8%AF-%D8%A8%D8%B1%D9%8A%D8%AF%D9%8A.jpg" alt="طلبية جاهزة 📦" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>طلبية جاهزة 📦</strong><span>✓</span></div></article><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQreU1DbWYjuq_qoNYl20pK1wMNYnSQCJxAR86Dmz_0WqmwrDbE4fO1s-3p&s=10" alt="شكراً Prix-Choc ❤️" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>شكراً Prix-Choc ❤️</strong><span>✓</span></div></article><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrvqUB2GJMhuaye-0DUMnFPXbIdY4E8AAIS0TrFQPfnOUkCxv_Uk2VtU0&s=10" alt="من زبائننا 🇩🇿" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>من زبائننا 🇩🇿</strong><span>✓</span></div></article><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXFcwT3XXU_4wF4n9aeVFCxDVAcvP4d5od1fFuoZXjJnzUGMkxynWjR7mL&s=10" alt="زبون Prix-Choc 🇩🇿" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>زبون Prix-Choc 🇩🇿</strong><span>✓</span></div></article><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYYH-RcN_B9MGsR77_X3kiAzGT18ZeCzbbtkQlcwGUPA&s" alt="مشتريات جديدة 🛍️" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>مشتريات جديدة 🛍️</strong><span>✓</span></div></article><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkyZYpbD1PlMDLj7N44bKKxTdVZLK1E_T1UYkkiEsJD6Zcq7hnHN62SGhV&s=10" alt="طلبية وصلت 📦" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>طلبية وصلت 📦</strong><span>✓</span></div></article><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBbkxwT3EDvFD3_dL6BJ93xw_mCXaKgd6PjLFg_WRH9o7Q8CSA2Q2fnViQ&s=10" alt="فرحة الزبون ❤️" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>فرحة الزبون ❤️</strong><span>✓</span></div></article><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxAhiwYDfGZwZSOunyw9HOvCFAflTk_z0tNvvDSmvaaDhNBPoR8apwyBY&s=10" alt="اختيار موفق ✨" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>اختيار موفق ✨</strong><span>✓</span></div></article><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://cdn.lapatrienews.dz/ar/wp-content/uploads/2024/06/6666.jpg" alt="توصيل داخل الجزائر 🚚" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>توصيل داخل الجزائر 🚚</strong><span>✓</span></div></article><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://raqmanah.net/wp-content/uploads/2020/12/%D8%B7%D8%B1%D8%AF-%D8%A8%D8%B1%D9%8A%D8%AF%D9%8A.jpg" alt="طلبية جاهزة 📦" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>طلبية جاهزة 📦</strong><span>✓</span></div></article><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQreU1DbWYjuq_qoNYl20pK1wMNYnSQCJxAR86Dmz_0WqmwrDbE4fO1s-3p&s=10" alt="شكراً Prix-Choc ❤️" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>شكراً Prix-Choc ❤️</strong><span>✓</span></div></article><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrvqUB2GJMhuaye-0DUMnFPXbIdY4E8AAIS0TrFQPfnOUkCxv_Uk2VtU0&s=10" alt="من زبائننا 🇩🇿" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>من زبائننا 🇩🇿</strong><span>✓</span></div></article></div></div></section><section class="trust" id="trust"><div class="trust-card"><span class="trust-icon">🛡️</span><div><strong>تسوق براحة</strong><small>بدون دفع مسبق</small></div></div><div class="trust-card"><span class="trust-icon">📦</span><div><strong>افحص طلبك</strong><small>قبل الدفع عند الاستلام</small></div></div><div class="trust-card"><span class="trust-icon">🚚</span><div><strong>توصيل للمنزل</strong><small>أو مكتب التوصيل حسب المتاح</small></div></div><div class="trust-card"><span class="trust-icon">🇩🇿</span><div><strong>موجه للجزائريين</strong><small>أسعار بالدينار وواجهة عربية</small></div></div></section><section class="catalog" id="catalog"><div class="catalog-head"><div><div style="color:var(--green);font-size:9px;font-weight:1000">PRIX-CHOC 🇩🇿</div><h2>اكتشف عروضنا</h2><p>كل عروض Prix-Choc الحالية من <b>products.js</b> — اختر منتجًا لفتح صفحة التفاصيل والطلب.</p></div><span id="productCountBadge" class="count">0 منتج</span></div><div class="search"><span>⌕</span><input type="search" id="productSearch" placeholder="ابحث عن منتج..." autocomplete="off"></div><div class="chips" id="categoryList"></div><h3 style="font-size:14px;margin:23px 0 5px">🔥 مختارات Prix-Choc</h3><div class="rail" id="featuredProducts"></div><h3 style="font-size:14px;margin:23px 0 5px">🆕 وصل حديثًا</h3><div class="rail" id="newProducts"></div><h3 style="font-size:14px;margin:23px 0 5px">🎁 كل المنتجات <span id="allProductsLabel" style="font-size:9px;color:#8a999f"></span></h3><div class="product-grid" id="allProductsGrid"></div><button id="loadMoreBtn" class="load-more" style="display:none">عرض المزيد</button></section><section class="fb-strip"><div><h3>تابع Prix-Choc على فيسبوك 🇩🇿</h3><p>عروض جديدة، منتجات مختارة، وأفكار مفيدة للبيت والحياة اليومية.</p></div><a class="fb-btn" href="https://www.facebook.com/share/1Dajsh2m7V/" target="_blank" rel="noopener">زيارة صفحة المتجر ↗</a></section><footer class="footer"><div class="footer-grid"><div><div class="footer-logo"><span>Prix</span>-Choc 🇩🇿</div><p>اختيارات عملية للزبون الجزائري، بطلب بسيط ودفع عند الاستلام.</p></div><div><h4>المتجر</h4><a href="#catalog">العروض</a><br><a href="#catalog">كل المنتجات</a><br><a href="#order">اطلب الآن</a></div><div><h4>الثقة</h4><p>الدفع عند الاستلام</p><p>فحص المنتج قبل الدفع</p><p>توصيل حسب الولاية</p></div><div><h4>تواصل</h4><a href="https://www.facebook.com/share/1Dajsh2m7V/" target="_blank" rel="noopener">Facebook</a><p>🇩🇿 صنع للجزائريين</p></div></div><div class="footer-bottom">Prix-Choc • تسوق براحة، واختار الصفقة الصح.</div></footer><div class="modal" id="imageModal"><button class="modal-close" id="modalClose" type="button">×</button><img id="modalImage" src="" alt=""></div><div class="toast" id="toast"></div>
+<aside class="card order-panel" id="order"><div class="order-head"><div class="mini">🇩🇿 PRIX-CHOC</div><h2>أكمل طلبك بكل راحة ❤️</h2><p>أدخل معلومات التوصيل فقط. سنتواصل معك لتأكيد الطلب قبل الشحن.</p></div><div class="order-body"><form id="orderForm"><label class="form-label" for="fullName">الاسم الكامل</label><input type="text" id="fullName" class="form-input" placeholder="الاسم واللقب" required><label class="form-label" for="phone">رقم الهاتف</label><input type="tel" id="phone" class="form-input" placeholder="06... أو 05... أو 07..." inputmode="tel" required><label class="form-label" for="wilaya">الولاية</label><select id="wilaya" class="form-input" required><option value="">-- اختر ولايتك --</option></select><label class="form-label" for="commune">البلدية / المدينة</label><select id="commune" class="form-input" required><option value="">-- اختر البلدية / المدينة --</option></select><div class="delivery-options"><label class="delivery-card active" id="card-home"><input type="radio" name="deliveryType" value="home" checked><div class="delivery-title">🏠 توصيل للمنزل</div><div class="delivery-price" id="price-home">-- د.ج</div></label><label class="delivery-card" id="card-desk"><input type="radio" name="deliveryType" value="desk"><div class="delivery-title">🏢 مكتب التوصيل</div><div class="delivery-price" id="price-desk">غير متوفر</div></label></div><div id="deskInfo" class="desk-info-box"></div><label class="form-label" for="address">العنوان التفصيلي</label><input type="text" id="address" class="form-input" placeholder="الحي، الشارع، رقم المنزل..." required><div class="summary"><div class="summary-row"><span>سعر المنتج</span><span id="sum-product">0 د.ج</span></div><div class="summary-row"><span>سعر التوصيل</span><span id="sum-delivery">يحدد حسب الولاية</span></div><div class="summary-total"><span>المبلغ الإجمالي</span><span id="sum-total">0 د.ج</span></div></div><button type="submit" class="submit-btn" id="submitBtn">تأكيد الطلب الآن 🛍️</button><div class="secure-note">🔒 <b>طلب آمن</b> • لا يوجد دفع إلكتروني مسبق</div></form></div></aside></main><section class="motion-showcase" aria-label="صور زبائن ومشتريات Prix-Choc"><div class="motion-window"><div class="motion-track"><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXFcwT3XXU_4wF4n9aeVFCxDVAcvP4d5od1fFuoZXjJnzUGMkxynWjR7mL&s=10" alt="زبون Prix-Choc 🇩🇿" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>زبون Prix-Choc 🇩🇿</strong><span>✓</span></div></article><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYYH-RcN_B9MGsR77_X3kiAzGT18ZeCzbbtkQlcwGUPA&s" alt="مشتريات جديدة 🛍️" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>مشتريات جديدة 🛍️</strong><span>✓</span></div></article><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkyZYpbD1PlMDLj7N44bKKxTdVZLK1E_T1UYkkiEsJD6Zcq7hnHN62SGhV&s=10" alt="طلبية وصلت 📦" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>طلبية وصلت 📦</strong><span>✓</span></div></article><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBbkxwT3EDvFD3_dL6BJ93xw_mCXaKgd6PjLFg_WRH9o7Q8CSA2Q2fnViQ&s=10" alt="فرحة الزبون ❤️" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>فرحة الزبون ❤️</strong><span>✓</span></div></article><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxAhiwYDfGZwZSOunyw9HOvCFAflTk_z0tNvvDSmvaaDhNBPoR8apwyBY&s=10" alt="اختيار موفق ✨" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>اختيار موفق ✨</strong><span>✓</span></div></article><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://cdn.lapatrienews.dz/ar/wp-content/uploads/2024/06/6666.jpg" alt="توصيل داخل الجزائر 🚚" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>توصيل داخل الجزائر 🚚</strong><span>✓</span></div></article><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://raqmanah.net/wp-content/uploads/2020/12/%D8%B7%D8%B1%D8%AF-%D8%A8%D8%B1%D9%8A%D8%AF%D9%8A.jpg" alt="طلبية جاهزة 📦" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>طلبية جاهزة 📦</strong><span>✓</span></div></article><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQreU1DbWYjuq_qoNYl20pK1wMNYnSQCJxAR86Dmz_0WqmwrDbE4fO1s-3p&s=10" alt="شكراً Prix-Choc ❤️" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>شكراً Prix-Choc ❤️</strong><span>✓</span></div></article><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrvqUB2GJMhuaye-0DUMnFPXbIdY4E8AAIS0TrFQPfnOUkCxv_Uk2VtU0&s=10" alt="من زبائننا 🇩🇿" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>من زبائننا 🇩🇿</strong><span>✓</span></div></article><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXFcwT3XXU_4wF4n9aeVFCxDVAcvP4d5od1fFuoZXjJnzUGMkxynWjR7mL&s=10" alt="زبون Prix-Choc 🇩🇿" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>زبون Prix-Choc 🇩🇿</strong><span>✓</span></div></article><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYYH-RcN_B9MGsR77_X3kiAzGT18ZeCzbbtkQlcwGUPA&s" alt="مشتريات جديدة 🛍️" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>مشتريات جديدة 🛍️</strong><span>✓</span></div></article><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkyZYpbD1PlMDLj7N44bKKxTdVZLK1E_T1UYkkiEsJD6Zcq7hnHN62SGhV&s=10" alt="طلبية وصلت 📦" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>طلبية وصلت 📦</strong><span>✓</span></div></article><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBbkxwT3EDvFD3_dL6BJ93xw_mCXaKgd6PjLFg_WRH9o7Q8CSA2Q2fnViQ&s=10" alt="فرحة الزبون ❤️" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>فرحة الزبون ❤️</strong><span>✓</span></div></article><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxAhiwYDfGZwZSOunyw9HOvCFAflTk_z0tNvvDSmvaaDhNBPoR8apwyBY&s=10" alt="اختيار موفق ✨" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>اختيار موفق ✨</strong><span>✓</span></div></article><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://cdn.lapatrienews.dz/ar/wp-content/uploads/2024/06/6666.jpg" alt="توصيل داخل الجزائر 🚚" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>توصيل داخل الجزائر 🚚</strong><span>✓</span></div></article><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://raqmanah.net/wp-content/uploads/2020/12/%D8%B7%D8%B1%D8%AF-%D8%A8%D8%B1%D9%8A%D8%AF%D9%8A.jpg" alt="طلبية جاهزة 📦" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>طلبية جاهزة 📦</strong><span>✓</span></div></article><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQreU1DbWYjuq_qoNYl20pK1wMNYnSQCJxAR86Dmz_0WqmwrDbE4fO1s-3p&s=10" alt="شكراً Prix-Choc ❤️" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>شكراً Prix-Choc ❤️</strong><span>✓</span></div></article><article class="customer-card"><span class="motion-dot"></span><div class="customer-photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrvqUB2GJMhuaye-0DUMnFPXbIdY4E8AAIS0TrFQPfnOUkCxv_Uk2VtU0&s=10" alt="من زبائننا 🇩🇿" loading="eager" draggable="false" referrerpolicy="no-referrer"></div><div class="customer-label"><strong>من زبائننا 🇩🇿</strong><span>✓</span></div></article></div></div></section><section class="trust" id="trust"><div class="trust-card"><span class="trust-icon">🛡️</span><div><strong>تسوق براحة</strong><small>بدون دفع مسبق</small></div></div><div class="trust-card"><span class="trust-icon">📦</span><div><strong>افحص طلبك</strong><small>قبل الدفع عند الاستلام</small></div></div><div class="trust-card"><span class="trust-icon">🚚</span><div><strong>توصيل للمنزل</strong><small>أو مكتب التوصيل حسب المتاح</small></div></div><div class="trust-card"><span class="trust-icon">🇩🇿</span><div><strong>موجه للجزائريين</strong><small>أسعار بالدينار وواجهة عربية</small></div></div></section><section class="catalog" id="catalog"><div class="catalog-head"><div><div style="color:var(--green);font-size:9px;font-weight:1000">PRIX-CHOC 🇩🇿</div><h2>اكتشف عروضنا</h2><p>كل عروض Prix-Choc الحالية — اختر منتجًا لفتح صفحة التفاصيل والطلب.</p></div><span id="productCountBadge" class="count">0 منتج</span></div><div class="search"><span>⌕</span><input type="search" id="productSearch" placeholder="ابحث عن منتج..." autocomplete="off"></div><div class="chips" id="categoryList"></div><h3 style="font-size:14px;margin:23px 0 5px">🔥 مختارات Prix-Choc</h3><div class="rail" id="featuredProducts"></div><h3 style="font-size:14px;margin:23px 0 5px">🆕 وصل حديثًا</h3><div class="rail" id="newProducts"></div><h3 style="font-size:14px;margin:23px 0 5px">🎁 كل المنتجات <span id="allProductsLabel" style="font-size:9px;color:#8a999f"></span></h3><div class="product-grid" id="allProductsGrid"></div><button id="loadMoreBtn" class="load-more" style="display:none">عرض المزيد</button></section><section class="fb-strip"><div><h3>تابع Prix-Choc على فيسبوك 🇩🇿</h3><p>عروض جديدة، منتجات مختارة، وأفكار مفيدة للبيت والحياة اليومية.</p></div><a class="fb-btn" href="https://www.facebook.com/share/1Dajsh2m7V/" target="_blank" rel="noopener">زيارة صفحة المتجر ↗</a></section><footer class="footer"><div class="footer-grid"><div><div class="footer-logo"><span>Prix</span>-Choc 🇩🇿</div><p>اختيارات عملية للزبون الجزائري، بطلب بسيط ودفع عند الاستلام.</p></div><div><h4>المتجر</h4><a href="#catalog">العروض</a><br><a href="#catalog">كل المنتجات</a><br><a href="#order">اطلب الآن</a></div><div><h4>الثقة</h4><p>الدفع عند الاستلام</p><p>فحص المنتج قبل الدفع</p><p>توصيل حسب الولاية</p></div><div><h4>تواصل</h4><a href="https://www.facebook.com/share/1Dajsh2m7V/" target="_blank" rel="noopener">Facebook</a><p>🇩🇿 صنع للجزائريين</p></div></div><div class="footer-bottom">Prix-Choc • تسوق براحة، واختار الصفقة الصح.</div></footer><div class="modal" id="imageModal"><button class="modal-close" id="modalClose" type="button">×</button><img id="modalImage" src="" alt=""></div><div class="toast" id="toast"></div>
 
 <script>
 
@@ -138,7 +259,7 @@ function sourceId(p){const m=String(p?.sawa9lyLink||"").match(/product\/(\d+)/i)
 function referencePrice(price){let r=.25;if(price>=15000)r=.15;else if(price>=10000)r=.18;else if(price>=5000)r=.20;return Math.ceil((price/(1-r))/50)*50}
 
 // ---------------------------------------------------------
-// Product view — uses the existing products.js data directly.
+// Product view — uses the current store data directly.
 // ---------------------------------------------------------
 if(valid(product)){
  const price=Number(product.price);$("p-image").src=product.image;$("p-image").alt=product.name;$("p-title").textContent=product.name;
@@ -176,7 +297,7 @@ async function enrichCommunes(w){if(typeof getCommunes!=="function")return;try{c
 wilaya.addEventListener("change",function(){const w=this.value;const d=legacyData[w];homePrice=d?(d.homeDelivery!==undefined?Number(d.homeDelivery)||0:Number(d.delivery)||0):0;deskPrice=d&&d.deskDelivery!==undefined&&d.deskDelivery!=="غير متوفر"?Number(d.deskDelivery)||0:0;deskAvailable=!!(d&&d.deskDelivery!==undefined&&d.deskDelivery!=="غير متوفر");$("price-home").textContent=d?money(homePrice):"-- د.ج";$("price-desk").textContent=deskAvailable?money(deskPrice):"غير متوفر";fillCommunes(d?.communes||[]);document.querySelector('input[value="home"]').click();deliveryChange();enrichCommunes(w)});document.querySelectorAll('input[name="deliveryType"]').forEach(r=>r.addEventListener("change",deliveryChange));
 
 // ---------------------------------------------------------
-// Catalog — direct storeData, never a hard-coded product list.
+// Catalog — catalog data
 // ---------------------------------------------------------
 const grid=$("allProductsGrid"),featured=$("featuredProducts"),newGrid=$("newProducts"),search=$("productSearch"),cats=$("categoryList"),more=$("loadMoreBtn"),count=$("productCountBadge"),label=$("allProductsLabel");
 const catalogProducts=[];try{if(STORE_DATA&&typeof STORE_DATA==="object")Object.keys(STORE_DATA).forEach(id=>{const p=STORE_DATA[id];if(valid(p))catalogProducts.push({id,item:p})})}catch(e){}
@@ -188,16 +309,61 @@ function renderCats(){const c={};catalogProducts.forEach(x=>{const k=category(x.
 function filtered(){let a=active==="all"?catalogProducts:catalogProducts.filter(x=>category(x.item)===active);const q=(search.value||"").trim().toLowerCase();return q?a.filter(x=>String(x.item.name||"").toLowerCase().includes(q)):a}
 function renderAll(){const f=filtered(),v=f.slice(0,visible);grid.innerHTML=v.length?v.map(card).join(""):`<div style="grid-column:1/-1;text-align:center;padding:45px;color:#71828a;font-size:11px">🔎 لا توجد نتائج مطابقة.</div>`;count.textContent=f.length+" منتج";label.textContent=f.length+" منتج";more.style.display=f.length>visible?"block":"none";more.textContent="⬇️ عرض المزيد — "+Math.max(0,f.length-visible)+" متبقي"}
 function renderHome(){
-  const offers=$("homeOffers"), allGrid=$("homeAllGrid"), homeCount=$("homeProductCount");
-  if(!offers||!allGrid)return;
+  const offers=$("homeOffers"),nav=$("homeCategoryNav"),sections=$("homeCategories"),homeCount=$("homeProductCount"),homeSearch=$("homeProductSearch");
+  if(!offers||!nav||!sections)return;
   const available=catalogProducts.filter(x=>x.item.available!==false);
   const offerList=available.slice().sort((a,b)=>{
     const pa=Number(a.item.price||0),pb=Number(b.item.price||0);
-    return referencePrice(pb)-pb-(referencePrice(pa)-pa);
+    return (referencePrice(pb)-pb)-(referencePrice(pa)-pa);
   }).slice(0,10);
-  offers.innerHTML=offerList.length?offerList.map(card).join(""):`<div style="grid-column:1/-1;padding:40px;text-align:center;color:#71828a">جاري تحميل المنتجات...</div>`;
-  allGrid.innerHTML=catalogProducts.slice(0,30).map(card).join("");
-  homeCount.textContent=catalogProducts.length+" منتج";
+  offers.innerHTML=offerList.length?offerList.map(card).join(""):`<div style="grid-column:1/-1;padding:35px;text-align:center;color:#71828a">لا توجد عروض متاحة حاليًا.</div>`;
+  homeCount.textContent=catalogProducts.length;
+
+  const categoryOrder=["electronics","kitchen","car","watches","fashion","home","beauty","sports","kids","other"];
+  const groups={};
+  available.forEach(x=>{const k=category(x.item);(groups[k]||(groups[k]=[])).push(x)});
+  const catsWithProducts=categoryOrder.filter(k=>groups[k]&&groups[k].length);
+  if(groups.other&&!catsWithProducts.includes("other"))catsWithProducts.push("other");
+
+  nav.innerHTML=`<button class="home-category-btn active" type="button" data-homecat="all">🔥 الكل <small>${available.length}</small></button>`+
+    catsWithProducts.map(k=>`<button class="home-category-btn" type="button" data-homecat="${k}">${names[k]} <small>${groups[k].length}</small></button>`).join("");
+
+  function sectionMarkup(k){
+    const list=groups[k]||[];
+    return `<section class="home-category-block" id="home-cat-${k}">
+      <div class="home-category-head"><h3 class="home-category-title">${names[k]}</h3><span class="home-category-count">${list.length} منتج</span></div>
+      <div class="home-products">${list.slice(0,8).map(card).join("")}</div>
+    </section>`;
+  }
+  sections.innerHTML=catsWithProducts.map(sectionMarkup).join("");
+
+  nav.querySelectorAll("[data-homecat]").forEach(btn=>{
+    btn.onclick=()=>{
+      nav.querySelectorAll(".home-category-btn").forEach(b=>b.classList.remove("active"));
+      btn.classList.add("active");
+      const k=btn.dataset.homecat;
+      if(k==="all"){window.scrollTo({top:$("homeOffersSection").offsetTop-70,behavior:"smooth"});return}
+      const target=$("home-cat-"+k);
+      if(target)target.scrollIntoView({behavior:"smooth",block:"start"});
+    };
+  });
+
+  function applyHomeSearch(){
+    const q=(homeSearch?.value||"").trim().toLowerCase();
+    const matches=q?available.filter(x=>String(x.item.name||"").toLowerCase().includes(q)):available;
+    const dealMatches=q?matches.slice().sort((a,b)=>Number(b.item.price||0)-Number(a.item.price||0)).slice(0,10):offerList;
+    offers.innerHTML=dealMatches.length?dealMatches.map(card).join(""):`<div style="grid-column:1/-1;padding:35px;text-align:center;color:#71828a">🔎 لا توجد نتائج مطابقة.</div>`;
+    sections.querySelectorAll(".home-category-block").forEach(block=>{
+      const k=block.id.replace("home-cat-","");
+      const list=(groups[k]||[]).filter(x=>!q||String(x.item.name||"").toLowerCase().includes(q));
+      block.style.display=list.length?"block":"none";
+      const gridEl=block.querySelector(".home-products");
+      gridEl.innerHTML=list.slice(0,8).map(card).join("");
+      const badge=block.querySelector(".home-category-count");
+      if(badge)badge.textContent=list.length+" منتج";
+    });
+  }
+  if(homeSearch)homeSearch.oninput=applyHomeSearch;
 }
 function renderHorizontal(){featured.innerHTML=catalogProducts.slice().sort((a,b)=>Number(b.item.price||0)-Number(a.item.price||0)).slice(0,8).map(hcard).join("");newGrid.innerHTML=catalogProducts.slice().sort((a,b)=>sourceId(b.item)-sourceId(a.item)||Number(b.id)-Number(a.id)).slice(0,8).map(hcard).join("")}
 more.onclick=()=>{visible+=PAGE;renderAll()};search.oninput=()=>{visible=PAGE;renderAll()};renderCats();renderHorizontal();renderHome();renderAll();
