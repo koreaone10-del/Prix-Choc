@@ -1,7 +1,0 @@
-{
-  "routes": [
-    { "src": "/sitemap.xml", "dest": "/sitemap.xml" },
-    { "src": "/google(.*)", "dest": "/google$1" },
-    { "src": "/(.*)", "dest": "/index.html" }
-  ]
-}
