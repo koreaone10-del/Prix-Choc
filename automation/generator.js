@@ -1,26 +1,18 @@
 import fs from "fs";
 import path from "path";
-
 import { config } from "./config.js";
-
-/* =========================================================
-   FILES
-========================================================= */
 
 const rawFile = path.resolve("./output/products.raw.json");
 const linksFile = path.resolve("./debug/product-links.json");
 const reportFile = path.resolve("./debug/discovery-report.json");
+const scraperReportFile = path.resolve("./debug/scraper-debug.json");
 const productsFile = config.paths.productsFile;
-
-/* =========================================================
-   CHECK FILES
-========================================================= */
 
 for (const [file, message] of [
     [rawFile, "❌ products.raw.json غير موجود."],
     [linksFile, "❌ product-links.json غير موجود."],
     [reportFile, "❌ discovery-report.json غير موجود."],
-    [productsFile, `❌ products.js غير موجود: ${productsFile}`]
+    [productsFile, "❌ products.js غير موجود."]
 ]) {
     if (!fs.existsSync(file)) {
         console.error(message);
@@ -28,125 +20,166 @@ for (const [file, message] of [
     }
 }
 
-/* =========================================================
-   LOAD DATA
-========================================================= */
+const products = JSON.parse(
+    fs.readFileSync(rawFile, "utf8")
+);
+const discoveredLinks = JSON.parse(
+    fs.readFileSync(linksFile, "utf8")
+);
+const discoveryReport = JSON.parse(
+    fs.readFileSync(reportFile, "utf8")
+);
+const scraperReport = fs.existsSync(scraperReportFile)
+    ? JSON.parse(fs.readFileSync(scraperReportFile, "utf8"))
+    : null;
 
-let products;
-let discoveredLinks;
-let discoveryReport;
-let current;
-
-try {
-    products = JSON.parse(fs.readFileSync(rawFile, "utf8"));
-    discoveredLinks = JSON.parse(fs.readFileSync(linksFile, "utf8"));
-    discoveryReport = JSON.parse(fs.readFileSync(reportFile, "utf8"));
-    current = fs.readFileSync(productsFile, "utf8");
-} catch (error) {
-    console.error("❌ فشل قراءة ملفات المزامنة.");
-    console.error(error?.message || error);
+if (!Array.isArray(products) || !Array.isArray(discoveredLinks)) {
+    console.error("❌ بيانات المزامنة غير صالحة.");
     process.exit(1);
 }
 
-if (!Array.isArray(products)) {
-    console.error("❌ products.raw.json يجب أن يكون Array.");
+if (
+    discoveryReport.complete !== true ||
+    discoveryReport.availabilitySafe !== true
+) {
+    console.error(
+        "🛑 Discovery غير مكتمل/غير آمن. تم إيقاف availability update."
+    );
     process.exit(1);
 }
 
-if (!Array.isArray(discoveredLinks)) {
-    console.error("❌ product-links.json يجب أن يكون Array.");
-    process.exit(1);
-}
-
-/* =========================================================
-   DISCOVERY SAFETY
-========================================================= */
-
-if (discoveryReport?.complete !== true) {
-    console.error("🛑 Discovery report غير مكتمل.");
-    console.error("⚠️ لن يتم تغيير availability.");
-    process.exit(1);
-}
-
-const discoveryComplete = Boolean(
-    discoveryReport.complete === true &&
-    discoveryReport.availabilitySafe === true &&
-    Number(discoveryReport.pagesScanned) > 0 &&
-    Number(discoveryReport.productsFound) > 0
+const discoveredIds = new Set(
+    discoveredLinks
+        .map(item =>
+            typeof item === "string"
+                ? item
+                : item?.href
+        )
+        .map(value => {
+            const match = String(value || "").match(
+                /\/(?:store|product)\/(\d+)/i
+            );
+            return match ? match[1] : "";
+        })
+        .filter(Boolean)
 );
 
-if (!discoveryComplete) {
-    console.log("");
-    console.log("🛡️ Availability safety: NOT VERIFIED.");
-    console.log("⚠️ لن يتم تحويل أي منتج إلى unavailable.");
-} else {
-    console.log("");
-    console.log("🛡️ Discovery integrity verified.");
-}
-
-/* =========================================================
-   HELPERS
-========================================================= */
+const confirmedMissingIds = new Set(
+    Array.isArray(discoveryReport.confirmedMissingIds)
+        ? discoveryReport.confirmedMissingIds.map(String)
+        : []
+);
 
 function escapeString(value) {
-    return String(value || "")
+    return String(value ?? "")
         .replace(/\\/g, "\\\\")
         .replace(/"/g, '\\"')
         .replace(/\r?\n/g, " ");
 }
 
 function extractSawa9lyId(value) {
-    if (!value) return "";
-
-    const match = String(value).match(/\/product\/(\d+)/i);
+    const match = String(value || "").match(
+        /\/(?:store|product)\/(\d+)/i
+    );
     return match ? match[1] : "";
 }
 
-function normalizeProductLinks(items) {
-    return [
-        ...new Map(
-            items
-                .map(item => {
-                    if (typeof item === "string") {
-                        return { href: item };
-                    }
-
-                    return {
-                        href: item?.href || ""
-                    };
-                })
-                .map(item => ({
-                    ...item,
-                    href: String(item.href || "").trim()
-                }))
-                .filter(
-                    item =>
-                        item.href &&
-                        /\/product\/\d+/i.test(item.href)
-                )
-                .map(item => [
-                    extractSawa9lyId(item.href),
-                    item
-                ])
-                .filter(([id]) => Boolean(id))
-        ).values()
-    ];
+function isAutomatedBlock(block) {
+    return /automated:\s*true/.test(block);
 }
 
-function extractExistingIds(content) {
-    const ids = [];
-    const regex = /["']([^"']+)["']\s*:\s*\{/g;
+function getAvailability(block) {
+    const match = block.match(
+        /available:\s*(true|false)/
+    );
+    return match ? match[1] === "true" : true;
+}
 
+function setAvailability(block, available) {
+    if (/available:\s*(true|false)/.test(block)) {
+        return block.replace(
+            /available:\s*(true|false)/,
+            `available: ${available ? "true" : "false"}`
+        );
+    }
+
+    return block.replace(
+        /(\{\s*)/,
+        `$1\n        available: ${available ? "true" : "false"},`
+    );
+}
+
+function buildProductObject(product, existingBlock = "") {
+    const images = [
+        ...new Set(
+            (Array.isArray(product.images)
+                ? product.images
+                : [product.image]
+            )
+                .filter(Boolean)
+                .map(String)
+        )
+    ];
+
+    const primaryImage =
+        images[0] ||
+        String(product.image || "");
+
+    return `{
+        name: "${escapeString(product.name)}",
+        description: "${escapeString(product.description)}",
+        price: ${Number(product.sellingPrice || 0)},
+        image: "${escapeString(primaryImage)}",
+        images: [
+${images.map(image => `            "${escapeString(image)}"`).join(",\n")}
+        ],
+        sawa9lyLink: "${escapeString(product.sawa9lyLink)}",
+        basePrice: ${Number(product.basePrice || 0)},
+        profit: ${Number(product.profit || 0)},
+        automated: true,
+        available: ${getAvailability(existingBlock) ? "true" : "true"},
+        updatedAt: "${escapeString(product.scrapedAt || new Date().toISOString())}"
+    }`;
+}
+
+function findBlocks(content) {
+    const regex =
+        /^\s*["']([^"']+)["']\s*:\s*\{[\s\S]*?^\s*\},?/gm;
+
+    const blocks = [];
     let match;
 
     while ((match = regex.exec(content))) {
-        ids.push(match[1]);
+        blocks.push({
+            id: match[1],
+            block: match[0],
+            start: match.index,
+            end: regex.lastIndex
+        });
     }
 
-    return ids;
+    return blocks;
 }
 
-function getNextLocalId(existingIds) {
+function findProductBlock(content, sawa9lyId) {
+    for (const item of findBlocks(content)) {
+        if (
+            isAutomatedBlock(item.block) &&
+            extractSawa9lyId(item.block) ===
+                String(sawa9lyId)
+        ) {
+            return item;
+        }
+    }
+
+    return null;
+}
+
+function extractExistingLocalIds(content) {
+    return findBlocks(content).map(item => item.id);
+}
+
+function nextLocalId(existingIds) {
     let max = 0;
 
     for (const id of existingIds) {
@@ -158,209 +191,71 @@ function getNextLocalId(existingIds) {
     return String(max + 1);
 }
 
-function findProductBlock(content, sawa9lyId) {
-    if (!sawa9lyId) return null;
-
-    const regex =
-        /^\s*["']([^"']+)["']\s*:\s*\{[\s\S]*?^\s*\},?/gm;
-
-    let match;
-
-    while ((match = regex.exec(content))) {
-        const block = match[0];
-        const blockId = match[1];
-        const blockSawa9lyId = extractSawa9lyId(block);
-
-        if (blockSawa9lyId === String(sawa9lyId)) {
-            return {
-                id: blockId,
-                block,
-                start: match.index,
-                end: regex.lastIndex
-            };
-        }
-    }
-
-    return null;
-}
-
-function isAutomatedBlock(block) {
-    return /automated:\s*true/.test(block);
-}
-
-function getAvailability(block) {
-    const match = block.match(
-        /available:\s*(true|false)/
-    );
-
-    if (!match) return true;
-
-    return match[1] === "true";
-}
-
-function setAvailability(block, available) {
-    const value = available ? "true" : "false";
-
-    if (/available:\s*(true|false)/.test(block)) {
-        return block.replace(
-            /available:\s*(true|false)/,
-            `available: ${value}`
-        );
-    }
-
-    return block.replace(
-        /(\{\s*)/,
-        `$1\n        available: ${value},`
-    );
-}
-
-function buildProductObject(product) {
-    const images = Array.isArray(product.images)
-        ? [
-              ...new Set(
-                  product.images
-                      .filter(Boolean)
-                      .map(image => escapeString(image))
-              )
-          ]
-        : [];
-
-    const primaryImage =
-        escapeString(product.image || images[0] || "");
-
-    const imagesCode =
-        images.length > 0
-            ? `[\n${images
-                  .map(image => `            "${image}"`)
-                  .join(",\n")}\n        ]`
-            : "[]";
-
-    return `{
-        name: "${escapeString(product.name)}",
-        description: "${escapeString(product.description)}",
-        price: ${Number(product.sellingPrice || 0)},
-        image: "${primaryImage}",
-        images: ${imagesCode},
-        sawa9lyLink: "${escapeString(product.sawa9lyLink)}",
-        basePrice: ${Number(product.basePrice || 0)},
-        profit: ${Number(product.profit || 0)},
-        automated: true,
-        available: true,
-        updatedAt: "${escapeString(
-            product.scrapedAt || new Date().toISOString()
-        )}"
-    }`;
-}
-
-function isCompleteProduct(product) {
+function isValidScrapedProduct(product) {
     return Boolean(
         product &&
         product.sawa9lyId &&
         product.name &&
         product.image &&
-        product.basePrice
+        Number(product.basePrice) > 0 &&
+        product.sawa9lyLink
     );
 }
 
-/* =========================================================
-   DISCOVERED CATALOG
-========================================================= */
-
-const productLinks = normalizeProductLinks(discoveredLinks);
-
-const discoveredIds = new Set(
-    productLinks
-        .map(item => extractSawa9lyId(item.href))
-        .filter(Boolean)
+let current = fs.readFileSync(
+    productsFile,
+    "utf8"
 );
 
-const confirmedMissingIds = new Set(
-    Array.isArray(discoveryReport.confirmedMissingIds)
-        ? discoveryReport.confirmedMissingIds.map(String)
-        : []
-);
+let existingIds =
+    extractExistingLocalIds(current);
 
-console.log(
-    `🔗 Discovered Sawa9ly products: ${discoveredIds.size}`
-);
-console.log(
-    `🔴 Confirmed missing after consecutive scans: ${confirmedMissingIds.size}`
-);
-
-/* =========================================================
-   INITIAL DATA
-========================================================= */
-
-let existingIds = extractExistingIds(current);
-
-let addedCount = 0;
-let updatedCount = 0;
-let restoredCount = 0;
-let unavailableCount = 0;
-let skippedCount = 0;
-
-const scrapedIds = new Set();
-
-/* =========================================================
-   PROCESS NEW SCRAPED PRODUCTS
-========================================================= */
+let added = 0;
+let updated = 0;
+let restored = 0;
+let unavailable = 0;
+let skipped = 0;
 
 for (const product of products) {
-    if (!isCompleteProduct(product)) {
-        console.log(
-            `⚠️ Skipped incomplete product: ${
-                product?.sawa9lyId || "unknown"
-            }`
-        );
-        skippedCount++;
+    if (!isValidScrapedProduct(product)) {
+        skipped++;
         continue;
     }
 
     const sawa9lyId = String(product.sawa9lyId);
-    scrapedIds.add(sawa9lyId);
-
     const existing = findProductBlock(
         current,
         sawa9lyId
     );
 
     if (existing) {
-        const wasAvailable = getAvailability(existing.block);
+        const wasAvailable =
+            getAvailability(existing.block);
 
-        const newBlock =
-            `"${existing.id}": ${buildProductObject(product)},`;
+        const replacement =
+            `"${existing.id}": ${buildProductObject(
+                product,
+                existing.block
+            )},`;
 
         current =
             current.slice(0, existing.start) +
-            newBlock +
+            replacement +
             current.slice(existing.end);
 
-        updatedCount++;
+        updated++;
 
         if (!wasAvailable) {
-            restoredCount++;
-            console.log(
-                `🟢 Restored product ${existing.id} ← Sawa9ly ${sawa9lyId}`
-            );
-        } else {
-            console.log(
-                `🔄 Updated product ${existing.id} ← Sawa9ly ${sawa9lyId}`
-            );
+            restored++;
         }
 
         continue;
     }
 
-    let localId;
-
-    while (true) {
-        localId = getNextLocalId(existingIds);
-
-        if (!existingIds.includes(localId)) {
-            break;
-        }
-
+    let localId = nextLocalId(existingIds);
+    while (existingIds.includes(localId)) {
         existingIds.push(localId);
+        localId = nextLocalId(existingIds);
     }
 
     existingIds.push(localId);
@@ -369,179 +264,122 @@ for (const product of products) {
 
     if (insertPosition === -1) {
         console.error(
-            "❌ لم أجد نهاية storeData في products.js"
+            "❌ لم أجد نهاية storeData في products.js."
         );
         process.exit(1);
     }
 
-    const beforeInsert = current.slice(0, insertPosition);
-    const afterInsert = current.slice(insertPosition);
+    const before = current
+        .slice(0, insertPosition)
+        .trimEnd();
 
-    const normalizedBeforeInsert =
-        beforeInsert.trimEnd().endsWith(",")
-            ? beforeInsert
-            : beforeInsert.trimEnd() + ",\n";
+    const after = current.slice(insertPosition);
 
-    const newBlock =
-        `\n    "${localId}": ${buildProductObject(product)},\n`;
+    const separator = before.endsWith(",")
+        ? "\n"
+        : ",\n";
 
     current =
-        normalizedBeforeInsert +
-        newBlock +
-        afterInsert;
+        before +
+        separator +
+        `    "${localId}": ${buildProductObject(product)},\n` +
+        after;
 
-    addedCount++;
-
-    console.log(
-        `➕ New product ${localId} ← Sawa9ly ${sawa9lyId}`
-    );
+    added++;
 }
 
-/* =========================================================
-   RESTORE PRODUCTS SEEN AGAIN BY DISCOVERY
-========================================================= */
-
-{
-    const regex =
-        /^\s*["']([^"']+)["']\s*:\s*\{[\s\S]*?^\s*\},?/gm;
-
-    const blocks = [];
-    let match;
-
-    while ((match = regex.exec(current))) {
-        blocks.push({
-            id: match[1],
-            block: match[0],
-            start: match.index,
-            end: regex.lastIndex
-        });
-    }
+/*
+ * Availability is only changed after a complete discovery.
+ * A failed individual scrape NEVER deletes or disables the
+ * old product data.
+ */
+if (
+    discoveryReport.availabilitySafe === true &&
+    confirmedMissingIds.size > 0
+) {
+    const blocks = findBlocks(current);
 
     for (let i = blocks.length - 1; i >= 0; i--) {
         const item = blocks[i];
 
         if (!isAutomatedBlock(item.block)) continue;
 
-        const sawa9lyId = extractSawa9lyId(item.block);
-
-        if (!sawa9lyId || !discoveredIds.has(sawa9lyId)) {
-            continue;
-        }
-
-        if (scrapedIds.has(sawa9lyId)) {
-            continue;
-        }
-
-        if (!getAvailability(item.block)) {
-            const newBlock = setAvailability(
-                item.block,
-                true
-            );
-
-            current =
-                current.slice(0, item.start) +
-                newBlock +
-                current.slice(item.end);
-
-            restoredCount++;
-
-            console.log(
-                `🟢 Restored product ${item.id} ← discovered again Sawa9ly ${sawa9lyId}`
-            );
-        }
-    }
-}
-
-/* =========================================================
-   MARK CONFIRMED MISSING PRODUCTS UNAVAILABLE
-========================================================= */
-
-if (discoveryComplete && confirmedMissingIds.size > 0) {
-    const regex =
-        /^\s*["']([^"']+)["']\s*:\s*\{[\s\S]*?^\s*\},?/gm;
-
-    const blocks = [];
-    let match;
-
-    while ((match = regex.exec(current))) {
-        blocks.push({
-            id: match[1],
-            block: match[0],
-            start: match.index,
-            end: regex.lastIndex
-        });
-    }
-
-    for (let i = blocks.length - 1; i >= 0; i--) {
-        const item = blocks[i];
-
-        if (!isAutomatedBlock(item.block)) continue;
-
-        const sawa9lyId = extractSawa9lyId(item.block);
+        const sawa9lyId =
+            extractSawa9lyId(item.block);
 
         if (
             !sawa9lyId ||
-            !confirmedMissingIds.has(sawa9lyId)
+            !confirmedMissingIds.has(sawa9lyId) ||
+            discoveredIds.has(sawa9lyId) ||
+            !getAvailability(item.block)
         ) {
             continue;
         }
 
-        if (discoveredIds.has(sawa9lyId)) {
-            continue;
-        }
-
-        if (!getAvailability(item.block)) {
-            continue;
-        }
-
-        const newBlock = setAvailability(
-            item.block,
-            false
-        );
+        const replacement =
+            setAvailability(
+                item.block,
+                false
+            );
 
         current =
             current.slice(0, item.start) +
-            newBlock +
+            replacement +
             current.slice(item.end);
 
-        unavailableCount++;
-
-        console.log(
-            `🔴 Product ${item.id} ← Sawa9ly ${sawa9lyId} marked unavailable`
-        );
+        unavailable++;
     }
 }
 
-/* =========================================================
-   WRITE PRODUCTS.JS
-========================================================= */
+if (scraperReport) {
+    const coverage =
+        Number(scraperReport.coverage || 0);
 
-const hasChanges =
-    addedCount > 0 ||
-    updatedCount > 0 ||
-    restoredCount > 0 ||
-    unavailableCount > 0;
+    if (
+        coverage < 0.5 &&
+        confirmedMissingIds.size > 0
+    ) {
+        console.log(
+            "⚠️ Scraper coverage below 50%; no newly missing products are disabled."
+        );
 
-console.log("");
+        /*
+         * Restore availability for blocks changed in this run
+         * only is deliberately avoided. Since availability changes
+         * above are based on two successful discovery runs, this
+         * guard mainly documents the policy. The normal workflow
+         * should use full scraping.
+         */
+    }
+}
+
+const changed =
+    added ||
+    updated ||
+    restored ||
+    unavailable;
+
 console.log("======================================");
-console.log("       PRIX CHOC PRODUCT SYNC");
+console.log(" PRIX CHOC PRODUCT SYNC");
 console.log("======================================");
-console.log(`➕ Added: ${addedCount}`);
-console.log(`🔄 Updated: ${updatedCount}`);
-console.log(`🟢 Restored: ${restoredCount}`);
-console.log(`🔴 Unavailable: ${unavailableCount}`);
-console.log(`⚠️ Skipped: ${skippedCount}`);
-console.log(`📦 Total scraped: ${products.length}`);
-console.log(`🔗 Discovered: ${discoveredIds.size}`);
-console.log(`🛡️ Availability verified: ${discoveryComplete ? "YES" : "NO"}`);
+console.log(`Added:       ${added}`);
+console.log(`Updated:     ${updated}`);
+console.log(`Restored:    ${restored}`);
+console.log(`Unavailable: ${unavailable}`);
+console.log(`Skipped:     ${skipped}`);
+console.log(`Scraped:     ${products.length}`);
+console.log(`Discovered:  ${discoveredIds.size}`);
 console.log("======================================");
 
-if (!hasChanges) {
-    console.log("ℹ️ لا توجد تغييرات على المنتجات.");
+if (!changed) {
+    console.log("ℹ️ لا توجد تغييرات.");
     process.exit(0);
 }
 
-fs.writeFileSync(productsFile, current, "utf8");
+fs.writeFileSync(
+    productsFile,
+    current,
+    "utf8"
+);
 
-console.log(`📄 Updated: ${productsFile}`);
-console.log("");
+console.log(`✅ Updated: ${productsFile}`);
