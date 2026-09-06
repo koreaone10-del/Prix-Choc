@@ -2,27 +2,25 @@ import { chromium } from "playwright";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-
 import { config } from "./config.js";
 
 const debugDir = path.resolve("./debug");
-fs.mkdirSync(debugDir, { recursive: true });
-
 const linksFile = path.join(debugDir, "product-links.json");
 const progressFile = path.join(debugDir, "product-links-progress.json");
 const reportFile = path.join(debugDir, "discovery-report.json");
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const stateDir = path.join(__dirname, "state");
 const historyFile = path.join(stateDir, "discovery-history.json");
+
+fs.mkdirSync(debugDir, { recursive: true });
 fs.mkdirSync(stateDir, { recursive: true });
 
 const MAX_PAGES = 100;
 
 function cleanText(value) {
-    return String(value || "")
-        .replace(/\s+/g, " ")
-        .trim();
+    return String(value || "").replace(/\s+/g, " ").trim();
 }
 
 function makePageUrl(baseUrl, pageNumber) {
@@ -32,7 +30,7 @@ function makePageUrl(baseUrl, pageNumber) {
 }
 
 function extractProductId(value) {
-    const match = String(value || "").match(/\/product\/(\d+)/i);
+    const match = String(value || "").match(/\/(?:store|product)\/(\d+)/i);
     return match ? match[1] : "";
 }
 
@@ -48,8 +46,9 @@ function normalizeProductUrl(value) {
 
 function readJson(file, fallback = null) {
     try {
-        if (!fs.existsSync(file)) return fallback;
-        return JSON.parse(fs.readFileSync(file, "utf8"));
+        return fs.existsSync(file)
+            ? JSON.parse(fs.readFileSync(file, "utf8"))
+            : fallback;
     } catch {
         return fallback;
     }
@@ -59,56 +58,39 @@ function writeJson(file, value) {
     fs.writeFileSync(file, JSON.stringify(value, null, 2), "utf8");
 }
 
-function removeStaleDiscoveryOutputs() {
-    for (const file of [
-        linksFile,
-        progressFile,
-        reportFile
-    ]) {
+function removeStaleOutputs() {
+    for (const file of [linksFile, progressFile, reportFile]) {
         try {
             if (fs.existsSync(file)) fs.unlinkSync(file);
         } catch {}
     }
 }
 
-console.log("");
-console.log("======================================");
-console.log("       PRIX CHOC - SAWA9LY");
-console.log("       FULL PRODUCT DISCOVERY");
-console.log("======================================");
-console.log("");
+removeStaleOutputs();
+
+if (!config.sawa9ly.email || !config.sawa9ly.password) {
+    console.error("❌ Sawa9ly credentials are missing.");
+    process.exit(1);
+}
 
 const previousReport = readJson(reportFile, null) || readJson(historyFile, null);
 
-removeStaleDiscoveryOutputs();
-
-if (!config?.sawa9ly?.email) {
-    console.error("❌ SAWA9LY_EMAIL غير موجود في .env");
-    process.exit(1);
-}
-
-if (!config?.sawa9ly?.password) {
-    console.error("❌ SAWA9LY_PASSWORD غير موجود في .env");
-    process.exit(1);
-}
-
-console.log("Login credentials detected.");
-console.log("Launching Chromium...");
+console.log("======================================");
+console.log(" PRIX CHOC - FULL SAWA9LY DISCOVERY");
+console.log("======================================");
 
 const browser = await chromium.launch({
-    headless: config.automation?.headless ?? true
+    headless: config.automation.headless
 });
 
 const context = await browser.newContext({
     viewport: { width: 1440, height: 900 },
-    locale: "ar-DZ"
+    locale: "fr-DZ"
 });
 
 const page = await context.newPage();
 
 try {
-    console.log("\n1) Opening Sawa9ly login...");
-
     await page.goto(config.sawa9ly.loginUrl, {
         waitUntil: "domcontentloaded",
         timeout: 60000
@@ -119,95 +101,77 @@ try {
     const emailInput = page.locator('input[type="email"]').first();
     const passwordInput = page.locator('input[type="password"]').first();
 
-    if (
-        await page.locator('input[type="email"]').count() === 0 ||
-        await page.locator('input[type="password"]').count() === 0
-    ) {
+    if (!(await emailInput.count()) || !(await passwordInput.count())) {
         throw new Error("لم يتم العثور على حقول تسجيل الدخول.");
     }
 
     await emailInput.fill(config.sawa9ly.email);
     await passwordInput.fill(config.sawa9ly.password);
 
-    const submitButton = page.locator('button[type="submit"]').first();
-
-    if (await submitButton.count() > 0) {
-        await submitButton.click();
+    const submit = page.locator('button[type="submit"]').first();
+    if (await submit.count()) {
+        await submit.click();
     } else {
         await passwordInput.press("Enter");
     }
 
-    await page.waitForTimeout(5000);
+    await page.waitForTimeout(4000);
 
     if (/\/login/i.test(page.url())) {
-        throw new Error("لم ينجح تسجيل الدخول إلى Sawa9ly.");
+        throw new Error("فشل تسجيل الدخول إلى Sawa9ly.");
     }
 
-    console.log("✅ Login successful.");
-
-    console.log("\n2) Opening Sawa9ly dashboard...");
+    console.log(`✅ Login OK: ${page.url()}`);
 
     await page.goto(makePageUrl(config.sawa9ly.dashboardUrl, 1), {
         waitUntil: "domcontentloaded",
         timeout: 60000
     });
-
-    await page.waitForTimeout(3000);
+    await page.waitForTimeout(2500);
 
     if (/\/login/i.test(page.url())) {
         throw new Error("تمت إعادة التوجيه إلى صفحة تسجيل الدخول.");
     }
 
-    const dashboardHtml = await page.content();
-    fs.writeFileSync(path.join(debugDir, "dashboard.html"), dashboardHtml, "utf8");
-
-    console.log("\n3) Detecting pagination...");
-
     const paginationLinks = await page.locator("a").evaluateAll(anchors =>
         anchors
-            .map(anchor => ({
-                text: String(anchor.innerText || "").replace(/\s+/g, " ").trim(),
-                href: anchor.href
-            }))
-            .filter(item => item.href && /[?&]page=\d+/i.test(item.href))
+            .map(a => a.href)
+            .filter(Boolean)
+            .filter(href => /[?&]page=\d+/i.test(href))
     );
 
     const detectedPages = [
         ...new Set(
             paginationLinks
-                .map(item => {
+                .map(href => {
                     try {
-                        return Number(new URL(item.href).searchParams.get("page"));
+                        return Number(new URL(href).searchParams.get("page"));
                     } catch {
                         return null;
                     }
                 })
-                .filter(number => Number.isInteger(number) && number > 0)
+                .filter(n => Number.isInteger(n) && n > 0)
         )
     ].sort((a, b) => a - b);
 
-    let maxPage = detectedPages.length ? Math.max(...detectedPages) : 1;
-    const paginationCapped = maxPage > MAX_PAGES;
+    const maxPage = detectedPages.length
+        ? Math.max(...detectedPages)
+        : 1;
 
-    if (paginationCapped) {
+    if (maxPage > MAX_PAGES) {
         throw new Error(
-            `Pagination exceeds safety limit: ${maxPage} pages detected, maximum is ${MAX_PAGES}.`
+            `Pagination exceeds safety limit: ${maxPage} > ${MAX_PAGES}`
         );
     }
-
-    console.log(
-        "Detected pagination pages:",
-        detectedPages.length ? detectedPages.join(", ") : "none"
-    );
-    console.log("Pages to scan:", maxPage);
-
-    console.log("\n4) Collecting product links...");
 
     const allProductLinks = new Map();
     const pageCounts = {};
 
     for (let pageNumber = 1; pageNumber <= maxPage; pageNumber++) {
-        const pageUrl = makePageUrl(config.sawa9ly.dashboardUrl, pageNumber);
+        const pageUrl = makePageUrl(
+            config.sawa9ly.dashboardUrl,
+            pageNumber
+        );
 
         console.log(`--- PAGE ${pageNumber}/${maxPage} ---`);
 
@@ -215,58 +179,72 @@ try {
             waitUntil: "domcontentloaded",
             timeout: 60000
         });
-
-        await page.waitForTimeout(1800);
+        await page.waitForTimeout(1500);
 
         if (/\/login/i.test(page.url())) {
-            throw new Error(`Session expired / redirected to login on page ${pageNumber}.`);
+            throw new Error(
+                `Session expired on page ${pageNumber}.`
+            );
         }
 
-        const pageLinks = await page.locator("a").evaluateAll(anchors =>
-            anchors.map(anchor => ({
-                text: String(anchor.innerText || "").replace(/\s+/g, " ").trim(),
-                href: anchor.href
+        const anchors = await page.locator("a").evaluateAll(as =>
+            as.map(a => ({
+                text: cleanText(a.innerText),
+                href: a.href
             }))
         );
 
-        const uniquePageProducts = [
+        const products = [
             ...new Map(
-                pageLinks
+                anchors
                     .map(item => ({
                         ...item,
                         href: normalizeProductUrl(item.href)
                     }))
-                    .filter(item => item.href && /\/product\/\d+/i.test(item.href))
-                    .map(item => [extractProductId(item.href), item])
+                    .filter(item =>
+                        /\/(?:store|product)\/\d+/i.test(item.href)
+                    )
+                    .map(item => [
+                        extractProductId(item.href),
+                        {
+                            ...item,
+                            href: item.href.replace(
+                                /\/product\/(\d+)/i,
+                                "/store/$1"
+                            )
+                        }
+                    ])
             ).values()
         ];
 
-        pageCounts[String(pageNumber)] = uniquePageProducts.length;
+        pageCounts[String(pageNumber)] = products.length;
 
-        if (uniquePageProducts.length === 0) {
+        if (!products.length) {
             throw new Error(
-                `Page ${pageNumber} returned zero product links. Discovery is considered incomplete.`
+                `Page ${pageNumber} returned zero product links. Discovery aborted safely.`
             );
         }
 
-        for (const product of uniquePageProducts) {
-            allProductLinks.set(extractProductId(product.href), product);
+        for (const product of products) {
+            const id = extractProductId(product.href);
+            if (id) allProductLinks.set(id, product);
         }
 
         writeJson(progressFile, [...allProductLinks.values()]);
-
         console.log(
-            `Products on page: ${uniquePageProducts.length} | Total unique: ${allProductLinks.size}`
+            `Products: ${products.length} | Total unique: ${allProductLinks.size}`
         );
     }
 
     const finalProductLinks = [...allProductLinks.values()];
-    const discoveredIds = [
-        ...new Set(finalProductLinks.map(item => extractProductId(item.href)).filter(Boolean))
-    ];
+    const discoveredIds = finalProductLinks
+        .map(item => extractProductId(item.href))
+        .filter(Boolean);
 
-    if (finalProductLinks.length === 0 || discoveredIds.length === 0) {
-        throw new Error("Discovery completed with zero product links. Refusing to publish an empty catalog.");
+    if (!finalProductLinks.length) {
+        throw new Error(
+            "Discovery returned zero products. Refusing to publish."
+        );
     }
 
     const previousIds = new Set(
@@ -290,42 +268,35 @@ try {
             const streak = Number(previousStreaks[id] || 0) + 1;
             missingStreaks[id] = streak;
 
-            if (streak >= 2) {
+            if (
+                streak >=
+                config.automation.missingConfirmationRuns
+            ) {
                 confirmedMissingIds.push(id);
             }
         }
     }
 
-    const previousCount = previousIds.size;
-    const currentCount = currentIds.size;
+    for (const id of currentIds) {
+        missingStreaks[id] = 0;
+    }
 
-    /*
-     * A discovery is eligible for availability decisions only when:
-     * - every requested page completed successfully;
-     * - no safety cap was hit;
-     * - every scanned page contained product links;
-     * - the result is non-empty.
-     *
-     * Missing products are still confirmed separately after two
-     * consecutive successful discovery runs.
-     */
     const availabilitySafe =
-        !paginationCapped &&
+        finalProductLinks.length > 0 &&
         maxPage >= 1 &&
         Object.keys(pageCounts).length === maxPage &&
-        Object.values(pageCounts).every(count => Number(count) > 0) &&
-        finalProductLinks.length > 0;
+        Object.values(pageCounts).every(n => Number(n) > 0);
 
     const report = {
         complete: true,
         availabilitySafe,
         pagesScanned: maxPage,
         detectedPages,
-        paginationCapped,
         productsFound: finalProductLinks.length,
         discoveredIds,
-        previousProductsFound: previousCount,
-        countDelta: currentCount - previousCount,
+        previousProductsFound: previousIds.size,
+        countDelta:
+            currentIds.size - previousIds.size,
         pageCounts,
         confirmedMissingIds,
         missingStreaks,
@@ -336,30 +307,20 @@ try {
     writeJson(reportFile, report);
     writeJson(historyFile, report);
 
-    console.log("\n======================================");
-    console.log("       DISCOVERY COMPLETED");
     console.log("======================================");
-    console.log(`Pages scanned: ${maxPage}`);
-    console.log(`Unique product links found: ${finalProductLinks.length}`);
+    console.log("DISCOVERY COMPLETED");
+    console.log("======================================");
+    console.log(`Pages: ${maxPage}`);
+    console.log(`Products: ${finalProductLinks.length}`);
     console.log(`Availability safe: ${availabilitySafe ? "YES" : "NO"}`);
-    console.log(`Confirmed missing after 2 scans: ${confirmedMissingIds.length}`);
-    console.log("Output: debug/product-links.json");
-    console.log("Report: debug/discovery-report.json");
-    console.log("");
-
-    finalProductLinks.slice(0, 5).forEach((item, index) => {
-        console.log(`${index + 1}. ${item.href}`);
-    });
+    console.log(
+        `Confirmed missing: ${confirmedMissingIds.length}`
+    );
 
     await browser.close();
 } catch (error) {
-    console.error("");
-    console.error("======================================");
-    console.error("              ERROR");
-    console.error("======================================");
-    console.error("");
+    console.error("❌ DISCOVERY ERROR");
     console.error(error?.message || error);
-    console.error("");
 
     try {
         await page.screenshot({
