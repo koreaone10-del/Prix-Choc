@@ -1,607 +1,289 @@
 import "dotenv/config";
-import path from "path";
-import { fileURLToPath } from "url";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-/*
-=========================================================
- PRIX-CHOC
- Sawa9ly Affiliate Automation Configuration
-=========================================================
-
-هذا الملف هو مركز إعدادات نظام المزامنة.
-
-الهدف:
-- الاتصال بمنصة Sawa9ly Affiliate الجديدة.
-- اكتشاف جميع المنتجات.
-- Scraping للمنتجات الجديدة والموجودة.
-- تحديث الأسعار والصور.
-- المحافظة على المنتجات القديمة.
-- إدارة available بدون حذف المنتجات.
-- تشغيل النظام تلقائياً عبر GitHub Actions.
-=========================================================
-*/
-
-function envString(name, fallback = "") {
-    const value = process.env[name];
-
-    if (value === undefined || value === null) {
-        return fallback;
-    }
-
-    return String(value).trim();
-}
-
-function envNumber(name, fallback) {
-    const value = Number(process.env[name]);
-
-    if (!Number.isFinite(value)) {
-        return fallback;
-    }
-
-    return value;
-}
-
-function envBoolean(name, fallback) {
-    const value = process.env[name];
-
-    if (value === undefined || value === null || value === "") {
-        return fallback;
-    }
-
-    return ["true", "1", "yes", "on"].includes(
-        String(value).trim().toLowerCase()
-    );
-}
-
-/*
-=========================================================
- SAWA9LY
-=========================================================
-*/
-
-const sawa9lyLoginUrl = envString(
-    "SAWA9LY_LOGIN_URL",
-    "https://affiliate.sawa9ly.pro/"
-);
-
-const sawa9lyDashboardUrl = envString(
-    "SAWA9LY_DASHBOARD_URL",
-    "https://affiliate.sawa9ly.pro/store"
-);
-
-const sawa9lyBaseUrl = envString(
-    "SAWA9LY_BASE_URL",
-    "https://affiliate.sawa9ly.pro"
-);
-
-/*
-=========================================================
- AUTOMATION
-=========================================================
-*/
-
-const scrapeLimit = Math.max(
-    1,
-    envNumber("SCRAPE_LIMIT", 2094)
-);
-
-const concurrency = Math.max(
-    1,
-    envNumber("SCRAPE_CONCURRENCY", 8)
-);
-
-const maxDiscoveryPages = Math.max(
-    1,
-    envNumber("MAX_DISCOVERY_PAGES", 100)
-);
-
-/*
-عدد مرات غياب المنتج قبل تحويله إلى:
-
-available: false
-
-مهم:
-لا يتم حذف المنتج من products.js.
-*/
-
-const missingConfirmationRuns = Math.max(
-    1,
-    envNumber("MISSING_CONFIRMATION_RUNS", 2)
-);
-
-/*
-Headless:
-GitHub Actions يجب أن تعمل بدون واجهة رسومية.
-*/
-
-const headless = envBoolean(
-    "HEADLESS",
-    true
-);
-
-/*
-Dry Run:
-في التشغيل الحقيقي يجب أن يكون false.
-
-إذا كان true:
-- يمكن تنفيذ القراءة/scraping.
-- لكن لا نريد نشر تغييرات فعلية على products.js.
-
-القيمة الافتراضية هنا false لأن النظام النهائي
-مصمم للعمل تلقائياً.
-*/
-
-const dryRun = envBoolean(
-    "DRY_RUN",
-    false
-);
-
-/*
-=========================================================
- TIMEOUTS / RETRIES
-=========================================================
-*/
-
-const navigationTimeout = Math.max(
-    10000,
-    envNumber("NAVIGATION_TIMEOUT", 60000)
-);
-
-const selectorTimeout = Math.max(
-    1000,
-    envNumber("SELECTOR_TIMEOUT", 15000)
-);
-
-const pageDelay = Math.max(
-    0,
-    envNumber("PAGE_DELAY", 1800)
-);
-
-const productDelay = Math.max(
-    0,
-    envNumber("PRODUCT_DELAY", 300)
-);
-
-const loginWait = Math.max(
-    1000,
-    envNumber("LOGIN_WAIT", 5000)
-);
-
-const retryCount = Math.max(
-    0,
-    envNumber("SCRAPE_RETRIES", 2)
-);
-
-/*
-=========================================================
- PRICING
-=========================================================
-
-السعر النهائي:
-
-basePrice + margin
-
-مع حماية:
-minMargin <= margin <= maxMargin
-=========================================================
-*/
-
-const defaultMargin = envNumber(
-    "DEFAULT_MARGIN",
-    1000
-);
-
-const minMargin = envNumber(
-    "MIN_MARGIN",
-    300
-);
-
-const maxMargin = envNumber(
-    "MAX_MARGIN",
-    5000
-);
-
-/*
-=========================================================
- FILE PATHS
-=========================================================
-*/
-
-const productsFile = path.resolve(
-    __dirname,
-    envString(
-        "PRODUCTS_FILE",
-        "../products.js"
-    )
-);
-
-const outputDir = path.resolve(
-    __dirname,
-    envString(
-        "OUTPUT_DIR",
-        "./output"
-    )
-);
-
-const stateDir = path.resolve(
-    __dirname,
-    envString(
-        "STATE_DIR",
-        "./state"
-    )
-);
-
-const debugDir = path.resolve(
-    __dirname,
-    envString(
-        "DEBUG_DIR",
-        "./debug"
-    )
-);
-
-/*
-=========================================================
- CONFIG OBJECT
-=========================================================
-*/
+const ROOT_DIR = new URL("../", import.meta.url).pathname;
 
 export const config = {
-    /*
-    -----------------------------------------------------
-    Sawa9ly Affiliate
-    -----------------------------------------------------
-    */
+  sawa9ly: {
+    baseUrl: process.env.SAWA9LY_BASE_URL || "https://affiliate.sawa9ly.pro",
+    loginUrl:
+      process.env.SAWA9LY_LOGIN_URL ||
+      "https://affiliate.sawa9ly.pro/login",
+    dashboardUrl:
+      process.env.SAWA9LY_DASHBOARD_URL ||
+      "https://affiliate.sawa9ly.pro/store",
 
-    sawa9ly: {
-        baseUrl: sawa9lyBaseUrl,
+    email: process.env.SAWA9LY_EMAIL || "",
+    password: process.env.SAWA9LY_PASSWORD || "",
+  },
 
-        loginUrl: sawa9lyLoginUrl,
+  automation: {
+    // Maximum number of products to discover/scrape in one run.
+    // This is deliberately high enough for the current catalogue.
+    scrapeLimit: Number(process.env.SCRAPE_LIMIT || 2094),
 
-        dashboardUrl: sawa9lyDashboardUrl,
+    concurrency: Number(process.env.SCRAPE_CONCURRENCY || 8),
 
-        email: envString(
-            "SAWA9LY_EMAIL",
-            ""
-        ),
+    headless:
+      String(process.env.HEADLESS ?? "true").toLowerCase() !== "false",
 
-        password: envString(
-            "SAWA9LY_PASSWORD",
-            ""
-        )
+    dryRun:
+      String(process.env.DRY_RUN ?? "false").toLowerCase() === "true",
+
+    // A product must be confirmed missing on this number of
+    // consecutive discovery runs before being marked unavailable.
+    missingConfirmationRuns: Number(
+      process.env.MISSING_CONFIRMATION_RUNS || 2
+    ),
+
+    // Safety threshold: prevents an abnormal scraper result
+    // from replacing the catalogue with an incomplete dataset.
+    minimumCoveragePercent: Number(
+      process.env.MINIMUM_COVERAGE_PERCENT || 70
+    ),
+
+    // Maximum number of pages the discovery process may inspect.
+    maxDiscoveryPages: Number(
+      process.env.MAX_DISCOVERY_PAGES || 250
+    ),
+
+    // Timeouts.
+    pageTimeoutMs: Number(
+      process.env.PAGE_TIMEOUT_MS || 30000
+    ),
+
+    navigationTimeoutMs: Number(
+      process.env.NAVIGATION_TIMEOUT_MS || 30000
+    ),
+
+    // Wait time after navigation / dynamic rendering.
+    renderWaitMs: Number(
+      process.env.RENDER_WAIT_MS || 1200
+    ),
+  },
+
+  pricing: {
+    // Default selling-price margin.
+    defaultMargin: Number(
+      process.env.DEFAULT_MARGIN || 1000
+    ),
+
+    // Minimum allowed margin.
+    minMargin: Number(
+      process.env.MIN_MARGIN || 300
+    ),
+
+    // Maximum allowed margin.
+    maxMargin: Number(
+      process.env.MAX_MARGIN || 5000
+    ),
+  },
+
+  paths: {
+    rootDir: ROOT_DIR,
+
+    productsFile:
+      process.env.PRODUCTS_FILE ||
+      new URL("../products.js", import.meta.url).pathname,
+
+    outputDir:
+      process.env.OUTPUT_DIR ||
+      new URL("./output", import.meta.url).pathname,
+
+    debugDir:
+      process.env.DEBUG_DIR ||
+      new URL("./debug", import.meta.url).pathname,
+
+    stateDir:
+      process.env.STATE_DIR ||
+      new URL("./state", import.meta.url).pathname,
+
+    historyDir:
+      process.env.HISTORY_DIR ||
+      new URL("./state/history", import.meta.url).pathname,
+
+    backupDir:
+      process.env.BACKUP_DIR ||
+      new URL("./backups", import.meta.url).pathname,
+  },
+
+  browser: {
+    userAgent:
+      process.env.USER_AGENT ||
+      "Mozilla/5.0 (Linux; Android 15) AppleWebKit/537.36 " +
+        "(KHTML, like Gecko) Chrome/140.0.0.0 Mobile Safari/537.36",
+
+    viewport: {
+      width: Number(process.env.VIEWPORT_WIDTH || 1280),
+      height: Number(process.env.VIEWPORT_HEIGHT || 900),
     },
+  },
 
-    /*
-    -----------------------------------------------------
-    Automation
-    -----------------------------------------------------
-    */
+  safety: {
+    // Never allow a completely empty source to destroy the catalogue.
+    requireNonEmptySource: true,
 
-    automation: {
-        scrapeLimit,
+    // Never delete unavailable products from products.js.
+    keepUnavailableProducts: true,
 
-        concurrency,
+    // Never modify the original frontend/database files.
+    protectedFiles: [
+      "index.html",
+      "database.js",
+      "locations.js",
+    ],
 
-        maxDiscoveryPages,
+    // Atomic writes are mandatory for generated products.js.
+    atomicWrite: true,
 
-        missingConfirmationRuns,
-
-        headless,
-
-        dryRun,
-
-        navigationTimeout,
-
-        selectorTimeout,
-
-        pageDelay,
-
-        productDelay,
-
-        loginWait,
-
-        retryCount
-    },
-
-    /*
-    -----------------------------------------------------
-    Pricing
-    -----------------------------------------------------
-    */
-
-    pricing: {
-        defaultMargin,
-
-        minMargin,
-
-        maxMargin
-    },
-
-    /*
-    -----------------------------------------------------
-    Paths
-    -----------------------------------------------------
-    */
-
-    paths: {
-        productsFile,
-
-        outputDir,
-
-        stateDir,
-
-        debugDir
-    }
+    // Create a backup before replacing products.js.
+    createBackup: true,
+  },
 };
 
-/*
-=========================================================
- VALIDATION
-=========================================================
-*/
-
+/**
+ * Validate the automation configuration before starting.
+ */
 export function validateConfig() {
-    const errors = [];
+  const errors = [];
 
-    /*
-    Sawa9ly credentials
-    */
+  if (!config.sawa9ly.baseUrl) {
+    errors.push("SAWA9LY base URL is missing.");
+  }
 
-    if (!config.sawa9ly.email) {
-        errors.push(
-            "SAWA9LY_EMAIL is missing"
-        );
-    }
+  if (!config.sawa9ly.loginUrl) {
+    errors.push("SAWA9LY login URL is missing.");
+  }
 
-    if (!config.sawa9ly.password) {
-        errors.push(
-            "SAWA9LY_PASSWORD is missing"
-        );
-    }
+  if (!config.sawa9ly.dashboardUrl) {
+    errors.push("SAWA9LY dashboard URL is missing.");
+  }
 
-    /*
-    URLs
-    */
+  if (!config.sawa9ly.email) {
+    errors.push(
+      "SAWA9LY_EMAIL is missing. Add it to GitHub Actions Secrets."
+    );
+  }
 
-    if (!config.sawa9ly.loginUrl) {
-        errors.push(
-            "SAWA9LY_LOGIN_URL is missing"
-        );
-    }
+  if (!config.sawa9ly.password) {
+    errors.push(
+      "SAWA9LY_PASSWORD is missing. Add it to GitHub Actions Secrets."
+    );
+  }
 
-    if (!config.sawa9ly.dashboardUrl) {
-        errors.push(
-            "SAWA9LY_DASHBOARD_URL is missing"
-        );
-    }
+  if (
+    !Number.isFinite(config.automation.scrapeLimit) ||
+    config.automation.scrapeLimit < 1
+  ) {
+    errors.push("SCRAPE_LIMIT must be a positive number.");
+  }
 
-    /*
-    Pricing validation
-    */
+  if (
+    !Number.isFinite(config.automation.concurrency) ||
+    config.automation.concurrency < 1
+  ) {
+    errors.push("SCRAPE_CONCURRENCY must be a positive number.");
+  }
 
-    if (
-        !Number.isFinite(config.pricing.defaultMargin)
-    ) {
-        errors.push(
-            "DEFAULT_MARGIN must be a valid number"
-        );
-    }
+  if (
+    !Number.isFinite(config.automation.missingConfirmationRuns) ||
+    config.automation.missingConfirmationRuns < 1
+  ) {
+    errors.push(
+      "MISSING_CONFIRMATION_RUNS must be at least 1."
+    );
+  }
 
-    if (
-        !Number.isFinite(config.pricing.minMargin)
-    ) {
-        errors.push(
-            "MIN_MARGIN must be a valid number"
-        );
-    }
+  if (
+    !Number.isFinite(config.automation.minimumCoveragePercent) ||
+    config.automation.minimumCoveragePercent <= 0 ||
+    config.automation.minimumCoveragePercent > 100
+  ) {
+    errors.push(
+      "MINIMUM_COVERAGE_PERCENT must be between 1 and 100."
+    );
+  }
 
-    if (
-        !Number.isFinite(config.pricing.maxMargin)
-    ) {
-        errors.push(
-            "MAX_MARGIN must be a valid number"
-        );
-    }
+  if (
+    !Number.isFinite(config.pricing.minMargin) ||
+    !Number.isFinite(config.pricing.maxMargin) ||
+    config.pricing.minMargin < 0 ||
+    config.pricing.maxMargin < config.pricing.minMargin
+  ) {
+    errors.push("Invalid pricing margin configuration.");
+  }
 
-    if (
-        config.pricing.minMargin >
-        config.pricing.maxMargin
-    ) {
-        errors.push(
-            "MIN_MARGIN cannot be greater than MAX_MARGIN"
-        );
-    }
+  if (errors.length > 0) {
+    throw new Error(
+      "Configuration validation failed:\n- " +
+        errors.join("\n- ")
+    );
+  }
 
-    /*
-    Automation validation
-    */
-
-    if (
-        config.automation.scrapeLimit < 1
-    ) {
-        errors.push(
-            "SCRAPE_LIMIT must be greater than 0"
-        );
-    }
-
-    if (
-        config.automation.concurrency < 1
-    ) {
-        errors.push(
-            "SCRAPE_CONCURRENCY must be greater than 0"
-        );
-    }
-
-    if (
-        config.automation.maxDiscoveryPages < 1
-    ) {
-        errors.push(
-            "MAX_DISCOVERY_PAGES must be greater than 0"
-        );
-    }
-
-    if (
-        config.automation.missingConfirmationRuns < 1
-    ) {
-        errors.push(
-            "MISSING_CONFIRMATION_RUNS must be greater than 0"
-        );
-    }
-
-    /*
-    -----------------------------------------------------
-    Stop immediately if configuration is invalid.
-    -----------------------------------------------------
-    */
-
-    if (errors.length > 0) {
-        console.error("");
-        console.error(
-            "======================================"
-        );
-        console.error(
-            "   ❌ PRIX-CHOC CONFIGURATION ERROR"
-        );
-        console.error(
-            "======================================"
-        );
-        console.error("");
-
-        for (const error of errors) {
-            console.error(`- ${error}`);
-        }
-
-        console.error("");
-        console.error(
-            "تأكد من ملف automation/.env"
-        );
-        console.error(
-            "وتأكد من GitHub Secrets عند تشغيل GitHub Actions."
-        );
-        console.error("");
-
-        process.exit(1);
-    }
-
-    return true;
+  return true;
 }
 
-/*
-=========================================================
- DEBUG / SAFE SUMMARY
-=========================================================
-
-لا نطبع كلمة المرور أبداً.
-=========================================================
-*/
-
+/**
+ * Display a safe configuration summary.
+ * Passwords are intentionally never printed.
+ */
 export function printConfigSummary() {
-    console.log("");
-    console.log(
-        "======================================"
-    );
-    console.log(
-        "     PRIX-CHOC AUTOMATION CONFIG"
-    );
-    console.log(
-        "======================================"
-    );
+  console.log("\n=== Prix-Choc Automation Configuration ===");
 
-    console.log(
-        `Sawa9ly Base URL : ${config.sawa9ly.baseUrl}`
-    );
+  console.log("Sawa9ly:");
+  console.log(`  Base URL:      ${config.sawa9ly.baseUrl}`);
+  console.log(`  Login URL:     ${config.sawa9ly.loginUrl}`);
+  console.log(`  Dashboard URL: ${config.sawa9ly.dashboardUrl}`);
+  console.log(
+    `  Email:         ${
+      config.sawa9ly.email ? "configured" : "MISSING"
+    }`
+  );
+  console.log(
+    `  Password:      ${
+      config.sawa9ly.password ? "configured" : "MISSING"
+    }`
+  );
 
-    console.log(
-        `Login URL        : ${config.sawa9ly.loginUrl}`
-    );
+  console.log("\nAutomation:");
+  console.log(
+    `  Scrape limit:  ${config.automation.scrapeLimit}`
+  );
+  console.log(
+    `  Concurrency:   ${config.automation.concurrency}`
+  );
+  console.log(
+    `  Headless:      ${config.automation.headless}`
+  );
+  console.log(
+    `  Dry run:       ${config.automation.dryRun}`
+  );
+  console.log(
+    `  Missing runs:  ${config.automation.missingConfirmationRuns}`
+  );
+  console.log(
+    `  Min coverage:  ${config.automation.minimumCoveragePercent}%`
+  );
 
-    console.log(
-        `Dashboard URL    : ${config.sawa9ly.dashboardUrl}`
-    );
+  console.log("\nPricing:");
+  console.log(
+    `  Default margin: ${config.pricing.defaultMargin} DA`
+  );
+  console.log(
+    `  Min margin:     ${config.pricing.minMargin} DA`
+  );
+  console.log(
+    `  Max margin:     ${config.pricing.maxMargin} DA`
+  );
 
-    console.log(
-        `Email configured : ${
-            config.sawa9ly.email ? "YES" : "NO"
-        }`
-    );
+  console.log("\nPaths:");
+  console.log(`  Products: ${config.paths.productsFile}`);
+  console.log(`  Output:   ${config.paths.outputDir}`);
+  console.log(`  Debug:    ${config.paths.debugDir}`);
+  console.log(`  State:    ${config.paths.stateDir}`);
+  console.log(`  History:  ${config.paths.historyDir}`);
+  console.log(`  Backups:  ${config.paths.backupDir}`);
 
-    console.log(
-        `Password set     : ${
-            config.sawa9ly.password ? "YES" : "NO"
-        }`
-    );
-
-    console.log(
-        `Scrape limit     : ${config.automation.scrapeLimit}`
-    );
-
-    console.log(
-        `Concurrency      : ${config.automation.concurrency}`
-    );
-
-    console.log(
-        `Max pages        : ${config.automation.maxDiscoveryPages}`
-    );
-
-    console.log(
-        `Missing runs     : ${config.automation.missingConfirmationRuns}`
-    );
-
-    console.log(
-        `Headless         : ${config.automation.headless}`
-    );
-
-    console.log(
-        `Dry run          : ${config.automation.dryRun}`
-    );
-
-    console.log(
-        `Default margin   : ${config.pricing.defaultMargin}`
-    );
-
-    console.log(
-        `Min margin       : ${config.pricing.minMargin}`
-    );
-
-    console.log(
-        `Max margin       : ${config.pricing.maxMargin}`
-    );
-
-    console.log(
-        `Products file    : ${config.paths.productsFile}`
-    );
-
-    console.log(
-        `Output directory : ${config.paths.outputDir}`
-    );
-
-    console.log(
-        `State directory  : ${config.paths.stateDir}`
-    );
-
-    console.log(
-        `Debug directory  : ${config.paths.debugDir}`
-    );
-
-    console.log(
-        "======================================"
-    );
-    console.log("");
+  console.log("===========================================\n");
 }
 
-/*
-=========================================================
- OPTIONAL DIRECT EXECUTION
-=========================================================
-*/
-
-if (
-    process.argv[1] &&
-    path.resolve(process.argv[1]) ===
-        path.resolve(fileURLToPath(import.meta.url))
-) {
-    validateConfig();
-    printConfigSummary();
-}
+export default config;
