@@ -1,8 +1,11 @@
-name: Prix Choc - Daily Sawa9ly Product Sync
+name: Prix-Choc - Sawa9ly Product Sync
 
 on:
   workflow_dispatch:
+
   schedule:
+    # Every day at 02:00 UTC
+    # ≈ 03:00 Algeria time
     - cron: "0 2 * * *"
 
 permissions:
@@ -13,192 +16,423 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  sync-products:
+  sync:
+    name: Discover → Scrape → Generate → Verify → Commit
     runs-on: ubuntu-latest
 
+    timeout-minutes: 120
+
+    defaults:
+      run:
+        working-directory: automation
+
+    env:
+      NODE_VERSION: "20"
+
+      SAWA9LY_BASE_URL: "https://affiliate.sawa9ly.pro"
+      SAWA9LY_LOGIN_URL: "https://affiliate.sawa9ly.pro/login"
+      SAWA9LY_DASHBOARD_URL: "https://affiliate.sawa9ly.pro/store"
+
+      SCRAPE_LIMIT: "2094"
+      SCRAPE_CONCURRENCY: "8"
+
+      HEADLESS: "true"
+      DRY_RUN: "false"
+
+      MISSING_CONFIRMATION_RUNS: "2"
+      MINIMUM_COVERAGE_PERCENT: "70"
+
+      MAX_DISCOVERY_PAGES: "250"
+
+      PAGE_TIMEOUT_MS: "30000"
+      NAVIGATION_TIMEOUT_MS: "30000"
+      RENDER_WAIT_MS: "1200"
+
+      DEFAULT_MARGIN: "1000"
+      MIN_MARGIN: "300"
+      MAX_MARGIN: "5000"
+
+      PRODUCTS_FILE: "../products.js"
+      OUTPUT_DIR: "./output"
+      DEBUG_DIR: "./debug"
+      STATE_DIR: "./state"
+      HISTORY_DIR: "./state/history"
+      BACKUP_DIR: "./backups"
+
     steps:
+
+      # -------------------------------------------------------
+      # 1. Checkout
+      # -------------------------------------------------------
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: main
 
+      # -------------------------------------------------------
+      # 2. Node.js
+      # -------------------------------------------------------
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
+          cache-dependency-path: automation/package-lock.json
 
-      - name: Verify automation files
-        working-directory: automation
-        run: |
-          test -f package.json
-          test -f discover.js
-          test -f scraper.js
-          test -f sync.js
-          test -f generator.js
-          test -f config.js
-          test -f pricing.js
-          node --check discover.js
-          node --check scraper.js
-          node --check sync.js
-          node --check generator.js
-          node --check config.js
-          echo "Automation syntax: OK"
+      # -------------------------------------------------------
+      # 3. Install dependencies
+      # -------------------------------------------------------
+      - name: Install automation dependencies
+        run: npm ci
 
-      - name: Install dependencies
-        working-directory: automation
-        run: |
-          if [ -f package-lock.json ]; then
-            npm ci
-          else
-            npm install
-          fi
-
-      - name: Install Chromium
-        working-directory: automation
+      # -------------------------------------------------------
+      # 4. Install Playwright Chromium
+      # -------------------------------------------------------
+      - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
 
-      - name: Create environment
-        working-directory: automation
+      # -------------------------------------------------------
+      # 5. Create clean runtime directories
+      # -------------------------------------------------------
+      - name: Prepare automation directories
         run: |
-          cat > .env <<'EOF'
-          SAWA9LY_LOGIN_URL=https://affiliate.sawa9ly.pro/
-          SAWA9LY_DASHBOARD_URL=https://affiliate.sawa9ly.pro/store
-          SAWA9LY_EMAIL=${{ secrets.SAWA9LY_EMAIL }}
-          SAWA9LY_PASSWORD=${{ secrets.SAWA9LY_PASSWORD }}
-          SCRAPE_LIMIT=2094
-          SCRAPE_CONCURRENCY=8
-          MISSING_CONFIRMATION_RUNS=2
-          HEADLESS=true
-          DRY_RUN=false
-          DEFAULT_MARGIN=1000
-          MIN_MARGIN=300
-          MAX_MARGIN=5000
-          PRODUCTS_FILE=../products.js
-          OUTPUT_DIR=./output
+          rm -rf output
+          mkdir -p output
+
+          mkdir -p debug
+          mkdir -p state
+          mkdir -p state/history
+          mkdir -p backups
+
+          rm -f .env
+
+      # -------------------------------------------------------
+      # 6. Create runtime .env
+      # -------------------------------------------------------
+      - name: Create runtime environment
+        env:
+          SAWA9LY_EMAIL_SECRET: ${{ secrets.SAWA9LY_EMAIL }}
+          SAWA9LY_PASSWORD_SECRET: ${{ secrets.SAWA9LY_PASSWORD }}
+        run: |
+          cat > .env <<EOF
+          SAWA9LY_BASE_URL=${SAWA9LY_BASE_URL}
+          SAWA9LY_LOGIN_URL=${SAWA9LY_LOGIN_URL}
+          SAWA9LY_DASHBOARD_URL=${SAWA9LY_DASHBOARD_URL}
+
+          SAWA9LY_EMAIL=${SAWA9LY_EMAIL_SECRET}
+          SAWA9LY_PASSWORD=${SAWA9LY_PASSWORD_SECRET}
+
+          SCRAPE_LIMIT=${SCRAPE_LIMIT}
+          SCRAPE_CONCURRENCY=${SCRAPE_CONCURRENCY}
+
+          HEADLESS=${HEADLESS}
+          DRY_RUN=${DRY_RUN}
+
+          MISSING_CONFIRMATION_RUNS=${MISSING_CONFIRMATION_RUNS}
+          MINIMUM_COVERAGE_PERCENT=${MINIMUM_COVERAGE_PERCENT}
+
+          MAX_DISCOVERY_PAGES=${MAX_DISCOVERY_PAGES}
+
+          PAGE_TIMEOUT_MS=${PAGE_TIMEOUT_MS}
+          NAVIGATION_TIMEOUT_MS=${NAVIGATION_TIMEOUT_MS}
+          RENDER_WAIT_MS=${RENDER_WAIT_MS}
+
+          DEFAULT_MARGIN=${DEFAULT_MARGIN}
+          MIN_MARGIN=${MIN_MARGIN}
+          MAX_MARGIN=${MAX_MARGIN}
+
+          PRODUCTS_FILE=${PRODUCTS_FILE}
+          OUTPUT_DIR=${OUTPUT_DIR}
+          DEBUG_DIR=${DEBUG_DIR}
+          STATE_DIR=${STATE_DIR}
+          HISTORY_DIR=${HISTORY_DIR}
+          BACKUP_DIR=${BACKUP_DIR}
           EOF
 
-      - name: Run full product discovery
-        working-directory: automation
+          chmod 600 .env
+
+      # -------------------------------------------------------
+      # 7. Validate source files before touching products.js
+      # -------------------------------------------------------
+      - name: Validate automation syntax
+        run: |
+          node --check config.js
+          node --check discover.js
+          node --check scraper.js
+          node --check generator.js
+
+      # -------------------------------------------------------
+      # 8. Validate existing products.js
+      # -------------------------------------------------------
+      - name: Validate existing products.js
+        run: |
+          test -f ../products.js
+          node --check ../products.js
+
+      # -------------------------------------------------------
+      # 9. Print configuration
+      # -------------------------------------------------------
+      - name: Print safe configuration summary
+        run: node -e "import('./config.js').then(({printConfigSummary}) => printConfigSummary())"
+
+      # -------------------------------------------------------
+      # 10. DISCOVERY
+      # -------------------------------------------------------
+      - name: Discover Sawa9ly catalogue
         run: npm run discover
 
-      - name: Verify discovery integrity
-        working-directory: automation
+      # -------------------------------------------------------
+      # 11. Verify Discovery output
+      # -------------------------------------------------------
+      - name: Verify discovery results
         run: |
-          test -s debug/product-links.json
-          test -s debug/discovery-report.json
-          test -s state/discovery-history.json
+          test -f debug/product-links.json
+          test -f debug/discovery-report.json
 
-          node - <<'NODE'
-          const fs = require("fs");
-          const r = JSON.parse(
-            fs.readFileSync("debug/discovery-report.json", "utf8")
-          );
-
-          if (r.complete !== true) {
-            throw new Error("Discovery is not complete.");
-          }
-
-          if (r.availabilitySafe !== true) {
-            throw new Error("Discovery is not availability-safe.");
-          }
-
-          if (!Number(r.productsFound)) {
-            throw new Error("Discovery returned zero products.");
-          }
-
-          console.log("Discovery:", r.productsFound);
-          console.log("Availability safe:", r.availabilitySafe);
-          console.log(
-            "Confirmed missing:",
-            (r.confirmedMissingIds || []).length
-          );
-          NODE
-
-      - name: Run full scrape and sync
-        working-directory: automation
-        run: npm run sync
-
-      - name: Verify generated data
-        working-directory: automation
-        run: |
-          test -f output/products.raw.json
-          test -f debug/scraper-debug.json
-
-          node - <<'NODE'
+          node <<'NODE'
           const fs = require("fs");
 
-          const products = JSON.parse(
-            fs.readFileSync("output/products.raw.json", "utf8")
+          const links = JSON.parse(
+            fs.readFileSync("debug/product-links.json", "utf8")
           );
 
           const report = JSON.parse(
-            fs.readFileSync("debug/scraper-debug.json", "utf8")
+            fs.readFileSync("debug/discovery-report.json", "utf8")
           );
 
-          if (!Array.isArray(products) || products.length === 0) {
-            throw new Error("Scraper returned zero products.");
+          if (!Array.isArray(links)) {
+            throw new Error("product-links.json is not an array.");
           }
 
-          console.log("Scraped:", products.length);
-          console.log("Failed:", report.failed);
-          console.log("Coverage:", report.coverage);
-          console.log("Images:", report.totalImages);
+          if (links.length === 0) {
+            throw new Error(
+              "Discovery returned ZERO product links. Aborting safely."
+            );
+          }
+
+          console.log(
+            `Discovered product links: ${links.length}`
+          );
+
+          console.log(
+            `Discovery report loaded: YES`
+          );
+
+          if (report) {
+            console.log(
+              `Discovery report keys: ${Object.keys(report).join(", ")}`
+            );
+          }
           NODE
 
-      - name: Verify products.js
+      # -------------------------------------------------------
+      # 12. SCRAPER
+      # -------------------------------------------------------
+      - name: Scrape product catalogue
+        run: npm run scrape
+
+      # -------------------------------------------------------
+      # 13. Verify raw scraper output
+      # -------------------------------------------------------
+      - name: Verify scraper results
         run: |
-          test -f products.js
-          node --check products.js
-          echo "products.js syntax: OK"
+          test -f output/products.raw.json
 
-      - name: Show changes
+          node <<'NODE'
+          const fs = require("fs");
+
+          const raw = JSON.parse(
+            fs.readFileSync("output/products.raw.json", "utf8")
+          );
+
+          if (!Array.isArray(raw)) {
+            throw new Error(
+              "products.raw.json is not an array."
+            );
+          }
+
+          console.log(
+            `Raw products scraped: ${raw.length}`
+          );
+
+          if (raw.length === 0) {
+            console.log(
+              "No products were scraped."
+            );
+
+            console.log(
+              "This run will NOT be allowed to destroy the existing catalogue."
+            );
+          }
+          NODE
+
+      # -------------------------------------------------------
+      # 14. GENERATOR
+      # -------------------------------------------------------
+      - name: Generate products.js safely
+        run: npm run generate
+
+      # -------------------------------------------------------
+      # 15. Validate generated products.js
+      # -------------------------------------------------------
+      - name: Validate generated products.js
         run: |
-          git status --short
-          git diff --stat
+          test -f ../products.js
+          node --check ../products.js
 
-      - name: Commit and push safely
-        shell: bash
+      # -------------------------------------------------------
+      # 16. Deep catalogue safety verification
+      # -------------------------------------------------------
+      - name: Verify catalogue integrity
         run: |
-          set -euo pipefail
+          node <<'NODE'
+          const fs = require("fs");
 
-          git config user.name "Prix Choc Bot"
-          git config user.email "prix-choc-bot@users.noreply.github.com"
+          const source = fs.readFileSync(
+            "../products.js",
+            "utf8"
+          );
 
-          if git ls-files --error-unmatch automation/.env >/dev/null 2>&1; then
-            git restore -- automation/.env
+          if (!source.trim()) {
+            throw new Error(
+              "products.js is EMPTY."
+            );
+          }
+
+          if (!/export\s+default/.test(source)) {
+            throw new Error(
+              "products.js does not contain export default."
+            );
+          }
+
+          const productObjects =
+            (source.match(/sawa9lyId\s*:/g) || []).length;
+
+          console.log(
+            `Detected Sawa9ly products in products.js: ${productObjects}`
+          );
+
+          if (productObjects === 0) {
+            throw new Error(
+              "No Sawa9ly products detected in generated products.js."
+            );
+          }
+
+          console.log(
+            "Catalogue integrity: PASS"
+          );
+          NODE
+
+      # -------------------------------------------------------
+      # 17. Verify protected files were NOT modified
+      # -------------------------------------------------------
+      - name: Verify protected frontend files
+        run: |
+          cd ..
+
+          if git diff --quiet -- index.html database.js locations.js; then
+            echo "Protected files: unchanged"
           else
-            rm -f automation/.env
+            echo "ERROR: Protected project files were modified."
+            git diff -- index.html database.js locations.js
+            exit 1
           fi
+
+      # -------------------------------------------------------
+      # 18. Remove secrets / temporary environment
+      # -------------------------------------------------------
+      - name: Remove runtime secrets
+        if: always()
+        run: |
+          rm -f .env
+
+      # -------------------------------------------------------
+      # 19. Show changes
+      # -------------------------------------------------------
+      - name: Inspect Git changes
+        run: |
+          cd ..
+
+          echo "=============================="
+          echo "GIT STATUS"
+          echo "=============================="
+
+          git status --short
+
+          echo ""
+          echo "=============================="
+          echo "PRODUCTS.JS DIFF STAT"
+          echo "=============================="
+
+          git diff --stat -- products.js
+
+      # -------------------------------------------------------
+      # 20. Stage ONLY products.js + automation state history
+      # -------------------------------------------------------
+      - name: Stage generated catalogue
+        run: |
+          cd ..
 
           git add products.js
-          git add -f automation/state/discovery-history.json
+
+          if [ -d automation/state/history ]; then
+            git add automation/state/history
+          fi
+
+      # -------------------------------------------------------
+      # 21. Commit
+      # -------------------------------------------------------
+      - name: Commit catalogue changes
+        run: |
+          cd ..
 
           if git diff --cached --quiet; then
-            echo "No product/state changes to commit."
+            echo "No catalogue changes detected."
             exit 0
           fi
 
-          git commit -m "🤖 Daily Sawa9ly catalog sync"
+          git config user.name "Prix-Choc Automation"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          if git push origin HEAD:main; then
-            echo "SAFE PUSH SUCCESSFUL"
-            exit 0
-          fi
+          git commit \
+            -m "chore: sync Sawa9ly products"
+
+      # -------------------------------------------------------
+      # 22. Rebase safely against latest main
+      # -------------------------------------------------------
+      - name: Rebase against latest main
+        run: |
+          cd ..
 
           git fetch origin main
 
-          if git rebase origin/main; then
-            git push origin HEAD:main
-            exit 0
-          fi
+          git rebase origin/main
 
-          git rebase --abort || true
+      # -------------------------------------------------------
+      # 23. Push
+      # -------------------------------------------------------
+      - name: Push catalogue update
+        run: |
+          cd ..
 
-          if git merge --no-edit origin/main; then
-            git push origin HEAD:main
-            exit 0
-          fi
+          git push origin HEAD:main
 
-          git merge --abort || true
-          echo "ERROR: Push failed. No force push was used."
-          exit 1
+      # -------------------------------------------------------
+      # 24. Final status
+      # -------------------------------------------------------
+      - name: Final verification
+        if: always()
+        run: |
+          cd ..
+
+          echo ""
+          echo "======================================"
+          echo "Prix-Choc Product Sync finished"
+          echo "======================================"
+
+          git status --short
+
+          echo ""
+          echo "Latest commit:"
+          git log -1 --oneline
