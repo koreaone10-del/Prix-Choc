@@ -1,29 +1,75 @@
-# Prix Choc — Phase 2
+# Prix-Choc — Full Sawa9ly Catalog Sync
 
-Cette archive contient les fichiers complets à remplacer dans le dépôt GitHub.
+هذه الحزمة تستبدل ملفات الأتمتة التالية كاملة:
 
-## Fichiers
-- `automation/discover.js` — découverte complète et état persistant des produits absents.
-- `automation/scraper.js` — scraper corrigé avec galerie d'images et scraping des nouveaux produits.
-- `automation/generator.js` — génération/restauration et gestion sûre de `available`.
-- `.github/workflows/products-sync.yml` — sauvegarde de l'état persistant dans Git.
+- automation/config.js
+- automation/discover.js
+- automation/scraper.js
+- automation/sync.js
+- automation/generator.js
+- .github/workflows/products-sync.yml
 
-## Important
-Ne modifiez pas des lignes à l'intérieur des fichiers. Remplacez les fichiers complets.
+## الوظائف
 
-Le fichier d'état persistant sera créé automatiquement ici :
-`automation/state/discovery-history.json`
+1. استخدام Sawa9ly Affiliate الجديدة:
+   https://affiliate.sawa9ly.pro/
 
-Le workflow le commit explicitement avec `products.js`, sans utiliser `git add .`.
+2. استخدام روابط المنتجات:
+   /store/:id
 
-## Logique disponibilité
-- Une absence lors d'un seul scan ne désactive pas le produit.
-- Après deux scans réussis consécutifs où le produit reste absent, il peut devenir `available: false`.
-- Si son identifiant Sawa9ly réapparaît, le produit est restauré automatiquement à `available: true`.
-- Les produits manuels ne sont pas désactivés par cette logique.
+3. اكتشاف جميع المنتجات يوميًا.
 
-## Vérifications effectuées avant livraison
-- `node --check automation/discover.js` OK
-- `node --check automation/scraper.js` OK
-- `node --check automation/generator.js` OK
-- YAML du workflow analysé sans erreur de syntaxe.
+4. Scraping للمنتجات الموجودة والجديدة، وليس الجديدة فقط.
+
+5. تحديث:
+   - الاسم
+   - الوصف
+   - سعر التكلفة
+   - سعر البيع
+   - الربح
+   - الصورة الرئيسية
+   - images[]
+
+6. عدم حذف المنتجات من products.js.
+
+7. بعد غياب المنتج في عدد التشغيلات المحدد:
+   available: false
+
+8. عند عودة المنتج:
+   available: true
+
+9. إذا فشل Discovery:
+   لا يتم تغيير availability.
+
+10. إذا فشل Scraping لمنتج:
+    تبقى بياناته القديمة ولا يتم حذفه.
+
+11. التشغيل اليومي:
+    02:00 UTC = 03:00 بتوقيت الجزائر.
+
+## GitHub Secrets المطلوبة
+
+- SAWA9LY_EMAIL
+- SAWA9LY_PASSWORD
+
+## ملاحظة
+
+واجهة index.html الحالية في المشروع تدعم images[] بالفعل حسب البنية الحالية للمشروع؛ لذلك لا تحتاج إلى استبدالها ضمن هذه الحزمة. النظام الجديد يملأ images[] بالصور المتعددة، وتستطيع الواجهة الحالية عرضها.
+
+## قبل الاستبدال
+
+خذ نسخة من المستودع الحالي.
+
+لا تحذف products.js.
+
+بعد رفع الملفات شغّل GitHub Actions يدويًا أول مرة وراقب السجل قبل الاعتماد على التشغيل اليومي.
+
+## الفحص
+
+Workflow يقوم تلقائيًا بـ:
+
+- node --check
+- Discovery integrity
+- Scraper output validation
+- products.js syntax validation
+- commit/push آمن
