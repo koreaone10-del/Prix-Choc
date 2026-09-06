@@ -2,99 +2,94 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 
-import { config, validateConfig } from "./config.js";
+import {
+  config,
+  validateConfig,
+} from "./config.js";
 
 validateConfig();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-/* =========================================================
-   PRIX CHOC
-   SAWA9LY PRODUCT GENERATOR
-   =========================================================
+/*
+=========================================================
+ PRIX CHOC
+ SAWA9LY PRODUCT GENERATOR
+=========================================================
 
-   الهدف:
+الوظائف:
 
-   - إضافة المنتجات الجديدة
-   - تحديث المنتجات الموجودة
-   - تحديث السعر تلقائيا
-   - تحديث الصور تلقائيا
-   - الاحتفاظ بكل الصور
-   - عدم حذف أي منتج من products.js
-   - جعل المنتج غير متوفر عند اختفائه
-   - إعادة المنتج تلقائيا عند عودته
-   - الحفاظ على المنتجات اليدوية
-   - منع الكتابة عند وجود scraping غير آمن
-   - الحفاظ على ترتيب المنتجات الحالي قدر الإمكان
+1. قراءة نتيجة scraper.
+2. قراءة المنتجات الحالية.
+3. تحديث المنتجات الموجودة.
+4. إضافة المنتجات الجديدة.
+5. تحديث السعر.
+6. تحديث الصور.
+7. الاحتفاظ بكل الصور.
+8. عدم حذف المنتجات القديمة.
+9. جعل المنتج unavailable فقط عندما
+   يؤكد discovery اختفاءه.
+10. إعادة المنتج available عندما يعود.
+11. الحفاظ على المنتجات اليدوية.
+12. الحفاظ على جميع الحقول القديمة.
+13. منع إنشاء products.js فارغ أو ناقص.
+14. الكتابة بطريقة atomic.
+15. فحص products.js بعد الكتابة.
 
-   مهم:
-   generator.js لا يتصل بـ Sawa9ly.
-   هو يعتمد على:
-      products.raw.json
-      product-links.json
-      discovery-report.json
-      scraper-report.json
-   ========================================================= */
+مهم:
+generator.js لا يتصل بـ Sawa9ly.
+=========================================================
+*/
 
 
-/* =========================================================
-   PATHS
-   ========================================================= */
+/*
+=========================================================
+ PATHS
+=========================================================
+*/
 
-const outputDir =
-  config?.paths?.outputDir
-    ? path.resolve(config.paths.outputDir)
-    : path.join(__dirname, "output");
+const outputDir = path.resolve(
+  config.paths.outputDir
+);
 
-const debugDir =
-  config?.paths?.debugDir
-    ? path.resolve(config.paths.debugDir)
-    : path.join(__dirname, "debug");
+const debugDir = path.resolve(
+  config.paths.debugDir
+);
 
-const rawProductsFile =
-  path.join(
-    outputDir,
-    "products.raw.json"
-  );
+const productsFile = path.resolve(
+  config.paths.productsFile
+);
 
-const productsFile =
-  config?.paths?.productsFile
-    ? path.resolve(config.paths.productsFile)
-    : path.resolve(
-        __dirname,
-        "../products.js"
-      );
+const rawProductsFile = path.join(
+  outputDir,
+  "products.raw.json"
+);
 
-const productLinksFile =
-  path.join(
-    debugDir,
-    "product-links.json"
-  );
+const productLinksFile = path.join(
+  debugDir,
+  "product-links.json"
+);
 
-const discoveryReportFile =
-  path.join(
-    debugDir,
-    "discovery-report.json"
-  );
+const discoveryReportFile = path.join(
+  debugDir,
+  "discovery-report.json"
+);
 
-const scraperReportFile =
-  path.join(
-    debugDir,
-    "scraper-report.json"
-  );
+const scraperReportFile = path.join(
+  debugDir,
+  "scraper-report.json"
+);
 
-const generatorReportFile =
-  path.join(
-    debugDir,
-    "generator-report.json"
-  );
+const generatorReportFile = path.join(
+  debugDir,
+  "generator-report.json"
+);
 
-const backupProductsFile =
-  path.join(
-    debugDir,
-    "products-before-generation.js"
-  );
+const backupProductsFile = path.join(
+  debugDir,
+  "products-before-generation.js"
+);
 
 fs.mkdirSync(
   outputDir,
@@ -107,12 +102,14 @@ fs.mkdirSync(
 );
 
 
-/* =========================================================
-   BASIC HELPERS
-   ========================================================= */
+/*
+=========================================================
+ BASIC HELPERS
+=========================================================
+*/
 
 function cleanText(value) {
-  return String(value || "")
+  return String(value ?? "")
     .replace(/\u00a0/g, " ")
     .replace(/\r/g, " ")
     .replace(/\n+/g, " ")
@@ -122,39 +119,46 @@ function cleanText(value) {
 }
 
 
-function readJson(
-  file,
-  fallback = null
-) {
+function readJson(file, fallback = null) {
   try {
     if (!fs.existsSync(file)) {
       return fallback;
     }
 
-    return JSON.parse(
+    const content =
       fs.readFileSync(
         file,
         "utf8"
-      )
-    );
+      );
+
+    if (!content.trim()) {
+      return fallback;
+    }
+
+    return JSON.parse(content);
   } catch {
     return fallback;
   }
 }
 
 
-function writeJson(
-  file,
-  data
-) {
+function writeJson(file, data) {
+  const tempFile =
+    `${file}.tmp`;
+
   fs.writeFileSync(
-    file,
+    tempFile,
     JSON.stringify(
       data,
       null,
       2
     ),
     "utf8"
+  );
+
+  fs.renameSync(
+    tempFile,
+    file
   );
 }
 
@@ -174,7 +178,7 @@ function normalizeId(value) {
     text.match(/\d+/);
 
   return match
-    ? match[0]
+    ? String(match[0])
     : "";
 }
 
@@ -186,14 +190,12 @@ function productIdFromUrl(value) {
     );
 
   return match
-    ? match[1]
+    ? String(match[1])
     : "";
 }
 
 
-function normalizeProductUrl(
-  value
-) {
+function normalizeProductUrl(value) {
   const id =
     productIdFromUrl(value);
 
@@ -202,42 +204,22 @@ function normalizeProductUrl(
   }
 
   const base =
-    config?.sawa9ly?.baseUrl ||
-    "https://affiliate.sawa9ly.pro";
+    String(
+      config.sawa9ly.baseUrl
+    ).replace(
+      /\/+$/,
+      ""
+    );
 
-  return `${base.replace(
-    /\/+$/,
-    ""
-  )}/store/${id}`;
+  return `${base}/store/${id}`;
 }
 
 
-/* =========================================================
-   JAVASCRIPT STRING SAFETY
-   ========================================================= */
-
-function jsString(value) {
-  return JSON.stringify(
-    value === undefined ||
-      value === null
-      ? ""
-      : String(value)
-  );
-}
-
-
-function jsValue(value) {
-  return JSON.stringify(
-    value,
-    null,
-    2
-  );
-}
-
-
-/* =========================================================
-   VALIDATION
-   ========================================================= */
+/*
+=========================================================
+ PRICE VALIDATION
+=========================================================
+*/
 
 function isValidPrice(value) {
   const number =
@@ -250,6 +232,12 @@ function isValidPrice(value) {
   );
 }
 
+
+/*
+=========================================================
+ IMAGE VALIDATION
+=========================================================
+*/
 
 function isValidImage(value) {
   if (!value) {
@@ -277,59 +265,53 @@ function isValidImage(value) {
 }
 
 
-/* =========================================================
-   IMAGE NORMALIZATION
-   ========================================================= */
+function normalizeImages(product) {
+  const images = [];
 
-function normalizeImages(
-  product
-) {
-  const result = [];
-
-  const add = value => {
-    if (!isValidImage(value)) {
+  const add = (value) => {
+    if (
+      !isValidImage(value)
+    ) {
       return;
     }
 
-    const text =
+    const image =
       String(value).trim();
 
-    if (!result.includes(text)) {
-      result.push(text);
+    if (
+      !images.includes(image)
+    ) {
+      images.push(image);
     }
   };
 
-  /*
-    الصورة الرئيسية أولا.
-  */
-
   add(product?.image);
 
-  /*
-    ثم الصور الإضافية.
-  */
-
   if (
-    Array.isArray(product?.images)
+    Array.isArray(
+      product?.images
+    )
   ) {
     for (
-      const image of product.images
+      const image of
+        product.images
     ) {
       add(image);
     }
   }
 
-  /*
-    الحد الأقصى 20 صورة.
-  */
-
-  return result.slice(0, 20);
+  return images.slice(
+    0,
+    20
+  );
 }
 
 
-/* =========================================================
-   LOAD RAW SCRAPED PRODUCTS
-   ========================================================= */
+/*
+=========================================================
+ LOAD JSON FILES
+=========================================================
+*/
 
 function loadRawProducts() {
   if (
@@ -342,34 +324,32 @@ function loadRawProducts() {
     );
   }
 
-  const raw =
+  const products =
     readJson(
       rawProductsFile,
       null
     );
 
-  if (!Array.isArray(raw)) {
+  if (
+    !Array.isArray(products)
+  ) {
     throw new Error(
       "products.raw.json must contain an array."
     );
   }
 
-  return raw;
+  return products;
 }
 
 
-/* =========================================================
-   LOAD DISCOVERED PRODUCT IDS
-   ========================================================= */
-
-function loadDiscoveredIds() {
+function loadProductLinks() {
   if (
     !fs.existsSync(
       productLinksFile
     )
   ) {
     throw new Error(
-      `Missing discovery file: ${productLinksFile}`
+      `Missing discovery links: ${productLinksFile}`
     );
   }
 
@@ -379,25 +359,97 @@ function loadDiscoveredIds() {
       null
     );
 
-  if (!Array.isArray(links)) {
+  if (
+    !Array.isArray(links)
+  ) {
     throw new Error(
       "product-links.json must contain an array."
     );
   }
 
+  return links;
+}
+
+
+function loadDiscoveryReport() {
+  if (
+    !fs.existsSync(
+      discoveryReportFile
+    )
+  ) {
+    throw new Error(
+      "discovery-report.json is missing."
+    );
+  }
+
+  const report =
+    readJson(
+      discoveryReportFile,
+      null
+    );
+
+  if (!report) {
+    throw new Error(
+      "discovery-report.json is invalid."
+    );
+  }
+
+  return report;
+}
+
+
+function loadScraperReport() {
+  if (
+    !fs.existsSync(
+      scraperReportFile
+    )
+  ) {
+    throw new Error(
+      "scraper-report.json is missing."
+    );
+  }
+
+  const report =
+    readJson(
+      scraperReportFile,
+      null
+    );
+
+  if (!report) {
+    throw new Error(
+      "scraper-report.json is invalid."
+    );
+  }
+
+  return report;
+}
+
+
+/*
+=========================================================
+ DISCOVERY IDS
+=========================================================
+*/
+
+function buildDiscoveredIds(links) {
   const ids =
     new Set();
 
-  for (const item of links) {
+  for (
+    const item of links
+  ) {
     const href =
-      typeof item === "string"
+      typeof item ===
+      "string"
         ? item
         : item?.href;
 
     const id =
       normalizeId(
         item?.sawa9lyId ||
-        productIdFromUrl(href)
+        productIdFromUrl(
+          href
+        )
       );
 
     if (id) {
@@ -409,74 +461,69 @@ function loadDiscoveredIds() {
 }
 
 
-/* =========================================================
-   LOAD REPORTS
-   ========================================================= */
-
-function loadDiscoveryReport() {
-  return readJson(
-    discoveryReportFile,
-    null
-  );
-}
-
-
-function loadScraperReport() {
-  return readJson(
-    scraperReportFile,
-    null
-  );
-}
-
-
-/* =========================================================
-   SCRAPER SAFETY
-   ========================================================= */
+/*
+=========================================================
+ SCRAPER SAFETY
+=========================================================
+*/
 
 function validateScraperSafety(
   rawProducts,
   discoveredIds,
+  discoveryReport,
   scraperReport
 ) {
-  if (!scraperReport) {
+  if (
+    discoveryReport.complete !==
+    true
+  ) {
     throw new Error(
-      "scraper-report.json is missing."
+      "Discovery is not complete. Generation stopped."
     );
   }
 
   if (
-    scraperReport.safeToPublish === false
+    discoveryReport.availabilitySafe !==
+    true
+  ) {
+    throw new Error(
+      "Discovery is not availability-safe. Generation stopped."
+    );
+  }
+
+  if (
+    scraperReport.safeToPublish !==
+    true
   ) {
     throw new Error(
       "Scraper marked this run as unsafe to publish."
     );
   }
 
-  const scrapedCount =
-    rawProducts.length;
-
-  const reportCount =
+  const reportScraped =
     Number(
-      scraperReport.scraped || 0
+      scraperReport.scraped ?? 0
     );
 
   if (
-    reportCount > 0 &&
-    scrapedCount !== reportCount
+    reportScraped !==
+    rawProducts.length
   ) {
     throw new Error(
-      `Scraper report mismatch: report=${reportCount}, file=${scrapedCount}.`
+      `Scraper mismatch: report says ${reportScraped} products, raw file contains ${rawProducts.length}.`
     );
   }
 
-  /*
-    لا نسمح بأن تكون لدينا
-    قائمة discovery كبيرة جدا
-    ولكن scraper أعاد صفرا.
-  */
+  const discoveredCount =
+    Number(
+      discoveryReport.uniqueProductsFound ??
+      discoveryReport.discovered ??
+      discoveryReport.productsFound ??
+      discoveredIds.size
+    );
 
   if (
-    discoveredIds.size > 0 &&
+    discoveredCount > 0 &&
     rawProducts.length === 0
   ) {
     throw new Error(
@@ -484,29 +531,51 @@ function validateScraperSafety(
     );
   }
 
-  /*
-    إذا كانت التغطية أقل من 70%
-    نوقف generator.
-  */
-
   const coverage =
     Number(
-      scraperReport.coverage || 0
+      scraperReport.coverage ?? 0
     );
 
+  const minimumCoverage =
+    Number(
+      config.automation
+        .minimumCoveragePercent ?? 70
+    ) / 100;
+
   if (
-    coverage < 0.70
+    coverage <
+    minimumCoverage
   ) {
     throw new Error(
-      `Unsafe scraper coverage: ${(coverage * 100).toFixed(2)}%.`
+      `Unsafe scraper coverage: ${(coverage * 100).toFixed(2)}%. Required: ${(minimumCoverage * 100).toFixed(2)}%.`
+    );
+  }
+
+  /*
+  إذا كان عدد المنتجات المكتشفة
+  أكبر من scrapeLimit، لا نسمح
+  بتوليد قاعدة جزئية.
+
+  scraper.js نفسه يجب أن يوقف العملية،
+  لكن هذا فحص إضافي.
+  */
+
+  if (
+    scraperReport.fullCatalogSelected ===
+    false
+  ) {
+    throw new Error(
+      "Scraper did not process the full discovered catalog."
     );
   }
 }
 
 
-/* =========================================================
-   RAW PRODUCT MAP
-   ========================================================= */
+/*
+=========================================================
+ RAW PRODUCT MAP
+=========================================================
+*/
 
 function buildRawProductMap(
   rawProducts
@@ -515,7 +584,8 @@ function buildRawProductMap(
     new Map();
 
   for (
-    const product of rawProducts
+    const product of
+      rawProducts
   ) {
     const id =
       normalizeId(
@@ -530,15 +600,23 @@ function buildRawProductMap(
     }
 
     /*
-      لا نسمح بتكرار ID.
-      آخر نسخة صالحة تفوز.
+    المنتج يجب ألا يكون
+    مكررًا في نتيجة scraper.
     */
+
+    if (
+      map.has(id)
+    ) {
+      throw new Error(
+        `Duplicate scraped sawa9lyId detected: ${id}`
+      );
+    }
 
     map.set(
       id,
       {
         ...product,
-        sawa9lyId: id
+        sawa9lyId: id,
       }
     );
   }
@@ -547,9 +625,441 @@ function buildRawProductMap(
 }
 
 
-/* =========================================================
-   READ EXISTING products.js
-   ========================================================= */
+/*
+=========================================================
+ PRODUCTS.JS PARSER
+=========================================================
+
+المشكلة القديمة:
+JSON.parse() يفشل إذا كان الملف
+يحتوي JavaScript صالحًا ولكنه ليس
+JSON حرفيًا.
+
+نستخدم هنا استخراجًا حقيقيًا
+للمصفوفة مع احترام:
+- strings
+- escapes
+- brackets
+- comments
+
+ثم نحاول JSON.parse.
+=========================================================
+*/
+
+
+function findArrayStart(
+  source
+) {
+  const patterns = [
+    /export\s+default\s*/,
+    /export\s+(?:const|let|var)\s+products\s*=\s*/,
+    /(?:const|let|var)\s+products\s*=\s*/,
+    /module\.exports\s*=\s*/,
+  ];
+
+  for (
+    const pattern of
+      patterns
+  ) {
+    const match =
+      pattern.exec(
+        source
+      );
+
+    if (!match) {
+      continue;
+    }
+
+    const start =
+      source.indexOf(
+        "[",
+        match.index +
+          match[0].length
+      );
+
+    if (
+      start !== -1
+    ) {
+      return start;
+    }
+  }
+
+  return -1;
+}
+
+
+function findMatchingBracket(
+  source,
+  start
+) {
+  if (
+    source[start] !== "["
+  ) {
+    return -1;
+  }
+
+  let depth = 0;
+
+  let quote = null;
+
+  let escaped = false;
+
+  let lineComment = false;
+
+  let blockComment = false;
+
+  for (
+    let i = start;
+    i < source.length;
+    i++
+  ) {
+    const char =
+      source[i];
+
+    const next =
+      source[i + 1];
+
+    if (
+      lineComment
+    ) {
+      if (
+        char === "\n"
+      ) {
+        lineComment = false;
+      }
+
+      continue;
+    }
+
+    if (
+      blockComment
+    ) {
+      if (
+        char === "*" &&
+        next === "/"
+      ) {
+        blockComment = false;
+        i++;
+      }
+
+      continue;
+    }
+
+    if (quote) {
+      if (escaped) {
+        escaped = false;
+        continue;
+      }
+
+      if (
+        char === "\\"
+      ) {
+        escaped = true;
+        continue;
+      }
+
+      if (
+        char === quote
+      ) {
+        quote = null;
+      }
+
+      continue;
+    }
+
+    if (
+      char === "/" &&
+      next === "/"
+    ) {
+      lineComment = true;
+      i++;
+      continue;
+    }
+
+    if (
+      char === "/" &&
+      next === "*"
+    ) {
+      blockComment = true;
+      i++;
+      continue;
+    }
+
+    if (
+      char === '"' ||
+      char === "'" ||
+      char === "`"
+    ) {
+      quote = char;
+      continue;
+    }
+
+    if (
+      char === "["
+    ) {
+      depth++;
+      continue;
+    }
+
+    if (
+      char === "]"
+    ) {
+      depth--;
+
+      if (
+        depth === 0
+      ) {
+        return i;
+      }
+    }
+  }
+
+  return -1;
+}
+
+
+/*
+---------------------------------------------------------
+ إزالة trailing commas
+---------------------------------------------------------
+*/
+
+function removeTrailingCommas(
+  text
+) {
+  let result = "";
+
+  let quote = null;
+
+  let escaped = false;
+
+  let lineComment = false;
+
+  let blockComment = false;
+
+  for (
+    let i = 0;
+    i < text.length;
+    i++
+  ) {
+    const char =
+      text[i];
+
+    const next =
+      text[i + 1];
+
+    if (
+      lineComment
+    ) {
+      result += char;
+
+      if (
+        char === "\n"
+      ) {
+        lineComment = false;
+      }
+
+      continue;
+    }
+
+    if (
+      blockComment
+    ) {
+      result += char;
+
+      if (
+        char === "*" &&
+        next === "/"
+      ) {
+        result += next;
+        i++;
+        blockComment = false;
+      }
+
+      continue;
+    }
+
+    if (quote) {
+      result += char;
+
+      if (escaped) {
+        escaped = false;
+        continue;
+      }
+
+      if (
+        char === "\\"
+      ) {
+        escaped = true;
+        continue;
+      }
+
+      if (
+        char === quote
+      ) {
+        quote = null;
+      }
+
+      continue;
+    }
+
+    if (
+      char === "/" &&
+      next === "/"
+    ) {
+      result += char;
+      result += next;
+      i++;
+      lineComment = true;
+      continue;
+    }
+
+    if (
+      char === "/" &&
+      next === "*"
+    ) {
+      result += char;
+      result += next;
+      i++;
+      blockComment = true;
+      continue;
+    }
+
+    if (
+      char === '"' ||
+      char === "'" ||
+      char === "`"
+    ) {
+      quote = char;
+      result += char;
+      continue;
+    }
+
+    if (
+      char === ","
+    ) {
+      let j =
+        i + 1;
+
+      while (
+        j < text.length &&
+        /\s/.test(
+          text[j]
+        )
+      ) {
+        j++;
+      }
+
+      if (
+        text[j] === "]" ||
+        text[j] === "}"
+      ) {
+        continue;
+      }
+    }
+
+    result += char;
+  }
+
+  return result;
+}
+
+
+/*
+---------------------------------------------------------
+ استخراج products.js
+---------------------------------------------------------
+*/
+
+function parseProductsJs(
+  source
+) {
+  const text =
+    String(source || "");
+
+  const start =
+    findArrayStart(
+      text
+    );
+
+  if (
+    start === -1
+  ) {
+    return null;
+  }
+
+  const end =
+    findMatchingBracket(
+      text,
+      start
+    );
+
+  if (
+    end === -1
+  ) {
+    return null;
+  }
+
+  let arrayText =
+    text.slice(
+      start,
+      end + 1
+    );
+
+  /*
+  المحاولة الأولى:
+  JSON مباشر.
+  */
+
+  try {
+    const parsed =
+      JSON.parse(
+        arrayText
+      );
+
+    if (
+      Array.isArray(parsed)
+    ) {
+      return parsed;
+    }
+  } catch {
+    // Continue.
+  }
+
+  /*
+  المحاولة الثانية:
+  إزالة trailing commas.
+  */
+
+  arrayText =
+    removeTrailingCommas(
+      arrayText
+    );
+
+  try {
+    const parsed =
+      JSON.parse(
+        arrayText
+      );
+
+    if (
+      Array.isArray(parsed)
+    ) {
+      return parsed;
+    }
+  } catch {
+    // Continue.
+  }
+
+  return null;
+}
+
+
+/*
+=========================================================
+ READ EXISTING PRODUCTS
+=========================================================
+*/
 
 function loadExistingProducts() {
   if (
@@ -570,269 +1080,30 @@ function loadExistingProducts() {
       "utf8"
     );
 
-  /*
-    products.js الحالي عبارة عن
-    JavaScript object/array.
-
-    نحاول استخراج export/default
-    بطريقة آمنة بدون تنفيذ الملف
-    داخل generator.
-  */
-
-  const parsed =
-    parseProductsJs(
-      source
-    );
-
-  if (!Array.isArray(parsed)) {
-    throw new Error(
-      "Could not parse existing products.js as an array."
-    );
-  }
-
-  return parsed;
-}
-
-
-/* =========================================================
-   PRODUCTS.JS PARSER
-   ========================================================= */
-
-function parseProductsJs(
-  source
-) {
-  const text =
-    String(source || "");
-
-  /*
-    الطريقة الأولى:
-    export default [...]
-  */
-
-  let match =
-    text.match(
-      /export\s+default\s+(\[[\s\S]*\])\s*;?\s*$/m
-    );
-
-  if (match) {
-    try {
-      return JSON.parse(
-        match[1]
-      );
-    } catch {
-      /*
-        ننتقل للطريقة التالية.
-      */
-    }
-  }
-
-  /*
-    const products = [...]
-  */
-
-  match =
-    text.match(
-      /(?:const|let|var)\s+products\s*=\s*(\[[\s\S]*?\])\s*;/
-    );
-
-  if (match) {
-    try {
-      return JSON.parse(
-        match[1]
-      );
-    } catch {}
-  }
-
-  /*
-    module.exports = [...]
-  */
-
-  match =
-    text.match(
-      /module\.exports\s*=\s*(\[[\s\S]*\])\s*;?\s*$/
-    );
-
-  if (match) {
-    try {
-      return JSON.parse(
-        match[1]
-      );
-    } catch {}
-  }
-
-  /*
-    في حال كان الملف يستخدم:
-    export const products = [...]
-  */
-
-  match =
-    text.match(
-      /export\s+(?:const|let|var)\s+products\s*=\s*(\[[\s\S]*?\])\s*;/
-    );
-
-  if (match) {
-    try {
-      return JSON.parse(
-        match[1]
-      );
-    } catch {}
-  }
-
-  return null;
-}
-
-
-/* =========================================================
-   IMPORTANT:
-   PARSER FALLBACK FOR products.js
-   ========================================================= */
-
-function parseExistingProducts(
-  source
-) {
-  const parsed =
-    parseProductsJs(
-      source
-    );
-
-  if (Array.isArray(parsed)) {
-    return parsed;
-  }
-
-  /*
-    المنتجات الحالية قد تحتوي
-    على trailing commas أو JS formatting
-    لا يسمح JSON.parse به.
-
-    لذلك نحاول استخراج blocks
-    للمنتجات.
-  */
-
   const products =
-    [];
+    parseProductsJs(
+      source
+    );
 
-  const objectMatches =
-    source.match(
-      /\{[\s\S]*?\}/g
-    ) || [];
-
-  for (
-    const objectText of objectMatches
+  if (
+    !Array.isArray(
+      products
+    )
   ) {
-    if (
-      !/sawa9lyId/i.test(
-        objectText
-      )
-    ) {
-      continue;
-    }
-
-    const idMatch =
-      objectText.match(
-        /sawa9lyId\s*:\s*["'`](\d+)["'`]/
-      );
-
-    if (!idMatch) {
-      continue;
-    }
-
-    const id =
-      idMatch[1];
-
-    const nameMatch =
-      objectText.match(
-        /name\s*:\s*["'`]([\s\S]*?)["'`]/
-      );
-
-    const imageMatch =
-      objectText.match(
-        /image\s*:\s*["'`](.*?)["'`]/
-      );
-
-    const priceMatch =
-      objectText.match(
-        /(?:basePrice|price)\s*:\s*(\d+)/
-      );
-
-    products.push({
-      sawa9lyId: id,
-
-      name:
-        nameMatch
-          ? nameMatch[1]
-          : `Produit ${id}`,
-
-      image:
-        imageMatch
-          ? imageMatch[1]
-          : "",
-
-      basePrice:
-        priceMatch
-          ? Number(
-              priceMatch[1]
-            )
-          : 0,
-
-      automated: true
-    });
+    throw new Error(
+      "Could not safely parse products.js. Generation stopped to protect the database."
+    );
   }
 
   return products;
 }
 
 
-/* =========================================================
-   LOAD EXISTING PRODUCTS WITH FALLBACK
-   ========================================================= */
-
-function getExistingProducts() {
-  if (
-    !fs.existsSync(
-      productsFile
-    )
-  ) {
-    return [];
-  }
-
-  const source =
-    fs.readFileSync(
-      productsFile,
-      "utf8"
-    );
-
-  let parsed =
-    parseProductsJs(
-      source
-    );
-
-  if (
-    Array.isArray(parsed)
-  ) {
-    return parsed;
-  }
-
-  parsed =
-    parseExistingProducts(
-      source
-    );
-
-  if (
-    !Array.isArray(parsed) ||
-    parsed.length === 0
-  ) {
-    throw new Error(
-      "Could not safely read existing products.js. Generation stopped to protect the product database."
-    );
-  }
-
-  return parsed;
-}
-
-
-/* =========================================================
-   AUTOMATED PRODUCT DETECTION
-   ========================================================= */
+/*
+=========================================================
+ PRODUCT TYPE
+=========================================================
+*/
 
 function isAutomatedProduct(
   product
@@ -863,10 +1134,6 @@ function isAutomatedProduct(
 }
 
 
-/* =========================================================
-   MANUAL PRODUCT DETECTION
-   ========================================================= */
-
 function isManualProduct(
   product
 ) {
@@ -876,9 +1143,11 @@ function isManualProduct(
 }
 
 
-/* =========================================================
-   VALID SCRAPED PRODUCT
-   ========================================================= */
+/*
+=========================================================
+ VALIDATE SCRAPED PRODUCT
+=========================================================
+*/
 
 function validateScrapedProduct(
   product
@@ -891,7 +1160,8 @@ function validateScrapedProduct(
   if (!id) {
     return {
       valid: false,
-      reason: "missing sawa9lyId"
+      reason:
+        "missing sawa9lyId",
     };
   }
 
@@ -903,7 +1173,8 @@ function validateScrapedProduct(
   if (!name) {
     return {
       valid: false,
-      reason: "missing name"
+      reason:
+        "missing name",
     };
   }
 
@@ -919,7 +1190,8 @@ function validateScrapedProduct(
   ) {
     return {
       valid: false,
-      reason: "invalid basePrice"
+      reason:
+        "invalid basePrice",
     };
   }
 
@@ -933,19 +1205,22 @@ function validateScrapedProduct(
   ) {
     return {
       valid: false,
-      reason: "missing images"
+      reason:
+        "missing images",
     };
   }
 
   return {
-    valid: true
+    valid: true,
   };
 }
 
 
-/* =========================================================
-   NORMALIZE SCRAPED PRODUCT
-   ========================================================= */
+/*
+=========================================================
+ NORMALIZE SCRAPED PRODUCT
+=========================================================
+*/
 
 function normalizeScrapedProduct(
   product
@@ -970,21 +1245,26 @@ function normalizeScrapedProduct(
   const sellingPrice =
     Math.round(
       Number(
-        product.sellingPrice ||
-        0
+        product.sellingPrice || 0
       )
     );
 
   const profit =
     Math.round(
       Number(
-        product.profit ||
-        0
+        product.profit || 0
       )
     );
 
+  const link =
+    normalizeProductUrl(
+      product.sawa9lyLink ||
+      `https://affiliate.sawa9ly.pro/store/${id}`
+    );
+
   return {
-    sawa9lyId: id,
+    sawa9lyId:
+      id,
 
     name:
       cleanText(
@@ -1008,45 +1288,44 @@ function normalizeScrapedProduct(
     images,
 
     sawa9lyLink:
-      normalizeProductUrl(
-        product.sawa9lyLink ||
-        `https://affiliate.sawa9ly.pro/store/${id}`
-      ),
+      link,
 
-    available: true,
+    available:
+      true,
 
-    automated: true,
+    automated:
+      true,
 
     updatedAt:
       new Date().toISOString(),
 
     scrapedAt:
       product.scrapedAt ||
-      new Date().toISOString()
+      new Date().toISOString(),
   };
 }
 
 
-/* =========================================================
-   MERGE PRODUCT
-   ========================================================= */
+/*
+=========================================================
+ MERGE SCRAPED -> EXISTING
+=========================================================
+*/
 
 function mergeScrapedIntoExisting(
   existing,
   scraped
 ) {
-  /*
-    نحافظ على أي fields إضافية
-    موجودة في المنتج القديم.
-
-    ثم نحدث البيانات القادمة
-    من Sawa9ly.
-  */
-
   const merged = {
+    /*
+    نحافظ على جميع الحقول القديمة.
+    */
+
     ...existing,
 
-    ...scraped,
+    /*
+    ثم نحدث الحقول الآلية.
+    */
 
     sawa9lyId:
       scraped.sawa9lyId,
@@ -1075,19 +1354,23 @@ function mergeScrapedIntoExisting(
     sawa9lyLink:
       scraped.sawa9lyLink,
 
-    available: true,
+    available:
+      true,
 
-    automated: true,
+    automated:
+      true,
 
     updatedAt:
-      new Date().toISOString()
+      new Date().toISOString(),
+
+    scrapedAt:
+      scraped.scrapedAt,
   };
 
   /*
-    بعض المشاريع تستخدم price بدلا
-    من sellingPrice.
-
-    لا نحذف الحقل القديم إذا كان موجودا.
+  إذا كان الموقع القديم
+  يستعمل price بدل sellingPrice،
+  نحافظ على price أيضًا.
   */
 
   if (
@@ -1104,9 +1387,11 @@ function mergeScrapedIntoExisting(
 }
 
 
-/* =========================================================
-   MARK PRODUCT UNAVAILABLE
-   ========================================================= */
+/*
+=========================================================
+ MARK UNAVAILABLE
+=========================================================
+*/
 
 function markUnavailable(
   product
@@ -1114,20 +1399,18 @@ function markUnavailable(
   return {
     ...product,
 
-    available: false,
+    available:
+      false,
 
     /*
-      لا نغير:
-        name
-        image
-        images
-        basePrice
-        sellingPrice
-        profit
-        sawa9lyLink
-
-      حتى يبقى المنتج ظاهرا للمستخدم
-      ويمكن إعادته عندما يرجع.
+    لا نغير:
+    - name
+    - image
+    - images
+    - basePrice
+    - sellingPrice
+    - profit
+    - sawa9lyLink
     */
 
     unavailableSince:
@@ -1138,45 +1421,54 @@ function markUnavailable(
       new Date().toISOString(),
 
     automated:
-      isAutomatedProduct(
-        product
-      )
-        ? true
-        : product.automated
+      true,
   };
 }
 
 
-/* =========================================================
-   RESTORE PRODUCT
-   ========================================================= */
+/*
+=========================================================
+ RESTORE
+=========================================================
+*/
 
 function restoreProduct(
   existing,
   scraped
 ) {
-  return {
-    ...mergeScrapedIntoExisting(
+  const merged =
+    mergeScrapedIntoExisting(
       existing,
       scraped
-    ),
+    );
 
-    available: true,
+  /*
+  نحذف unavailableSince
+  فعليًا من الكائن.
+  */
 
-    unavailableSince:
-      undefined,
+  delete merged.unavailableSince;
 
-    restoredAt:
-      existing.available === false
-        ? new Date().toISOString()
-        : existing.restoredAt
-  };
+  merged.available =
+    true;
+
+  if (
+    existing.available ===
+    false
+  ) {
+    merged.restoredAt =
+      new Date().toISOString();
+  }
+
+  return merged;
 }
 
 
-/* =========================================================
-   CLEAN UNDEFINED FIELDS
-   ========================================================= */
+/*
+=========================================================
+ REMOVE UNDEFINED
+=========================================================
+*/
 
 function removeUndefined(
   object
@@ -1185,12 +1477,15 @@ function removeUndefined(
 
   for (
     const [key, value]
-    of Object.entries(object)
+      of Object.entries(
+        object
+      )
   ) {
     if (
       value !== undefined
     ) {
-      result[key] = value;
+      result[key] =
+        value;
     }
   }
 
@@ -1198,23 +1493,22 @@ function removeUndefined(
 }
 
 
-/* =========================================================
-   MERGE DATABASE
-   ========================================================= */
+/*
+=========================================================
+ MERGE DATABASE
+=========================================================
+*/
 
 function mergeProducts(
   existingProducts,
   scrapedProducts,
-  discoveredIds
+  discoveredIds,
+  confirmedMissingIds
 ) {
   const scrapedMap =
     buildRawProductMap(
       scrapedProducts
     );
-
-  /*
-    نحافظ على ترتيب products.js الحالي.
-  */
 
   const finalProducts =
     [];
@@ -1227,17 +1521,18 @@ function mergeProducts(
   let unavailable = 0;
   let unchanged = 0;
   let manual = 0;
+  let newProducts = 0;
 
   /*
-    ---------------------------------------------------------
-    المرحلة 1
-    المنتجات الموجودة حاليا
-    ---------------------------------------------------------
+  ========================================================
+  المرحلة 1:
+  المنتجات الموجودة.
+  ========================================================
   */
 
   for (
     const existingRaw
-    of existingProducts
+      of existingProducts
   ) {
     const existing =
       removeUndefined(
@@ -1253,8 +1548,7 @@ function mergeProducts(
       );
 
     /*
-      منتج يدوي لا يملك Sawa9ly ID.
-      نحافظ عليه كما هو.
+    منتج يدوي.
     */
 
     if (!id) {
@@ -1270,9 +1564,7 @@ function mergeProducts(
     existingIds.add(id);
 
     /*
-      -------------------------------------------------------
-      المنتج موجود في scraping الحالي
-      -------------------------------------------------------
+    المنتج ظهر في scraping الحالي.
     */
 
     const scraped =
@@ -1285,93 +1577,82 @@ function mergeProducts(
         );
 
       if (
-        validation.valid
+        !validation.valid
       ) {
-        const normalized =
-          normalizeScrapedProduct(
-            scraped
-          );
-
-        const wasUnavailable =
-          existing.available === false;
-
-        const merged =
-          wasUnavailable
-            ? restoreProduct(
-                existing,
-                normalized
-              )
-            : mergeScrapedIntoExisting(
-                existing,
-                normalized
-              );
-
         finalProducts.push(
-          removeUndefined(
-            merged
-          )
+          existing
         );
 
-        if (
-          wasUnavailable
-        ) {
-          restored++;
-        } else {
-          updated++;
-        }
+        unchanged++;
 
         continue;
       }
+
+      const normalized =
+        normalizeScrapedProduct(
+          scraped
+        );
+
+      const wasUnavailable =
+        existing.available ===
+        false;
+
+      const merged =
+        wasUnavailable
+          ? restoreProduct(
+              existing,
+              normalized
+            )
+          : mergeScrapedIntoExisting(
+              existing,
+              normalized
+            );
+
+      finalProducts.push(
+        removeUndefined(
+          merged
+        )
+      );
+
+      if (
+        wasUnavailable
+      ) {
+        restored++;
+      } else {
+        updated++;
+      }
+
+      continue;
     }
 
     /*
-      -------------------------------------------------------
-      المنتج لم ينجح scraping.
-      
-      لا نغيره هنا.
+    ======================================================
+    المنتج لم ينجح scraping.
 
-      هذا مهم جدا.
-
-      فشل scraping ≠ المنتج اختفى من Sawa9ly.
+    مهم جدًا:
+    فشل scraping لا يعني اختفاء المنتج.
+    ======================================================
     */
-
-    if (
-      !discoveredIds.has(id)
-    ) {
-      /*
-        المنتج لم يعد موجودا في discovery.
-
-        لكن لا نعطله مباشرة هنا.
-
-        generator يعتمد على discovery safety
-        و missing streak الذي يحسبه discover.js.
-      */
-
-      unchanged++;
-    } else {
-      /*
-        موجود في discovery لكن scraping فشل.
-      */
-
-      unchanged++;
-    }
 
     finalProducts.push(
       existing
     );
+
+    unchanged++;
   }
 
-
   /*
-    ---------------------------------------------------------
-    المرحلة 2
-    المنتجات الجديدة
-    ---------------------------------------------------------
+  ========================================================
+  المرحلة 2:
+  المنتجات الجديدة.
+  ========================================================
   */
 
   for (
-    const [id, scraped]
-    of scrapedMap.entries()
+    const [
+      id,
+      scraped
+    ] of scrapedMap
   ) {
     if (
       existingIds.has(id)
@@ -1398,48 +1679,28 @@ function mergeProducts(
     finalProducts.push(
       normalized
     );
+
+    newProducts++;
   }
 
-
   /*
-    ---------------------------------------------------------
-    المرحلة 3
-    المنتجات الموجودة في products.js
-    والتي اختفت فعلا من discovery.
-    
-    لا نحذفها.
+  ========================================================
+  المرحلة 3:
+  المنتجات المختفية.
 
-    discover.js سيعطي confirmedMissingIds
-    بعد عدد من عمليات الفحص.
-    ---------------------------------------------------------
-  */
-
-  const discoveryReport =
-    loadDiscoveryReport();
-
-  const confirmedMissing =
-    new Set(
-      Array.isArray(
-        discoveryReport?.confirmedMissingIds
-      )
-        ? discoveryReport.confirmedMissingIds.map(
-            normalizeId
-          )
-        : []
-    );
-
-  /*
-    نعطل فقط المنتجات المؤتمتة
-    التي أكد discover.js اختفاءها.
+  لا نعتمد على مجرد عدم وجودها.
+  نعتمد فقط على confirmedMissingIds
+  القادم من discover.js.
+  ========================================================
   */
 
   for (
-    let i = 0;
-    i < finalProducts.length;
-    i++
+    let index = 0;
+    index < finalProducts.length;
+    index++
   ) {
     const product =
-      finalProducts[i];
+      finalProducts[index];
 
     const id =
       normalizeId(
@@ -1450,15 +1711,9 @@ function mergeProducts(
       continue;
     }
 
-    if (
-      !confirmedMissing.has(id)
-    ) {
-      continue;
-    }
-
     /*
-      إذا كان المنتج موجودا في scraping الحالي
-      فلا يمكن اعتباره مفقودا.
+    ظهر الآن؟
+    إذن متوفر مهما كان تقرير missing.
     */
 
     if (
@@ -1468,7 +1723,20 @@ function mergeProducts(
     }
 
     /*
-      المنتجات اليدوية لا نلمسها.
+    غير مؤكد اختفاؤه؟
+    لا نلمسه.
+    */
+
+    if (
+      !confirmedMissingIds.has(
+        id
+      )
+    ) {
+      continue;
+    }
+
+    /*
+    لا نلمس المنتجات اليدوية.
     */
 
     if (
@@ -1479,10 +1747,16 @@ function mergeProducts(
       continue;
     }
 
+    /*
+    لا نعيد كتابة unavailable
+    كل يوم بلا داع.
+    */
+
     if (
-      product.available !== false
+      product.available !==
+      false
     ) {
-      finalProducts[i] =
+      finalProducts[index] =
         markUnavailable(
           product
         );
@@ -1509,25 +1783,27 @@ function mergeProducts(
 
       manual,
 
-      newProducts:
-        finalProducts.length -
-        existingProducts.length +
-        unavailable
-    }
+      newProducts,
+    },
   };
 }
 
 
-/* =========================================================
-   SANITY CHECK
-   ========================================================= */
+/*
+=========================================================
+ FINAL DATABASE VALIDATION
+=========================================================
+*/
 
 function validateFinalProducts(
   products,
-  existingProducts
+  existingProducts,
+  discoveredIds
 ) {
   if (
-    !Array.isArray(products)
+    !Array.isArray(
+      products
+    )
   ) {
     throw new Error(
       "Final products is not an array."
@@ -1535,25 +1811,21 @@ function validateFinalProducts(
   }
 
   /*
-    لا نسمح بقاعدة منتجات فارغة
-    إذا كانت القاعدة القديمة تحتوي
-    على منتجات.
+  لا يجوز إنشاء قاعدة فارغة.
   */
 
   if (
-    existingProducts.length > 0 &&
+    existingProducts.length >
+      0 &&
     products.length === 0
   ) {
     throw new Error(
-      "Safety stop: generation would create an empty products database."
+      "Safety stop: generated products database would be empty."
     );
   }
 
   /*
-    لا يجب أن ينخفض العدد.
-    
-    منتجات Sawa9ly لا تحذف.
-    المنتجات اليدوية أيضا لا تحذف.
+  العدد لا يجب أن ينخفض.
   */
 
   if (
@@ -1565,20 +1837,17 @@ function validateFinalProducts(
     );
   }
 
-  /*
-    فحص IDs.
-  */
-
   const ids =
     new Set();
 
   for (
     const product
-    of products
+      of products
   ) {
     if (
       !product ||
-      typeof product !== "object"
+      typeof product !==
+        "object"
     ) {
       throw new Error(
         "Invalid product object detected."
@@ -1590,12 +1859,12 @@ function validateFinalProducts(
         product.sawa9lyId
       );
 
-    if (!id) {
-      /*
-        المنتجات اليدوية يمكن أن تكون
-        بدون sawa9lyId.
-      */
+    /*
+    المنتج اليدوي يمكن ألا
+    يملك Sawa9ly ID.
+    */
 
+    if (!id) {
       continue;
     }
 
@@ -1603,32 +1872,42 @@ function validateFinalProducts(
       ids.has(id)
     ) {
       throw new Error(
-        `Duplicate sawa9lyId detected: ${id}`
+        `Duplicate sawa9lyId in final database: ${id}`
       );
     }
 
     ids.add(id);
   }
+
+  /*
+  لا نتحقق أن كل discovered ID
+  موجود في products النهائي،
+  لأن المنتج قد يفشل scraping.
+  في هذه الحالة يجب أن يبقى
+  المنتج القديم كما هو.
+  */
+
+  if (
+    discoveredIds.size > 0 &&
+    existingProducts.length === 0 &&
+    ids.size === 0
+  ) {
+    throw new Error(
+      "Discovery found products but final database contains no automated products."
+    );
+  }
 }
 
 
-/* =========================================================
-   FORMAT products.js
-   ========================================================= */
+/*
+=========================================================
+ BUILD products.js
+=========================================================
+*/
 
 function buildProductsJs(
   products
 ) {
-  /*
-    نستخدم JSON صالح داخل JavaScript.
-
-    هذا يجعل الملف:
-      - سهل القراءة
-      - آمن
-      - صالح للاستيراد
-      - لا يحتاج eval
-  */
-
   const json =
     JSON.stringify(
       products,
@@ -1641,7 +1920,7 @@ function buildProductsJs(
  * Automated Sawa9ly product catalog
  *
  * Generated automatically.
- * DO NOT EDIT automated Sawa9ly products manually.
+ * Do not manually edit automated products.
  *
  * Last update:
  * ${new Date().toISOString()}
@@ -1654,11 +1933,13 @@ export default products;
 }
 
 
-/* =========================================================
-   BACKUP BEFORE WRITE
-   ========================================================= */
+/*
+=========================================================
+ BACKUP
+=========================================================
+*/
 
-function createLocalBackup() {
+function createBackup() {
   if (
     !fs.existsSync(
       productsFile
@@ -1676,13 +1957,27 @@ function createLocalBackup() {
 }
 
 
-/* =========================================================
-   WRITE ATOMICALLY
-   ========================================================= */
+/*
+=========================================================
+ ATOMIC WRITE
+=========================================================
+*/
 
 function writeProductsAtomic(
   content
 ) {
+  const directory =
+    path.dirname(
+      productsFile
+    );
+
+  fs.mkdirSync(
+    directory,
+    {
+      recursive: true,
+    }
+  );
+
   const tempFile =
     `${productsFile}.tmp`;
 
@@ -1693,7 +1988,8 @@ function writeProductsAtomic(
   );
 
   /*
-    إذا نجح الحفظ، نستبدل الملف.
+  إذا وصلنا هنا فالملف
+  المؤقت كتب بنجاح.
   */
 
   fs.renameSync(
@@ -1703,11 +1999,15 @@ function writeProductsAtomic(
 }
 
 
-/* =========================================================
-   FINAL VALIDATION OF GENERATED FILE
-   ========================================================= */
+/*
+=========================================================
+ POST-WRITE VALIDATION
+=========================================================
+*/
 
-async function validateGeneratedFile() {
+function validateGeneratedFile(
+  expectedCount
+) {
   if (
     !fs.existsSync(
       productsFile
@@ -1734,29 +2034,15 @@ async function validateGeneratedFile() {
     );
   }
 
-  /*
-    فحص syntax بواسطة Function.
-
-    لا يتم تنفيذ المنتجات،
-    فقط parse للكود.
-  */
-
-  try {
-    new Function(
-      source.replace(
-        /export\s+default\s+products\s*;?\s*$/m,
-        ""
-      )
-    );
-  } catch (error) {
+  if (
+    !source.includes(
+      "export default products"
+    )
+  ) {
     throw new Error(
-      `Generated products.js has invalid JavaScript syntax: ${error.message}`
+      "Generated products.js does not contain the expected export."
     );
   }
-
-  /*
-    نقرأ المصفوفة من المصدر.
-  */
 
   const generated =
     parseProductsJs(
@@ -1773,15 +2059,57 @@ async function validateGeneratedFile() {
     );
   }
 
+  if (
+    generated.length !==
+    expectedCount
+  ) {
+    throw new Error(
+      `Post-write validation failed: expected ${expectedCount}, got ${generated.length}.`
+    );
+  }
+
+  /*
+  فحص duplicate IDs بعد الكتابة.
+  */
+
+  const ids =
+    new Set();
+
+  for (
+    const product
+      of generated
+  ) {
+    const id =
+      normalizeId(
+        product?.sawa9lyId
+      );
+
+    if (!id) {
+      continue;
+    }
+
+    if (
+      ids.has(id)
+    ) {
+      throw new Error(
+        `Post-write duplicate sawa9lyId: ${id}`
+      );
+    }
+
+    ids.add(id);
+  }
+
   return generated;
 }
 
 
-/* =========================================================
-   MAIN
-   ========================================================= */
+/*
+=========================================================
+ MAIN
+=========================================================
+*/
 
-async function main() {
+function main() {
   console.log("");
   console.log(
     "=================================================="
@@ -1795,34 +2123,66 @@ async function main() {
   console.log("");
 
   /*
-    ---------------------------------------------------------
-    تحميل البيانات
-    ---------------------------------------------------------
+  --------------------------------------------------------
+  1. Load source files
+  --------------------------------------------------------
   */
 
   const rawProducts =
     loadRawProducts();
 
+  const links =
+    loadProductLinks();
+
   const discoveredIds =
-    loadDiscoveredIds();
+    buildDiscoveredIds(
+      links
+    );
+
+  const discoveryReport =
+    loadDiscoveryReport();
 
   const scraperReport =
     loadScraperReport();
 
+  /*
+  --------------------------------------------------------
+  2. Safety validation
+  --------------------------------------------------------
+  */
+
   validateScraperSafety(
     rawProducts,
     discoveredIds,
+    discoveryReport,
     scraperReport
   );
 
   /*
-    ---------------------------------------------------------
-    قراءة products.js الحالي
-    ---------------------------------------------------------
+  --------------------------------------------------------
+  3. Confirmed missing IDs
+  --------------------------------------------------------
+  */
+
+  const confirmedMissingIds =
+    new Set(
+      Array.isArray(
+        discoveryReport.confirmedMissingIds
+      )
+        ? discoveryReport.confirmedMissingIds
+            .map(normalizeId)
+            .filter(Boolean)
+        : []
+    );
+
+  /*
+  --------------------------------------------------------
+  4. Existing products
+  --------------------------------------------------------
   */
 
   const existingProducts =
-    getExistingProducts();
+    loadExistingProducts();
 
   console.log(
     `📚 Existing products : ${existingProducts.length}`
@@ -1836,54 +2196,60 @@ async function main() {
     `🕷️ Scraped           : ${rawProducts.length}`
   );
 
+  console.log(
+    `❌ Confirmed missing : ${confirmedMissingIds.size}`
+  );
+
   /*
-    ---------------------------------------------------------
-    Backup
-    ---------------------------------------------------------
+  --------------------------------------------------------
+  5. Backup
+  --------------------------------------------------------
   */
 
   const backupCreated =
-    createLocalBackup();
+    createBackup();
 
   if (
     backupCreated
   ) {
     console.log(
-      `🛡️ Local backup      : ${backupProductsFile}`
+      `🛡️ Backup created    : ${backupProductsFile}`
     );
   }
 
   /*
-    ---------------------------------------------------------
-    Merge
-    ---------------------------------------------------------
+  --------------------------------------------------------
+  6. Merge
+  --------------------------------------------------------
   */
 
   const result =
     mergeProducts(
       existingProducts,
       rawProducts,
-      discoveredIds
+      discoveredIds,
+      confirmedMissingIds
     );
 
   const finalProducts =
     result.products;
 
   /*
-    ---------------------------------------------------------
-    Safety checks
-    ---------------------------------------------------------
+  --------------------------------------------------------
+  7. Final safety
+  --------------------------------------------------------
   */
 
   validateFinalProducts(
     finalProducts,
-    existingProducts
+    existingProducts,
+    discoveredIds
   );
 
   /*
-    ---------------------------------------------------------
-    إنشاء products.js
-    ---------------------------------------------------------
+  --------------------------------------------------------
+  8. Build
+  --------------------------------------------------------
   */
 
   const content =
@@ -1891,37 +2257,31 @@ async function main() {
       finalProducts
     );
 
+  /*
+  --------------------------------------------------------
+  9. Atomic write
+  --------------------------------------------------------
+  */
+
   writeProductsAtomic(
     content
   );
 
   /*
-    ---------------------------------------------------------
-    فحص الملف بعد الكتابة
-    ---------------------------------------------------------
+  --------------------------------------------------------
+  10. Validate generated file
+  --------------------------------------------------------
   */
 
   const generated =
-    await validateGeneratedFile();
-
-  /*
-    يجب أن يتطابق عدد المنتجات
-    ---------------------------------------------------------
-  */
-
-  if (
-    generated.length !==
-    finalProducts.length
-  ) {
-    throw new Error(
-      `Post-write validation failed: expected ${finalProducts.length}, got ${generated.length}.`
+    validateGeneratedFile(
+      finalProducts.length
     );
-  }
 
   /*
-    ---------------------------------------------------------
-    Report
-    ---------------------------------------------------------
+  --------------------------------------------------------
+  11. Report
+  --------------------------------------------------------
   */
 
   const report = {
@@ -1944,11 +2304,7 @@ async function main() {
       result.stats.updated,
 
     newProducts:
-      Math.max(
-        0,
-        finalProducts.length -
-          existingProducts.length
-      ),
+      result.stats.newProducts,
 
     restored:
       result.stats.restored,
@@ -1962,12 +2318,12 @@ async function main() {
     manual:
       result.stats.manual,
 
+    confirmedMissing:
+      confirmedMissingIds.size,
+
     backupCreated,
 
-    safe:
-      true,
-
-    productsFile
+    productsFile,
   };
 
   writeJson(
@@ -1976,9 +2332,9 @@ async function main() {
   );
 
   /*
-    ---------------------------------------------------------
-    Console
-    ---------------------------------------------------------
+  --------------------------------------------------------
+  12. Output
+  --------------------------------------------------------
   */
 
   console.log("");
@@ -1986,75 +2342,79 @@ async function main() {
     "=================================================="
   );
   console.log(
-    " GENERATOR FINISHED"
+    " GENERATOR FINISHED SAFELY"
   );
   console.log(
     "=================================================="
   );
 
   console.log(
-    `📚 Before       : ${existingProducts.length}`
+    `📚 Before          : ${existingProducts.length}`
   );
 
   console.log(
-    `🔎 Discovered   : ${discoveredIds.size}`
+    `🔎 Discovered      : ${discoveredIds.size}`
   );
 
   console.log(
-    `🕷️ Scraped      : ${rawProducts.length}`
+    `🕷️ Scraped         : ${rawProducts.length}`
   );
 
   console.log(
-    `📦 Final        : ${finalProducts.length}`
+    `➕ New             : ${result.stats.newProducts}`
   );
 
   console.log(
-    `🔄 Updated      : ${result.stats.updated}`
+    `🔄 Updated         : ${result.stats.updated}`
   );
 
   console.log(
-    `🆕 New          : ${report.newProducts}`
+    `♻️ Restored        : ${result.stats.restored}`
   );
 
   console.log(
-    `♻️ Restored     : ${result.stats.restored}`
+    `🚫 Unavailable     : ${result.stats.unavailable}`
   );
 
   console.log(
-    `⛔ Unavailable  : ${result.stats.unavailable}`
+    `⏸️ Unchanged       : ${result.stats.unchanged}`
   );
 
   console.log(
-    `📌 Unchanged    : ${result.stats.unchanged}`
+    `🧑 Manual          : ${result.stats.manual}`
   );
 
   console.log(
-    `👤 Manual       : ${result.stats.manual}`
-  );
-
-  console.log("");
-
-  console.log(
-    `📄 ${productsFile}`
-  );
-
-  console.log(
-    `📄 ${generatorReportFile}`
+    `📦 Final           : ${generated.length}`
   );
 
   console.log("");
 
   console.log(
-    "✅ Product database generated safely."
+    `📄 products.js     : ${productsFile}`
+  );
+
+  console.log(
+    `📄 generator report: ${generatorReportFile}`
+  );
+
+  console.log("");
+
+  console.log(
+    "✅ Generation completed successfully."
   );
 }
 
 
-/* =========================================================
-   ERROR HANDLER
-   ========================================================= */
+/*
+=========================================================
+ ERROR HANDLER
+=========================================================
+*/
 
-main().catch(error => {
+try {
+  main();
+} catch (error) {
   console.error("");
   console.error(
     "=================================================="
@@ -2074,24 +2434,5 @@ main().catch(error => {
 
   console.error("");
 
-  /*
-    نحذف temp إن وجد.
-  */
-
-  const tempFile =
-    `${productsFile}.tmp`;
-
-  if (
-    fs.existsSync(
-      tempFile
-    )
-  ) {
-    try {
-      fs.unlinkSync(
-        tempFile
-      );
-    } catch {}
-  }
-
   process.exit(1);
-});
+}
