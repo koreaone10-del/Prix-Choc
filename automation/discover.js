@@ -3,7 +3,12 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 
-import { config, validateConfig } from "./config.js";
+import {
+    config,
+    validateConfig,
+    printConfigSummary
+} from "./config.js";
+
 
 /*
 =========================================================
@@ -11,54 +16,65 @@ import { config, validateConfig } from "./config.js";
  SAWA9LY FULL PRODUCT DISCOVERY
 =========================================================
 
-الوظيفة:
+ الوظيفة:
 
-1. تسجيل الدخول إلى Sawa9ly Affiliate.
-2. فتح كتالوج المنتجات.
-3. اكتشاف جميع صفحات المنتجات.
-4. دعم:
+ 1. تسجيل الدخول إلى Sawa9ly Affiliate.
+ 2. فتح كتالوج المنتجات.
+ 3. اكتشاف جميع صفحات المنتجات.
+ 4. دعم:
       /store/123
       /product/123
-5. تحويل روابط المنتجات إلى صيغة موحدة:
+ 5. توحيد الروابط إلى:
       /store/123
-6. منع اعتبار الكتالوج فارغاً بسبب خطأ مؤقت.
-7. حفظ قائمة المنتجات المكتشفة.
-8. حفظ تقرير كامل عن عملية Discovery.
-9. حفظ تاريخ Discovery.
-10. حساب المنتجات التي اختفت.
-11. عدم حذف أي منتج من products.js.
-12. عدم اعتبار المنتج غير متوفر إلا بعد
-    عدد محدد من عمليات Discovery الناجحة.
+ 6. اكتشاف جميع المنتجات الموجودة في الكتالوج.
+ 7. منع اعتبار الكتالوج فارغاً بسبب خطأ مؤقت.
+ 8. حفظ product-links.json.
+ 9. حفظ discovery-report.json.
+10. حفظ discovery-history.json.
+11. تتبع المنتجات المختفية.
+12. عدم حذف المنتجات من products.js.
+13. عدم اعتبار المنتج مفقوداً إلا بعد
+    عدد عمليات Discovery الناجحة المحدد.
+14. حفظ progress أثناء العمل.
+15. إيقاف العملية بأمان عند حدوث خلل.
 
-مهم جداً:
+ مهم:
 
-Discovery لا يعدّل products.js.
+ Discovery لا يعدّل products.js.
 
-هو فقط ينتج البيانات التي سيستخدمها Generator لاحقاً.
+ هو فقط ينتج البيانات التي يستخدمها
+ scraper.js و generator.js لاحقاً.
+=========================================================
+*/
+
+
+/*
+=========================================================
+ PATHS
 =========================================================
 */
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-/*
-=========================================================
- DIRECTORIES
-=========================================================
-*/
+const debugDir = config.paths.debugDir;
 
-const debugDir = path.resolve(
-    __dirname,
-    config.paths.debugDir || "./debug"
+const stateDir = config.paths.stateDir;
+
+fs.mkdirSync(
+    debugDir,
+    {
+        recursive: true
+    }
 );
 
-const stateDir = path.resolve(
-    __dirname,
-    config.paths.stateDir || "./state"
+fs.mkdirSync(
+    stateDir,
+    {
+        recursive: true
+    }
 );
 
-fs.mkdirSync(debugDir, { recursive: true });
-fs.mkdirSync(stateDir, { recursive: true });
 
 /*
 =========================================================
@@ -91,6 +107,7 @@ const historyFile = path.join(
     "discovery-history.json"
 );
 
+
 /*
 =========================================================
  SETTINGS
@@ -99,30 +116,41 @@ const historyFile = path.join(
 
 const MAX_PAGES = Math.max(
     1,
-    Number(config.automation.maxDiscoveryPages || 100)
+    Number(
+        config.automation.maxDiscoveryPages
+    )
 );
 
 const NAVIGATION_TIMEOUT = Math.max(
     10000,
-    Number(config.automation.navigationTimeout || 60000)
+    Number(
+        config.automation.navigationTimeout
+    )
 );
 
 const PAGE_DELAY = Math.max(
     0,
-    Number(config.automation.pageDelay || 1800)
+    Number(
+        config.automation.pageDelay
+    )
 );
 
 const LOGIN_WAIT = Math.max(
     1000,
-    Number(config.automation.loginWait || 5000)
-);
-
-const MISSING_CONFIRMATION_RUNS = Math.max(
-    1,
     Number(
-        config.automation.missingConfirmationRuns || 2
+        config.automation.loginWait
     )
 );
+
+const MISSING_CONFIRMATION_RUNS =
+    Math.max(
+        1,
+        Number(
+            config.automation
+                .missingConfirmationRuns
+        )
+    );
+
 
 /*
 =========================================================
@@ -130,11 +158,15 @@ const MISSING_CONFIRMATION_RUNS = Math.max(
 =========================================================
 */
 
+
 function cleanText(value) {
-    return String(value || "")
+    return String(
+        value ?? ""
+    )
         .replace(/\s+/g, " ")
         .trim();
 }
+
 
 /*
 ---------------------------------------------------------
@@ -142,22 +174,27 @@ function cleanText(value) {
 ---------------------------------------------------------
 */
 
-function readJson(file, fallback = null) {
+function readJson(
+    file,
+    fallback = null
+) {
     try {
         if (!fs.existsSync(file)) {
             return fallback;
         }
 
-        const raw = fs.readFileSync(
-            file,
-            "utf8"
-        );
+        const raw =
+            fs.readFileSync(
+                file,
+                "utf8"
+            );
 
         if (!raw.trim()) {
             return fallback;
         }
 
         return JSON.parse(raw);
+
     } catch (error) {
         console.warn(
             `⚠️ Could not read JSON: ${file}`
@@ -167,14 +204,29 @@ function readJson(file, fallback = null) {
     }
 }
 
+
 /*
 ---------------------------------------------------------
  Safe JSON write
 ---------------------------------------------------------
 */
 
-function writeJson(file, value) {
-    const temporaryFile = `${file}.tmp`;
+function writeJson(
+    file,
+    value
+) {
+    const directory =
+        path.dirname(file);
+
+    fs.mkdirSync(
+        directory,
+        {
+            recursive: true
+        }
+    );
+
+    const temporaryFile =
+        `${file}.tmp`;
 
     fs.writeFileSync(
         temporaryFile,
@@ -192,9 +244,15 @@ function writeJson(file, value) {
     );
 }
 
+
 /*
 ---------------------------------------------------------
- Remove stale outputs before a new discovery
+ Remove temporary discovery outputs.
+
+ IMPORTANT:
+ We do not remove history.
+
+ Existing history must survive a failed run.
 ---------------------------------------------------------
 */
 
@@ -207,7 +265,9 @@ function removeStaleDiscoveryOutputs() {
 
     for (const file of files) {
         try {
-            if (fs.existsSync(file)) {
+            if (
+                fs.existsSync(file)
+            ) {
                 fs.unlinkSync(file);
             }
         } catch (error) {
@@ -218,94 +278,104 @@ function removeStaleDiscoveryOutputs() {
     }
 }
 
+
 /*
 =========================================================
  URL HELPERS
 =========================================================
 */
 
-/*
----------------------------------------------------------
- Extract Sawa9ly product ID
 
-Supported:
-
-https://affiliate.sawa9ly.pro/store/123
-https://affiliate.sawa9ly.pro/store/123?foo=bar
-
-and legacy:
-
-https://affiliate.sawa9ly.pro/product/123
-https://affiliate.sawa9ly.pro/product/123?foo=bar
----------------------------------------------------------
-*/
-
-function extractProductId(value) {
-    const raw = String(value || "");
+function extractProductId(
+    value
+) {
+    const raw =
+        String(
+            value ?? ""
+        );
 
     const patterns = [
         /\/store\/(\d+)(?:[/?#]|$)/i,
         /\/product\/(\d+)(?:[/?#]|$)/i
     ];
 
-    for (const pattern of patterns) {
-        const match = raw.match(pattern);
+    for (
+        const pattern
+        of patterns
+    ) {
+        const match =
+            raw.match(pattern);
 
         if (match) {
-            return String(match[1]);
+            return String(
+                match[1]
+            );
         }
     }
 
     return "";
 }
 
+
 /*
 ---------------------------------------------------------
  Normalize product URL
-
-Everything becomes:
-
-https://affiliate.sawa9ly.pro/store/ID
-
-This is important because old and new links can coexist.
 ---------------------------------------------------------
 */
 
-function normalizeProductUrl(value) {
+function normalizeProductUrl(
+    value
+) {
     try {
-        const url = new URL(
-            String(value || "")
-        );
+        const raw =
+            String(
+                value ?? ""
+            );
 
-        const id = extractProductId(
-            url.href
-        );
+        const url =
+            new URL(raw);
+
+        const id =
+            extractProductId(
+                url.href
+            );
 
         if (!id) {
             return "";
         }
 
         const baseUrl =
-            config.sawa9ly.baseUrl ||
-            "https://affiliate.sawa9ly.pro";
+            String(
+                config.sawa9ly.baseUrl
+            ).replace(
+                /\/+$/,
+                ""
+            );
 
-        return `${String(baseUrl).replace(/\/+$/, "")}/store/${id}`;
+        return `${baseUrl}/store/${id}`;
+
     } catch {
         return "";
     }
 }
 
+
 /*
 ---------------------------------------------------------
- Check if URL is a product URL
+ Product URL check
 ---------------------------------------------------------
 */
 
-function isProductUrl(value) {
+function isProductUrl(
+    value
+) {
     return Boolean(
-        extractProductId(value)
+        extractProductId(
+            value
+        )
     );
 }
+
 
 /*
 ---------------------------------------------------------
@@ -317,9 +387,10 @@ function makePageUrl(
     baseUrl,
     pageNumber
 ) {
-    const url = new URL(
-        baseUrl
-    );
+    const url =
+        new URL(
+            String(baseUrl)
+        );
 
     url.searchParams.set(
         "page",
@@ -329,21 +400,27 @@ function makePageUrl(
     return url.toString();
 }
 
+
 /*
-=========================================================
- PAGE / PAGINATION HELPERS
-=========================================================
+---------------------------------------------------------
+ Extract page number
+---------------------------------------------------------
 */
 
-function extractPageNumber(value) {
+function extractPageNumber(
+    value
+) {
     try {
-        const url = new URL(
-            String(value || "")
-        );
+        const url =
+            new URL(
+                String(value)
+            );
 
         const page =
             Number(
-                url.searchParams.get("page")
+                url.searchParams.get(
+                    "page"
+                )
             );
 
         if (
@@ -354,37 +431,72 @@ function extractPageNumber(value) {
         }
 
         return null;
+
     } catch {
         return null;
     }
 }
 
+
 /*
----------------------------------------------------------
- Detect pagination from links
----------------------------------------------------------
+=========================================================
+ PAGINATION
+=========================================================
 */
 
-async function detectPagination(page) {
+async function detectPagination(
+    page
+) {
+    /*
+     IMPORTANT:
+
+     Everything inside evaluateAll()
+     runs in the browser.
+
+     Therefore we NEVER call the Node.js
+     cleanText() function here.
+
+     We clean the text directly inside
+     the browser context.
+    */
+
     const links =
-        await page.locator("a").evaluateAll(
-            anchors =>
-                anchors
-                    .map(anchor => ({
-                        text: cleanText(
-                            anchor.innerText
-                        ),
-                        href: anchor.href
-                    }))
-                    .filter(
-                        item =>
-                            item.href
-                    )
-        );
+        await page
+            .locator("a")
+            .evaluateAll(
+                anchors =>
+                    anchors
+                        .map(
+                            anchor => ({
+                                text:
+                                    String(
+                                        anchor.innerText ??
+                                        ""
+                                    )
+                                        .replace(
+                                            /\s+/g,
+                                            " "
+                                        )
+                                        .trim(),
+
+                                href:
+                                    anchor.href || ""
+                            })
+                        )
+                        .filter(
+                            item =>
+                                Boolean(
+                                    item.href
+                                )
+                        )
+            );
 
     const pageNumbers = [];
 
-    for (const item of links) {
+    for (
+        const item
+        of links
+    ) {
         const number =
             extractPageNumber(
                 item.href
@@ -394,18 +506,24 @@ async function detectPagination(page) {
             Number.isInteger(number) &&
             number > 0
         ) {
-            pageNumbers.push(number);
+            pageNumbers.push(
+                number
+            );
         }
     }
 
     const uniquePages = [
-        ...new Set(pageNumbers)
+        ...new Set(
+            pageNumbers
+        )
     ].sort(
-        (a, b) => a - b
+        (a, b) =>
+            a - b
     );
 
     return uniquePages;
 }
+
 
 /*
 =========================================================
@@ -416,26 +534,73 @@ async function detectPagination(page) {
 async function extractProductsFromPage(
     page
 ) {
+    /*
+     Again, this function executes
+     inside Chromium.
+
+     Do not use Node.js cleanText()
+     inside evaluateAll().
+    */
+
     const anchors =
-        await page.locator("a").evaluateAll(
-            elements =>
-                elements.map(anchor => ({
-                    text: cleanText(
-                        anchor.innerText
-                    ),
-                    href: anchor.href,
-                    title:
-                        cleanText(
-                            anchor.getAttribute(
-                                "title"
-                            )
-                        )
-                }))
-        );
+        await page
+            .locator("a")
+            .evaluateAll(
+                elements =>
+                    elements.map(
+                        anchor => ({
+                            text:
+                                String(
+                                    anchor.innerText ??
+                                    ""
+                                )
+                                    .replace(
+                                        /\s+/g,
+                                        " "
+                                    )
+                                    .trim(),
 
-    const productsById = new Map();
+                            href:
+                                anchor.href ||
+                                "",
 
-    for (const anchor of anchors) {
+                            title:
+                                String(
+                                    anchor.getAttribute(
+                                        "title"
+                                    ) ??
+                                    ""
+                                )
+                                    .replace(
+                                        /\s+/g,
+                                        " "
+                                    )
+                                    .trim()
+                        })
+                    )
+            );
+
+    const productsById =
+        new Map();
+
+    for (
+        const anchor
+        of anchors
+    ) {
+        if (
+            !anchor.href
+        ) {
+            continue;
+        }
+
+        if (
+            !isProductUrl(
+                anchor.href
+            )
+        ) {
+            continue;
+        }
+
         const id =
             extractProductId(
                 anchor.href
@@ -455,7 +620,8 @@ async function extractProductsFromPage(
         }
 
         /*
-        Prefer the normalized store URL.
+         Prefer one canonical product
+         record per Sawa9ly ID.
         */
 
         if (
@@ -465,11 +631,14 @@ async function extractProductsFromPage(
                 id,
                 {
                     id,
-                    href: normalized,
+                    href:
+                        normalized,
                     text:
-                        anchor.text || "",
+                        anchor.text ||
+                        "",
                     title:
-                        anchor.title || ""
+                        anchor.title ||
+                        ""
                 }
             );
         }
@@ -480,13 +649,16 @@ async function extractProductsFromPage(
     ];
 }
 
+
 /*
 =========================================================
  LOGIN
 =========================================================
 */
 
-async function login(page) {
+async function login(
+    page
+) {
     console.log("");
     console.log(
         "1) Opening Sawa9ly Affiliate login..."
@@ -497,6 +669,7 @@ async function login(page) {
         {
             waitUntil:
                 "domcontentloaded",
+
             timeout:
                 NAVIGATION_TIMEOUT
         }
@@ -506,35 +679,37 @@ async function login(page) {
         2000
     );
 
+
     /*
     -----------------------------------------------------
-    Find login inputs
+    Detect login fields
     -----------------------------------------------------
     */
 
-    const emailInput =
-        page.locator(
-            'input[type="email"]'
-        ).first();
+    const emailSelector =
+        'input[type="email"]';
 
-    const passwordInput =
-        page.locator(
-            'input[type="password"]'
-        ).first();
+    const passwordSelector =
+        'input[type="password"]';
 
     const emailCount =
-        await page.locator(
-            'input[type="email"]'
-        ).count();
+        await page
+            .locator(
+                emailSelector
+            )
+            .count();
 
     const passwordCount =
-        await page.locator(
-            'input[type="password"]'
-        ).count();
+        await page
+            .locator(
+                passwordSelector
+            )
+            .count();
+
 
     /*
     -----------------------------------------------------
-    If already authenticated
+    Already authenticated
     -----------------------------------------------------
     */
 
@@ -542,55 +717,88 @@ async function login(page) {
         emailCount === 0 &&
         passwordCount === 0
     ) {
-        /*
-        It may be an already authenticated
-        session or an SPA loading screen.
-
-        Give it additional time.
-        */
-
         await page.waitForTimeout(
             LOGIN_WAIT
         );
 
-        const stillHasLogin =
-            await page.locator(
-                'input[type="password"]'
-            ).count();
+        const stillHasPassword =
+            await page
+                .locator(
+                    passwordSelector
+                )
+                .count();
 
         if (
-            stillHasLogin === 0
+            stillHasPassword === 0
         ) {
             console.log(
-                "ℹ️ Login form not displayed; continuing with current session."
+                "ℹ️ Login form not displayed; current session appears authenticated."
             );
 
             return;
         }
     }
 
+
     /*
     -----------------------------------------------------
-    Login form must exist if credentials are required.
+    Login form required
     -----------------------------------------------------
     */
 
+    const finalEmailCount =
+        await page
+            .locator(
+                emailSelector
+            )
+            .count();
+
+    const finalPasswordCount =
+        await page
+            .locator(
+                passwordSelector
+            )
+            .count();
+
     if (
-        await page.locator(
-            'input[type="email"]'
-        ).count() === 0 ||
-        await page.locator(
-            'input[type="password"]'
-        ).count() === 0
+        finalEmailCount === 0 ||
+        finalPasswordCount === 0
     ) {
         throw new Error(
             "لم يتم العثور على حقول تسجيل الدخول في Sawa9ly Affiliate."
         );
     }
 
+
+    if (
+        !config.sawa9ly.email ||
+        !config.sawa9ly.password
+    ) {
+        throw new Error(
+            "بيانات تسجيل الدخول إلى Sawa9ly غير موجودة."
+        );
+    }
+
+
     console.log(
         "Login form detected."
     );
+
+
+    const emailInput =
+        page
+            .locator(
+                emailSelector
+            )
+            .first();
+
+    const passwordInput =
+        page
+            .locator(
+                passwordSelector
+            )
+            .first();
+
 
     await emailInput.fill(
         config.sawa9ly.email
@@ -600,28 +808,40 @@ async function login(page) {
         config.sawa9ly.password
     );
 
+
+    /*
+    -----------------------------------------------------
+    Submit
+    -----------------------------------------------------
+    */
+
     const submitButton =
-        page.locator(
-            'button[type="submit"]'
-        ).first();
+        page
+            .locator(
+                'button[type="submit"]'
+            )
+            .first();
 
     if (
         await submitButton.count() > 0
     ) {
         await submitButton.click();
+
     } else {
         await passwordInput.press(
             "Enter"
         );
     }
 
+
     await page.waitForTimeout(
         LOGIN_WAIT
     );
 
+
     /*
     -----------------------------------------------------
-    Check if still on login.
+    Verify login
     -----------------------------------------------------
     */
 
@@ -643,13 +863,16 @@ async function login(page) {
     );
 }
 
+
 /*
 =========================================================
  OPEN CATALOG
 =========================================================
 */
 
-async function openCatalog(page) {
+async function openCatalog(
+    page
+) {
     console.log("");
     console.log(
         "2) Opening Sawa9ly product catalog..."
@@ -661,22 +884,27 @@ async function openCatalog(page) {
             1
         );
 
+
     await page.goto(
         firstPageUrl,
         {
             waitUntil:
                 "domcontentloaded",
+
             timeout:
                 NAVIGATION_TIMEOUT
         }
     );
 
+
     await page.waitForTimeout(
         PAGE_DELAY
     );
 
+
     const currentUrl =
         page.url();
+
 
     if (
         /\/login(?:[/?#]|$)/i.test(
@@ -688,8 +916,11 @@ async function openCatalog(page) {
         );
     }
 
+
     /*
-    Save HTML for diagnostics.
+    -----------------------------------------------------
+    Save dashboard HTML
+    -----------------------------------------------------
     */
 
     try {
@@ -698,16 +929,18 @@ async function openCatalog(page) {
             await page.content(),
             "utf8"
         );
-    } catch {
+    } catch (error) {
         console.warn(
             "⚠️ Could not save dashboard.html"
         );
     }
 
+
     console.log(
         `Catalog opened: ${currentUrl}`
     );
 }
+
 
 /*
 =========================================================
@@ -723,10 +956,23 @@ async function discoverPageCount(
         "3) Detecting catalog pagination..."
     );
 
+
     const detectedPages =
         await detectPagination(
             page
         );
+
+
+    /*
+    Page 1 must always exist.
+    */
+
+    if (
+        !detectedPages.includes(1)
+    ) {
+        detectedPages.unshift(1);
+    }
+
 
     let maxPage =
         detectedPages.length > 0
@@ -735,9 +981,10 @@ async function discoverPageCount(
             )
             : 1;
 
+
     /*
     -----------------------------------------------------
-    Safety protection
+    Safety limit
     -----------------------------------------------------
     */
 
@@ -750,15 +997,6 @@ async function discoverPageCount(
         );
     }
 
-    /*
-    Make sure page 1 is always included.
-    */
-
-    if (
-        !detectedPages.includes(1)
-    ) {
-        detectedPages.unshift(1);
-    }
 
     console.log(
         `Detected pages: ${
@@ -770,15 +1008,17 @@ async function discoverPageCount(
         `Pages to scan: ${maxPage}`
     );
 
+
     return {
         detectedPages,
         maxPage
     };
 }
 
+
 /*
 =========================================================
- DISCOVERY
+ DISCOVER PRODUCTS
 =========================================================
 */
 
@@ -791,6 +1031,7 @@ async function discoverProducts(
         "4) Collecting product links..."
     );
 
+
     const allProducts =
         new Map();
 
@@ -798,9 +1039,10 @@ async function discoverProducts(
 
     const pageUrls = {};
 
+
     /*
     -----------------------------------------------------
-    Scan every page.
+    Scan every page
     -----------------------------------------------------
     */
 
@@ -815,27 +1057,33 @@ async function discoverProducts(
                 pageNumber
             );
 
+
         console.log("");
         console.log(
             `--- PAGE ${pageNumber}/${maxPage} ---`
         );
+
 
         await page.goto(
             pageUrl,
             {
                 waitUntil:
                     "domcontentloaded",
+
                 timeout:
                     NAVIGATION_TIMEOUT
             }
         );
 
+
         await page.waitForTimeout(
             PAGE_DELAY
         );
 
+
         const currentUrl =
             page.url();
+
 
         /*
         -------------------------------------------------
@@ -853,9 +1101,11 @@ async function discoverProducts(
             );
         }
 
+
         pageUrls[
             String(pageNumber)
         ] = currentUrl;
+
 
         /*
         -------------------------------------------------
@@ -868,17 +1118,22 @@ async function discoverProducts(
                 page
             );
 
+
         pageCounts[
             String(pageNumber)
         ] = products.length;
 
+
         /*
         -------------------------------------------------
-        Zero-product protection
+        ZERO PRODUCT PROTECTION
         -------------------------------------------------
 
-        لا نسمح لصفحة فارغة أن تجعلنا نعتبر
-        آلاف المنتجات "مفقودة".
+        A single empty page is considered
+        a failed discovery.
+
+        We NEVER use it to mark products
+        unavailable.
         -------------------------------------------------
         */
 
@@ -890,22 +1145,29 @@ async function discoverProducts(
             );
         }
 
+
         /*
         -------------------------------------------------
         Add unique products
         -------------------------------------------------
         */
 
-        for (const product of products) {
+        for (
+            const product
+            of products
+        ) {
             allProducts.set(
-                product.id,
+                String(
+                    product.id
+                ),
                 product
             );
         }
 
+
         /*
         -------------------------------------------------
-        Save progress after every page
+        Save progress
         -------------------------------------------------
         */
 
@@ -931,6 +1193,7 @@ async function discoverProducts(
             }
         );
 
+
         console.log(
             `Products on page: ${products.length}`
         );
@@ -939,6 +1202,7 @@ async function discoverProducts(
             `Total unique products: ${allProducts.size}`
         );
     }
+
 
     /*
     -----------------------------------------------------
@@ -951,6 +1215,7 @@ async function discoverProducts(
             ...allProducts.values()
         ];
 
+
     if (
         finalProducts.length === 0
     ) {
@@ -958,6 +1223,7 @@ async function discoverProducts(
             "Discovery returned ZERO products. Refusing to continue."
         );
     }
+
 
     return {
         products:
@@ -968,6 +1234,7 @@ async function discoverProducts(
         pageUrls
     };
 }
+
 
 /*
 =========================================================
@@ -984,25 +1251,51 @@ function buildAvailabilityState(
             null
         );
 
+
+    /*
+    -----------------------------------------------------
+    Previous IDs
+    -----------------------------------------------------
+    */
+
     const previousIds =
         new Set(
             Array.isArray(
                 previousHistory?.discoveredIds
             )
-                ? previousHistory.discoveredIds
-                    .map(String)
+                ? previousHistory
+                    .discoveredIds
+                    .map(
+                        value =>
+                            String(value)
+                    )
                     .filter(Boolean)
                 : []
         );
 
+
+    /*
+    -----------------------------------------------------
+    Previous missing streaks
+    -----------------------------------------------------
+    */
+
     const previousStreaks =
         (
             previousHistory?.missingStreaks &&
-            typeof previousHistory.missingStreaks ===
+            typeof
+                previousHistory.missingStreaks ===
                 "object"
         )
             ? previousHistory.missingStreaks
             : {};
+
+
+    /*
+    -----------------------------------------------------
+    Current IDs
+    -----------------------------------------------------
+    */
 
     const currentIds =
         new Set(
@@ -1016,56 +1309,58 @@ function buildAvailabilityState(
                 .filter(Boolean)
         );
 
+
+    const missingStreaks = {};
+
+    const confirmedMissingIds = [];
+
+
+    /*
+    -----------------------------------------------------
+    Present products
+    -----------------------------------------------------
+
+    Present = 0 missing runs.
+    */
+
+    for (
+        const id
+        of currentIds
+    ) {
+        missingStreaks[id] = 0;
+    }
+
+
     /*
     -----------------------------------------------------
     Missing products
     -----------------------------------------------------
     */
 
-    const missingStreaks = {};
-
-    const confirmedMissingIds = [];
-
-    /*
-    -----------------------------------------------------
-    Products currently present
-    -----------------------------------------------------
-
-    We explicitly store 0.
-
-    This makes the state clearer and prevents
-    stale streak information from being accidentally
-    reused.
-    -----------------------------------------------------
-    */
-
-    for (const id of currentIds) {
-        missingStreaks[id] = 0;
-    }
-
-    /*
-    -----------------------------------------------------
-    Products absent from current successful discovery
-    -----------------------------------------------------
-    */
-
-    for (const id of previousIds) {
+    for (
+        const id
+        of previousIds
+    ) {
         if (
             currentIds.has(id)
         ) {
             continue;
         }
 
+
         const previousStreak =
             Number(
                 previousStreaks[id] || 0
             );
 
+
         const newStreak =
             previousStreak + 1;
 
+
         missingStreaks[id] =
             newStreak;
+
 
         if (
             newStreak >=
@@ -1076,6 +1371,7 @@ function buildAvailabilityState(
             );
         }
     }
+
 
     return {
         previousIds:
@@ -1094,9 +1390,10 @@ function buildAvailabilityState(
     };
 }
 
+
 /*
 =========================================================
- SAFETY CHECK
+ DISCOVERY SAFETY
 =========================================================
 */
 
@@ -1110,6 +1407,7 @@ function evaluateDiscoverySafety({
             pageCounts
         ).length;
 
+
     const everyPageHasProducts =
         Object.values(
             pageCounts
@@ -1118,28 +1416,28 @@ function evaluateDiscoverySafety({
                 Number(count) > 0
         );
 
+
     const correctPageCount =
         pagesScanned ===
         maxPage;
 
+
     const hasProducts =
+        Array.isArray(products) &&
         products.length > 0;
+
 
     const withinSafetyLimit =
         maxPage <=
         MAX_PAGES;
 
-    /*
-    -----------------------------------------------------
-    Availability is safe ONLY if all conditions pass.
-    -----------------------------------------------------
-    */
 
     const availabilitySafe =
         correctPageCount &&
         everyPageHasProducts &&
         hasProducts &&
         withinSafetyLimit;
+
 
     return {
         availabilitySafe,
@@ -1156,25 +1454,72 @@ function evaluateDiscoverySafety({
     };
 }
 
+
+/*
+=========================================================
+ BROWSER SETUP
+=========================================================
+*/
+
+async function createBrowserContext(
+    browser
+) {
+    const browserConfig =
+        config.browser || {};
+
+
+    const viewport =
+        browserConfig.viewport || {
+            width: 1440,
+            height: 900
+        };
+
+
+    const context =
+        await browser.newContext({
+            viewport,
+
+            locale:
+                browserConfig.locale ||
+                "ar-DZ",
+
+            timezoneId:
+                browserConfig.timezoneId ||
+                "Africa/Algiers",
+
+            userAgent:
+                browserConfig.userAgent ||
+                undefined
+        });
+
+
+    return context;
+}
+
+
 /*
 =========================================================
  MAIN
 =========================================================
 */
 
-console.log("");
-console.log(
-    "=============================================="
-);
-console.log(
-    "      PRIX-CHOC / SAWA9LY DISCOVERY"
-);
-console.log(
-    "=============================================="
-);
-console.log("");
+async function main() {
+    console.log("");
+    console.log(
+        "=============================================="
+    );
 
-try {
+    console.log(
+        "      PRIX-CHOC / SAWA9LY DISCOVERY"
+    );
+
+    console.log(
+        "=============================================="
+    );
+
+    console.log("");
+
+
     /*
     -----------------------------------------------------
     Validate configuration
@@ -1183,30 +1528,21 @@ try {
 
     validateConfig();
 
-    /*
-    -----------------------------------------------------
-    Print safe configuration summary if available.
-    -----------------------------------------------------
-    */
+    printConfigSummary();
 
-    if (
-        typeof config.printConfigSummary ===
-        "function"
-    ) {
-        config.printConfigSummary();
-    }
 
     /*
     -----------------------------------------------------
-    Remove stale outputs.
+    Remove stale temporary outputs.
     -----------------------------------------------------
     */
 
     removeStaleDiscoveryOutputs();
 
+
     /*
     -----------------------------------------------------
-    Verify credentials.
+    Verify credentials
     -----------------------------------------------------
     */
 
@@ -1218,6 +1554,7 @@ try {
         );
     }
 
+
     if (
         !config.sawa9ly.password
     ) {
@@ -1226,9 +1563,11 @@ try {
         );
     }
 
+
     console.log(
         "Credentials detected."
     );
+
 
     /*
     -----------------------------------------------------
@@ -1240,429 +1579,493 @@ try {
         "Launching Chromium..."
     );
 
+
     const browser =
         await chromium.launch({
             headless:
                 config.automation.headless
         });
 
-    const context =
-        await browser.newContext({
-            viewport: {
-                width: 1440,
-                height: 900
-            },
 
-            locale:
-                "ar-DZ",
+    let context = null;
 
-            timezoneId:
-                "Africa/Algiers"
-        });
+    try {
+        context =
+            await createBrowserContext(
+                browser
+            );
 
-    /*
-    -----------------------------------------------------
-    New page
-    -----------------------------------------------------
-    */
 
-    const page =
-        await context.newPage();
+        const page =
+            await context.newPage();
 
-    page.setDefaultNavigationTimeout(
-        NAVIGATION_TIMEOUT
-    );
 
-    /*
-    -----------------------------------------------------
-    Login
-    -----------------------------------------------------
-    */
+        page.setDefaultNavigationTimeout(
+            NAVIGATION_TIMEOUT
+        );
 
-    await login(
-        page
-    );
 
-    /*
-    -----------------------------------------------------
-    Open catalog
-    -----------------------------------------------------
-    */
+        /*
+        -------------------------------------------------
+        LOGIN
+        -------------------------------------------------
+        */
 
-    await openCatalog(
-        page
-    );
-
-    /*
-    -----------------------------------------------------
-    Detect pagination
-    -----------------------------------------------------
-    */
-
-    const pagination =
-        await discoverPageCount(
+        await login(
             page
         );
 
-    /*
-    -----------------------------------------------------
-    Discover products
-    -----------------------------------------------------
-    */
 
-    const discovery =
-        await discoverProducts(
-            page,
-            pagination.maxPage
+        /*
+        -------------------------------------------------
+        OPEN CATALOG
+        -------------------------------------------------
+        */
+
+        await openCatalog(
+            page
         );
 
-    /*
-    -----------------------------------------------------
-    Safety evaluation
-    -----------------------------------------------------
-    */
 
-    const safety =
-        evaluateDiscoverySafety({
-            maxPage:
+        /*
+        -------------------------------------------------
+        DETECT PAGINATION
+        -------------------------------------------------
+        */
+
+        const pagination =
+            await discoverPageCount(
+                page
+            );
+
+
+        /*
+        -------------------------------------------------
+        DISCOVER PRODUCTS
+        -------------------------------------------------
+        */
+
+        const discovery =
+            await discoverProducts(
+                page,
+                pagination.maxPage
+            );
+
+
+        /*
+        -------------------------------------------------
+        SAFETY
+        -------------------------------------------------
+        */
+
+        const safety =
+            evaluateDiscoverySafety({
+                maxPage:
+                    pagination.maxPage,
+
+                pageCounts:
+                    discovery.pageCounts,
+
+                products:
+                    discovery.products
+            });
+
+
+        /*
+        -------------------------------------------------
+        AVAILABILITY HISTORY
+        -------------------------------------------------
+        */
+
+        const availability =
+            buildAvailabilityState(
+                discovery.products
+            );
+
+
+        /*
+        -------------------------------------------------
+        BUILD IDS
+        -------------------------------------------------
+        */
+
+        const discoveredIds =
+            discovery.products
+                .map(
+                    product =>
+                        String(
+                            product.id
+                        )
+                )
+                .filter(Boolean);
+
+
+        const uniqueDiscoveredIds =
+            [
+                ...new Set(
+                    discoveredIds
+                )
+            ];
+
+
+        if (
+            uniqueDiscoveredIds.length === 0
+        ) {
+            throw new Error(
+                "No valid product IDs were discovered."
+            );
+        }
+
+
+        /*
+        -------------------------------------------------
+        COUNTS
+        -------------------------------------------------
+        */
+
+        const previousCount =
+            availability
+                .previousIds
+                .length;
+
+
+        const currentCount =
+            uniqueDiscoveredIds.length;
+
+
+        const countDelta =
+            currentCount -
+            previousCount;
+
+
+        /*
+        -------------------------------------------------
+        REPORT
+        -------------------------------------------------
+        */
+
+        const report = {
+            complete:
+                true,
+
+            availabilitySafe:
+                safety.availabilitySafe,
+
+            safetyChecks:
+                safety.checks,
+
+            pagesScanned:
                 pagination.maxPage,
+
+            detectedPages:
+                pagination.detectedPages,
+
+            productsFound:
+                discovery.products.length,
+
+            uniqueProductsFound:
+                uniqueDiscoveredIds.length,
+
+            previousProductsFound:
+                previousCount,
+
+            countDelta,
 
             pageCounts:
                 discovery.pageCounts,
 
-            products:
-                discovery.products
-        });
+            pageUrls:
+                discovery.pageUrls,
 
-    /*
-    -----------------------------------------------------
-    Availability history
-    -----------------------------------------------------
-    */
+            discoveredIds:
+                uniqueDiscoveredIds,
 
-    const availability =
-        buildAvailabilityState(
+            missingStreaks:
+                availability.missingStreaks,
+
+            confirmedMissingIds:
+                availability.confirmedMissingIds,
+
+            missingConfirmationRuns:
+                MISSING_CONFIRMATION_RUNS,
+
+            generatedAt:
+                new Date().toISOString()
+        };
+
+
+        /*
+        -------------------------------------------------
+        IMPORTANT SAFETY RULE
+        -------------------------------------------------
+
+        Discovery itself never modifies products.js.
+
+        Even if availabilitySafe is false,
+        the discovered data is saved for diagnostics,
+        but downstream code must not trust
+        missing products.
+        -------------------------------------------------
+        */
+
+        if (
+            !safety.availabilitySafe
+        ) {
+            console.warn("");
+
+            console.warn(
+                "⚠️ DISCOVERY IS NOT AVAILABILITY-SAFE."
+            );
+
+            console.warn(
+                "⚠️ Availability changes must NOT be trusted."
+            );
+
+            console.warn("");
+        }
+
+
+        /*
+        -------------------------------------------------
+        SAVE product-links.json
+        -------------------------------------------------
+        */
+
+        writeJson(
+            linksFile,
             discovery.products
         );
 
-    /*
-    -----------------------------------------------------
-    Build IDs
-    -----------------------------------------------------
-    */
 
-    const discoveredIds =
-        discovery.products
-            .map(
-                product =>
-                    String(
-                        product.id
-                    )
-            )
-            .filter(Boolean);
-
-    /*
-    -----------------------------------------------------
-    Duplicate protection
-    -----------------------------------------------------
-    */
-
-    const uniqueDiscoveredIds =
-        [
-            ...new Set(
-                discoveredIds
-            )
-        ];
-
-    if (
-        uniqueDiscoveredIds.length ===
-        0
-    ) {
-        throw new Error(
-            "No valid product IDs were discovered."
-        );
-    }
-
-    /*
-    -----------------------------------------------------
-    Previous count
-    -----------------------------------------------------
-    */
-
-    const previousCount =
-        availability.previousIds
-            .length;
-
-    const currentCount =
-        uniqueDiscoveredIds
-            .length;
-
-    const countDelta =
-        currentCount -
-        previousCount;
-
-    /*
-    -----------------------------------------------------
-    Build final report
-    -----------------------------------------------------
-    */
-
-    const report = {
-        complete:
-            true,
-
-        availabilitySafe:
-            safety.availabilitySafe,
-
-        safetyChecks:
-            safety.checks,
-
-        pagesScanned:
-            pagination.maxPage,
-
-        detectedPages:
-            pagination.detectedPages,
-
-        productsFound:
-            discovery.products.length,
-
-        uniqueProductsFound:
-            uniqueDiscoveredIds.length,
-
-        previousProductsFound:
-            previousCount,
-
-        countDelta,
-
-        pageCounts:
-            discovery.pageCounts,
-
-        pageUrls:
-            discovery.pageUrls,
-
-        discoveredIds:
-            uniqueDiscoveredIds,
-
-        missingStreaks:
-            availability.missingStreaks,
-
-        confirmedMissingIds:
-            availability.confirmedMissingIds,
-
-        missingConfirmationRuns:
-            MISSING_CONFIRMATION_RUNS,
-
-        generatedAt:
-            new Date().toISOString()
-    };
-
-    /*
-    -----------------------------------------------------
-    FINAL SAFETY BLOCK
-    -----------------------------------------------------
-
-    If Discovery is unsafe, we still save the diagnostic
-    result, but the caller can clearly see that availability
-    decisions must NOT be trusted.
-    -----------------------------------------------------
-    */
-
-    if (
-        !safety.availabilitySafe
-    ) {
-        console.warn("");
-        console.warn(
-            "⚠️ DISCOVERY IS NOT AVAILABILITY-SAFE."
-        );
-        console.warn(
-            "⚠️ Products will still be reported,"
-        );
-        console.warn(
-            "⚠️ but availability changes must not be trusted."
-        );
-        console.warn("");
-    }
-
-    /*
-    -----------------------------------------------------
-    Save outputs
-    -----------------------------------------------------
-    */
-
-    writeJson(
-        linksFile,
-        discovery.products
-    );
-
-    writeJson(
-        reportFile,
-        report
-    );
-
-    writeJson(
-        historyFile,
-        report
-    );
-
-    /*
-    -----------------------------------------------------
-    Success output
-    -----------------------------------------------------
-    */
-
-    console.log("");
-    console.log(
-        "=============================================="
-    );
-    console.log(
-        "           DISCOVERY COMPLETED"
-    );
-    console.log(
-        "=============================================="
-    );
-
-    console.log(
-        `Pages scanned       : ${pagination.maxPage}`
-    );
-
-    console.log(
-        `Products discovered : ${discovery.products.length}`
-    );
-
-    console.log(
-        `Unique product IDs  : ${uniqueDiscoveredIds.length}`
-    );
-
-    console.log(
-        `Previous count      : ${previousCount}`
-    );
-
-    console.log(
-        `Count delta         : ${countDelta >= 0 ? "+" : ""}${countDelta}`
-    );
-
-    console.log(
-        `Availability safe   : ${
-            safety.availabilitySafe
-                ? "YES"
-                : "NO"
-        }`
-    );
-
-    console.log(
-        `Confirmed missing   : ${availability.confirmedMissingIds.length}`
-    );
-
-    console.log(
-        `Missing threshold   : ${MISSING_CONFIRMATION_RUNS}`
-    );
-
-    console.log("");
-    console.log(
-        `Products file: ${linksFile}`
-    );
-
-    console.log(
-        `Report file   : ${reportFile}`
-    );
-
-    console.log(
-        `History file  : ${historyFile}`
-    );
-
-    /*
-    -----------------------------------------------------
-    Show sample
-    -----------------------------------------------------
-    */
-
-    console.log("");
-    console.log(
-        "First discovered products:"
-    );
-
-    discovery.products
-        .slice(0, 10)
-        .forEach(
-            (product, index) => {
-                console.log(
-                    `${index + 1}. [${product.id}] ${product.href}`
-                );
-            }
-        );
-
-    console.log("");
-
-    /*
-    -----------------------------------------------------
-    Close browser
-    -----------------------------------------------------
-    */
-
-    await browser.close();
-
-    process.exit(0);
-
-} catch (error) {
-    /*
-    =====================================================
-    ERROR HANDLING
-    =====================================================
-    */
-
-    console.error("");
-    console.error(
-        "=============================================="
-    );
-
-    console.error(
-        "          ❌ DISCOVERY FAILED"
-    );
-
-    console.error(
-        "=============================================="
-    );
-
-    console.error("");
-
-    console.error(
-        error?.message ||
-        error
-    );
-
-    console.error("");
-
-    /*
-    -----------------------------------------------------
-    Try to save browser screenshot if possible.
-    -----------------------------------------------------
-    */
-
-    try {
         /*
-        page is scoped inside try, so this section
-        intentionally does not assume it exists.
+        -------------------------------------------------
+        SAVE discovery-report.json
+        -------------------------------------------------
         */
-    } catch {}
 
-    /*
-    -----------------------------------------------------
-    IMPORTANT:
-    Do NOT create an empty product-links.json.
-    Do NOT overwrite history with an empty discovery.
-    Do NOT mark products unavailable here.
-    -----------------------------------------------------
-    */
+        writeJson(
+            reportFile,
+            report
+        );
 
-    console.error(
-        "🛑 Existing product availability was NOT modified."
-    );
 
-    console.error(
-        "🛑 No products were deleted."
-    );
+        /*
+        -------------------------------------------------
+        SAVE discovery-history.json
+        -------------------------------------------------
+        */
 
-    console.error("");
+        writeJson(
+            historyFile,
+            report
+        );
 
-    process.exit(1);
+
+        /*
+        -------------------------------------------------
+        SUCCESS OUTPUT
+        -------------------------------------------------
+        */
+
+        console.log("");
+
+        console.log(
+            "=============================================="
+        );
+
+        console.log(
+            "           DISCOVERY COMPLETED"
+        );
+
+        console.log(
+            "=============================================="
+        );
+
+
+        console.log(
+            `Pages scanned       : ${pagination.maxPage}`
+        );
+
+        console.log(
+            `Products discovered : ${discovery.products.length}`
+        );
+
+        console.log(
+            `Unique product IDs  : ${uniqueDiscoveredIds.length}`
+        );
+
+        console.log(
+            `Previous count      : ${previousCount}`
+        );
+
+        console.log(
+            `Count delta         : ${
+                countDelta >= 0
+                    ? "+"
+                    : ""
+            }${countDelta}`
+        );
+
+        console.log(
+            `Availability safe   : ${
+                safety.availabilitySafe
+                    ? "YES"
+                    : "NO"
+            }`
+        );
+
+        console.log(
+            `Confirmed missing   : ${availability.confirmedMissingIds.length}`
+        );
+
+        console.log(
+            `Missing threshold   : ${MISSING_CONFIRMATION_RUNS}`
+        );
+
+
+        console.log("");
+
+        console.log(
+            `Products file: ${linksFile}`
+        );
+
+        console.log(
+            `Report file   : ${reportFile}`
+        );
+
+        console.log(
+            `History file  : ${historyFile}`
+        );
+
+
+        /*
+        -------------------------------------------------
+        SAMPLE
+        -------------------------------------------------
+        */
+
+        console.log("");
+
+        console.log(
+            "First discovered products:"
+        );
+
+
+        discovery.products
+            .slice(0, 10)
+            .forEach(
+                (
+                    product,
+                    index
+                ) => {
+                    console.log(
+                        `${index + 1}. [${product.id}] ${product.href}`
+                    );
+                }
+            );
+
+
+        console.log("");
+
+
+        /*
+        -------------------------------------------------
+        CLOSE
+        -------------------------------------------------
+        */
+
+        await context.close();
+
+        context = null;
+
+        await browser.close();
+
+
+        return {
+            success:
+                true,
+
+            report
+        };
+
+    } catch (error) {
+        /*
+        -------------------------------------------------
+        Close context safely
+        -------------------------------------------------
+        */
+
+        try {
+            if (context) {
+                await context.close();
+            }
+        } catch {}
+
+
+        throw error;
+
+    } finally {
+        /*
+        -------------------------------------------------
+        Browser cleanup
+        -------------------------------------------------
+        */
+
+        try {
+            await browser.close();
+        } catch {}
+    }
 }
+
+
+/*
+=========================================================
+ START
+=========================================================
+*/
+
+main()
+    .then(
+        () => {
+            process.exit(0);
+        }
+    )
+    .catch(
+        error => {
+            console.error("");
+
+            console.error(
+                "=============================================="
+            );
+
+            console.error(
+                "          ❌ DISCOVERY FAILED"
+            );
+
+            console.error(
+                "=============================================="
+            );
+
+            console.error("");
+
+            console.error(
+                error?.stack ||
+                error?.message ||
+                error
+            );
+
+            console.error("");
+
+            console.error(
+                "🛑 Existing product availability was NOT modified."
+            );
+
+            console.error(
+                "🛑 No products were deleted."
+            );
+
+            console.error("");
+
+            process.exit(1);
+        }
+    );
