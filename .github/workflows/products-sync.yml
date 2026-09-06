@@ -1,4 +1,4 @@
-name: Prix Choc - Product Sync
+name: Prix Choc - Daily Sawa9ly Product Sync
 
 on:
   workflow_dispatch:
@@ -37,7 +37,12 @@ jobs:
           test -f generator.js
           test -f config.js
           test -f pricing.js
-          echo "Automation files: OK"
+          node --check discover.js
+          node --check scraper.js
+          node --check sync.js
+          node --check generator.js
+          node --check config.js
+          echo "Automation syntax: OK"
 
       - name: Install dependencies
         working-directory: automation
@@ -56,12 +61,13 @@ jobs:
         working-directory: automation
         run: |
           cat > .env <<'EOF'
-          SAWA9LY_LOGIN_URL=https://sawa9ly.app/login
-          SAWA9LY_DASHBOARD_URL=https://sawa9ly.app/dashboard
+          SAWA9LY_LOGIN_URL=https://affiliate.sawa9ly.pro/
+          SAWA9LY_DASHBOARD_URL=https://affiliate.sawa9ly.pro/store
           SAWA9LY_EMAIL=${{ secrets.SAWA9LY_EMAIL }}
           SAWA9LY_PASSWORD=${{ secrets.SAWA9LY_PASSWORD }}
           SCRAPE_LIMIT=2094
-          SCRAPE_CONCURRENCY=10
+          SCRAPE_CONCURRENCY=8
+          MISSING_CONFIRMATION_RUNS=2
           HEADLESS=true
           DRY_RUN=false
           DEFAULT_MARGIN=1000
@@ -71,27 +77,73 @@ jobs:
           OUTPUT_DIR=./output
           EOF
 
-      - name: Run product discovery
+      - name: Run full product discovery
         working-directory: automation
         run: npm run discover
 
-      - name: Verify discovery
+      - name: Verify discovery integrity
         working-directory: automation
         run: |
-          test -f debug/product-links.json
-          test -f debug/discovery-report.json
-          test -f state/discovery-history.json
-          node -e "const r=require('./debug/discovery-report.json'); if(r.complete!==true) process.exit(1); if(!r.availabilitySafe) process.exit(1); console.log('Discovery complete:',r.productsFound); console.log('Availability safe:',r.availabilitySafe); console.log('Confirmed missing:',(r.confirmedMissingIds||[]).length);"
+          test -s debug/product-links.json
+          test -s debug/discovery-report.json
+          test -s state/discovery-history.json
 
-      - name: Run product sync
+          node - <<'NODE'
+          const fs = require("fs");
+          const r = JSON.parse(
+            fs.readFileSync("debug/discovery-report.json", "utf8")
+          );
+
+          if (r.complete !== true) {
+            throw new Error("Discovery is not complete.");
+          }
+
+          if (r.availabilitySafe !== true) {
+            throw new Error("Discovery is not availability-safe.");
+          }
+
+          if (!Number(r.productsFound)) {
+            throw new Error("Discovery returned zero products.");
+          }
+
+          console.log("Discovery:", r.productsFound);
+          console.log("Availability safe:", r.availabilitySafe);
+          console.log(
+            "Confirmed missing:",
+            (r.confirmedMissingIds || []).length
+          );
+          NODE
+
+      - name: Run full scrape and sync
         working-directory: automation
         run: npm run sync
 
-      - name: Verify generated output
+      - name: Verify generated data
         working-directory: automation
         run: |
           test -f output/products.raw.json
-          node -e "const d=require('./output/products.raw.json'); if(!Array.isArray(d)) process.exit(1); console.log('Products extracted:',d.length);"
+          test -f debug/scraper-debug.json
+
+          node - <<'NODE'
+          const fs = require("fs");
+
+          const products = JSON.parse(
+            fs.readFileSync("output/products.raw.json", "utf8")
+          );
+
+          const report = JSON.parse(
+            fs.readFileSync("debug/scraper-debug.json", "utf8")
+          );
+
+          if (!Array.isArray(products) || products.length === 0) {
+            throw new Error("Scraper returned zero products.");
+          }
+
+          console.log("Scraped:", products.length);
+          console.log("Failed:", report.failed);
+          console.log("Coverage:", report.coverage);
+          console.log("Images:", report.totalImages);
+          NODE
 
       - name: Verify products.js
         run: |
@@ -102,7 +154,7 @@ jobs:
       - name: Show changes
         run: |
           git status --short
-          git diff --name-only
+          git diff --stat
 
       - name: Commit and push safely
         shell: bash
@@ -112,74 +164,41 @@ jobs:
           git config user.name "Prix Choc Bot"
           git config user.email "prix-choc-bot@users.noreply.github.com"
 
-          # CRITICAL:
-          # automation/.env is created for the scraper. If .env is tracked in
-          # this old repository, deleting it creates an unstaged deletion.
-          # That is exactly what makes git rebase fail with:
-          # "You have unstaged changes."
-          #
-          # Restore the repository version instead of deleting a tracked file.
           if git ls-files --error-unmatch automation/.env >/dev/null 2>&1; then
             git restore -- automation/.env
           else
             rm -f automation/.env
           fi
 
-          # Only commit the two intentional generated files.
           git add products.js
           git add -f automation/state/discovery-history.json
-
-          echo "Working tree after cleanup:"
-          git status --short
-
-          echo "Staged files:"
-          git diff --cached --name-only
 
           if git diff --cached --quiet; then
             echo "No product/state changes to commit."
             exit 0
           fi
 
-          git commit -m "🤖 Auto update Sawa9ly products"
+          git commit -m "🤖 Daily Sawa9ly catalog sync"
 
-          # FIRST METHOD:
-          # Try a normal fast-forward push. This is safest when main did not
-          # move while the workflow was running.
           if git push origin HEAD:main; then
-            echo "SAFE PUSH SUCCESSFUL (method 1)"
+            echo "SAFE PUSH SUCCESSFUL"
             exit 0
           fi
 
-          echo "Method 1 failed. Starting fallback method 2..."
-
-          # FALLBACK METHOD:
-          # The remote main moved while the job was running. Rebase the local
-          # automation commit on the new remote main, then push.
           git fetch origin main
 
           if git rebase origin/main; then
-            if git push origin HEAD:main; then
-              echo "SAFE PUSH SUCCESSFUL (method 2 - rebase)"
-              exit 0
-            fi
-          else
-            echo "Rebase fallback failed; aborting rebase."
-            git rebase --abort || true
+            git push origin HEAD:main
+            exit 0
           fi
 
-          echo "Rebase fallback did not succeed. Trying final non-destructive merge fallback..."
+          git rebase --abort || true
 
-          # FINAL FALLBACK:
-          # Merge remote main without rewriting existing history.
           if git merge --no-edit origin/main; then
-            if git push origin HEAD:main; then
-              echo "SAFE PUSH SUCCESSFUL (method 3 - merge)"
-              exit 0
-            fi
-          else
-            echo "Merge fallback failed; aborting merge."
-            git merge --abort || true
+            git push origin HEAD:main
+            exit 0
           fi
 
-          echo "ERROR: All push methods failed. No force-push is performed."
+          git merge --abort || true
+          echo "ERROR: Push failed. No force push was used."
           exit 1
