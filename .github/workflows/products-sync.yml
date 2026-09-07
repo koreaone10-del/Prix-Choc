@@ -366,7 +366,14 @@ jobs:
 
       - name: Remove runtime secrets
         if: always()
-        run: rm -f .env
+        run: |
+          # .env is historically tracked in this repository. Never leave its
+          # deletion as an unstaged change because it blocks rebase/push.
+          if git -C .. ls-files --error-unmatch automation/.env >/dev/null 2>&1; then
+            git -C .. restore -- automation/.env
+          else
+            rm -f .env
+          fi
 
       - name: Inspect Git changes
         run: |
@@ -387,6 +394,12 @@ jobs:
           cd ..
           git add products.js
 
+          # Discovery history is the state used to confirm missing products.
+          # It must be committed together with products.js.
+          if [ -f automation/state/discovery-history.json ]; then
+            git add automation/state/discovery-history.json
+          fi
+
           if [ -d automation/state/history ]; then
             git add automation/state/history
           fi
@@ -405,15 +418,34 @@ jobs:
 
           git commit -m "chore: sync Sawa9ly products"
 
-      - name: Rebase against latest main
+      - name: Synchronize and push catalogue update
         run: |
           cd ..
-          git fetch origin main
-          git rebase origin/main
+          set -euo pipefail
 
-      - name: Push catalogue update
-        run: |
-          cd ..
+          # The working tree MUST be clean before rebase. This catches
+          # accidental tracked runtime files before Git can abort the job.
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "ERROR: Working tree is not clean before synchronization."
+            git status --short
+            exit 1
+          fi
+
+          # Nothing to push is a successful no-op.
+          if [ -z "$(git log -1 --format=%H)" ]; then
+            echo "No commit available."
+            exit 0
+          fi
+
+          git fetch origin main
+
+          # If the remote moved after checkout, rebase the automation commit
+          # onto the latest main. Because the tree is clean, rebase is safe.
+          if ! git merge-base --is-ancestor origin/main HEAD; then
+            echo "Remote main advanced; rebasing cleanly..."
+            git rebase origin/main
+          fi
+
           git push origin HEAD:main
 
       - name: Final verification
