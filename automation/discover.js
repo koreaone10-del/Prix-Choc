@@ -338,15 +338,160 @@ async function openCatalog(page) {
   } catch {}
 }
 
-async function scanPage(page, pageNumber, maxPageForLog) {
-  const url = makePageUrl(pageNumber);
+async function getVisibleProductIds(page) {
+  const products = await extractProductsFromPage(page);
+  return products.map((product) => String(product.id)).sort();
+}
+
+function productSignature(ids) {
+  return ids.join("|");
+}
+
+async function waitForProductPageChange(page, previousSignature) {
+  const deadline = Date.now() + Math.max(15000, NAVIGATION_TIMEOUT);
+
+  while (Date.now() < deadline) {
+    await page.waitForTimeout(300);
+    const ids = await getVisibleProductIds(page);
+    const signature = productSignature(ids);
+
+    if (ids.length > 0 && signature !== previousSignature) {
+      return ids;
+    }
+  }
+
+  throw new Error(
+    "Sawa9ly pagination control was clicked, but the product list did not change."
+  );
+}
+
+async function findPaginationControl(page, type, targetPage = null) {
+  const candidates = await page.locator(
+    "button, a, [role='button'], [role='link']"
+  ).evaluateAll((elements) =>
+    elements.map((element, index) => ({
+      index,
+      text: String(element.innerText || "")
+        .replace(/\s+/g, " ")
+        .trim(),
+      aria: String(element.getAttribute("aria-label") || "")
+        .replace(/\s+/g, " ")
+        .trim(),
+      title: String(element.getAttribute("title") || "")
+        .replace(/\s+/g, " ")
+        .trim(),
+      href: String(element.getAttribute("href") || ""),
+      disabled:
+        element.hasAttribute("disabled") ||
+        element.getAttribute("aria-disabled") === "true",
+      className: String(element.className || ""),
+    }))
+  );
+
+  const visiblePagination = candidates.filter((item) => {
+    const haystack = `${item.text} ${item.aria} ${item.title} ${item.className}`;
+    return /pagination|pager|page[-_ ]?nav|page[-_ ]?number/i.test(haystack);
+  });
+
+  if (type === "number") {
+    const wanted = String(targetPage);
+    return visiblePagination.find(
+      (item) =>
+        !item.disabled &&
+        (item.text === wanted ||
+          item.aria === wanted ||
+          item.title === wanted)
+    ) || candidates.find(
+      (item) =>
+        !item.disabled &&
+        (item.text === wanted ||
+          item.aria === wanted ||
+          item.title === wanted)
+    );
+  }
+
+  const nextPattern =
+    /^(?:>|›|»|→|next|suivant|التالي|التاليّة|الصفحة التالية|page suivante)$/i;
+
+  const next = visiblePagination.find(
+    (item) =>
+      !item.disabled &&
+      nextPattern.test(item.text) ||
+      (!item.disabled && nextPattern.test(item.aria)) ||
+      (!item.disabled && nextPattern.test(item.title))
+  );
+
+  if (next) return next;
+
+  return candidates.find((item) => {
+    if (item.disabled) return false;
+    const haystack = `${item.text} ${item.aria} ${item.title} ${item.className}`;
+    return /(?:next|suivant|التالي|page suivante|chevron-right|arrow-right)/i.test(
+      haystack
+    );
+  });
+}
+
+async function clickPaginationControl(page, control) {
+  if (!control) return false;
+
+  const locator = page.locator(
+    "button, a, [role='button'], [role='link']"
+  ).nth(control.index);
+
+  await locator.scrollIntoViewIfNeeded();
+  await locator.click({ timeout: PAGE_TIMEOUT });
+  return true;
+}
+
+async function navigateCatalogPage(page, targetPage, currentPage, currentSignature) {
+  if (targetPage === 1) {
+    return;
+  }
+
+  // Prefer a directly visible page-number button/link.
+  const direct = await findPaginationControl(page, "number", targetPage);
+  if (direct) {
+    await clickPaginationControl(page, direct);
+    await waitForProductPageChange(page, currentSignature);
+    return;
+  }
+
+  // When the pagination shows "1 2 ... 87", later page numbers are hidden.
+  // Move through the real Next button one page at a time. This is deliberately
+  // UI-driven instead of guessing a query parameter such as ?page=2.
+  let pageCursor = currentPage;
+  let signature = currentSignature;
+
+  while (pageCursor < targetPage) {
+    const next = await findPaginationControl(page, "next");
+
+    if (!next) {
+      throw new Error(
+        `Could not find Sawa9ly Next pagination control while moving from page ${pageCursor} to page ${targetPage}.`
+      );
+    }
+
+    await clickPaginationControl(page, next);
+    await waitForProductPageChange(page, signature);
+
+    pageCursor += 1;
+    signature = productSignature(await getVisibleProductIds(page));
+  }
+}
+
+async function scanPage(page, pageNumber, maxPageForLog, currentSignature = "") {
   console.log(`--- PAGE ${pageNumber}/${maxPageForLog} ---`);
 
-  await page.goto(url, {
-    waitUntil: "domcontentloaded",
-    timeout: NAVIGATION_TIMEOUT,
-  });
-  await page.waitForTimeout(PAGE_DELAY);
+  if (pageNumber === 1) {
+    await page.goto(makePageUrl(1), {
+      waitUntil: "domcontentloaded",
+      timeout: NAVIGATION_TIMEOUT,
+    });
+    await page.waitForTimeout(PAGE_DELAY);
+  } else {
+    await navigateCatalogPage(page, pageNumber, pageNumber - 1, currentSignature);
+  }
 
   if (/\/login(?:[/?#]|$)/i.test(page.url())) {
     throw new Error(`انتهت جلسة Sawa9ly في الصفحة ${pageNumber}.`);
@@ -364,41 +509,13 @@ async function determinePageCount(page) {
     return {
       maxPage: detected.maxPage,
       detectedPages: detected.pages,
-      mode: detected.source,
+      mode: "ui-pagination",
     };
   }
 
-  console.warn(
-    "⚠️ Pagination total was not directly detectable. Probing pages sequentially."
+  throw new Error(
+    "Could not safely determine the Sawa9ly catalogue page count from the visible pagination."
   );
-
-  let lastNonEmptyPage = 0;
-  const probedPages = [];
-
-  for (let pageNumber = 1; pageNumber <= MAX_PAGES; pageNumber++) {
-    const result = await scanPage(page, pageNumber, MAX_PAGES);
-    probedPages.push(pageNumber);
-
-    if (result.products.length === 0) {
-      console.log(`End of catalogue detected after page ${lastNonEmptyPage}.`);
-      break;
-    }
-
-    lastNonEmptyPage = pageNumber;
-    console.log(
-      `Products on page ${pageNumber}: ${result.products.length}`
-    );
-  }
-
-  if (lastNonEmptyPage === 0) {
-    throw new Error("Discovery returned zero products while determining pagination.");
-  }
-
-  return {
-    maxPage: lastNonEmptyPage,
-    detectedPages: probedPages,
-    mode: "sequential-probe",
-  };
 }
 
 function buildAvailabilityState(currentProducts) {
@@ -545,14 +662,20 @@ async function main() {
 
     console.log("4) Collecting all product links...");
 
+    let currentSignature = "";
+
     for (let pageNumber = 1; pageNumber <= pagination.maxPage; pageNumber++) {
       const result = await scanPage(
         page,
         pageNumber,
-        pagination.maxPage
+        pagination.maxPage,
+        currentSignature
       );
 
       const products = result.products;
+      currentSignature = productSignature(
+        products.map((product) => String(product.id)).sort()
+      );
       pageCounts[String(pageNumber)] = products.length;
       pageUrls[String(pageNumber)] = result.url;
 
