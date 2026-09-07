@@ -9,151 +9,58 @@ import {
   printConfigSummary,
 } from "./config.js";
 
-/*
-=========================================================
- PRIX-CHOC
- SAWA9LY PRODUCT DISCOVERY
-=========================================================
-
-المسؤوليات:
-
-1. تسجيل الدخول إلى Sawa9ly Affiliate.
-2. فتح كتالوج المنتجات.
-3. اكتشاف جميع صفحات الكتالوج.
-4. اكتشاف جميع روابط المنتجات.
-5. دعم:
-      /store/123
-      /product/123
-6. توحيد جميع الروابط إلى:
-      /store/123
-7. منع اعتبار الكتالوج فارغاً بسبب خطأ مؤقت.
-8. إنشاء product-links.json.
-9. إنشاء discovery-report.json.
-10. حفظ تاريخ الاكتشاف.
-11. حساب المنتجات المختفية.
-12. تأكيد الاختفاء بعد عدد محدد من العمليات الناجحة.
-13. عدم لمس products.js.
-
-مهم جداً:
-
-Discovery لا يعدل products.js.
-هو ينتج فقط البيانات التي سيستخدمها scraper/generator.
-=========================================================
-*/
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-/*
-=========================================================
- DIRECTORIES
-=========================================================
-*/
-
 const debugDir = path.resolve(
   __dirname,
-  config.paths.debugDir || "./debug"
+  config.paths?.debugDir || "./debug"
 );
-
 const stateDir = path.resolve(
   __dirname,
-  config.paths.stateDir || "./state"
+  config.paths?.stateDir || "./state"
 );
 
-fs.mkdirSync(debugDir, {
-  recursive: true,
-});
+fs.mkdirSync(debugDir, { recursive: true });
+fs.mkdirSync(stateDir, { recursive: true });
 
-fs.mkdirSync(stateDir, {
-  recursive: true,
-});
-
-/*
-=========================================================
- OUTPUT FILES
-=========================================================
-*/
-
-const linksFile = path.join(
-  debugDir,
-  "product-links.json"
-);
-
-const progressFile = path.join(
-  debugDir,
-  "product-links-progress.json"
-);
-
-const reportFile = path.join(
-  debugDir,
-  "discovery-report.json"
-);
-
-const dashboardFile = path.join(
-  debugDir,
-  "dashboard.html"
-);
-
-const historyFile = path.join(
-  stateDir,
-  "discovery-history.json"
-);
-
-/*
-=========================================================
- SETTINGS
-=========================================================
-*/
+const linksFile = path.join(debugDir, "product-links.json");
+const progressFile = path.join(debugDir, "product-links-progress.json");
+const reportFile = path.join(debugDir, "discovery-report.json");
+const dashboardFile = path.join(debugDir, "dashboard.html");
+const historyFile = path.join(stateDir, "discovery-history.json");
 
 const MAX_PAGES = Math.max(
   1,
-  Number(
-    config.automation.maxDiscoveryPages || 250
-  )
+  Number(config.automation?.maxDiscoveryPages || 250)
 );
-
 const NAVIGATION_TIMEOUT = Math.max(
   10000,
-  Number(
-    config.automation.navigationTimeoutMs || 30000
-  )
+  Number(config.automation?.navigationTimeoutMs || 30000)
 );
-
 const PAGE_TIMEOUT = Math.max(
   10000,
-  Number(
-    config.automation.pageTimeoutMs || 30000
-  )
+  Number(config.automation?.pageTimeoutMs || 30000)
 );
-
 const PAGE_DELAY = Math.max(
   0,
-  Number(
-    config.automation.renderWaitMs || 1200
-  )
+  Number(config.automation?.renderWaitMs || 1200)
 );
-
 const LOGIN_WAIT = Math.max(
   1000,
-  Number(
-    process.env.LOGIN_WAIT_MS || 5000
-  )
+  Number(config.automation?.loginWait || process.env.LOGIN_WAIT_MS || 5000)
 );
-
-const MISSING_CONFIRMATION_RUNS =
+const MISSING_CONFIRMATION_RUNS = Math.max(
+  1,
+  Number(config.automation?.missingConfirmationRuns || 2)
+);
+const MINIMUM_COVERAGE_PERCENT = Math.min(
+  100,
   Math.max(
     1,
-    Number(
-      config.automation
-        .missingConfirmationRuns || 2
-    )
-  );
-
-/*
-=========================================================
- TEXT HELPERS
-=========================================================
-*/
+    Number(config.automation?.minimumCoveragePercent || 70)
+  )
+);
 
 function cleanText(value) {
   return String(value || "")
@@ -161,1527 +68,621 @@ function cleanText(value) {
     .trim();
 }
 
-/*
-=========================================================
- JSON HELPERS
-=========================================================
-*/
-
-function readJson(
-  file,
-  fallback = null
-) {
+function readJson(file, fallback = null) {
   try {
-    if (!fs.existsSync(file)) {
-      return fallback;
-    }
-
-    const raw =
-      fs.readFileSync(
-        file,
-        "utf8"
-      );
-
-    if (!raw.trim()) {
-      return fallback;
-    }
-
+    if (!fs.existsSync(file)) return fallback;
+    const raw = fs.readFileSync(file, "utf8");
+    if (!raw.trim()) return fallback;
     return JSON.parse(raw);
-  } catch (error) {
-    console.warn(
-      `⚠️ Could not read JSON: ${file}`
-    );
-
+  } catch {
     return fallback;
   }
 }
 
-function writeJson(
-  file,
-  value
-) {
-  const directory =
-    path.dirname(file);
-
-  fs.mkdirSync(
-    directory,
-    {
-      recursive: true,
-    }
-  );
-
-  const temporaryFile =
-    `${file}.tmp`;
-
-  fs.writeFileSync(
-    temporaryFile,
-    JSON.stringify(
-      value,
-      null,
-      2
-    ),
-    "utf8"
-  );
-
-  fs.renameSync(
-    temporaryFile,
-    file
-  );
+function writeJson(file, value) {
+  const temp = `${file}.tmp`;
+  fs.writeFileSync(temp, JSON.stringify(value, null, 2), "utf8");
+  fs.renameSync(temp, file);
 }
 
-/*
-=========================================================
- CLEAN OLD DISCOVERY OUTPUTS
-=========================================================
-*/
-
-function removeStaleDiscoveryOutputs() {
-  const files = [
-    linksFile,
-    progressFile,
-    reportFile,
-  ];
-
-  for (const file of files) {
+function removeStaleOutputs() {
+  for (const file of [linksFile, progressFile, reportFile]) {
     try {
-      if (fs.existsSync(file)) {
-        fs.unlinkSync(file);
-      }
-    } catch (error) {
-      console.warn(
-        `⚠️ Could not remove old file: ${file}`
-      );
-    }
+      if (fs.existsSync(file)) fs.unlinkSync(file);
+    } catch {}
   }
 }
 
-/*
-=========================================================
- URL HELPERS
-=========================================================
-*/
-
 function extractProductId(value) {
-  const raw = String(
-    value || ""
-  );
-
+  const raw = String(value || "");
   const patterns = [
     /\/store\/(\d+)(?:[/?#]|$)/i,
     /\/product\/(\d+)(?:[/?#]|$)/i,
   ];
-
   for (const pattern of patterns) {
-    const match =
-      raw.match(pattern);
-
-    if (match) {
-      return String(
-        match[1]
-      );
-    }
+    const match = raw.match(pattern);
+    if (match) return String(match[1]);
   }
-
   return "";
 }
 
 function normalizeProductUrl(value) {
   try {
-    const url =
-      new URL(
-        String(value || "")
-      );
-
-    const id =
-      extractProductId(
-        url.href
-      );
-
-    if (!id) {
-      return "";
-    }
-
-    const baseUrl =
-      String(
-        config.sawa9ly.baseUrl ||
-          "https://affiliate.sawa9ly.pro"
-      ).replace(
-        /\/+$/,
-        ""
-      );
-
+    const url = new URL(String(value || ""));
+    const id = extractProductId(url.href);
+    if (!id) return "";
+    const baseUrl = String(
+      config.sawa9ly?.baseUrl || "https://affiliate.sawa9ly.pro"
+    ).replace(/\/+$/, "");
     return `${baseUrl}/store/${id}`;
   } catch {
     return "";
   }
 }
 
-function isProductUrl(value) {
-  return Boolean(
-    extractProductId(value)
-  );
-}
-
-function makePageUrl(
-  baseUrl,
-  pageNumber
-) {
-  const url =
-    new URL(baseUrl);
-
-  url.searchParams.set(
-    "page",
-    String(pageNumber)
-  );
-
+function makePageUrl(pageNumber) {
+  const url = new URL(config.sawa9ly.dashboardUrl);
+  url.searchParams.set("page", String(pageNumber));
   return url.toString();
 }
 
-function extractPageNumber(value) {
+function extractPageNumberFromUrl(value) {
   try {
-    const url =
-      new URL(
-        String(value || "")
-      );
-
-    const page =
-      Number(
-        url.searchParams.get(
-          "page"
-        )
-      );
-
-    if (
-      Number.isInteger(page) &&
-      page > 0
-    ) {
-      return page;
+    const url = new URL(String(value || ""));
+    for (const key of ["page", "p", "pageNumber", "page_number"]) {
+      const raw = url.searchParams.get(key);
+      const number = Number(raw);
+      if (Number.isInteger(number) && number > 0) return number;
     }
+  } catch {}
+  return null;
+}
 
-    return null;
-  } catch {
-    return null;
+function parsePageNumbersFromText(value) {
+  const text = cleanText(value);
+  const result = [];
+  const patterns = [
+    /(?:page|صفحة)\s*(?:\d+\s*(?:\/|of|sur|de|من)\s*)?(\d{1,4})/gi,
+    /(?:\/|of|sur|de|من)\s*(\d{1,4})\b/gi,
+    /\b(\d{1,4})\s*\/\s*(\d{1,4})\b/g,
+    /\b(\d{1,4})\s+(?:pages|pages?|صفحات)\b/gi,
+  ];
+
+  for (const pattern of patterns) {
+    let match;
+    while ((match = pattern.exec(text))) {
+      const candidates = match.slice(1).filter(Boolean);
+      for (const candidate of candidates) {
+        const number = Number(candidate);
+        if (Number.isInteger(number) && number > 0 && number <= MAX_PAGES) {
+          result.push(number);
+        }
+      }
+    }
   }
+
+  return result;
 }
-
-/*
-=========================================================
- PAGE CONTENT HELPERS
-=========================================================
-*/
-
-async function getPageProductCount(
-  page
-) {
-  const products =
-    await extractProductsFromPage(
-      page
-    );
-
-  return products.length;
-}
-
-/*
-=========================================================
- PAGINATION DETECTION
-
- مهم:
- لا نستعمل cleanText() داخل evaluateAll().
- لأن evaluateAll يعمل داخل Chromium وليس
- داخل Node.js.
-=========================================================
-*/
 
 async function detectPagination(page) {
-  const links =
-    await page
-      .locator("a")
-      .evaluateAll(
-        (anchors) =>
-          anchors
-            .map((anchor) => ({
-              text: String(
-                anchor.innerText || ""
-              )
-                .replace(
-                  /\s+/g,
-                  " "
-                )
-                .trim(),
+  const data = await page.locator("body").evaluate((body) => {
+    const selectors = [
+      "a",
+      "button",
+      "[role='button']",
+      "[role='navigation'] *",
+      "nav *",
+      ".pagination *",
+      "[class*='pagination' i] *",
+      "[class*='pager' i] *",
+      "[class*='page' i] *",
+      "[data-page]",
+      "[data-total-pages]",
+      "[aria-label]",
+      "[title]",
+    ];
 
-              href:
-                anchor.href || "",
-            }))
-            .filter(
-              (item) =>
-                Boolean(
-                  item.href
-                )
-            )
-      );
+    const nodes = [];
+    const seen = new Set();
 
-  const pageNumbers = [];
+    for (const selector of selectors) {
+      for (const node of body.querySelectorAll(selector)) {
+        if (seen.has(node)) continue;
+        seen.add(node);
+        nodes.push({
+          text: String(node.innerText || "").trim(),
+          href: String(node.getAttribute("href") || ""),
+          aria: String(node.getAttribute("aria-label") || ""),
+          title: String(node.getAttribute("title") || ""),
+          dataPage: String(node.getAttribute("data-page") || ""),
+          dataTotalPages: String(
+            node.getAttribute("data-total-pages") || ""
+          ),
+          className: String(node.className || ""),
+        });
+      }
+    }
 
-  for (const item of links) {
-    const number =
-      extractPageNumber(
-        item.href
-      );
+    return {
+      nodes,
+      bodyText: String(body.innerText || ""),
+    };
+  });
 
+  const detected = new Set();
+
+  const add = (value) => {
+    const number = Number(value);
+    if (Number.isInteger(number) && number > 0 && number <= MAX_PAGES) {
+      detected.add(number);
+    }
+  };
+
+  for (const node of data.nodes) {
+    add(extractPageNumberFromUrl(node.href));
+    add(node.dataPage);
+    add(node.dataTotalPages);
+    for (const number of parsePageNumbersFromText(node.text)) add(number);
+    for (const number of parsePageNumbersFromText(node.aria)) add(number);
+    for (const number of parsePageNumbersFromText(node.title)) add(number);
+    for (const number of parsePageNumbersFromText(node.className)) add(number);
+
+    // Some Sawa9ly versions render pagination as numeric buttons
+    // without href/data-page attributes (for example: 1, 2, ..., 87).
+    // Only accept isolated numeric labels inside pagination/navigation-like
+    // elements so product prices and IDs cannot be mistaken for page numbers.
     if (
-      Number.isInteger(number) &&
-      number > 0
+      /pagination|pager|page[-_ ]?nav|page[-_ ]?number/i.test(
+        `${node.className} ${node.aria} ${node.title}`
+      ) &&
+      /^\d{1,4}$/.test(cleanText(node.text))
     ) {
-      pageNumbers.push(
-        number
-      );
+      add(node.text);
     }
   }
 
-  const uniquePages =
-    [
-      ...new Set(
-        pageNumbers
-      ),
-    ].sort(
-      (a, b) => a - b
-    );
+  for (const number of parsePageNumbersFromText(data.bodyText)) add(number);
 
-  return uniquePages;
+  const pages = [...detected].sort((a, b) => a - b);
+
+  return {
+    pages,
+    maxPage: pages.length ? Math.max(...pages) : null,
+    source: pages.length ? "dom" : "unknown",
+  };
 }
 
-/*
-=========================================================
- PRODUCT LINK EXTRACTION
+async function extractProductsFromPage(page) {
+  const anchors = await page.locator("a[href]").evaluateAll((elements) =>
+    elements.map((anchor) => ({
+      text: String(anchor.innerText || "")
+        .replace(/\s+/g, " ")
+        .trim(),
+      title: String(anchor.getAttribute("title") || "")
+        .replace(/\s+/g, " ")
+        .trim(),
+      href: anchor.href || "",
+    }))
+  );
 
- نفس الإصلاح:
- لا نستعمل cleanText() داخل evaluateAll().
-=========================================================
-*/
-
-async function extractProductsFromPage(
-  page
-) {
-  const anchors =
-    await page
-      .locator("a")
-      .evaluateAll(
-        (elements) =>
-          elements.map(
-            (anchor) => ({
-              text: String(
-                anchor.innerText ||
-                  ""
-              )
-                .replace(
-                  /\s+/g,
-                  " "
-                )
-                .trim(),
-
-              href:
-                anchor.href || "",
-
-              title: String(
-                anchor.getAttribute(
-                  "title"
-                ) || ""
-              )
-                .replace(
-                  /\s+/g,
-                  " "
-                )
-                .trim(),
-            })
-          )
-      );
-
-  const productsById =
-    new Map();
+  const products = new Map();
 
   for (const anchor of anchors) {
-    const id =
-      extractProductId(
-        anchor.href
-      );
+    const id = extractProductId(anchor.href);
+    if (!id) continue;
 
-    if (!id) {
-      continue;
-    }
+    const href = normalizeProductUrl(anchor.href);
+    if (!href) continue;
 
-    const normalized =
-      normalizeProductUrl(
-        anchor.href
-      );
-
-    if (!normalized) {
-      continue;
-    }
-
-    if (
-      !productsById.has(id)
-    ) {
-      productsById.set(
+    if (!products.has(id)) {
+      products.set(id, {
         id,
-        {
-          id,
-          href: normalized,
-          text:
-            cleanText(
-              anchor.text
-            ),
-          title:
-            cleanText(
-              anchor.title
-            ),
-        }
-      );
+        href,
+        text: cleanText(anchor.text),
+        title: cleanText(anchor.title),
+      });
     }
   }
 
-  return [
-    ...productsById.values(),
-  ];
+  return [...products.values()];
 }
-
-/*
-=========================================================
- LOGIN
-=========================================================
-*/
 
 async function login(page) {
-  console.log("");
-  console.log(
-    "1) Opening Sawa9ly Affiliate login..."
-  );
+  await page.goto(config.sawa9ly.loginUrl, {
+    waitUntil: "domcontentloaded",
+    timeout: NAVIGATION_TIMEOUT,
+  });
 
-  await page.goto(
-    config.sawa9ly.loginUrl,
-    {
-      waitUntil:
-        "domcontentloaded",
-      timeout:
-        NAVIGATION_TIMEOUT,
-    }
-  );
+  await page.waitForTimeout(2000);
 
-  await page.waitForTimeout(
-    2000
-  );
+  const email = page.locator('input[type="email"]').first();
+  const password = page.locator('input[type="password"]').first();
 
-  const emailSelector =
-    'input[type="email"]';
-
-  const passwordSelector =
-    'input[type="password"]';
-
-  const emailCount =
-    await page
-      .locator(emailSelector)
-      .count();
-
-  const passwordCount =
-    await page
-      .locator(passwordSelector)
-      .count();
-
-  /*
-  Already authenticated.
-  */
-
-  if (
-    emailCount === 0 &&
-    passwordCount === 0
-  ) {
-    await page.waitForTimeout(
-      LOGIN_WAIT
-    );
-
-    const stillPassword =
-      await page
-        .locator(
-          passwordSelector
-        )
-        .count();
-
-    if (
-      stillPassword === 0
-    ) {
-      console.log(
-        "ℹ️ Login form not displayed; continuing with current session."
-      );
-
-      return;
-    }
+  if ((await email.count()) === 0 || (await password.count()) === 0) {
+    if (!/\/login(?:[/?#]|$)/i.test(page.url())) return;
+    throw new Error("لم يتم العثور على حقول تسجيل الدخول في Sawa9ly Affiliate.");
   }
 
-  /*
-  Credentials must exist.
-  */
-
-  if (
-    !config.sawa9ly.email ||
-    !config.sawa9ly.password
-  ) {
-    throw new Error(
-      "SAWA9LY credentials are missing."
-    );
+  if (!config.sawa9ly.email || !config.sawa9ly.password) {
+    throw new Error("SAWA9LY credentials are missing.");
   }
 
-  const emailInput =
-    page
-      .locator(
-        emailSelector
-      )
-      .first();
+  await email.fill(config.sawa9ly.email);
+  await password.fill(config.sawa9ly.password);
 
-  const passwordInput =
-    page
-      .locator(
-        passwordSelector
-      )
-      .first();
+  const submit = page.locator('button[type="submit"]').first();
+  if (await submit.count()) await submit.click();
+  else await password.press("Enter");
 
-  if (
-    await emailInput.count() ===
-      0 ||
-    await passwordInput.count() ===
-      0
-  ) {
-    throw new Error(
-      "لم يتم العثور على حقول تسجيل الدخول في Sawa9ly Affiliate."
-    );
+  await page.waitForTimeout(LOGIN_WAIT);
+
+  if (/\/login(?:[/?#]|$)/i.test(page.url())) {
+    throw new Error("فشل تسجيل الدخول إلى Sawa9ly Affiliate.");
   }
-
-  console.log(
-    "Login form detected."
-  );
-
-  await emailInput.fill(
-    config.sawa9ly.email
-  );
-
-  await passwordInput.fill(
-    config.sawa9ly.password
-  );
-
-  const submitButton =
-    page
-      .locator(
-        'button[type="submit"]'
-      )
-      .first();
-
-  if (
-    await submitButton.count() >
-    0
-  ) {
-    await submitButton.click();
-  } else {
-    await passwordInput.press(
-      "Enter"
-    );
-  }
-
-  await page.waitForTimeout(
-    LOGIN_WAIT
-  );
-
-  const currentUrl =
-    page.url();
-
-  if (
-    /\/login(?:[/?#]|$)/i.test(
-      currentUrl
-    )
-  ) {
-    throw new Error(
-      "فشل تسجيل الدخول إلى Sawa9ly Affiliate. بقيت الصفحة على /login."
-    );
-  }
-
-  console.log(
-    "✅ Login successful."
-  );
 }
 
-/*
-=========================================================
- OPEN CATALOG
-=========================================================
-*/
-
 async function openCatalog(page) {
-  console.log("");
-  console.log(
-    "2) Opening Sawa9ly product catalog..."
-  );
+  await page.goto(makePageUrl(1), {
+    waitUntil: "domcontentloaded",
+    timeout: NAVIGATION_TIMEOUT,
+  });
 
-  const firstPageUrl =
-    makePageUrl(
-      config.sawa9ly.dashboardUrl,
-      1
-    );
+  await page.waitForTimeout(PAGE_DELAY);
 
-  await page.goto(
-    firstPageUrl,
-    {
-      waitUntil:
-        "domcontentloaded",
-      timeout:
-        NAVIGATION_TIMEOUT,
-    }
-  );
-
-  await page.waitForTimeout(
-    PAGE_DELAY
-  );
-
-  const currentUrl =
-    page.url();
-
-  if (
-    /\/login(?:[/?#]|$)/i.test(
-      currentUrl
-    )
-  ) {
-    throw new Error(
-      "Sawa9ly أعاد توجيه الجلسة إلى /login."
-    );
+  if (/\/login(?:[/?#]|$)/i.test(page.url())) {
+    throw new Error("Sawa9ly أعاد توجيه الجلسة إلى /login.");
   }
 
   try {
-    fs.writeFileSync(
-      dashboardFile,
-      await page.content(),
-      "utf8"
-    );
-  } catch {
-    console.warn(
-      "⚠️ Could not save dashboard.html"
-    );
-  }
-
-  console.log(
-    `Catalog opened: ${currentUrl}`
-  );
+    fs.writeFileSync(dashboardFile, await page.content(), "utf8");
+  } catch {}
 }
 
-/*
-=========================================================
- DISCOVER PAGE COUNT
-=========================================================
-*/
+async function scanPage(page, pageNumber, maxPageForLog) {
+  const url = makePageUrl(pageNumber);
+  console.log(`--- PAGE ${pageNumber}/${maxPageForLog} ---`);
 
-async function discoverPageCount(
-  page
-) {
-  console.log("");
-  console.log(
-    "3) Detecting catalog pagination..."
-  );
+  await page.goto(url, {
+    waitUntil: "domcontentloaded",
+    timeout: NAVIGATION_TIMEOUT,
+  });
+  await page.waitForTimeout(PAGE_DELAY);
 
-  const detectedPages =
-    await detectPagination(
-      page
-    );
-
-  /*
-  Always include page 1.
-  */
-
-  if (
-    !detectedPages.includes(
-      1
-    )
-  ) {
-    detectedPages.unshift(1);
+  if (/\/login(?:[/?#]|$)/i.test(page.url())) {
+    throw new Error(`انتهت جلسة Sawa9ly في الصفحة ${pageNumber}.`);
   }
 
-  let maxPage =
-    Math.max(
-      1,
-      ...detectedPages
-    );
-
-  if (
-    maxPage >
-    MAX_PAGES
-  ) {
-    throw new Error(
-      `تم اكتشاف ${maxPage} صفحة، وهذا يتجاوز حد الأمان ${MAX_PAGES}.`
-    );
-  }
-
-  console.log(
-    `Detected pages: ${detectedPages.join(
-      ", "
-    )}`
-  );
-
-  console.log(
-    `Pages to scan: ${maxPage}`
-  );
-
-  return {
-    detectedPages,
-    maxPage,
-  };
+  const products = await extractProductsFromPage(page);
+  return { products, url: page.url() };
 }
 
-/*
-=========================================================
- DISCOVER ALL PRODUCTS
-=========================================================
-*/
+async function determinePageCount(page) {
+  const detected = await detectPagination(page);
 
-async function discoverProducts(
-  page,
-  maxPage
-) {
-  console.log("");
-  console.log(
-    "4) Collecting product links..."
+  if (detected.maxPage && detected.maxPage > 1) {
+    console.log(`Pagination detected from DOM: ${detected.maxPage} pages.`);
+    return {
+      maxPage: detected.maxPage,
+      detectedPages: detected.pages,
+      mode: detected.source,
+    };
+  }
+
+  console.warn(
+    "⚠️ Pagination total was not directly detectable. Probing pages sequentially."
   );
 
-  const allProducts =
-    new Map();
+  let lastNonEmptyPage = 0;
+  const probedPages = [];
 
-  const pageCounts = {};
-  const pageUrls = {};
+  for (let pageNumber = 1; pageNumber <= MAX_PAGES; pageNumber++) {
+    const result = await scanPage(page, pageNumber, MAX_PAGES);
+    probedPages.push(pageNumber);
 
-  for (
-    let pageNumber = 1;
-    pageNumber <= maxPage;
-    pageNumber++
-  ) {
-    const pageUrl =
-      makePageUrl(
-        config.sawa9ly.dashboardUrl,
-        pageNumber
-      );
-
-    console.log("");
-    console.log(
-      `--- PAGE ${pageNumber}/${maxPage} ---`
-    );
-
-    await page.goto(
-      pageUrl,
-      {
-        waitUntil:
-          "domcontentloaded",
-        timeout:
-          NAVIGATION_TIMEOUT,
-      }
-    );
-
-    await page.waitForTimeout(
-      PAGE_DELAY
-    );
-
-    const currentUrl =
-      page.url();
-
-    if (
-      /\/login(?:[/?#]|$)/i.test(
-        currentUrl
-      )
-    ) {
-      throw new Error(
-        `انتهت جلسة Sawa9ly في الصفحة ${pageNumber}.`
-      );
+    if (result.products.length === 0) {
+      console.log(`End of catalogue detected after page ${lastNonEmptyPage}.`);
+      break;
     }
 
-    pageUrls[
-      String(pageNumber)
-    ] = currentUrl;
-
-    const products =
-      await extractProductsFromPage(
-        page
-      );
-
-    pageCounts[
-      String(pageNumber)
-    ] = products.length;
-
-    /*
-    SAFETY RULE:
-
-    أي صفحة صفر منتجات توقف العملية بالكامل.
-
-    السبب:
-    لا نريد أن يتحول خلل مؤقت في Sawa9ly
-    إلى آلاف المنتجات "مفقودة".
-    */
-
-    if (
-      products.length === 0
-    ) {
-      throw new Error(
-        `Page ${pageNumber} returned ZERO product links. Discovery stopped safely.`
-      );
-    }
-
-    for (const product of products) {
-      allProducts.set(
-        product.id,
-        product
-      );
-    }
-
-    writeJson(
-      progressFile,
-      {
-        updatedAt:
-          new Date().toISOString(),
-
-        pagesCompleted:
-          pageNumber,
-
-        pagesTotal:
-          maxPage,
-
-        productsFound:
-          allProducts.size,
-
-        products:
-          [
-            ...allProducts.values(),
-          ],
-      }
-    );
-
+    lastNonEmptyPage = pageNumber;
     console.log(
-      `Products on page: ${products.length}`
-    );
-
-    console.log(
-      `Total unique products: ${allProducts.size}`
+      `Products on page ${pageNumber}: ${result.products.length}`
     );
   }
 
-  const finalProducts =
-    [
-      ...allProducts.values(),
-    ];
-
-  if (
-    finalProducts.length === 0
-  ) {
-    throw new Error(
-      "Discovery returned ZERO products. Refusing to continue."
-    );
+  if (lastNonEmptyPage === 0) {
+    throw new Error("Discovery returned zero products while determining pagination.");
   }
 
   return {
-    products:
-      finalProducts,
-
-    pageCounts,
-
-    pageUrls,
+    maxPage: lastNonEmptyPage,
+    detectedPages: probedPages,
+    mode: "sequential-probe",
   };
 }
 
-/*
-=========================================================
- AVAILABILITY HISTORY
-
- القاعدة:
-
- تشغيل ناجح:
-   المنتج موجود => streak = 0
-
- المنتج غير موجود:
-   streak + 1
-
- بعد تشغيلين متتاليين:
-   confirmedMissingIds
-
- إذا عاد المنتج:
-   streak = 0
-   ولن يكون ضمن confirmedMissingIds
-=========================================================
-*/
-
-function buildAvailabilityState(
-  currentProducts
-) {
-  const previousHistory =
-    readJson(
-      historyFile,
-      null
-    );
-
-  const previousIds =
-    new Set(
-      Array.isArray(
-        previousHistory?.discoveredIds
-      )
-        ? previousHistory.discoveredIds
-            .map(String)
-            .filter(Boolean)
-        : []
-    );
-
+function buildAvailabilityState(currentProducts) {
+  const previousHistory = readJson(historyFile, null);
+  const previousIds = new Set(
+    Array.isArray(previousHistory?.discoveredIds)
+      ? previousHistory.discoveredIds.map(String).filter(Boolean)
+      : []
+  );
   const previousStreaks =
     previousHistory?.missingStreaks &&
-    typeof previousHistory.missingStreaks ===
-      "object"
+    typeof previousHistory.missingStreaks === "object"
       ? previousHistory.missingStreaks
       : {};
 
-  const currentIds =
-    new Set(
-      currentProducts
-        .map((product) =>
-          String(
-            product.id
-          )
-        )
-        .filter(Boolean)
-    );
+  const currentIds = new Set(
+    currentProducts.map((product) => String(product.id)).filter(Boolean)
+  );
 
   const missingStreaks = {};
-  const confirmedMissingIds =
-    [];
+  const confirmedMissingIds = [];
 
-  /*
-  Current products:
-  always reset missing streak.
-  */
-
-  for (const id of currentIds) {
-    missingStreaks[id] = 0;
-  }
-
-  /*
-  Products absent from this successful
-  discovery run.
-  */
+  for (const id of currentIds) missingStreaks[id] = 0;
 
   for (const id of previousIds) {
-    if (
-      currentIds.has(id)
-    ) {
-      continue;
-    }
+    if (currentIds.has(id)) continue;
 
-    const previousStreak =
-      Number(
-        previousStreaks[id] ||
-          0
-      );
+    const streak = Number(previousStreaks[id] || 0) + 1;
+    missingStreaks[id] = streak;
 
-    const newStreak =
-      previousStreak + 1;
-
-    missingStreaks[id] =
-      newStreak;
-
-    if (
-      newStreak >=
-      MISSING_CONFIRMATION_RUNS
-    ) {
-      confirmedMissingIds.push(
-        id
-      );
+    if (streak >= MISSING_CONFIRMATION_RUNS) {
+      confirmedMissingIds.push(id);
     }
   }
 
   return {
-    previousIds:
-      [
-        ...previousIds,
-      ],
-
-    currentIds:
-      [
-        ...currentIds,
-      ],
-
+    previousIds: [...previousIds],
+    currentIds: [...currentIds],
     missingStreaks,
-
     confirmedMissingIds,
   };
 }
-
-/*
-=========================================================
- DISCOVERY SAFETY
-=========================================================
-*/
 
 function evaluateDiscoverySafety({
   maxPage,
   pageCounts,
   products,
+  previousCount,
 }) {
-  const pagesScanned =
-    Object.keys(
-      pageCounts
-    ).length;
+  const pagesScanned = Object.keys(pageCounts).length;
+  const everyPageHasProducts = Object.values(pageCounts).every(
+    (count) => Number(count) > 0
+  );
+  const correctPageCount = pagesScanned === maxPage;
+  const hasProducts = products.length > 0;
+  const withinSafetyLimit = maxPage <= MAX_PAGES;
 
-  const everyPageHasProducts =
-    Object.values(
-      pageCounts
-    ).every(
-      (count) =>
-        Number(count) > 0
-    );
+  const coveragePercent = previousCount
+    ? (products.length / previousCount) * 100
+    : 100;
 
-  const correctPageCount =
-    pagesScanned ===
-    maxPage;
-
-  const hasProducts =
-    products.length > 0;
-
-  const withinSafetyLimit =
-    maxPage <=
-    MAX_PAGES;
+  const countCoverageSafe =
+    previousCount === 0 || coveragePercent >= MINIMUM_COVERAGE_PERCENT;
 
   const availabilitySafe =
     correctPageCount &&
     everyPageHasProducts &&
     hasProducts &&
-    withinSafetyLimit;
+    withinSafetyLimit &&
+    countCoverageSafe;
 
   return {
     availabilitySafe,
-
+    coveragePercent,
     checks: {
       correctPageCount,
-
       everyPageHasProducts,
-
       hasProducts,
-
       withinSafetyLimit,
+      countCoverageSafe,
     },
   };
 }
 
-/*
-=========================================================
- BROWSER SETUP
-=========================================================
-*/
-
-async function createBrowser() {
-  return chromium.launch({
-    headless:
-      config.automation.headless,
-  });
-}
-
-async function createContext(
-  browser
-) {
-  return browser.newContext({
-    viewport:
-      config.browser.viewport,
-
-    userAgent:
-      config.browser.userAgent,
-
-    locale:
-      "ar-DZ",
-
-    timezoneId:
-      "Africa/Algiers",
-  });
-}
-
-/*
-=========================================================
- MAIN
-=========================================================
-*/
-
 async function main() {
-  console.log("");
-  console.log(
-    "=============================================="
-  );
-  console.log(
-    "       PRIX-CHOC / SAWA9LY DISCOVERY"
-  );
-  console.log(
-    "=============================================="
-  );
-  console.log("");
-
   validateConfig();
-
   printConfigSummary();
+  removeStaleOutputs();
 
-  removeStaleDiscoveryOutputs();
-
-  if (
-    !config.sawa9ly.email
-  ) {
-    throw new Error(
-      "SAWA9LY_EMAIL is missing."
-    );
+  if (!config.sawa9ly.email || !config.sawa9ly.password) {
+    throw new Error("SAWA9LY credentials are missing.");
   }
 
-  if (
-    !config.sawa9ly.password
-  ) {
-    throw new Error(
-      "SAWA9LY_PASSWORD is missing."
-    );
-  }
+  console.log("\n==============================================");
+  console.log("       PRIX-CHOC / SAWA9LY DISCOVERY");
+  console.log("==============================================\n");
 
-  console.log(
-    "Credentials detected."
-  );
-
-  console.log(
-    "Launching Chromium..."
-  );
-
-  const browser =
-    await createBrowser();
+  const browser = await chromium.launch({
+    headless: config.automation.headless,
+  });
 
   let context = null;
   let page = null;
 
   try {
-    context =
-      await createContext(
-        browser
-      );
+    context = await browser.newContext({
+      viewport: config.browser.viewport,
+      userAgent: config.browser.userAgent,
+      locale: "ar-DZ",
+      timezoneId: "Africa/Algiers",
+    });
 
-    page =
-      await context.newPage();
+    page = await context.newPage();
+    page.setDefaultNavigationTimeout(NAVIGATION_TIMEOUT);
+    page.setDefaultTimeout(PAGE_TIMEOUT);
 
-    page.setDefaultNavigationTimeout(
-      NAVIGATION_TIMEOUT
-    );
-
-    page.setDefaultTimeout(
-      PAGE_TIMEOUT
-    );
-
-    /*
-    LOGIN
-    */
-
+    console.log("1) Logging in...");
     await login(page);
+    console.log("✅ Login successful.");
 
-    /*
-    CATALOG
-    */
-
+    console.log("2) Opening catalog...");
     await openCatalog(page);
+    console.log(`Catalog opened: ${page.url()}`);
 
-    /*
-    PAGINATION
-    */
+    console.log("3) Detecting catalog pagination...");
+    const pagination = await determinePageCount(page);
 
-    const pagination =
-      await discoverPageCount(
-        page
+    if (pagination.maxPage > MAX_PAGES) {
+      throw new Error(
+        `Detected ${pagination.maxPage} pages, exceeding safety limit ${MAX_PAGES}.`
       );
+    }
 
-    /*
-    PRODUCTS
-    */
+    console.log(`Pages to scan: ${pagination.maxPage}`);
 
-    const discovery =
-      await discoverProducts(
+    const previousHistory = readJson(historyFile, null);
+    const previousCount = Array.isArray(previousHistory?.discoveredIds)
+      ? previousHistory.discoveredIds.length
+      : 0;
+
+    const allProducts = new Map();
+    const pageCounts = {};
+    const pageUrls = {};
+
+    console.log("4) Collecting all product links...");
+
+    for (let pageNumber = 1; pageNumber <= pagination.maxPage; pageNumber++) {
+      const result = await scanPage(
         page,
+        pageNumber,
         pagination.maxPage
       );
 
-    /*
-    SAFETY
-    */
+      const products = result.products;
+      pageCounts[String(pageNumber)] = products.length;
+      pageUrls[String(pageNumber)] = result.url;
 
-    const safety =
-      evaluateDiscoverySafety({
-        maxPage:
-          pagination.maxPage,
+      if (products.length === 0) {
+        throw new Error(
+          `Page ${pageNumber} returned ZERO product links. Discovery stopped safely.`
+        );
+      }
 
-        pageCounts:
-          discovery.pageCounts,
+      for (const product of products) {
+        allProducts.set(product.id, product);
+      }
 
-        products:
-          discovery.products,
+      writeJson(progressFile, {
+        updatedAt: new Date().toISOString(),
+        pagesCompleted: pageNumber,
+        pagesTotal: pagination.maxPage,
+        productsFound: allProducts.size,
+        products: [...allProducts.values()],
       });
 
-    /*
-    CRITICAL:
+      console.log(
+        `Products on page: ${products.length} | Total unique: ${allProducts.size}`
+      );
+    }
 
-    إذا لم يكن الاكتشاف آمناً،
-    لا نحدث availability history.
+    const finalProducts = [...allProducts.values()];
 
-    لأننا لا نريد أن يتراكم
-    missing streak بسبب خلل مؤقت.
-    */
+    if (finalProducts.length === 0) {
+      throw new Error("Discovery returned ZERO products. Refusing to continue.");
+    }
 
-    let availability;
+    const uniqueDiscoveredIds = finalProducts
+      .map((product) => String(product.id))
+      .filter(Boolean);
 
-    if (
-      safety.availabilitySafe
-    ) {
-      availability =
-        buildAvailabilityState(
-          discovery.products
-        );
-    } else {
-      const previousHistory =
-        readJson(
-          historyFile,
-          null
-        );
+    if (new Set(uniqueDiscoveredIds).size !== uniqueDiscoveredIds.length) {
+      throw new Error("Discovery produced duplicate product IDs.");
+    }
 
-      availability = {
-        previousIds:
-          Array.isArray(
-            previousHistory?.discoveredIds
-          )
-            ? previousHistory.discoveredIds.map(
-                String
-              )
+    const safety = evaluateDiscoverySafety({
+      maxPage: pagination.maxPage,
+      pageCounts,
+      products: finalProducts,
+      previousCount,
+    });
+
+    const availability = safety.availabilitySafe
+      ? buildAvailabilityState(finalProducts)
+      : {
+          previousIds: Array.isArray(previousHistory?.discoveredIds)
+            ? previousHistory.discoveredIds.map(String)
             : [],
-
-        currentIds:
-          discovery.products.map(
-            (product) =>
-              String(
-                product.id
-              )
-          ),
-
-        missingStreaks:
-          previousHistory?.missingStreaks &&
-          typeof previousHistory.missingStreaks ===
-            "object"
-            ? previousHistory.missingStreaks
-            : {},
-
-        confirmedMissingIds:
-          [],
-      };
-
-      console.warn("");
-      console.warn(
-        "⚠️ Discovery is NOT availability-safe."
-      );
-      console.warn(
-        "⚠️ Missing-product confirmation was NOT advanced."
-      );
-      console.warn("");
-    }
-
-    /*
-    DISCOVERED IDS
-    */
-
-    const discoveredIds =
-      discovery.products
-        .map((product) =>
-          String(
-            product.id
-          )
-        )
-        .filter(Boolean);
-
-    const uniqueDiscoveredIds =
-      [
-        ...new Set(
-          discoveredIds
-        ),
-      ];
-
-    if (
-      uniqueDiscoveredIds.length ===
-      0
-    ) {
-      throw new Error(
-        "No valid product IDs were discovered."
-      );
-    }
-
-    /*
-    PREVIOUS COUNT
-    */
-
-    const previousCount =
-      availability.previousIds
-        .length;
-
-    const currentCount =
-      uniqueDiscoveredIds.length;
-
-    const countDelta =
-      currentCount -
-      previousCount;
-
-    /*
-    FINAL REPORT
-
-    نضيف discovered و uniqueProductsFound
-    معاً حتى تكون واجهة التقرير متوافقة
-    مع النسخ المختلفة من scraper/generator.
-    */
+          currentIds: uniqueDiscoveredIds,
+          missingStreaks:
+            previousHistory?.missingStreaks &&
+            typeof previousHistory.missingStreaks === "object"
+              ? previousHistory.missingStreaks
+              : {},
+          confirmedMissingIds: [],
+        };
 
     const report = {
-      complete:
-        true,
-
-      availabilitySafe:
-        safety.availabilitySafe,
-
-      safetyChecks:
-        safety.checks,
-
-      pagesScanned:
-        pagination.maxPage,
-
-      detectedPages:
-        pagination.detectedPages,
-
-      productsFound:
-        discovery.products.length,
-
-      uniqueProductsFound:
-        uniqueDiscoveredIds.length,
-
-      /*
-      Compatibility field.
-      */
-
-      discovered:
-        uniqueDiscoveredIds.length,
-
-      previousProductsFound:
-        previousCount,
-
-      countDelta,
-
-      pageCounts:
-        discovery.pageCounts,
-
-      pageUrls:
-        discovery.pageUrls,
-
-      discoveredIds:
-        uniqueDiscoveredIds,
-
-      missingStreaks:
-        availability.missingStreaks,
-
-      confirmedMissingIds:
-        availability.confirmedMissingIds,
-
-      missingConfirmationRuns:
-        MISSING_CONFIRMATION_RUNS,
-
-      generatedAt:
-        new Date().toISOString(),
+      complete: true,
+      availabilitySafe: safety.availabilitySafe,
+      safetyChecks: safety.checks,
+      pagesScanned: pagination.maxPage,
+      detectedPages: pagination.detectedPages,
+      paginationMode: pagination.mode,
+      productsFound: finalProducts.length,
+      uniqueProductsFound: uniqueDiscoveredIds.length,
+      discovered: uniqueDiscoveredIds.length,
+      previousProductsFound: previousCount,
+      countDelta: uniqueDiscoveredIds.length - previousCount,
+      coveragePercent: safety.coveragePercent,
+      pageCounts,
+      pageUrls,
+      discoveredIds: uniqueDiscoveredIds,
+      missingStreaks: availability.missingStreaks,
+      confirmedMissingIds: availability.confirmedMissingIds,
+      missingConfirmationRuns: MISSING_CONFIRMATION_RUNS,
+      generatedAt: new Date().toISOString(),
     };
 
-    /*
-    FINAL SAFETY CHECK
-    */
+    writeJson(linksFile, finalProducts);
+    writeJson(reportFile, report);
 
-    if (
-      !safety.availabilitySafe
-    ) {
+    // Never advance missing-product history on an unsafe discovery.
+    if (safety.availabilitySafe) {
+      writeJson(historyFile, report);
+    } else {
       console.warn(
-        "⚠️ Discovery result saved for diagnostics only."
+        `⚠️ Discovery safety rejected this run: ${safety.coveragePercent.toFixed(2)}% of previous catalogue.`
       );
       console.warn(
-        "⚠️ Availability decisions are NOT trusted."
+        "⚠️ Existing availability history was NOT changed."
       );
     }
 
-    /*
-    SAVE PRODUCT LINKS
-    */
-
-    writeJson(
-      linksFile,
-      discovery.products
-    );
-
-    /*
-    SAVE REPORT
-    */
-
-    writeJson(
-      reportFile,
-      report
-    );
-
-    /*
-    UPDATE HISTORY ONLY WHEN SAFE
-
-    هذا مهم جداً.
-
-    لا نريد تشغيل Discovery فاشل
-    أن يعتبر المنتجات مفقودة.
-    */
-
-    if (
-      safety.availabilitySafe
-    ) {
-      writeJson(
-        historyFile,
-        report
-      );
-    }
-
-    /*
-    FINAL OUTPUT
-    */
-
-    console.log("");
+    console.log("\n==============================================");
+    console.log("           DISCOVERY COMPLETED");
+    console.log("==============================================");
+    console.log(`Pages scanned       : ${pagination.maxPage}`);
+    console.log(`Products discovered : ${finalProducts.length}`);
+    console.log(`Previous count      : ${previousCount}`);
+    console.log(`Coverage            : ${safety.coveragePercent.toFixed(2)}%`);
     console.log(
-      "=============================================="
+      `Availability safe   : ${safety.availabilitySafe ? "YES" : "NO"}`
     );
-    console.log(
-      "           DISCOVERY COMPLETED"
-    );
-    console.log(
-      "=============================================="
-    );
-
-    console.log(
-      `Pages scanned       : ${pagination.maxPage}`
-    );
-
-    console.log(
-      `Products discovered : ${discovery.products.length}`
-    );
-
-    console.log(
-      `Unique product IDs  : ${uniqueDiscoveredIds.length}`
-    );
-
-    console.log(
-      `Previous count      : ${previousCount}`
-    );
-
-    console.log(
-      `Count delta         : ${
-        countDelta >= 0
-          ? "+"
-          : ""
-      }${countDelta}`
-    );
-
-    console.log(
-      `Availability safe   : ${
-        safety.availabilitySafe
-          ? "YES"
-          : "NO"
-      }`
-    );
-
     console.log(
       `Confirmed missing   : ${availability.confirmedMissingIds.length}`
     );
 
-    console.log(
-      `Missing threshold   : ${MISSING_CONFIRMATION_RUNS}`
-    );
-
-    console.log("");
-
-    console.log(
-      `Product links : ${linksFile}`
-    );
-
-    console.log(
-      `Report        : ${reportFile}`
-    );
-
-    console.log(
-      `History       : ${historyFile}`
-    );
-
-    console.log("");
-
-    console.log(
-      "First discovered products:"
-    );
-
-    discovery.products
-      .slice(0, 10)
-      .forEach(
-        (product, index) => {
-          console.log(
-            `${index + 1}. [${product.id}] ${product.href}`
-          );
-        }
-      );
-
-    console.log("");
-
-    if (
-      !safety.availabilitySafe
-    ) {
-      /*
-      Discovery itself succeeded in collecting data,
-      but availability decisions are not safe.
-      The scraper is therefore allowed to inspect
-      the data, but generator must not use the report
-      to mark products unavailable.
-      */
-
-      console.warn(
-        "⚠️ DISCOVERY FINISHED WITH SAFETY WARNING."
-      );
-    } else {
-      console.log(
-        "✅ Discovery completed safely."
+    if (!safety.availabilitySafe) {
+      throw new Error(
+        "Discovery completed, but safety checks rejected publication. Existing catalogue was not changed."
       );
     }
   } finally {
-    if (context) {
-      try {
-        await context.close();
-      } catch {
-        // Ignore cleanup errors.
-      }
-    }
-
+    try {
+      if (context) await context.close();
+    } catch {}
     try {
       await browser.close();
-    } catch {
-      // Ignore cleanup errors.
-    }
+    } catch {}
   }
 }
 
-/*
-=========================================================
- PROCESS ENTRY
-=========================================================
-*/
-
-main().catch(
-  (error) => {
-    console.error("");
-    console.error(
-      "❌ DISCOVERY FAILED"
-    );
-    console.error("");
-    console.error(
-      error?.stack ||
-        error?.message ||
-        error
-    );
-    console.error("");
-
-    process.exitCode = 1;
-  }
-);
+main().catch((error) => {
+  console.error("\n❌ DISCOVERY FAILED");
+  console.error(error?.stack || error?.message || error);
+  process.exitCode = 1;
+});
