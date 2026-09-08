@@ -1,75 +1,20 @@
-# Prix-Choc — Full Sawa9ly Catalog Sync
+# Prix-Choc — Corrected Final Files
 
-هذه الحزمة تستبدل ملفات الأتمتة التالية كاملة:
+Built from the current working files supplied for this correction, not from the older `scraper(1).js` / `scraper(2).js` candidates.
 
-- automation/config.js
-- automation/discover.js
-- automation/scraper.js
-- automation/sync.js
-- automation/generator.js
-- .github/workflows/products-sync.yml
+## Included
+- Prix-Choc/automation/scraper.js — image-quality candidate ranking and srcset handling.
+- Prix-Choc/index.html — visual palette cleanup only; order/product structure preserved.
+- Prix-Choc/locations.js — canonical commune aliases including Megarine.
+- prix-choc-bot/server.js — safer commune selector fallback + normalized/fuzzy option matching while preserving successful direct matching.
+- prix-choc-bot/locations.js — same location mapping used by the bot.
 
-## الوظائف
+## Validation performed
+- Node syntax check: scraper.js PASS
+- Node syntax check: server.js PASS
+- Node syntax check: both locations.js files PASS
+- HTML structure sanity: PASS (balanced script/style tags; final visual style is inside head)
+- Explicit Arabic/French mapping test: المقارين -> Megarine PASS
 
-1. استخدام Sawa9ly Affiliate الجديدة:
-   https://affiliate.sawa9ly.pro/
-
-2. استخدام روابط المنتجات:
-   /store/:id
-
-3. اكتشاف جميع المنتجات يوميًا.
-
-4. Scraping للمنتجات الموجودة والجديدة، وليس الجديدة فقط.
-
-5. تحديث:
-   - الاسم
-   - الوصف
-   - سعر التكلفة
-   - سعر البيع
-   - الربح
-   - الصورة الرئيسية
-   - images[]
-
-6. عدم حذف المنتجات من products.js.
-
-7. بعد غياب المنتج في عدد التشغيلات المحدد:
-   available: false
-
-8. عند عودة المنتج:
-   available: true
-
-9. إذا فشل Discovery:
-   لا يتم تغيير availability.
-
-10. إذا فشل Scraping لمنتج:
-    تبقى بياناته القديمة ولا يتم حذفه.
-
-11. التشغيل اليومي:
-    02:00 UTC = 03:00 بتوقيت الجزائر.
-
-## GitHub Secrets المطلوبة
-
-- SAWA9LY_EMAIL
-- SAWA9LY_PASSWORD
-
-## ملاحظة
-
-واجهة index.html الحالية في المشروع تدعم images[] بالفعل حسب البنية الحالية للمشروع؛ لذلك لا تحتاج إلى استبدالها ضمن هذه الحزمة. النظام الجديد يملأ images[] بالصور المتعددة، وتستطيع الواجهة الحالية عرضها.
-
-## قبل الاستبدال
-
-خذ نسخة من المستودع الحالي.
-
-لا تحذف products.js.
-
-بعد رفع الملفات شغّل GitHub Actions يدويًا أول مرة وراقب السجل قبل الاعتماد على التشغيل اليومي.
-
-## الفحص
-
-Workflow يقوم تلقائيًا بـ:
-
-- node --check
-- Discovery integrity
-- Scraper output validation
-- products.js syntax validation
-- commit/push آمن
+## Important
+This package is designed to fix the identified code-level causes. A literal 100% guarantee of live Sawa9ly order success cannot be honestly given without deploying these files to the live Render/GitHub environment and executing real orders against Sawa9ly. The code deliberately keeps the existing successful direct-selection path and only adds fallback behavior for cases that previously failed.
