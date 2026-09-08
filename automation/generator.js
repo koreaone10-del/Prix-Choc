@@ -334,15 +334,10 @@ function normalizeScrapedProduct(raw) {
     return null;
   }
 
-  const calculatedSelling = calculateSellingPrice(basePrice);
-  const scrapedSelling = Number(raw?.sellingPrice);
-  const sellingPrice = isValidPrice(scrapedSelling)
-    ? Math.round(scrapedSelling)
-    : calculatedSelling;
-
-  const profit = Number.isFinite(Number(raw?.profit))
-    ? Math.round(Number(raw.profit))
-    : calculateProfit(basePrice, sellingPrice);
+  // Pricing is controlled centrally by pricing.js/config.js.
+  // Never keep an old scraped selling price after the margin policy changes.
+  const sellingPrice = calculateSellingPrice(basePrice);
+  const profit = calculateProfit(basePrice, sellingPrice);
 
   return {
     sawa9lyId: id,
