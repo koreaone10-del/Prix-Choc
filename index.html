@@ -311,41 +311,24 @@ body{color:#111816;background:linear-gradient(180deg,#F7F9F7 0,#FFFFFF 45%,#EEF3
 .summary-total{border-color:#DDE6E1}
 /* Replace remaining cool blue/purple accents with the same Algerian emerald/neutral family. */
 .home-products .catalog-tag{background:#EAF2EE;color:#006B4F}
-</style>
-<style id="prix-choc-final-visual-fix">
-/* FINAL CUSTOMER-FACING PALETTE — visual only; no product/order logic changed. */
-:root{
-  --green:#007A5A;
-  --green2:#00A875;
-  --red:#C91F3A;
-  --ink:#17211D;
-  --muted:#68756F;
-  --cream:#FAFAF7;
-  --line:#E1E7E3;
-  --gold:#C79A24;
-  --shadow:0 18px 48px rgba(20,55,44,.09);
-}
-body{background:linear-gradient(180deg,#FBFCFA 0%,#FFFFFF 45%,#F3F6F3 100%);color:var(--ink)}
-.nav{background:rgba(255,255,255,.96);border-bottom-color:#E1E7E3}
-.nav-btn{background:#fff;border-color:#DCE4DF}.nav-btn.green{background:#007A5A;border-color:#007A5A}
-.hero,.home-hero{background:linear-gradient(135deg,#F5FAF7,#EAF4EF);border-color:#D8E5DE}
-.hero-cta,.submit-btn,.home-link{background:linear-gradient(135deg,#007A5A,#00A875)!important;border-color:#007A5A!important;box-shadow:0 12px 26px rgba(0,122,90,.18)}
-.trust,.card,.catalog,.fb-strip,.home-section,.home-category-block,.home-trust-card{background:#fff;border-color:#E1E7E3;box-shadow:0 10px 32px rgba(20,55,44,.055)}
-.form-input,.form-select,.search input,.home-search input{background:#FCFDFC;border-color:#D8E2DC;color:#17211D}
-.home-welcome{background:linear-gradient(135deg,#F2F8F5,#E7F1EC);border-color:#D8E5DE}
-.home-welcome-stats div,.home-search{background:#fff;border-color:#DCE5DF}
-.home-deals-section{background:linear-gradient(135deg,#F4F9F6,#E9F2ED)!important;border-color:#D8E5DE!important}
-.home-category-btn{background:#fff;border-color:#D9E2DD;color:#30423A}
-.home-category-btn:hover,.home-category-btn.active{background:#007A5A!important;border-color:#007A5A!important;color:#fff!important}
-.home-products .catalog-card{background:#fff;border-color:#E1E7E3}
-.home-products .catalog-image-wrap{background:#F1F5F2}
-.home-products .catalog-price,.home-kicker,.home-category-count{color:#007A5A}
-.home-products .catalog-order{background:#E7F3EE;color:#007A5A}
-.delivery-card{background:#fff;border-color:#DCE5DF}.delivery-card.active{background:#EFF8F4;border-color:#007A5A;box-shadow:0 8px 22px rgba(0,122,90,.09)}
-.summary-total{border-color:#E1E7E3}.customer-label span{color:#007A5A}
-.footer{background:#083F32!important}
-.badge,.discount,.offer-badge{background:#C91F3A!important;color:#fff!important}
-.price,.catalog-price,.product-price{color:#007A5A}
+
+/* === PRIX-CHOC FINAL STORE UI: DARK EMERALD / HIGH CONTRAST === */
+:root{--green:#00533F;--green2:#007A5A;--ink:#10251F;--muted:#405A51;--line:#9AB7AC;--cream:#E8F0EC;--gold:#C49A2E}
+body{background:#DDE9E4;color:#10251F}
+.nav{background:#063F31!important;border-bottom:2px solid #0A6B53!important;box-shadow:0 8px 26px rgba(0,40,30,.22)}
+.navlinks a,.brand-name,.brand-sub{color:#F4FAF7!important}.brand-sub{opacity:.86}.nav-btn{background:#0A5945!important;color:#fff!important;border-color:#4B8A76!important}.nav-btn.green{background:#00A06F!important;border-color:#00A06F!important}
+.topline{background:linear-gradient(90deg,#003F30 0 48%,#0A6B53 48% 52%,#C8102E 52%)!important}
+.hero,.home-hero{background:#064C3A!important;border-color:#0A765B!important;color:#fff;box-shadow:0 20px 50px rgba(0,50,38,.25)}
+.hero h1,.hero p,.hero-note{color:#fff!important}.hero h1 span{color:#75E0B7!important}.hero-cta{background:#00A874!important;box-shadow:0 12px 28px rgba(0,70,52,.35)}
+.trust,.card,.catalog,.fb-strip,.home-section,.home-category-block,.home-trust-card{background:#EAF2EE!important;border-color:#82A99B!important;box-shadow:0 12px 34px rgba(0,50,38,.12)!important}
+.product-card,.order-panel{background:#EAF2EE!important}.product-info,.order-body{background:#EAF2EE!important}
+.order-head{background:#D6E8E0!important;border-bottom:2px solid #82A99B!important}.order-head h2,.order-head p,.form-label{color:#10251F!important}.form-label{font-size:12px!important}.form-input,.form-select{background:#DCEAE4!important;border:2px solid #82A99B!important;color:#10251F!important;font-size:15px!important;font-weight:700!important;min-height:50px!important}.form-input:focus,.form-select:focus{border-color:#007A5A!important;box-shadow:0 0 0 4px rgba(0,122,90,.16)!important;background:#F2F8F5!important}.delivery-card{background:#DCEAE4!important;border:2px solid #82A99B!important;color:#10251F!important}.delivery-card.active{background:#C5E5D8!important;border-color:#006B50!important;box-shadow:0 5px 18px rgba(0,90,65,.14)}
+.product-title{font-size:29px!important;color:#10251F!important}.product-desc{font-size:14px!important;color:#314D44!important}.price{font-size:36px!important;color:#00533F!important}.old{font-size:14px!important}.stock{font-size:12px!important;background:#C8E8DA!important;color:#00533F!important}.summary-total{background:#D5E8E0!important;border:2px solid #82A99B!important}.summary-total strong,.summary-total b{color:#00533F!important;font-size:18px!important}.submit-btn{background:#006B50!important;color:#fff!important;border:2px solid #004F3C!important;font-size:17px!important;min-height:60px!important;box-shadow:0 10px 24px rgba(0,80,60,.25)!important}
+.gallery{background:#EAF2EE!important}.main-image-wrap{background:#D7E5DF!important;border:2px solid #8EADA2}.thumb{background:#D2E1DB!important;border:2px solid #7EA296}.thumb.active{border-color:#006B50!important}.gallery-nav{background:#EAF2EE!important;color:#00533F!important}
+.catalog-head h2,.catalog-head p,.catalog h3{color:#10251F!important}.search input,.home-search input{background:#DCEAE4!important;border:2px solid #82A99B!important;color:#10251F!important;font-size:14px!important}.home-category-btn{background:#DCEAE4!important;border:2px solid #82A99B!important;color:#16372D!important;font-size:13px!important}.home-category-btn:hover,.home-category-btn.active{background:#006B50!important;color:#fff!important;border-color:#006B50!important}.catalog-card{background:#EDF4F0!important;border:2px solid #8EADA2!important}.catalog-price{font-size:22px!important;color:#00533F!important}.catalog-order{background:#CDE7DC!important;color:#00533F!important;font-size:12px!important}.catalog-tag{background:#D4E9E0!important;color:#00533F!important}
+.home-mode body{background:#0B4938!important}.home-welcome{background:#D9EAE3!important}.home-welcome h1,.home-welcome p{color:#10251F!important}.home-welcome h1{font-size:30px!important}.home-category-title{font-size:21px!important}.footer,.home-mode .footer{background:#03382B!important;color:#fff!important}.footer p,.footer a,.footer h4{color:#E8F5F0!important}
+@media(max-width:700px){.nav-in{padding:0 14px}.navlinks{display:none}.brand-name{font-size:19px}.hero{margin:14px 12px 0;border-radius:22px}.hero h1{font-size:34px}.content{margin:14px 12px 0;display:block}.order-panel{position:static;margin-top:14px}.product-title{font-size:24px!important}.price{font-size:34px!important}.form-label{font-size:12px!important}.form-input,.form-select{font-size:15px!important;min-height:52px!important}.submit-btn{font-size:17px!important}.catalog{margin-left:12px;margin-right:12px}}
+
 </style>
 </head>
 <body>
