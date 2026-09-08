@@ -1,20 +1,20 @@
-# Prix-Choc — Corrected Final Files
+# Prix-Choc — correction finale (صور + البلديات + السعر + التصميم)
 
-Built from the current working files supplied for this correction, not from the older `scraper(1).js` / `scraper(2).js` candidates.
+هذه الحزمة مبنية على الملفات الحالية التي تم تزويدنا بها، مع التعديلات المستهدفة فقط.
 
-## Included
-- Prix-Choc/automation/scraper.js — image-quality candidate ranking and srcset handling.
-- Prix-Choc/index.html — visual palette cleanup only; order/product structure preserved.
-- Prix-Choc/locations.js — canonical commune aliases including Megarine.
-- prix-choc-bot/server.js — safer commune selector fallback + normalized/fuzzy option matching while preserving successful direct matching.
-- prix-choc-bot/locations.js — same location mapping used by the bot.
+## الملفات
+- Prix-Choc/index.html — تحسين بصري نهائي: أخضر داكن مسيطر، نص أكبر وأوضح، بطاقات وخانات وحدود أوضح، بدون تغيير order payload.
+- Prix-Choc/automation-scraper.js — استخراج الصور بجودة أعلى وترتيب المرشحين حسب الجودة والدقة.
+- Prix-Choc/locations.js — إضافة مطابقة المقارين/تقرت وبعض أسماء البلديات.
+- Prix-Choc/config.js — الهامش الافتراضي 500 دج، والحد الأعلى 2500 دج.
+- Prix-Choc/pricing.js — يستخدم إعدادات config للتسعير.
+- prix-choc-bot/server.js — تحسين اختيار الولاية/البلدية مع fallback أكثر قوة مع الحفاظ على المسار الناجح.
+- prix-choc-bot/locations.js — نفس خريطة المطابقة للبوت.
 
-## Validation performed
-- Node syntax check: scraper.js PASS
-- Node syntax check: server.js PASS
-- Node syntax check: both locations.js files PASS
-- HTML structure sanity: PASS (balanced script/style tags; final visual style is inside head)
-- Explicit Arabic/French mapping test: المقارين -> Megarine PASS
+## فحوصات محلية
+- Node syntax: scraper / server / locations / config / pricing: PASS
+- HTML structure sanity: PASS
+- Mapping: المقارين -> Megarine: PASS
 
-## Important
-This package is designed to fix the identified code-level causes. A literal 100% guarantee of live Sawa9ly order success cannot be honestly given without deploying these files to the live Render/GitHub environment and executing real orders against Sawa9ly. The code deliberately keeps the existing successful direct-selection path and only adds fallback behavior for cases that previously failed.
+## ملاحظة مهمة
+نجاح التشغيل الحي مع Sawa9ly لا يمكن ضمانه 100% من دون نشر هذه النسخة وتنفيذ طلب حي فعلي. الحزمة نفسها تم إنشاؤها والتحقق من سلامتها قبل التسليم.
