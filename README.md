@@ -1,20 +1,27 @@
-# Prix-Choc — correction finale (صور + البلديات + السعر + التصميم)
+# Prix-Choc FINAL SOLUTION v2
 
-هذه الحزمة مبنية على الملفات الحالية التي تم تزويدنا بها، مع التعديلات المستهدفة فقط.
+This package is built from the current supplied working repositories and contains only the files that must be replaced/added.
 
-## الملفات
-- Prix-Choc/index.html — تحسين بصري نهائي: أخضر داكن مسيطر، نص أكبر وأوضح، بطاقات وخانات وحدود أوضح، بدون تغيير order payload.
-- Prix-Choc/automation-scraper.js — استخراج الصور بجودة أعلى وترتيب المرشحين حسب الجودة والدقة.
-- Prix-Choc/locations.js — إضافة مطابقة المقارين/تقرت وبعض أسماء البلديات.
-- Prix-Choc/config.js — الهامش الافتراضي 500 دج، والحد الأعلى 2500 دج.
-- Prix-Choc/pricing.js — يستخدم إعدادات config للتسعير.
-- prix-choc-bot/server.js — تحسين اختيار الولاية/البلدية مع fallback أكثر قوة مع الحفاظ على المسار الناجح.
-- prix-choc-bot/locations.js — نفس خريطة المطابقة للبوت.
+## Fixes included
+- Product prices: existing automated products recalculated to `basePrice + 500 DA` immediately in `products.js`.
+- Future syncs: `config.js`, workflow, and `generator.js` use the same 500 DA margin policy.
+- Images: existing `products.js` gallery URLs are deduplicated by original image source and keep the highest-resolution variant; scraper also ranks full/large/zoom/srcset images and deduplicates Next/Image size variants.
+- Store UI: final dark-emerald high-contrast theme, larger readable labels/prices/inputs/buttons, clearer product/order cards.
+- Locations: stronger Arabic/French aliases including Annaba municipalities and Megarine.
+- Bot: stronger fallback for Sawa9ly commune selector when the field has weak/missing labels.
+- `pricing.js` is included in its original correct location: `automation/pricing.js`.
 
-## فحوصات محلية
-- Node syntax: scraper / server / locations / config / pricing: PASS
-- HTML structure sanity: PASS
-- Mapping: المقارين -> Megarine: PASS
+## IMPORTANT
+Do NOT upload `.env` from your local machine to GitHub.
 
-## ملاحظة مهمة
-نجاح التشغيل الحي مع Sawa9ly لا يمكن ضمانه 100% من دون نشر هذه النسخة وتنفيذ طلب حي فعلي. الحزمة نفسها تم إنشاؤها والتحقق من سلامتها قبل التسليم.
+## Paths
+- Prix-Choc/automation/config.js
+- Prix-Choc/automation/pricing.js
+- Prix-Choc/automation/scraper.js
+- Prix-Choc/automation/generator.js
+- Prix-Choc/.github/workflows/products-sync.yml
+- Prix-Choc/index.html
+- Prix-Choc/products.js
+- Prix-Choc/locations.js
+- prix-choc-bot/server.js
+- prix-choc-bot/locations.js
