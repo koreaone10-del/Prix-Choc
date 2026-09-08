@@ -91,7 +91,7 @@ export const config = {
   pricing: {
     defaultMargin: toNumber(
       process.env.DEFAULT_MARGIN,
-      1000
+      500
     ),
 
     minMargin: toNumber(
@@ -101,7 +101,7 @@ export const config = {
 
     maxMargin: toNumber(
       process.env.MAX_MARGIN,
-      5000
+      2500
     ),
   },
 
