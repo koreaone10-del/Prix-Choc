@@ -423,428 +423,138 @@ function looksLikeProductImage(
 */
 
 async function extractImages(page) {
-  // Collect image candidates together with the best quality signal available.
-  // The previous implementation kept the first URL it encountered, which can
-  // be a thumbnail even when the same image exposes a full-size URL later.
-  const rawImages = await page.evaluate(() => {
-    const candidates = new Map();
-    const clean = v => String(v || '').trim();
-    const add = (value, quality = 0, width = 0, height = 0) => {
-      const url = clean(value);
-      if (!url || url.startsWith('data:') || url.startsWith('blob:')) return;
-      const old = candidates.get(url);
-      const score = Number(quality) || 0;
-      if (!old || score > old.score || width * height > old.width * old.height) {
-        candidates.set(url, { url, score, width: Number(width)||0, height: Number(height)||0 });
-      }
-    };
-    const addSrcset = value => {
+  const rawCandidates = await page.evaluate(() => {
+    const result = [];
+
+    const add = (value, score = 0, width = 0, height = 0, source = "") => {
       if (!value) return;
-      for (const item of String(value).split(',')) {
-        const parts = item.trim().split(/\s+/);
-        const url = parts[0];
+      const text = String(value).trim();
+      if (!text || text.startsWith("data:") || text.startsWith("blob:")) return;
+      result.push({ url: text, score, width: Number(width) || 0, height: Number(height) || 0, source });
+    };
+
+    const parseSrcset = (value, baseScore, source) => {
+      if (!value) return;
+      for (const part of String(value).split(",")) {
+        const bits = part.trim().split(/\s+/);
+        const url = bits[0];
         if (!url) continue;
-        let descriptor = 0;
-        const token = parts[1] || '';
-        const m = token.match(/^(\d+(?:\.\d+)?)(w|x)$/i);
-        if (m) descriptor = m[2].toLowerCase() === 'w' ? Number(m[1]) : Number(m[1]) * 1000;
-        add(url, 250 + descriptor / 10);
+        let width = 0;
+        let density = 0;
+        const descriptor = bits[1] || "";
+        if (/^\d+w$/i.test(descriptor)) width = parseInt(descriptor, 10) || 0;
+        if (/^\d+(?:\.\d+)?x$/i.test(descriptor)) density = parseFloat(descriptor) || 0;
+        add(url, baseScore + Math.min(width / 100, 25) + density * 4, width, 0, source);
       }
     };
-    const addImage = element => {
-      if (!element) return;
-      const rect = element.getBoundingClientRect();
-      const nw = Number(element.naturalWidth || 0), nh = Number(element.naturalHeight || 0);
+
+    const addImage = (el) => {
+      if (!el) return;
       const attrs = [
-        ['data-zoom-image', 1200], ['data-full-image', 1150], ['data-full', 1100],
-        ['data-large-image', 1050], ['data-large', 1000], ['data-image-url', 900],
-        ['data-original', 850], ['data-image', 800], ['data-lazy-src', 500],
-        ['data-src', 450], ['src', 300]
+        ["data-zoom-image", 100], ["data-full-image", 98], ["data-full", 96],
+        ["data-large-image", 94], ["data-large", 92], ["data-original", 90],
+        ["data-image-url", 88], ["data-image", 86], ["data-src", 82],
+        ["data-lazy-src", 80], ["src", 70]
       ];
-      for (const [attr, score] of attrs) add(element.getAttribute(attr), score + Math.min(500, (nw * nh) / 100000), nw, nh);
-      addSrcset(element.getAttribute('srcset'));
-      addSrcset(element.getAttribute('data-srcset'));
-      if (nw && nh) add(element.currentSrc, 700 + Math.min(500, (nw * nh) / 100000), nw, nh);
-      // Keep the rendered dimensions as a small tie-breaker only.
-      if (rect.width && rect.height) add(element.currentSrc || element.src, 50 + Math.min(100, rect.width * rect.height / 10000), nw, nh);
+      for (const [attr, score] of attrs) {
+        const v = el.getAttribute(attr);
+        if (v) add(v, score, el.naturalWidth, el.naturalHeight, attr);
+      }
+      parseSrcset(el.getAttribute("srcset"), 78, "srcset");
+      parseSrcset(el.getAttribute("data-srcset"), 84, "data-srcset");
+      const src = el.currentSrc || el.src || "";
+      if (src) add(src, 76, el.naturalWidth, el.naturalHeight, "currentSrc");
     };
 
     const selectors = [
-      'main img','article img','[class*="product"] img','[class*="Product"] img',
-      '[class*="gallery"] img','[class*="Gallery"] img','[class*="swiper"] img',
-      '[class*="Swiper"] img','[class*="carousel"] img','[class*="Carousel"] img',
-      '[class*="slider"] img','[class*="Slider"] img','[class*="thumb"] img',
-      '[class*="Thumb"] img','[class*="thumbnail"] img','[class*="Thumbnail"] img',
-      '[data-thumbnail] img','[data-gallery] img','[data-product-image] img','picture img'
+      "main img", "article img", '[class*="product"] img', '[class*="Product"] img',
+      '[class*="gallery"] img', '[class*="Gallery"] img', '[class*="swiper"] img',
+      '[class*="Swiper"] img', '[class*="carousel"] img', '[class*="Carousel"] img',
+      '[class*="slider"] img', '[class*="Slider"] img', '[class*="thumb"] img',
+      '[class*="Thumb"] img', '[class*="thumbnail"] img', '[class*="Thumbnail"] img',
+      "[data-thumbnail] img", "[data-gallery] img", "[data-product-image] img", "picture img"
     ];
-    for (const selector of selectors) for (const el of document.querySelectorAll(selector)) addImage(el);
-    for (const source of document.querySelectorAll('source')) addSrcset(source.getAttribute('srcset'));
-    for (const link of document.querySelectorAll('a[href]')) {
-      const href = link.getAttribute('href') || '';
-      if (/\.(jpe?g|png|webp|avif|gif)(\?|#|$)/i.test(href)) add(href, 650);
+    for (const selector of selectors) {
+      for (const el of document.querySelectorAll(selector)) addImage(el);
     }
-    for (const selector of ['meta[property="og:image"]','meta[property="og:image:url"]','meta[property="og:image:secure_url"]','meta[name="twitter:image"]','meta[name="twitter:image:src"]']) {
+
+    for (const source of document.querySelectorAll("source")) {
+      parseSrcset(source.getAttribute("srcset"), 72, "source-srcset");
+      add(source.getAttribute("src"), 68, 0, 0, "source");
+    }
+
+    for (const link of document.querySelectorAll("a[href]")) {
+      const href = link.getAttribute("href") || "";
+      if (/\.(jpe?g|png|webp|avif|gif)(\?|#|$)/i.test(href)) add(href, 65, 0, 0, "link");
+    }
+
+    for (const selector of [
+      'meta[property="og:image"]', 'meta[property="og:image:url"]',
+      'meta[property="og:image:secure_url"]', 'meta[name="twitter:image"]',
+      'meta[name="twitter:image:src"]'
+    ]) {
       const meta = document.querySelector(selector);
-      if (meta) add(meta.content, 1000);
+      if (meta?.content) add(meta.content, 60, 0, 0, "meta");
     }
+
     for (const script of document.querySelectorAll('script[type="application/ld+json"]')) {
       try {
-        const data = JSON.parse(script.textContent || '');
-        const list = Array.isArray(data) ? data : [data];
-        for (const object of list) {
-          if (!object) continue;
-          const addObjectImage = image => {
-            if (typeof image === 'string') add(image, 950);
-            else if (image && typeof image === 'object') { add(image.url, 950); add(image.contentUrl, 950); }
-          };
-          for (const image of (Array.isArray(object.image) ? object.image : [object.image])) addObjectImage(image);
-          for (const image of (Array.isArray(object.images) ? object.images : [object.images])) addObjectImage(image);
+        const data = JSON.parse(script.textContent || "");
+        const objects = Array.isArray(data) ? data : [data];
+        const addObj = (image) => {
+          if (typeof image === "string") add(image, 74, 0, 0, "jsonld");
+          else if (image && typeof image === "object") {
+            add(image.url, 74, 0, 0, "jsonld");
+            add(image.contentUrl, 74, 0, 0, "jsonld");
+          }
+        };
+        for (const obj of objects) {
+          if (!obj) continue;
+          if (Array.isArray(obj.image)) obj.image.forEach(addObj); else addObj(obj.image);
+          if (Array.isArray(obj.images)) obj.images.forEach(addObj);
         }
       } catch (_) {}
     }
-    return Array.from(candidates.values())
-      .sort((a,b) => (b.score - a.score) || ((b.width*b.height) - (a.width*a.height)))
-      .map(x => x.url);
+
+    return result;
   });
 
-  const images = [];
-  for (const image of rawImages) {
-    if (!isUsableImageUrl(image) || !looksLikeProductImage(image)) continue;
-    const normalized = normalizeUrl(image, page.url());
-    if (normalized && !images.includes(normalized)) images.push(normalized);
+  const bestBySource = new Map();
+  const sourceKey = (url) => {
+    try {
+      const u = new URL(url, page.url());
+      // Next/Image URLs wrap the real source in ?url=. Deduplicate all sizes
+      // of the same original image so 3840/1920/640 variants are not treated
+      // as separate gallery pictures.
+      const wrapped = u.searchParams.get("url");
+      if (wrapped) return wrapped;
+      u.searchParams.delete("w");
+      u.searchParams.delete("q");
+      return u.toString();
+    } catch (_) {
+      return String(url).replace(/[?&](?:w|q)=\d+/g, "");
+    }
+  };
+
+  for (const item of rawCandidates) {
+    if (!isUsableImageUrl(item.url)) continue;
+    const key = sourceKey(item.url);
+    const score = Number(item.score || 0) + Math.min(Number(item.width || 0) / 100, 30);
+    const candidate = { ...item, score, key };
+    const previous = bestBySource.get(key);
+    if (!previous || candidate.score > previous.score || (candidate.width || 0) > (previous.width || 0)) {
+      bestBySource.set(key, candidate);
+    }
   }
-  const limited = images.slice(0, 20);
-  return { image: limited[0] || '', images: limited };
+
+  const ranked = [...bestBySource.values()].sort((a, b) => {
+    if (b.score !== a.score) return b.score - a.score;
+    return (b.width * b.height) - (a.width * a.height);
+  });
+
+  const images = ranked.map(x => x.url).slice(0, 20);
+  return { image: images[0] || "", images };
 }
-
-/*
-=========================================================
- NAME
-=========================================================
-*/
-
-async function extractName(
-  page
-) {
-  const value =
-    await page.evaluate(() => {
-      const clean =
-        (input) =>
-          String(input || "")
-            .replace(
-              /\u00a0/g,
-              " "
-            )
-            .replace(
-              /\s+/g,
-              " "
-            )
-            .trim();
-
-      const invalid =
-        (input) => {
-          const text =
-            clean(input);
-
-          if (
-            text.length < 3 ||
-            text.length > 300
-          ) {
-            return true;
-          }
-
-          const lower =
-            text.toLowerCase();
-
-          const rejected = [
-            "login",
-            "register",
-            "sign in",
-            "sign up",
-            "add to cart",
-            "buy now",
-            "commander maintenant",
-            "ajouter au panier",
-            "description",
-            "الوصف",
-            "تسجيل الدخول",
-            "إنشاء حساب",
-          ];
-
-          return rejected.includes(
-            lower
-          );
-        };
-
-      /*
-      JSON-LD.
-      */
-
-      for (
-        const script of
-          document.querySelectorAll(
-            'script[type="application/ld+json"]'
-          )
-      ) {
-        try {
-          const data =
-            JSON.parse(
-              script.textContent ||
-                ""
-            );
-
-          const objects =
-            Array.isArray(data)
-              ? data
-              : [data];
-
-          for (
-            const object of
-              objects
-          ) {
-            if (
-              object?.name &&
-              !invalid(
-                object.name
-              )
-            ) {
-              return clean(
-                object.name
-              );
-            }
-          }
-        } catch {
-          // Ignore.
-        }
-      }
-
-      const direct = [
-        document.querySelector(
-          "h1"
-        )?.innerText,
-
-        document.querySelector(
-          '[data-product-title]'
-        )?.innerText,
-
-        document.querySelector(
-          '[data-product-name]'
-        )?.innerText,
-
-        document.querySelector(
-          'meta[property="og:title"]'
-        )?.content,
-
-        document.querySelector(
-          'meta[name="twitter:title"]'
-        )?.content,
-
-        document.title,
-      ];
-
-      for (
-        const candidate of
-          direct
-      ) {
-        if (
-          !invalid(candidate)
-        ) {
-          return clean(
-            candidate
-          );
-        }
-      }
-
-      const selectors = [
-        '[class*="product-title"]',
-        '[class*="Product-title"]',
-        '[class*="product-name"]',
-        '[class*="Product-name"]',
-        '[class*="productName"]',
-      ];
-
-      for (
-        const selector of
-          selectors
-      ) {
-        for (
-          const element of
-            document.querySelectorAll(
-              selector
-            )
-        ) {
-          const text =
-            clean(
-              element.innerText
-            );
-
-          if (
-            !invalid(text)
-          ) {
-            return text;
-          }
-        }
-      }
-
-      return "";
-    });
-
-  return cleanText(value);
-}
-
-/*
-=========================================================
- DESCRIPTION
-=========================================================
-*/
-
-async function extractDescription(
-  page,
-  productName
-) {
-  const value =
-    await page.evaluate(
-      (name) => {
-        const clean =
-          (input) =>
-            String(input || "")
-              .replace(
-                /\u00a0/g,
-                " "
-              )
-              .replace(
-                /\s+/g,
-                " "
-              )
-              .trim();
-
-        const productLower =
-          clean(name).toLowerCase();
-
-        const candidates = [];
-
-        /*
-        JSON-LD.
-        */
-
-        for (
-          const script of
-            document.querySelectorAll(
-              'script[type="application/ld+json"]'
-            )
-        ) {
-          try {
-            const data =
-              JSON.parse(
-                script.textContent ||
-                  ""
-              );
-
-            const objects =
-              Array.isArray(data)
-                ? data
-                : [data];
-
-            for (
-              const object of
-                objects
-            ) {
-              if (
-                object?.description
-              ) {
-                candidates.push(
-                  object.description
-                );
-              }
-            }
-          } catch {
-            // Ignore.
-          }
-        }
-
-        candidates.push(
-          document.querySelector(
-            'meta[name="description"]'
-          )?.content
-        );
-
-        candidates.push(
-          document.querySelector(
-            'meta[property="og:description"]'
-          )?.content
-        );
-
-        for (
-          const candidate of
-            candidates
-        ) {
-          const text =
-            clean(candidate);
-
-          if (
-            text.length < 20 ||
-            text.length > 10000
-          ) {
-            continue;
-          }
-
-          if (
-            productLower &&
-            text.toLowerCase() ===
-              productLower
-          ) {
-            continue;
-          }
-
-          return text;
-        }
-
-        const selectors = [
-          '[class*="product-description"]',
-          '[class*="Product-description"]',
-          '[class*="productDescription"]',
-          '[data-description]',
-          '[class*="description"]',
-          '[class*="Description"]',
-        ];
-
-        for (
-          const selector of
-            selectors
-        ) {
-          for (
-            const element of
-              document.querySelectorAll(
-                selector
-              )
-          ) {
-            const text =
-              clean(
-                element.innerText
-              );
-
-            if (
-              text.length >= 20 &&
-              text.length <= 10000
-            ) {
-              return text;
-            }
-          }
-        }
-
-        return "";
-      },
-      productName
-    );
-
-  return cleanText(value);
-}
-
-/*
-=========================================================
- PRICE
-=========================================================
-*/
 
 async function extractBasePrice(
   page
