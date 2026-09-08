@@ -33,7 +33,8 @@ jobs:
       SAWA9LY_LOGIN_URL: "https://affiliate.sawa9ly.pro/login"
       SAWA9LY_DASHBOARD_URL: "https://affiliate.sawa9ly.pro/store"
 
-      SCRAPE_LIMIT: "2094"
+      # Sawa9ly currently exposes 2153 products; keep headroom for new products.
+      SCRAPE_LIMIT: "3000"
       SCRAPE_CONCURRENCY: "8"
 
       HEADLESS: "true"
