@@ -422,388 +422,99 @@ function looksLikeProductImage(
 =========================================================
 */
 
-async function extractImages(
-  page
-) {
-  const rawImages =
-    await page.evaluate(() => {
-      const result = [];
-
-      const add = (value) => {
-        if (!value) {
-          return;
-        }
-
-        const text =
-          String(value).trim();
-
-        if (!text) {
-          return;
-        }
-
-        if (
-          text.startsWith(
-            "data:"
-          ) ||
-          text.startsWith(
-            "blob:"
-          )
-        ) {
-          return;
-        }
-
-        if (
-          !result.includes(text)
-        ) {
-          result.push(text);
-        }
-      };
-
-      const addSrcset = (
-        value
-      ) => {
-        if (!value) {
-          return;
-        }
-
-        for (
-          const item of String(
-            value
-          ).split(",")
-        ) {
-          const url =
-            item
-              .trim()
-              .split(/\s+/)[0];
-
-          add(url);
-        }
-      };
-
-      const addImage = (
-        element
-      ) => {
-        if (!element) {
-          return;
-        }
-
-        const attributes = [
-          "src",
-          "data-src",
-          "data-lazy-src",
-          "data-original",
-          "data-image",
-          "data-image-url",
-          "data-full",
-          "data-full-image",
-          "data-large",
-          "data-large-image",
-          "data-zoom-image",
-        ];
-
-        for (
-          const attribute of attributes
-        ) {
-          add(
-            element.getAttribute(
-              attribute
-            )
-          );
-        }
-
-        addSrcset(
-          element.getAttribute(
-            "srcset"
-          )
-        );
-
-        addSrcset(
-          element.getAttribute(
-            "data-srcset"
-          )
-        );
-      };
-
-      const selectors = [
-        "main img",
-        "article img",
-        '[class*="product"] img',
-        '[class*="Product"] img',
-        '[class*="gallery"] img',
-        '[class*="Gallery"] img',
-        '[class*="swiper"] img',
-        '[class*="Swiper"] img',
-        '[class*="carousel"] img',
-        '[class*="Carousel"] img',
-        '[class*="slider"] img',
-        '[class*="Slider"] img',
-        '[class*="thumb"] img',
-        '[class*="Thumb"] img',
-        '[class*="thumbnail"] img',
-        '[class*="Thumbnail"] img',
-        "[data-thumbnail] img",
-        "[data-gallery] img",
-        "[data-product-image] img",
-        "picture img",
+async function extractImages(page) {
+  // Collect image candidates together with the best quality signal available.
+  // The previous implementation kept the first URL it encountered, which can
+  // be a thumbnail even when the same image exposes a full-size URL later.
+  const rawImages = await page.evaluate(() => {
+    const candidates = new Map();
+    const clean = v => String(v || '').trim();
+    const add = (value, quality = 0, width = 0, height = 0) => {
+      const url = clean(value);
+      if (!url || url.startsWith('data:') || url.startsWith('blob:')) return;
+      const old = candidates.get(url);
+      const score = Number(quality) || 0;
+      if (!old || score > old.score || width * height > old.width * old.height) {
+        candidates.set(url, { url, score, width: Number(width)||0, height: Number(height)||0 });
+      }
+    };
+    const addSrcset = value => {
+      if (!value) return;
+      for (const item of String(value).split(',')) {
+        const parts = item.trim().split(/\s+/);
+        const url = parts[0];
+        if (!url) continue;
+        let descriptor = 0;
+        const token = parts[1] || '';
+        const m = token.match(/^(\d+(?:\.\d+)?)(w|x)$/i);
+        if (m) descriptor = m[2].toLowerCase() === 'w' ? Number(m[1]) : Number(m[1]) * 1000;
+        add(url, 250 + descriptor / 10);
+      }
+    };
+    const addImage = element => {
+      if (!element) return;
+      const rect = element.getBoundingClientRect();
+      const nw = Number(element.naturalWidth || 0), nh = Number(element.naturalHeight || 0);
+      const attrs = [
+        ['data-zoom-image', 1200], ['data-full-image', 1150], ['data-full', 1100],
+        ['data-large-image', 1050], ['data-large', 1000], ['data-image-url', 900],
+        ['data-original', 850], ['data-image', 800], ['data-lazy-src', 500],
+        ['data-src', 450], ['src', 300]
       ];
+      for (const [attr, score] of attrs) add(element.getAttribute(attr), score + Math.min(500, (nw * nh) / 100000), nw, nh);
+      addSrcset(element.getAttribute('srcset'));
+      addSrcset(element.getAttribute('data-srcset'));
+      if (nw && nh) add(element.currentSrc, 700 + Math.min(500, (nw * nh) / 100000), nw, nh);
+      // Keep the rendered dimensions as a small tie-breaker only.
+      if (rect.width && rect.height) add(element.currentSrc || element.src, 50 + Math.min(100, rect.width * rect.height / 10000), nw, nh);
+    };
 
-      for (
-        const selector of selectors
-      ) {
-        for (
-          const element of
-            document.querySelectorAll(
-              selector
-            )
-        ) {
-          addImage(element);
+    const selectors = [
+      'main img','article img','[class*="product"] img','[class*="Product"] img',
+      '[class*="gallery"] img','[class*="Gallery"] img','[class*="swiper"] img',
+      '[class*="Swiper"] img','[class*="carousel"] img','[class*="Carousel"] img',
+      '[class*="slider"] img','[class*="Slider"] img','[class*="thumb"] img',
+      '[class*="Thumb"] img','[class*="thumbnail"] img','[class*="Thumbnail"] img',
+      '[data-thumbnail] img','[data-gallery] img','[data-product-image] img','picture img'
+    ];
+    for (const selector of selectors) for (const el of document.querySelectorAll(selector)) addImage(el);
+    for (const source of document.querySelectorAll('source')) addSrcset(source.getAttribute('srcset'));
+    for (const link of document.querySelectorAll('a[href]')) {
+      const href = link.getAttribute('href') || '';
+      if (/\.(jpe?g|png|webp|avif|gif)(\?|#|$)/i.test(href)) add(href, 650);
+    }
+    for (const selector of ['meta[property="og:image"]','meta[property="og:image:url"]','meta[property="og:image:secure_url"]','meta[name="twitter:image"]','meta[name="twitter:image:src"]']) {
+      const meta = document.querySelector(selector);
+      if (meta) add(meta.content, 1000);
+    }
+    for (const script of document.querySelectorAll('script[type="application/ld+json"]')) {
+      try {
+        const data = JSON.parse(script.textContent || '');
+        const list = Array.isArray(data) ? data : [data];
+        for (const object of list) {
+          if (!object) continue;
+          const addObjectImage = image => {
+            if (typeof image === 'string') add(image, 950);
+            else if (image && typeof image === 'object') { add(image.url, 950); add(image.contentUrl, 950); }
+          };
+          for (const image of (Array.isArray(object.image) ? object.image : [object.image])) addObjectImage(image);
+          for (const image of (Array.isArray(object.images) ? object.images : [object.images])) addObjectImage(image);
         }
-      }
-
-      /*
-      <source srcset="">
-      */
-
-      for (
-        const source of
-          document.querySelectorAll(
-            "source"
-          )
-      ) {
-        addSrcset(
-          source.getAttribute(
-            "srcset"
-          )
-        );
-
-        add(
-          source.getAttribute(
-            "src"
-          )
-        );
-      }
-
-      /*
-      Direct image links.
-      */
-
-      for (
-        const link of
-          document.querySelectorAll(
-            "a[href]"
-          )
-      ) {
-        const href =
-          link.getAttribute(
-            "href"
-          ) || "";
-
-        if (
-          /\.(jpe?g|png|webp|avif|gif)(\?|#|$)/i.test(
-            href
-          )
-        ) {
-          add(href);
-        }
-      }
-
-      /*
-      OpenGraph / Twitter.
-      */
-
-      const metaSelectors = [
-        'meta[property="og:image"]',
-        'meta[property="og:image:url"]',
-        'meta[property="og:image:secure_url"]',
-        'meta[name="twitter:image"]',
-        'meta[name="twitter:image:src"]',
-      ];
-
-      for (
-        const selector of
-          metaSelectors
-      ) {
-        const meta =
-          document.querySelector(
-            selector
-          );
-
-        add(
-          meta?.content
-        );
-      }
-
-      /*
-      JSON-LD.
-      */
-
-      for (
-        const script of
-          document.querySelectorAll(
-            'script[type="application/ld+json"]'
-          )
-      ) {
-        try {
-          const data =
-            JSON.parse(
-              script.textContent ||
-                ""
-            );
-
-          const objects =
-            Array.isArray(data)
-              ? data
-              : [data];
-
-          for (
-            const object of
-              objects
-          ) {
-            if (!object) {
-              continue;
-            }
-
-            const addObjectImage =
-              (image) => {
-                if (
-                  typeof image ===
-                  "string"
-                ) {
-                  add(image);
-                  return;
-                }
-
-                if (
-                  image &&
-                  typeof image ===
-                    "object"
-                ) {
-                  add(
-                    image.url
-                  );
-
-                  add(
-                    image.contentUrl
-                  );
-                }
-              };
-
-            if (
-              Array.isArray(
-                object.image
-              )
-            ) {
-              for (
-                const image of
-                  object.image
-              ) {
-                addObjectImage(
-                  image
-                );
-              }
-            } else {
-              addObjectImage(
-                object.image
-              );
-            }
-
-            if (
-              Array.isArray(
-                object.images
-              )
-            ) {
-              for (
-                const image of
-                  object.images
-              ) {
-                addObjectImage(
-                  image
-                );
-              }
-            }
-          }
-        } catch {
-          // Ignore invalid JSON-LD.
-        }
-      }
-
-      /*
-      Final fallback.
-      */
-
-      if (
-        result.length === 0
-      ) {
-        for (
-          const image of
-            document.querySelectorAll(
-              "img"
-            )
-        ) {
-          addImage(image);
-        }
-      }
-
-      return result;
-    });
+      } catch (_) {}
+    }
+    return Array.from(candidates.values())
+      .sort((a,b) => (b.score - a.score) || ((b.width*b.height) - (a.width*a.height)))
+      .map(x => x.url);
+  });
 
   const images = [];
-
-  for (
-    const image of
-      rawImages
-  ) {
-    if (
-      !isUsableImageUrl(
-        image
-      )
-    ) {
-      continue;
-    }
-
-    if (
-      !looksLikeProductImage(
-        image
-      )
-    ) {
-      continue;
-    }
-
-    const normalized =
-      normalizeUrl(
-        image,
-        page.url()
-      );
-
-    if (!normalized) {
-      continue;
-    }
-
-    if (
-      !images.includes(
-        normalized
-      )
-    ) {
-      images.push(
-        normalized
-      );
-    }
+  for (const image of rawImages) {
+    if (!isUsableImageUrl(image) || !looksLikeProductImage(image)) continue;
+    const normalized = normalizeUrl(image, page.url());
+    if (normalized && !images.includes(normalized)) images.push(normalized);
   }
-
-  /*
-  Maximum 20 images.
-  */
-
-  const limited =
-    images.slice(0, 20);
-
-  return {
-    image:
-      limited[0] || "",
-
-    images:
-      limited,
-  };
+  const limited = images.slice(0, 20);
+  return { image: limited[0] || '', images: limited };
 }
 
 /*
