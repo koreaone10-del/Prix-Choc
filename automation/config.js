@@ -101,7 +101,7 @@ export const config = {
 
     maxMargin: toNumber(
       process.env.MAX_MARGIN,
-      2500
+      5000
     ),
   },
 
