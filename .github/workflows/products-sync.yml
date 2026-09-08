@@ -18,7 +18,9 @@ jobs:
   sync:
     name: Discover → Scrape → Generate → Verify → Commit
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    # GitHub-hosted runners allow up to 6 hours per job.
+    # The full Sawa9ly scrape currently needs about 2.5-3 hours.
+    timeout-minutes: 350
 
     defaults:
       run:
@@ -367,12 +369,12 @@ jobs:
       - name: Remove runtime secrets
         if: always()
         run: |
-          # .env is historically tracked in this repository. Never leave its
-          # deletion as an unstaged change because it blocks rebase/push.
-          if git -C .. ls-files --error-unmatch automation/.env >/dev/null 2>&1; then
-            git -C .. restore -- automation/.env
-          else
-            rm -f .env
+          rm -f .env
+          cd ..
+          # .env is historically tracked; restore the repository copy so
+          # the temporary runtime file never appears as a deletion.
+          if git ls-files --error-unmatch automation/.env >/dev/null 2>&1; then
+            git restore -- automation/.env
           fi
 
       - name: Inspect Git changes
@@ -394,14 +396,12 @@ jobs:
           cd ..
           git add products.js
 
-          # Discovery history is the state used to confirm missing products.
-          # It must be committed together with products.js.
-          if [ -f automation/state/discovery-history.json ]; then
-            git add automation/state/discovery-history.json
-          fi
-
           if [ -d automation/state/history ]; then
             git add automation/state/history
+          fi
+
+          if [ -f automation/state/discovery-history.json ]; then
+            git add automation/state/discovery-history.json
           fi
 
       - name: Commit catalogue changes
@@ -418,34 +418,15 @@ jobs:
 
           git commit -m "chore: sync Sawa9ly products"
 
-      - name: Synchronize and push catalogue update
+      - name: Rebase against latest main
         run: |
           cd ..
-          set -euo pipefail
-
-          # The working tree MUST be clean before rebase. This catches
-          # accidental tracked runtime files before Git can abort the job.
-          if [ -n "$(git status --porcelain)" ]; then
-            echo "ERROR: Working tree is not clean before synchronization."
-            git status --short
-            exit 1
-          fi
-
-          # Nothing to push is a successful no-op.
-          if [ -z "$(git log -1 --format=%H)" ]; then
-            echo "No commit available."
-            exit 0
-          fi
-
           git fetch origin main
+          git rebase origin/main
 
-          # If the remote moved after checkout, rebase the automation commit
-          # onto the latest main. Because the tree is clean, rebase is safe.
-          if ! git merge-base --is-ancestor origin/main HEAD; then
-            echo "Remote main advanced; rebasing cleanly..."
-            git rebase origin/main
-          fi
-
+      - name: Push catalogue update
+        run: |
+          cd ..
           git push origin HEAD:main
 
       - name: Final verification
