@@ -33,7 +33,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.549Z",
+    "updatedAt": "2026-09-09T09:40:20.271Z",
     "sellingPrice": 3100
   },
   "2": {
@@ -61,7 +61,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.549Z",
+    "updatedAt": "2026-09-09T09:40:20.271Z",
     "sellingPrice": 4300
   },
   "42": {
@@ -82,7 +82,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.549Z",
+    "updatedAt": "2026-09-09T09:40:20.271Z",
     "sellingPrice": 2700
   },
   "43": {
@@ -105,7 +105,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.549Z",
+    "updatedAt": "2026-09-09T09:40:20.271Z",
     "sellingPrice": 2700
   },
   "44": {
@@ -132,7 +132,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.549Z",
+    "updatedAt": "2026-09-09T09:40:20.271Z",
     "sellingPrice": 5150
   },
   "45": {
@@ -157,7 +157,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.549Z",
+    "updatedAt": "2026-09-09T09:40:20.271Z",
     "sellingPrice": 2750
   },
   "46": {
@@ -184,7 +184,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.549Z",
+    "updatedAt": "2026-09-09T09:40:20.271Z",
     "sellingPrice": 3300
   },
   "47": {
@@ -214,7 +214,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.549Z",
+    "updatedAt": "2026-09-09T09:40:20.271Z",
     "sellingPrice": 2000
   },
   "48": {
@@ -267,7 +267,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.549Z",
+    "updatedAt": "2026-09-09T09:40:20.271Z",
     "sellingPrice": 2800
   },
   "50": {
@@ -290,7 +290,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "description": "Espace partenaire Sawa9ly — catalogue, commandes et portefeuille",
     "sellingPrice": 4600
   },
@@ -348,7 +348,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 2800
   },
   "54": {
@@ -404,7 +404,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 3700
   },
   "57": {
@@ -443,7 +443,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 2450
   },
   "59": {
@@ -466,7 +466,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 2400
   },
   "60": {
@@ -497,7 +497,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 5000
   },
   "61": {
@@ -531,7 +531,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 15000
   },
   "62": {
@@ -567,7 +567,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 3100
   },
   "63": {
@@ -593,7 +593,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 2600
   },
   "64": {
@@ -621,7 +621,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 3350
   },
   "65": {
@@ -646,7 +646,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 3000
   },
   "66": {
@@ -672,7 +672,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 2000
   },
   "67": {
@@ -700,7 +700,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 1700
   },
   "68": {
@@ -726,7 +726,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 2200
   },
   "69": {
@@ -745,7 +745,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 5500
   },
   "70": {
@@ -770,7 +770,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 4500
   },
   "71": {
@@ -790,7 +790,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 2900
   },
   "72": {
@@ -817,7 +817,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 2300
   },
   "73": {
@@ -842,7 +842,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 4650
   },
   "74": {
@@ -872,7 +872,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 1900
   },
   "75": {
@@ -907,7 +907,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 3700
   },
   "76": {
@@ -930,7 +930,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 7400
   },
   "77": {
@@ -959,7 +959,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 1700
   },
   "78": {
@@ -1188,7 +1188,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 1900
   },
   "91": {
@@ -1212,7 +1212,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 4700
   },
   "92": {
@@ -1246,7 +1246,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 2550
   },
   "93": {
@@ -1280,7 +1280,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 2390
   },
   "94": {
@@ -1304,7 +1304,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 5300
   },
   "95": {
@@ -1330,7 +1330,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 4800
   },
   "96": {
@@ -1354,7 +1354,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 2100
   },
   "97": {
@@ -1384,7 +1384,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 1750
   },
   "98": {
@@ -1407,7 +1407,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 2600
   },
   "99": {
@@ -1428,7 +1428,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 3700
   },
   "100": {
@@ -1472,7 +1472,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 9800
   },
   "102": {
@@ -1546,7 +1546,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.550Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 3150
   },
   "106": {
@@ -1608,7 +1608,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 2600
   },
   "109": {
@@ -1630,7 +1630,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 3600
   },
   "110": {
@@ -1733,7 +1733,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 2650
   },
   "116": {
@@ -1753,7 +1753,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 3200
   },
   "117": {
@@ -1808,7 +1808,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 2600
   },
   "120": {
@@ -1827,7 +1827,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 2800
   },
   "121": {
@@ -1880,7 +1880,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 2550
   },
   "124": {
@@ -1899,7 +1899,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 2450
   },
   "125": {
@@ -1987,7 +1987,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 3200
   },
   "130": {
@@ -2009,7 +2009,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 3200
   },
   "131": {
@@ -2028,7 +2028,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 3200
   },
   "132": {
@@ -2098,7 +2098,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 3250
   },
   "136": {
@@ -2157,7 +2157,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 3100
   },
   "139": {
@@ -2273,7 +2273,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 2300
   },
   "145": {
@@ -2362,7 +2362,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 3800
   },
   "150": {
@@ -2383,7 +2383,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 3800
   },
   "151": {
@@ -2435,7 +2435,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 3800
   },
   "154": {
@@ -2456,7 +2456,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 2950
   },
   "155": {
@@ -2493,7 +2493,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 2950
   },
   "157": {
@@ -2551,7 +2551,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 3850
   },
   "160": {
@@ -2588,7 +2588,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 3150
   },
   "162": {
@@ -2647,7 +2647,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 3400
   },
   "165": {
@@ -2692,7 +2692,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.272Z",
     "sellingPrice": 3900
   },
   "167": {
@@ -2714,7 +2714,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 4200
   },
   "168": {
@@ -2740,7 +2740,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 1900
   },
   "169": {
@@ -2776,7 +2776,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 3700
   },
   "170": {
@@ -2803,7 +2803,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 4100
   },
   "171": {
@@ -2831,7 +2831,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 9000
   },
   "172": {
@@ -2862,7 +2862,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 2600
   },
   "173": {
@@ -2891,7 +2891,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 31500
   },
   "174": {
@@ -2920,7 +2920,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 2900
   },
   "175": {
@@ -2952,7 +2952,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 4050
   },
   "176": {
@@ -2980,7 +2980,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 1050
   },
   "177": {
@@ -3009,7 +3009,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 1850
   },
   "178": {
@@ -3052,7 +3052,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 1950
   },
   "180": {
@@ -3080,7 +3080,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 7250
   },
   "181": {
@@ -3108,7 +3108,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 2800
   },
   "182": {
@@ -3153,7 +3153,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 16800
   },
   "184": {
@@ -3188,7 +3188,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 3250
   },
   "185": {
@@ -3224,7 +3224,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 2400
   },
   "186": {
@@ -3252,7 +3252,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 6100
   },
   "187": {
@@ -3288,7 +3288,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 4350
   },
   "189": {
@@ -3318,7 +3318,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 4200
   },
   "190": {
@@ -3350,7 +3350,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 2200
   },
   "191": {
@@ -3372,7 +3372,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 4900
   },
   "192": {
@@ -3404,7 +3404,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 1750
   },
   "193": {
@@ -3452,7 +3452,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.551Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 2100
   },
   "195": {
@@ -3481,7 +3481,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 2500
   },
   "196": {
@@ -3511,7 +3511,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 4250
   },
   "197": {
@@ -3541,7 +3541,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 2450
   },
   "198": {
@@ -3567,7 +3567,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 3250
   },
   "199": {
@@ -3594,7 +3594,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 2150
   },
   "200": {
@@ -3620,7 +3620,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 2100
   },
   "201": {
@@ -3644,7 +3644,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 2300
   },
   "202": {
@@ -3756,7 +3756,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 3750
   },
   "208": {
@@ -3778,7 +3778,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 2350
   },
   "209": {
@@ -3802,7 +3802,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 1900
   },
   "210": {
@@ -3826,7 +3826,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 2250
   },
   "211": {
@@ -3854,7 +3854,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 17900
   },
   "212": {
@@ -3877,7 +3877,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 3000
   },
   "213": {
@@ -3955,7 +3955,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 2650
   },
   "217": {
@@ -3997,7 +3997,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 2500
   },
   "219": {
@@ -4046,7 +4046,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 2700
   },
   "221": {
@@ -4079,7 +4079,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 2500
   },
   "222": {
@@ -4107,7 +4107,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 2150
   },
   "223": {
@@ -4150,7 +4150,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 2950
   },
   "225": {
@@ -4176,7 +4176,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 4700
   },
   "226": {
@@ -4249,7 +4249,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 2100
   },
   "230": {
@@ -4307,7 +4307,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 3650
   },
   "233": {
@@ -4388,7 +4388,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 3100
   },
   "237": {
@@ -4419,7 +4419,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 5150
   },
   "238": {
@@ -4443,7 +4443,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 2700
   },
   "239": {
@@ -4473,7 +4473,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 5200
   },
   "240": {
@@ -4502,7 +4502,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 4350
   },
   "241": {
@@ -4528,7 +4528,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 1500
   },
   "242": {
@@ -4564,7 +4564,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 7200
   },
   "243": {
@@ -4594,7 +4594,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.273Z",
     "sellingPrice": 7200
   },
   "244": {
@@ -4641,7 +4641,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 1900
   },
   "246": {
@@ -4672,7 +4672,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 5300
   },
   "247": {
@@ -4699,7 +4699,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 1700
   },
   "248": {
@@ -4732,7 +4732,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 1850
   },
   "249": {
@@ -4760,7 +4760,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 21500
   },
   "250": {
@@ -4787,7 +4787,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 13000
   },
   "251": {
@@ -4815,7 +4815,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 13000
   },
   "252": {
@@ -4841,7 +4841,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 13500
   },
   "253": {
@@ -4871,7 +4871,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 17000
   },
   "254": {
@@ -4933,7 +4933,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 1350
   },
   "257": {
@@ -4984,7 +4984,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 4150
   },
   "259": {
@@ -5016,7 +5016,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 7600
   },
   "260": {
@@ -5057,7 +5057,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 2400
   },
   "262": {
@@ -5088,7 +5088,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 18000
   },
   "263": {
@@ -5122,7 +5122,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 3150
   },
   "264": {
@@ -5154,7 +5154,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 5000
   },
   "265": {
@@ -5187,7 +5187,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 3400
   },
   "266": {
@@ -5221,7 +5221,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 5700
   },
   "267": {
@@ -5248,7 +5248,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 1250
   },
   "268": {
@@ -5269,7 +5269,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 1500
   },
   "269": {
@@ -5290,7 +5290,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 1900
   },
   "270": {
@@ -5312,7 +5312,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 3200
   },
   "271": {
@@ -5338,7 +5338,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 5800
   },
   "272": {
@@ -5360,7 +5360,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 2600
   },
   "273": {
@@ -5386,7 +5386,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 4200
   },
   "274": {
@@ -5415,7 +5415,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 2600
   },
   "275": {
@@ -5442,7 +5442,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 2250
   },
   "276": {
@@ -5472,7 +5472,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.552Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 2550
   },
   "277": {
@@ -5508,7 +5508,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 2200
   },
   "278": {
@@ -5533,7 +5533,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 9200
   },
   "279": {
@@ -5558,7 +5558,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 5300
   },
   "280": {
@@ -5587,7 +5587,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 84500
   },
   "281": {
@@ -5618,7 +5618,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 84500
   },
   "282": {
@@ -5645,7 +5645,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 4300
   },
   "283": {
@@ -5679,7 +5679,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 3150
   },
   "284": {
@@ -5709,7 +5709,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 3100
   },
   "285": {
@@ -5742,7 +5742,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 1800
   },
   "286": {
@@ -5770,7 +5770,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 3900
   },
   "287": {
@@ -5797,7 +5797,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.274Z",
     "sellingPrice": 1950
   },
   "288": {
@@ -5829,7 +5829,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 3700
   },
   "289": {
@@ -5865,7 +5865,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 3000
   },
   "290": {
@@ -5893,7 +5893,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 4100
   },
   "291": {
@@ -5924,7 +5924,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 7800
   },
   "292": {
@@ -5973,7 +5973,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 4150
   },
   "294": {
@@ -6009,7 +6009,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 1500
   },
   "295": {
@@ -6038,7 +6038,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 2000
   },
   "296": {
@@ -6071,7 +6071,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 8500
   },
   "297": {
@@ -6096,7 +6096,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 6400
   },
   "298": {
@@ -6131,7 +6131,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 2600
   },
   "299": {
@@ -6159,7 +6159,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 1600
   },
   "300": {
@@ -6201,7 +6201,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 4300
   },
   "302": {
@@ -6233,7 +6233,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 3050
   },
   "303": {
@@ -6255,7 +6255,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 4800
   },
   "304": {
@@ -6286,7 +6286,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 2750
   },
   "305": {
@@ -6319,7 +6319,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 4100
   },
   "306": {
@@ -6372,7 +6372,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 3900
   },
   "309": {
@@ -6391,7 +6391,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 3900
   },
   "310": {
@@ -6411,7 +6411,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 12000
   },
   "311": {
@@ -6435,7 +6435,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 5400
   },
   "312": {
@@ -6462,7 +6462,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 2900
   },
   "313": {
@@ -6489,7 +6489,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 2050
   },
   "314": {
@@ -6518,7 +6518,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 4200
   },
   "315": {
@@ -6548,7 +6548,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 6900
   },
   "316": {
@@ -6575,7 +6575,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 4400
   },
   "317": {
@@ -6611,7 +6611,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 5000
   },
   "318": {
@@ -6633,7 +6633,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 5100
   },
   "319": {
@@ -6669,7 +6669,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 6300
   },
   "320": {
@@ -6698,7 +6698,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 2500
   },
   "321": {
@@ -6734,7 +6734,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 1850
   },
   "322": {
@@ -6763,7 +6763,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 3800
   },
   "323": {
@@ -6792,7 +6792,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 2450
   },
   "324": {
@@ -6818,7 +6818,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 180500
   },
   "325": {
@@ -6849,7 +6849,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 2350
   },
   "326": {
@@ -6874,7 +6874,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.553Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 2550
   },
   "327": {
@@ -6899,7 +6899,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.554Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 16000
   },
   "328": {
@@ -6924,7 +6924,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.554Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 1500
   },
   "329": {
@@ -6965,7 +6965,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.554Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 3500
   },
   "331": {
@@ -6983,7 +6983,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.554Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 3500
   },
   "332": {
@@ -7008,7 +7008,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.554Z",
+    "updatedAt": "2026-09-09T09:40:20.275Z",
     "sellingPrice": 3200
   },
   "333": {
@@ -7029,7 +7029,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.554Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 1850
   },
   "334": {
@@ -7057,7 +7057,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.554Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 3000
   },
   "335": {
@@ -7086,7 +7086,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.554Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 5850
   },
   "336": {
@@ -7113,7 +7113,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.554Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 1350
   },
   "337": {
@@ -7149,7 +7149,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.554Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 3850
   },
   "338": {
@@ -7174,7 +7174,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.554Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 2000
   },
   "339": {
@@ -7197,7 +7197,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.554Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 2000
   },
   "340": {
@@ -7228,7 +7228,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.554Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 5350
   },
   "341": {
@@ -7279,7 +7279,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.554Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 2100
   },
   "343": {
@@ -7311,7 +7311,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.554Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 2750
   },
   "344": {
@@ -7374,7 +7374,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.554Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 2400
   },
   "347": {
@@ -7401,7 +7401,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.554Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 3300
   },
   "348": {
@@ -7425,7 +7425,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.554Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 2000
   },
   "349": {
@@ -7457,7 +7457,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.554Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 2800
   },
   "350": {
@@ -7488,7 +7488,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.554Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 4150
   },
   "351": {
@@ -7517,7 +7517,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.554Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 3300
   },
   "352": {
@@ -7539,7 +7539,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.554Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 2250
   },
   "353": {
@@ -7567,7 +7567,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.554Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 2400
   },
   "354": {
@@ -7592,7 +7592,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.554Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 15500
   },
   "355": {
@@ -7623,7 +7623,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.554Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 12000
   },
   "356": {
@@ -7648,7 +7648,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.554Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 1350
   },
   "357": {
@@ -7684,7 +7684,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.555Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 24500
   },
   "358": {
@@ -7711,7 +7711,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.555Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 2250
   },
   "359": {
@@ -7739,7 +7739,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.555Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 1800
   },
   "360": {
@@ -7797,7 +7797,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.555Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 4350
   },
   "363": {
@@ -7820,7 +7820,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.555Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 2800
   },
   "364": {
@@ -7868,7 +7868,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.555Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 2600
   },
   "366": {
@@ -7900,7 +7900,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.555Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 2900
   },
   "367": {
@@ -7944,7 +7944,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.555Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 3700
   },
   "369": {
@@ -7973,7 +7973,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.555Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 2500
   },
   "370": {
@@ -7998,7 +7998,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.555Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 2600
   },
   "371": {
@@ -8028,7 +8028,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.555Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 2850
   },
   "372": {
@@ -8055,7 +8055,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.555Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 6150
   },
   "373": {
@@ -8084,7 +8084,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.555Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 6300
   },
   "374": {
@@ -8108,7 +8108,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.555Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 6200
   },
   "375": {
@@ -8152,7 +8152,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.555Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 1500
   },
   "377": {
@@ -8192,7 +8192,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.555Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 3500
   },
   "379": {
@@ -8221,7 +8221,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.555Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 3800
   },
   "380": {
@@ -8249,7 +8249,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.555Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 4250
   },
   "381": {
@@ -8279,7 +8279,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.555Z",
+    "updatedAt": "2026-09-09T09:40:20.276Z",
     "sellingPrice": 2900
   },
   "382": {
@@ -8308,7 +8308,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.555Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 2000
   },
   "383": {
@@ -8342,7 +8342,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.555Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 2650
   },
   "384": {
@@ -8369,7 +8369,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.555Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 1400
   },
   "385": {
@@ -8405,7 +8405,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.555Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 4500
   },
   "386": {
@@ -8438,7 +8438,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.555Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 8850
   },
   "387": {
@@ -8467,7 +8467,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.555Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 9000
   },
   "388": {
@@ -8496,7 +8496,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.555Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 5350
   },
   "389": {
@@ -8520,7 +8520,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.555Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 1600
   },
   "390": {
@@ -8552,7 +8552,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.555Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 5700
   },
   "391": {
@@ -8586,7 +8586,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.555Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 2500
   },
   "392": {
@@ -8609,7 +8609,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.555Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 3700
   },
   "393": {
@@ -8636,7 +8636,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.555Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 1700
   },
   "394": {
@@ -8677,7 +8677,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.555Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 2450
   },
   "396": {
@@ -8706,7 +8706,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.555Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 1950
   },
   "397": {
@@ -8733,7 +8733,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.555Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 2250
   },
   "398": {
@@ -8760,7 +8760,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.556Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 4300
   },
   "399": {
@@ -8788,7 +8788,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.556Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 3850
   },
   "400": {
@@ -8815,7 +8815,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.556Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 2700
   },
   "401": {
@@ -8842,7 +8842,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.556Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 1800
   },
   "402": {
@@ -8865,7 +8865,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.556Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 2400
   },
   "403": {
@@ -8889,7 +8889,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.556Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 3600
   },
   "404": {
@@ -8916,7 +8916,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.556Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 3450
   },
   "405": {
@@ -8941,7 +8941,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.556Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 1900
   },
   "406": {
@@ -8969,7 +8969,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.556Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 4850
   },
   "407": {
@@ -8993,7 +8993,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.556Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 1100
   },
   "408": {
@@ -9021,7 +9021,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.556Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 1950
   },
   "409": {
@@ -9065,7 +9065,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.556Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 2600
   },
   "411": {
@@ -9096,7 +9096,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.556Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 4800
   },
   "412": {
@@ -9123,7 +9123,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.556Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 5900
   },
   "413": {
@@ -9164,7 +9164,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.556Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 1650
   },
   "415": {
@@ -9211,7 +9211,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.556Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 2600
   },
   "417": {
@@ -9242,7 +9242,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.556Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 2500
   },
   "418": {
@@ -9267,7 +9267,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.556Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 4100
   },
   "419": {
@@ -9302,7 +9302,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.556Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 2200
   },
   "420": {
@@ -9329,7 +9329,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.556Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 1150
   },
   "421": {
@@ -9357,7 +9357,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.556Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 5100
   },
   "422": {
@@ -9382,7 +9382,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.556Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 1450
   },
   "423": {
@@ -9409,7 +9409,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.556Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 2950
   },
   "424": {
@@ -9444,7 +9444,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.556Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 3100
   },
   "425": {
@@ -9475,7 +9475,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.556Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 5500
   },
   "426": {
@@ -9505,7 +9505,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.556Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 2850
   },
   "427": {
@@ -9528,7 +9528,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.556Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 3100
   },
   "428": {
@@ -9558,7 +9558,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.556Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 2350
   },
   "429": {
@@ -9580,7 +9580,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.556Z",
+    "updatedAt": "2026-09-09T09:40:20.277Z",
     "sellingPrice": 2400
   },
   "430": {
@@ -9610,7 +9610,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.556Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 1700
   },
   "431": {
@@ -9639,7 +9639,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.557Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 1450
   },
   "432": {
@@ -9662,7 +9662,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.557Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 2350
   },
   "433": {
@@ -9692,7 +9692,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.557Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 2100
   },
   "434": {
@@ -9720,7 +9720,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.557Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 2500
   },
   "435": {
@@ -9748,7 +9748,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.557Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 2700
   },
   "436": {
@@ -9791,7 +9791,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.557Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 4100
   },
   "438": {
@@ -9821,7 +9821,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.557Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 2150
   },
   "439": {
@@ -9852,7 +9852,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.557Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 3300
   },
   "440": {
@@ -9878,7 +9878,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.557Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 3400
   },
   "441": {
@@ -9911,7 +9911,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.557Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 2450
   },
   "442": {
@@ -9937,7 +9937,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.557Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 2650
   },
   "443": {
@@ -9962,7 +9962,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.557Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 2000
   },
   "444": {
@@ -9986,7 +9986,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.557Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 1950
   },
   "445": {
@@ -10015,7 +10015,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.557Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 3400
   },
   "446": {
@@ -10044,7 +10044,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.557Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 4600
   },
   "447": {
@@ -10072,7 +10072,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.557Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 6500
   },
   "448": {
@@ -10102,7 +10102,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.557Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 2700
   },
   "449": {
@@ -10131,7 +10131,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.557Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 2150
   },
   "450": {
@@ -10163,7 +10163,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.557Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 5000
   },
   "451": {
@@ -10188,13 +10188,13 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.557Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 2050
   },
   "452": {
     "name": "Astronaute Lampe de coucher de soleil pour chambre et décoration intérieure",
     "description": "Espace partenaire Sawa9ly — catalogue, commandes et portefeuille",
-    "price": 1750,
+    "price": 1500,
     "image": "/_next/image?url=https%3A%2F%2Fpub-28310993d61b4793990ba3066dc743c6.r2.dev%2Fproducts%2F5460-marketing-0-1774874589932.jpg&w=3840&q=75",
     "images": [
       "/_next/image?url=https%3A%2F%2Fpub-28310993d61b4793990ba3066dc743c6.r2.dev%2Fproducts%2F5460-marketing-0-1774874589932.jpg&w=3840&q=75",
@@ -10209,12 +10209,12 @@ const storeData = {
     ],
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5460",
     "sawa9lyId": "5460",
-    "basePrice": 1250,
+    "basePrice": 1000,
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.557Z",
-    "sellingPrice": 1750
+    "updatedAt": "2026-09-09T09:40:20.278Z",
+    "sellingPrice": 1500
   },
   "453": {
     "name": "Organisateur 5 en 1 pour siège auto avec chargeur sans fil et 2 câbles télescopiques",
@@ -10243,7 +10243,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.557Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 6000
   },
   "454": {
@@ -10270,7 +10270,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.557Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 13700
   },
   "455": {
@@ -10299,7 +10299,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.557Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 2500
   },
   "456": {
@@ -10327,7 +10327,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.557Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 1350
   },
   "457": {
@@ -10358,7 +10358,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.558Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 24500
   },
   "458": {
@@ -10392,7 +10392,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.558Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 4100
   },
   "459": {
@@ -10420,7 +10420,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.558Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 5300
   },
   "460": {
@@ -10448,7 +10448,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.558Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 6100
   },
   "461": {
@@ -10473,7 +10473,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.558Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 2900
   },
   "462": {
@@ -10500,7 +10500,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.558Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 4500
   },
   "463": {
@@ -10530,7 +10530,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.558Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 4500
   },
   "464": {
@@ -10562,7 +10562,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.558Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 2300
   },
   "465": {
@@ -10586,7 +10586,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.558Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 3200
   },
   "466": {
@@ -10614,7 +10614,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.558Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 1350
   },
   "467": {
@@ -10640,7 +10640,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.558Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 1100
   },
   "468": {
@@ -10670,7 +10670,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.558Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 3850
   },
   "469": {
@@ -10698,7 +10698,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.558Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 3000
   },
   "470": {
@@ -10717,7 +10717,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.558Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 1750
   },
   "471": {
@@ -10743,7 +10743,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.558Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 2850
   },
   "472": {
@@ -10771,7 +10771,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.558Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 2050
   },
   "473": {
@@ -10800,7 +10800,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.558Z",
+    "updatedAt": "2026-09-09T09:40:20.278Z",
     "sellingPrice": 2500
   },
   "474": {
@@ -10826,7 +10826,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.558Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 2150
   },
   "475": {
@@ -10854,7 +10854,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.558Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 2450
   },
   "476": {
@@ -10881,7 +10881,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.558Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 3600
   },
   "477": {
@@ -10911,7 +10911,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.558Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 3400
   },
   "478": {
@@ -10938,7 +10938,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.558Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 4750
   },
   "479": {
@@ -10962,7 +10962,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.558Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 2000
   },
   "480": {
@@ -10994,7 +10994,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.558Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 1650
   },
   "481": {
@@ -11030,7 +11030,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.558Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 2950
   },
   "482": {
@@ -11066,7 +11066,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.558Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 3900
   },
   "483": {
@@ -11096,7 +11096,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.558Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 3000
   },
   "484": {
@@ -11121,7 +11121,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.558Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 2400
   },
   "485": {
@@ -11146,7 +11146,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.558Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 4300
   },
   "486": {
@@ -11178,7 +11178,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.558Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 3900
   },
   "487": {
@@ -11206,7 +11206,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.558Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 3100
   },
   "488": {
@@ -11235,7 +11235,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.559Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 3600
   },
   "489": {
@@ -11268,7 +11268,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.559Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 4000
   },
   "490": {
@@ -11295,7 +11295,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.559Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 1700
   },
   "491": {
@@ -11324,7 +11324,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.559Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 3350
   },
   "492": {
@@ -11353,7 +11353,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.559Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 2750
   },
   "493": {
@@ -11389,7 +11389,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.559Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 2600
   },
   "494": {
@@ -11419,7 +11419,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.559Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 2300
   },
   "495": {
@@ -11447,7 +11447,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.559Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 3700
   },
   "496": {
@@ -11474,7 +11474,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.559Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 2700
   },
   "497": {
@@ -11505,7 +11505,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.559Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 7600
   },
   "498": {
@@ -11536,7 +11536,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.559Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 4300
   },
   "499": {
@@ -11558,7 +11558,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.559Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 1900
   },
   "500": {
@@ -11586,7 +11586,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.559Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 4200
   },
   "501": {
@@ -11613,7 +11613,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.559Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 4400
   },
   "502": {
@@ -11641,7 +11641,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.559Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 2950
   },
   "503": {
@@ -11672,7 +11672,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.559Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 2700
   },
   "504": {
@@ -11706,7 +11706,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.559Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 3600
   },
   "505": {
@@ -11734,7 +11734,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.559Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 3100
   },
   "506": {
@@ -11762,7 +11762,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.559Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 3100
   },
   "507": {
@@ -11787,7 +11787,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.559Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 3100
   },
   "508": {
@@ -11812,7 +11812,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.559Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 5100
   },
   "509": {
@@ -11838,7 +11838,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.559Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 1900
   },
   "510": {
@@ -11890,7 +11890,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.559Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 3300
   },
   "512": {
@@ -11926,7 +11926,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.559Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 2500
   },
   "513": {
@@ -11962,7 +11962,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.559Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 3000
   },
   "514": {
@@ -11983,7 +11983,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.559Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 2000
   },
   "515": {
@@ -12012,7 +12012,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.559Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 1600
   },
   "516": {
@@ -12039,7 +12039,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.559Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 1400
   },
   "517": {
@@ -12070,7 +12070,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.559Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 2200
   },
   "518": {
@@ -12110,7 +12110,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.559Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 1150
   },
   "520": {
@@ -12130,7 +12130,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.560Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 1150
   },
   "521": {
@@ -12161,7 +12161,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.560Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 5000
   },
   "522": {
@@ -12186,7 +12186,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.560Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 4100
   },
   "523": {
@@ -12215,7 +12215,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.560Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 3350
   },
   "524": {
@@ -12276,7 +12276,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.560Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 2900
   },
   "527": {
@@ -12301,7 +12301,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.560Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 1850
   },
   "528": {
@@ -12329,7 +12329,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.560Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 1750
   },
   "529": {
@@ -12350,7 +12350,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.560Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 5900
   },
   "530": {
@@ -12375,7 +12375,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.560Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 3900
   },
   "531": {
@@ -12404,7 +12404,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.560Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 3300
   },
   "532": {
@@ -12433,7 +12433,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.560Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 1850
   },
   "533": {
@@ -12459,7 +12459,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.560Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 6100
   },
   "534": {
@@ -12488,7 +12488,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.560Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 4300
   },
   "535": {
@@ -12519,7 +12519,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.560Z",
+    "updatedAt": "2026-09-09T09:40:20.279Z",
     "sellingPrice": 3300
   },
   "536": {
@@ -12551,7 +12551,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.560Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 3300
   },
   "537": {
@@ -12571,7 +12571,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.560Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 3750
   },
   "538": {
@@ -12601,7 +12601,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.560Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 3100
   },
   "539": {
@@ -12645,7 +12645,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.560Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 1700
   },
   "541": {
@@ -12673,7 +12673,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.560Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 1750
   },
   "542": {
@@ -12719,7 +12719,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.560Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 2900
   },
   "544": {
@@ -12747,7 +12747,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.560Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 4100
   },
   "545": {
@@ -12795,7 +12795,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.560Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 3100
   },
   "547": {
@@ -12823,7 +12823,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.560Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 3300
   },
   "548": {
@@ -12857,7 +12857,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.560Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 4200
   },
   "549": {
@@ -12883,7 +12883,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.561Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 2500
   },
   "550": {
@@ -12909,7 +12909,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.561Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 5500
   },
   "551": {
@@ -12936,7 +12936,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.561Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 1950
   },
   "552": {
@@ -12971,7 +12971,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.561Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 3300
   },
   "553": {
@@ -12999,7 +12999,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.561Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 1150
   },
   "554": {
@@ -13021,7 +13021,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.561Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 5300
   },
   "555": {
@@ -13056,7 +13056,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.561Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 2900
   },
   "556": {
@@ -13083,7 +13083,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.561Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 2800
   },
   "557": {
@@ -13115,7 +13115,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.561Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 2950
   },
   "558": {
@@ -13142,7 +13142,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.561Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 3200
   },
   "559": {
@@ -13168,7 +13168,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.561Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 4100
   },
   "560": {
@@ -13196,7 +13196,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.561Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 1700
   },
   "561": {
@@ -13224,7 +13224,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.561Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 2450
   },
   "562": {
@@ -13244,7 +13244,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.561Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 2200
   },
   "563": {
@@ -13268,7 +13268,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.561Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 3500
   },
   "564": {
@@ -13297,7 +13297,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.561Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 4500
   },
   "565": {
@@ -13325,7 +13325,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.561Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 3900
   },
   "566": {
@@ -13348,7 +13348,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.561Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 2850
   },
   "567": {
@@ -13368,7 +13368,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.561Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 3500
   },
   "568": {
@@ -13401,7 +13401,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.561Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 8800
   },
   "569": {
@@ -13435,7 +13435,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.561Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 12900
   },
   "570": {
@@ -13467,7 +13467,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.561Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 4000
   },
   "571": {
@@ -13495,7 +13495,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.561Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 2500
   },
   "572": {
@@ -13521,7 +13521,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.561Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 2800
   },
   "573": {
@@ -13545,7 +13545,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.561Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 2700
   },
   "574": {
@@ -13579,7 +13579,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.561Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 1800
   },
   "575": {
@@ -13610,7 +13610,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.561Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 4500
   },
   "576": {
@@ -13632,7 +13632,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.561Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 2900
   },
   "577": {
@@ -13653,7 +13653,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.561Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 2400
   },
   "578": {
@@ -13683,7 +13683,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.562Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 3900
   },
   "579": {
@@ -13709,7 +13709,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.562Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 3500
   },
   "580": {
@@ -13745,7 +13745,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.562Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 9700
   },
   "581": {
@@ -13776,7 +13776,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.562Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 7400
   },
   "582": {
@@ -13802,7 +13802,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.562Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 1900
   },
   "583": {
@@ -13826,7 +13826,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.562Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 1450
   },
   "584": {
@@ -13848,7 +13848,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.562Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 3050
   },
   "585": {
@@ -13877,7 +13877,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.562Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 9200
   },
   "586": {
@@ -13908,7 +13908,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.562Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 1350
   },
   "587": {
@@ -13935,7 +13935,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.562Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 1500
   },
   "588": {
@@ -13969,7 +13969,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.562Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 3700
   },
   "589": {
@@ -13998,7 +13998,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.562Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 2300
   },
   "590": {
@@ -14034,7 +14034,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.562Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 4000
   },
   "591": {
@@ -14059,7 +14059,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.562Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 3600
   },
   "592": {
@@ -14081,7 +14081,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.562Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 1800
   },
   "593": {
@@ -14102,7 +14102,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.562Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 2250
   },
   "594": {
@@ -14130,7 +14130,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.562Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 2850
   },
   "595": {
@@ -14156,7 +14156,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.562Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 3500
   },
   "596": {
@@ -14184,7 +14184,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.562Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 6300
   },
   "597": {
@@ -14210,7 +14210,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.562Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 5700
   },
   "598": {
@@ -14238,7 +14238,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.562Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 4300
   },
   "599": {
@@ -14286,7 +14286,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.562Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 5800
   },
   "601": {
@@ -14310,7 +14310,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.562Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 9400
   },
   "602": {
@@ -14337,7 +14337,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.562Z",
+    "updatedAt": "2026-09-09T09:40:20.280Z",
     "sellingPrice": 4600
   },
   "603": {
@@ -14363,7 +14363,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.562Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 4250
   },
   "604": {
@@ -14408,7 +14408,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.562Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 3450
   },
   "606": {
@@ -14438,7 +14438,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.562Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 2500
   },
   "607": {
@@ -14467,7 +14467,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.562Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 3750
   },
   "608": {
@@ -14489,7 +14489,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.562Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 1750
   },
   "609": {
@@ -14511,7 +14511,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.563Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 4350
   },
   "610": {
@@ -14541,7 +14541,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.563Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 4500
   },
   "611": {
@@ -14566,7 +14566,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.563Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 1600
   },
   "612": {
@@ -14594,7 +14594,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.563Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 2350
   },
   "613": {
@@ -14620,7 +14620,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.563Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 1400
   },
   "614": {
@@ -14646,7 +14646,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.563Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 2300
   },
   "615": {
@@ -14677,7 +14677,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.563Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 20500
   },
   "616": {
@@ -14704,7 +14704,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.563Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 3500
   },
   "617": {
@@ -14732,7 +14732,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.563Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 10000
   },
   "618": {
@@ -14759,7 +14759,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.563Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 3600
   },
   "619": {
@@ -14789,7 +14789,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.563Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 2900
   },
   "620": {
@@ -14815,7 +14815,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.563Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 3000
   },
   "621": {
@@ -14842,7 +14842,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.563Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 4350
   },
   "622": {
@@ -14873,7 +14873,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.563Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 3600
   },
   "623": {
@@ -14901,7 +14901,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.563Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 4750
   },
   "624": {
@@ -14927,7 +14927,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.563Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 1850
   },
   "625": {
@@ -14948,7 +14948,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.563Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 2000
   },
   "626": {
@@ -14990,7 +14990,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.563Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 14900
   },
   "628": {
@@ -15015,7 +15015,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.563Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 1100
   },
   "629": {
@@ -15043,7 +15043,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.563Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 1500
   },
   "630": {
@@ -15074,7 +15074,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.563Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 4300
   },
   "631": {
@@ -15100,7 +15100,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.563Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 1700
   },
   "632": {
@@ -15130,7 +15130,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.563Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 4350
   },
   "633": {
@@ -15162,7 +15162,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.563Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 2550
   },
   "634": {
@@ -15190,7 +15190,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.563Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 1950
   },
   "635": {
@@ -15219,7 +15219,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.563Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 2350
   },
   "636": {
@@ -15246,7 +15246,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.563Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 2350
   },
   "637": {
@@ -15275,7 +15275,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.563Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 2050
   },
   "638": {
@@ -15301,7 +15301,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.563Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 1500
   },
   "639": {
@@ -15326,7 +15326,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.563Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 1750
   },
   "640": {
@@ -15352,7 +15352,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.563Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 2350
   },
   "641": {
@@ -15383,7 +15383,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.563Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 3650
   },
   "642": {
@@ -15410,7 +15410,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.564Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 3000
   },
   "643": {
@@ -15437,7 +15437,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.564Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 2650
   },
   "644": {
@@ -15465,7 +15465,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.564Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 2350
   },
   "645": {
@@ -15492,7 +15492,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.564Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 3400
   },
   "646": {
@@ -15515,7 +15515,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.564Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 2900
   },
   "647": {
@@ -15540,7 +15540,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.564Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 2000
   },
   "648": {
@@ -15566,7 +15566,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.564Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 2150
   },
   "649": {
@@ -15595,7 +15595,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.564Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 2200
   },
   "650": {
@@ -15622,7 +15622,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.564Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 2150
   },
   "651": {
@@ -15655,7 +15655,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.564Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 2800
   },
   "652": {
@@ -15688,7 +15688,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.564Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 2800
   },
   "653": {
@@ -15715,13 +15715,13 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.564Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 3250
   },
   "654": {
     "name": "Lampadaires solaires à LED d’extérieur avec détecteur de mouvements – مصباح خارجي يعمل بالطاقة الشمسية",
     "description": "Espace partenaire Sawa9ly — catalogue, commandes et portefeuille",
-    "price": 2700,
+    "price": 2400,
     "image": "/_next/image?url=https%3A%2F%2Fpub-28310993d61b4793990ba3066dc743c6.r2.dev%2Fproducts%2F4981-marketing-0-1774883969053.jpg&w=3840&q=75",
     "images": [
       "/_next/image?url=https%3A%2F%2Fpub-28310993d61b4793990ba3066dc743c6.r2.dev%2Fproducts%2F4981-marketing-0-1774883969053.jpg&w=3840&q=75",
@@ -15736,12 +15736,12 @@ const storeData = {
     ],
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4981",
     "sawa9lyId": "4981",
-    "basePrice": 2200,
+    "basePrice": 1900,
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.564Z",
-    "sellingPrice": 2700
+    "updatedAt": "2026-09-09T09:40:20.281Z",
+    "sellingPrice": 2400
   },
   "655": {
     "name": "Antivol pour Disque Moto Alarme 110dB Waterproof – جهاز إنذار للدراجات النارية",
@@ -15767,7 +15767,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.564Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 3000
   },
   "656": {
@@ -15793,7 +15793,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.564Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 2500
   },
   "657": {
@@ -15820,7 +15820,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.564Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 1450
   },
   "658": {
@@ -15849,7 +15849,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.564Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 1550
   },
   "659": {
@@ -15872,7 +15872,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.564Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 3700
   },
   "660": {
@@ -15900,7 +15900,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.564Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 4450
   },
   "661": {
@@ -15920,7 +15920,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.564Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 1750
   },
   "662": {
@@ -15946,7 +15946,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.564Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 1750
   },
   "663": {
@@ -15988,7 +15988,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.564Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 3000
   },
   "665": {
@@ -16013,7 +16013,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.564Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 4350
   },
   "666": {
@@ -16049,7 +16049,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.564Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 5000
   },
   "667": {
@@ -16079,7 +16079,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.564Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 3900
   },
   "668": {
@@ -16107,7 +16107,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.564Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 1500
   },
   "669": {
@@ -16137,7 +16137,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.564Z",
+    "updatedAt": "2026-09-09T09:40:20.281Z",
     "sellingPrice": 1600
   },
   "670": {
@@ -16164,7 +16164,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.564Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 1400
   },
   "671": {
@@ -16189,7 +16189,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.564Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 1400
   },
   "672": {
@@ -16222,7 +16222,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.564Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 25000
   },
   "673": {
@@ -16250,7 +16250,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.564Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 2550
   },
   "674": {
@@ -16277,7 +16277,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.565Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 5200
   },
   "675": {
@@ -16301,7 +16301,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.565Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 2100
   },
   "676": {
@@ -16336,7 +16336,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.565Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 3750
   },
   "677": {
@@ -16370,7 +16370,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.565Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 4600
   },
   "678": {
@@ -16406,7 +16406,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.565Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 4300
   },
   "679": {
@@ -16435,7 +16435,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.565Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 1700
   },
   "680": {
@@ -16465,7 +16465,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.565Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 1800
   },
   "681": {
@@ -16496,7 +16496,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.565Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 4300
   },
   "682": {
@@ -16521,7 +16521,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.565Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 2050
   },
   "683": {
@@ -16555,7 +16555,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.565Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 13500
   },
   "684": {
@@ -16582,7 +16582,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.565Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 3300
   },
   "685": {
@@ -16609,7 +16609,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.565Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 3000
   },
   "686": {
@@ -16633,7 +16633,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.565Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 2300
   },
   "687": {
@@ -16660,7 +16660,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.565Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 4000
   },
   "688": {
@@ -16691,7 +16691,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.565Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 4800
   },
   "689": {
@@ -16716,7 +16716,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.565Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 4300
   },
   "690": {
@@ -16742,7 +16742,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.565Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 4450
   },
   "691": {
@@ -16771,7 +16771,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.565Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 4450
   },
   "692": {
@@ -16802,7 +16802,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.565Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 2800
   },
   "693": {
@@ -16829,7 +16829,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.565Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 2200
   },
   "694": {
@@ -16856,7 +16856,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.565Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 2150
   },
   "695": {
@@ -16882,7 +16882,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.565Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 2450
   },
   "696": {
@@ -16908,7 +16908,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.565Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 2700
   },
   "697": {
@@ -16937,7 +16937,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.565Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 2800
   },
   "698": {
@@ -16972,7 +16972,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.565Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 5700
   },
   "699": {
@@ -17004,7 +17004,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.565Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 7100
   },
   "700": {
@@ -17035,7 +17035,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.565Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 1400
   },
   "701": {
@@ -17056,7 +17056,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.565Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 2200
   },
   "702": {
@@ -17085,7 +17085,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.565Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 1500
   },
   "703": {
@@ -17116,7 +17116,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.565Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 4150
   },
   "704": {
@@ -17151,7 +17151,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.565Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 6500
   },
   "705": {
@@ -17180,7 +17180,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.565Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 2500
   },
   "706": {
@@ -17209,7 +17209,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.565Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 2500
   },
   "707": {
@@ -17236,7 +17236,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 6500
   },
   "708": {
@@ -17266,7 +17266,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 4250
   },
   "709": {
@@ -17300,7 +17300,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 2700
   },
   "710": {
@@ -17320,7 +17320,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 5100
   },
   "711": {
@@ -17350,7 +17350,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 2450
   },
   "712": {
@@ -17380,7 +17380,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 4800
   },
   "713": {
@@ -17427,7 +17427,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 2050
   },
   "715": {
@@ -17460,7 +17460,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 2700
   },
   "716": {
@@ -17496,7 +17496,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 2850
   },
   "717": {
@@ -17532,7 +17532,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 2850
   },
   "718": {
@@ -17568,7 +17568,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 2850
   },
   "719": {
@@ -17604,7 +17604,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 2850
   },
   "720": {
@@ -17640,7 +17640,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 2850
   },
   "721": {
@@ -17665,7 +17665,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 2400
   },
   "722": {
@@ -17695,7 +17695,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 5000
   },
   "723": {
@@ -17720,7 +17720,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 1600
   },
   "724": {
@@ -17749,7 +17749,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 2500
   },
   "725": {
@@ -17781,7 +17781,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 5490
   },
   "726": {
@@ -17808,7 +17808,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 1800
   },
   "727": {
@@ -17832,7 +17832,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 4800
   },
   "728": {
@@ -17857,7 +17857,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 7000
   },
   "729": {
@@ -17885,7 +17885,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 4300
   },
   "730": {
@@ -17913,7 +17913,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 6100
   },
   "731": {
@@ -17940,7 +17940,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 3700
   },
   "732": {
@@ -17964,7 +17964,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 2300
   },
   "733": {
@@ -17988,7 +17988,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 4150
   },
   "734": {
@@ -18011,7 +18011,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 4900
   },
   "735": {
@@ -18036,7 +18036,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.282Z",
     "sellingPrice": 1700
   },
   "736": {
@@ -18072,7 +18072,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 1200
   },
   "738": {
@@ -18098,7 +18098,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 2950
   },
   "739": {
@@ -18122,7 +18122,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 1400
   },
   "740": {
@@ -18147,7 +18147,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 2200
   },
   "741": {
@@ -18170,7 +18170,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 2500
   },
   "742": {
@@ -18195,7 +18195,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 2300
   },
   "743": {
@@ -18223,7 +18223,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 6400
   },
   "744": {
@@ -18255,7 +18255,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 1900
   },
   "745": {
@@ -18278,7 +18278,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 3650
   },
   "746": {
@@ -18376,7 +18376,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 2600
   },
   "751": {
@@ -18399,7 +18399,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 2650
   },
   "752": {
@@ -18446,7 +18446,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 3300
   },
   "754": {
@@ -18478,7 +18478,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 1000
   },
   "755": {
@@ -18510,7 +18510,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 2200
   },
   "756": {
@@ -18540,7 +18540,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 4450
   },
   "757": {
@@ -18608,7 +18608,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 3150
   },
   "760": {
@@ -18642,7 +18642,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.566Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 3150
   },
   "761": {
@@ -18676,7 +18676,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.567Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 3150
   },
   "762": {
@@ -18710,7 +18710,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.567Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 3150
   },
   "763": {
@@ -18746,7 +18746,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.567Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 3250
   },
   "764": {
@@ -18775,7 +18775,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.567Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 1350
   },
   "765": {
@@ -18811,7 +18811,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.567Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 3350
   },
   "766": {
@@ -18854,7 +18854,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.567Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 3000
   },
   "768": {
@@ -18880,7 +18880,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.567Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 2450
   },
   "769": {
@@ -18916,7 +18916,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.567Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 6700
   },
   "770": {
@@ -18952,7 +18952,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.567Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 6350
   },
   "771": {
@@ -18988,7 +18988,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.567Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 6000
   },
   "772": {
@@ -19010,7 +19010,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.567Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 2250
   },
   "773": {
@@ -19039,7 +19039,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.567Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 1500
   },
   "774": {
@@ -19065,7 +19065,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.567Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 4100
   },
   "775": {
@@ -19113,7 +19113,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.567Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 6100
   },
   "777": {
@@ -19147,7 +19147,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.567Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 3750
   },
   "778": {
@@ -19183,7 +19183,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.567Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 3600
   },
   "779": {
@@ -19203,7 +19203,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.567Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 3600
   },
   "780": {
@@ -19239,7 +19239,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.567Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 3600
   },
   "781": {
@@ -19275,7 +19275,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.567Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 3600
   },
   "782": {
@@ -19301,7 +19301,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.567Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 2900
   },
   "783": {
@@ -19328,7 +19328,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.567Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 2250
   },
   "784": {
@@ -19354,7 +19354,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.567Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 1500
   },
   "785": {
@@ -19372,7 +19372,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.567Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 2300
   },
   "786": {
@@ -19396,7 +19396,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.567Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 1150
   },
   "787": {
@@ -19430,7 +19430,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.567Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 2500
   },
   "788": {
@@ -19453,7 +19453,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.567Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 2250
   },
   "789": {
@@ -19483,7 +19483,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.567Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 2650
   },
   "790": {
@@ -19528,7 +19528,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.567Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 20000
   },
   "792": {
@@ -19555,7 +19555,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.567Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 2150
   },
   "793": {
@@ -19582,7 +19582,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.567Z",
+    "updatedAt": "2026-09-09T09:40:20.283Z",
     "sellingPrice": 1900
   },
   "794": {
@@ -19609,7 +19609,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.567Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 2500
   },
   "795": {
@@ -19650,7 +19650,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.567Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 2850
   },
   "797": {
@@ -19681,7 +19681,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.567Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 1600
   },
   "798": {
@@ -19713,7 +19713,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.567Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 2750
   },
   "799": {
@@ -19746,7 +19746,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 2750
   },
   "800": {
@@ -19779,7 +19779,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 2750
   },
   "801": {
@@ -19812,7 +19812,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 2750
   },
   "802": {
@@ -19845,7 +19845,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 2750
   },
   "803": {
@@ -19873,7 +19873,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 1850
   },
   "804": {
@@ -19898,7 +19898,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 1900
   },
   "805": {
@@ -19918,7 +19918,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 2700
   },
   "806": {
@@ -19949,7 +19949,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 2800
   },
   "807": {
@@ -19979,7 +19979,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 6900
   },
   "808": {
@@ -20006,7 +20006,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 2900
   },
   "809": {
@@ -20050,7 +20050,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 1400
   },
   "811": {
@@ -20092,7 +20092,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 1900
   },
   "813": {
@@ -20116,7 +20116,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 2100
   },
   "814": {
@@ -20142,7 +20142,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 5350
   },
   "815": {
@@ -20168,7 +20168,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 2450
   },
   "816": {
@@ -20194,7 +20194,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 2950
   },
   "817": {
@@ -20220,7 +20220,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 2950
   },
   "818": {
@@ -20256,7 +20256,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 2850
   },
   "819": {
@@ -20292,7 +20292,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 2850
   },
   "820": {
@@ -20328,7 +20328,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 3150
   },
   "821": {
@@ -20355,7 +20355,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 3000
   },
   "822": {
@@ -20383,7 +20383,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 3000
   },
   "823": {
@@ -20410,7 +20410,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 3000
   },
   "824": {
@@ -20438,7 +20438,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 3000
   },
   "825": {
@@ -20497,7 +20497,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 2500
   },
   "828": {
@@ -20528,7 +20528,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 4150
   },
   "829": {
@@ -20556,7 +20556,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 3250
   },
   "830": {
@@ -20581,7 +20581,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 3800
   },
   "831": {
@@ -20608,7 +20608,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 2300
   },
   "832": {
@@ -20640,7 +20640,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 2650
   },
   "833": {
@@ -20672,7 +20672,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 2650
   },
   "834": {
@@ -20695,7 +20695,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 2300
   },
   "835": {
@@ -20723,7 +20723,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 5200
   },
   "836": {
@@ -20752,7 +20752,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 2850
   },
   "837": {
@@ -20777,7 +20777,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 3400
   },
   "838": {
@@ -20803,7 +20803,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 1700
   },
   "839": {
@@ -20830,7 +20830,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.284Z",
     "sellingPrice": 1250
   },
   "840": {
@@ -20859,7 +20859,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 2350
   },
   "841": {
@@ -20892,7 +20892,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 4700
   },
   "842": {
@@ -20939,7 +20939,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 4000
   },
   "844": {
@@ -20961,7 +20961,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 4800
   },
   "845": {
@@ -20987,7 +20987,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 2300
   },
   "846": {
@@ -21014,7 +21014,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 2200
   },
   "847": {
@@ -21041,7 +21041,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 1900
   },
   "848": {
@@ -21068,7 +21068,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 2000
   },
   "849": {
@@ -21094,7 +21094,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 2000
   },
   "850": {
@@ -21118,7 +21118,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 4600
   },
   "851": {
@@ -21143,7 +21143,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.568Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 3700
   },
   "852": {
@@ -21169,7 +21169,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 2100
   },
   "853": {
@@ -21197,7 +21197,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 2950
   },
   "854": {
@@ -21229,7 +21229,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 4500
   },
   "855": {
@@ -21255,7 +21255,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 3400
   },
   "856": {
@@ -21280,7 +21280,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 3300
   },
   "857": {
@@ -21310,7 +21310,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 3400
   },
   "858": {
@@ -21355,7 +21355,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 2300
   },
   "860": {
@@ -21394,7 +21394,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 3350
   },
   "862": {
@@ -21418,7 +21418,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 20000
   },
   "863": {
@@ -21444,7 +21444,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 29500
   },
   "864": {
@@ -21468,7 +21468,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 2000
   },
   "865": {
@@ -21498,7 +21498,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 2400
   },
   "866": {
@@ -21537,7 +21537,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 4800
   },
   "868": {
@@ -21564,7 +21564,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 5100
   },
   "869": {
@@ -21590,7 +21590,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 3900
   },
   "870": {
@@ -21616,7 +21616,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 2400
   },
   "871": {
@@ -21637,7 +21637,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 5750
   },
   "872": {
@@ -21665,7 +21665,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 4100
   },
   "873": {
@@ -21691,7 +21691,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 3650
   },
   "874": {
@@ -21715,7 +21715,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 2800
   },
   "875": {
@@ -21746,7 +21746,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 16000
   },
   "876": {
@@ -21772,7 +21772,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 5900
   },
   "877": {
@@ -21797,7 +21797,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 4300
   },
   "878": {
@@ -21820,7 +21820,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 4200
   },
   "879": {
@@ -21847,7 +21847,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 3200
   },
   "880": {
@@ -21872,7 +21872,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 2800
   },
   "881": {
@@ -21899,7 +21899,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 1900
   },
   "882": {
@@ -21921,7 +21921,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 12000
   },
   "883": {
@@ -21948,7 +21948,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 3700
   },
   "884": {
@@ -21971,7 +21971,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 3700
   },
   "885": {
@@ -21996,7 +21996,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 3800
   },
   "886": {
@@ -22021,7 +22021,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 1800
   },
   "887": {
@@ -22044,7 +22044,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 2450
   },
   "888": {
@@ -22073,7 +22073,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 1800
   },
   "889": {
@@ -22102,7 +22102,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 2950
   },
   "890": {
@@ -22129,7 +22129,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 4500
   },
   "891": {
@@ -22155,7 +22155,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 3500
   },
   "892": {
@@ -22179,7 +22179,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 2350
   },
   "893": {
@@ -22204,7 +22204,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 4700
   },
   "894": {
@@ -22232,7 +22232,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 4400
   },
   "895": {
@@ -22270,7 +22270,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 3600
   },
   "897": {
@@ -22296,7 +22296,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 2300
   },
   "898": {
@@ -22320,7 +22320,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.285Z",
     "sellingPrice": 1800
   },
   "899": {
@@ -22345,7 +22345,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 2700
   },
   "900": {
@@ -22373,7 +22373,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 7100
   },
   "901": {
@@ -22401,7 +22401,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 2700
   },
   "902": {
@@ -22432,7 +22432,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 2350
   },
   "903": {
@@ -22454,7 +22454,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 2900
   },
   "904": {
@@ -22476,7 +22476,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 3700
   },
   "905": {
@@ -22501,7 +22501,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.569Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 4500
   },
   "906": {
@@ -22527,7 +22527,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.570Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 4600
   },
   "907": {
@@ -22573,7 +22573,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.570Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 6500
   },
   "909": {
@@ -22606,7 +22606,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.570Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 3700
   },
   "910": {
@@ -22634,7 +22634,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.570Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 3700
   },
   "911": {
@@ -22656,7 +22656,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.570Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 3200
   },
   "912": {
@@ -22683,7 +22683,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.570Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 2500
   },
   "913": {
@@ -22706,7 +22706,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.570Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 1350
   },
   "914": {
@@ -22735,7 +22735,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.570Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 3100
   },
   "915": {
@@ -22769,7 +22769,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.570Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 3800
   },
   "916": {
@@ -22802,7 +22802,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.570Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 1800
   },
   "917": {
@@ -22826,7 +22826,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.570Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 2000
   },
   "918": {
@@ -22852,7 +22852,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.570Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 3400
   },
   "919": {
@@ -22880,7 +22880,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.570Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 3600
   },
   "920": {
@@ -22911,7 +22911,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.570Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 6700
   },
   "921": {
@@ -22939,7 +22939,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.570Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 2700
   },
   "922": {
@@ -22967,7 +22967,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.570Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 1500
   },
   "923": {
@@ -22993,7 +22993,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.570Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 1800
   },
   "924": {
@@ -23026,7 +23026,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.570Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 5650
   },
   "925": {
@@ -23051,7 +23051,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.570Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 2200
   },
   "926": {
@@ -23081,7 +23081,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.570Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 3600
   },
   "927": {
@@ -23108,7 +23108,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.570Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 6500
   },
   "928": {
@@ -23129,7 +23129,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.570Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 1700
   },
   "929": {
@@ -23152,7 +23152,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.570Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 2250
   },
   "930": {
@@ -23178,7 +23178,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.570Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 2350
   },
   "931": {
@@ -23211,7 +23211,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.570Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 2200
   },
   "932": {
@@ -23241,7 +23241,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.570Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 1700
   },
   "933": {
@@ -23272,7 +23272,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.570Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 1600
   },
   "934": {
@@ -23303,7 +23303,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.570Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 3550
   },
   "935": {
@@ -23333,7 +23333,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.570Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 4100
   },
   "936": {
@@ -23355,7 +23355,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.570Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 1550
   },
   "937": {
@@ -23385,7 +23385,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.570Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 6600
   },
   "938": {
@@ -23415,7 +23415,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.571Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 4000
   },
   "939": {
@@ -23445,7 +23445,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.571Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 1600
   },
   "940": {
@@ -23472,7 +23472,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.571Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 2300
   },
   "941": {
@@ -23501,7 +23501,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.571Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 5900
   },
   "942": {
@@ -23537,7 +23537,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.571Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 2400
   },
   "943": {
@@ -23563,7 +23563,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.571Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 3400
   },
   "944": {
@@ -23590,7 +23590,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.571Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 2100
   },
   "945": {
@@ -23626,7 +23626,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.571Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 2100
   },
   "946": {
@@ -23661,7 +23661,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.571Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 4100
   },
   "947": {
@@ -23691,7 +23691,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.571Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 3600
   },
   "948": {
@@ -23717,7 +23717,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.571Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 1700
   },
   "949": {
@@ -23737,7 +23737,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.571Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 1650
   },
   "950": {
@@ -23767,7 +23767,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.571Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 2450
   },
   "951": {
@@ -23795,7 +23795,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.571Z",
+    "updatedAt": "2026-09-09T09:40:20.286Z",
     "sellingPrice": 1750
   },
   "952": {
@@ -23835,7 +23835,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.571Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 1600
   },
   "954": {
@@ -23865,7 +23865,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.571Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 1350
   },
   "955": {
@@ -23892,7 +23892,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.571Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 1950
   },
   "956": {
@@ -23937,7 +23937,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.571Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 3000
   },
   "958": {
@@ -23963,7 +23963,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.571Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 2600
   },
   "959": {
@@ -23987,7 +23987,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.571Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 3200
   },
   "960": {
@@ -24011,7 +24011,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.571Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 1900
   },
   "961": {
@@ -24028,7 +24028,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.571Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 2400
   },
   "962": {
@@ -24054,7 +24054,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.571Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 3450
   },
   "963": {
@@ -24086,7 +24086,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.571Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 2300
   },
   "964": {
@@ -24120,7 +24120,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.571Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 41500
   },
   "965": {
@@ -24152,7 +24152,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.571Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 4100
   },
   "966": {
@@ -24205,7 +24205,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.571Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 4900
   },
   "968": {
@@ -24234,7 +24234,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.571Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 2350
   },
   "969": {
@@ -24268,7 +24268,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.571Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 6500
   },
   "970": {
@@ -24298,7 +24298,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.571Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 1900
   },
   "971": {
@@ -24321,7 +24321,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.572Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 2150
   },
   "972": {
@@ -24349,7 +24349,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.572Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 3750
   },
   "973": {
@@ -24389,7 +24389,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.572Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 2550
   },
   "975": {
@@ -24425,7 +24425,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.572Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 2450
   },
   "976": {
@@ -24454,7 +24454,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.572Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 1900
   },
   "977": {
@@ -24478,7 +24478,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.572Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 1850
   },
   "978": {
@@ -24520,7 +24520,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.572Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 1700
   },
   "980": {
@@ -24545,13 +24545,13 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.572Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 2650
   },
   "981": {
     "name": "Ventilateur pour Ordinateur Portable Mikuso Modèle NCP-216 – مروحة حاسوب",
     "description": "Espace partenaire Sawa9ly — catalogue, commandes et portefeuille",
-    "price": 4350,
+    "price": 3750,
     "image": "/_next/image?url=https%3A%2F%2Fpub-28310993d61b4793990ba3066dc743c6.r2.dev%2Fproducts%2F4130-marketing-0-1774898654823.jpg&w=3840&q=75",
     "images": [
       "/_next/image?url=https%3A%2F%2Fpub-28310993d61b4793990ba3066dc743c6.r2.dev%2Fproducts%2F4130-marketing-0-1774898654823.jpg&w=3840&q=75",
@@ -24567,12 +24567,12 @@ const storeData = {
     ],
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4130",
     "sawa9lyId": "4130",
-    "basePrice": 3850,
+    "basePrice": 3250,
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.572Z",
-    "sellingPrice": 4350
+    "updatedAt": "2026-09-09T09:40:20.287Z",
+    "sellingPrice": 3750
   },
   "982": {
     "name": "Ventilateur pour Ordinateur Portable IGRIS Modèle NCP-233 – مروحة حاسوب",
@@ -24597,7 +24597,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.572Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 3400
   },
   "983": {
@@ -24623,7 +24623,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.572Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 2450
   },
   "984": {
@@ -24648,7 +24648,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.572Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 1350
   },
   "985": {
@@ -24684,7 +24684,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.572Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 1600
   },
   "986": {
@@ -24711,7 +24711,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.572Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 2950
   },
   "987": {
@@ -24741,7 +24741,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.572Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 4900
   },
   "988": {
@@ -24774,7 +24774,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.572Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 2700
   },
   "989": {
@@ -24819,7 +24819,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.572Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 6200
   },
   "991": {
@@ -24841,7 +24841,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.572Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 1750
   },
   "992": {
@@ -24866,7 +24866,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.572Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 1800
   },
   "993": {
@@ -24895,7 +24895,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.572Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 2150
   },
   "994": {
@@ -24924,7 +24924,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.572Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 2800
   },
   "995": {
@@ -24955,7 +24955,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.572Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 3000
   },
   "996": {
@@ -24984,7 +24984,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.572Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 2550
   },
   "997": {
@@ -25011,7 +25011,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.572Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 4900
   },
   "998": {
@@ -25046,7 +25046,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.572Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 3950
   },
   "999": {
@@ -25074,7 +25074,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.572Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 3850
   },
   "1000": {
@@ -25103,7 +25103,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.572Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 4150
   },
   "1001": {
@@ -25129,7 +25129,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.572Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 2800
   },
   "1002": {
@@ -25160,7 +25160,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.572Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 2900
   },
   "1003": {
@@ -25183,7 +25183,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.572Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 2500
   },
   "1004": {
@@ -25210,7 +25210,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.572Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 1850
   },
   "1005": {
@@ -25232,7 +25232,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.573Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 2450
   },
   "1006": {
@@ -25263,7 +25263,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.573Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 1600
   },
   "1007": {
@@ -25296,7 +25296,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.573Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 2350
   },
   "1008": {
@@ -25323,7 +25323,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.573Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 2600
   },
   "1009": {
@@ -25350,7 +25350,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.573Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 2350
   },
   "1010": {
@@ -25374,7 +25374,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.573Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 2900
   },
   "1011": {
@@ -25402,7 +25402,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.573Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 1600
   },
   "1012": {
@@ -25429,7 +25429,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.573Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 3150
   },
   "1013": {
@@ -25455,7 +25455,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.573Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 1450
   },
   "1014": {
@@ -25483,7 +25483,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.573Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 3100
   },
   "1015": {
@@ -25508,7 +25508,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.573Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 2350
   },
   "1016": {
@@ -25533,7 +25533,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.573Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 2450
   },
   "1017": {
@@ -25559,7 +25559,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.573Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 2800
   },
   "1018": {
@@ -25583,7 +25583,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.573Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 2400
   },
   "1019": {
@@ -25610,7 +25610,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.573Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 3800
   },
   "1020": {
@@ -25640,7 +25640,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.573Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 4450
   },
   "1021": {
@@ -25674,7 +25674,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.573Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 2900
   },
   "1022": {
@@ -25700,7 +25700,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.573Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 3050
   },
   "1023": {
@@ -25728,7 +25728,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.573Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 2700
   },
   "1024": {
@@ -25752,7 +25752,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.573Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 3350
   },
   "1025": {
@@ -25780,7 +25780,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.573Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 2950
   },
   "1026": {
@@ -25803,7 +25803,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.573Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 1850
   },
   "1027": {
@@ -25828,7 +25828,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.573Z",
+    "updatedAt": "2026-09-09T09:40:20.287Z",
     "sellingPrice": 4400
   },
   "1028": {
@@ -25864,7 +25864,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.573Z",
+    "updatedAt": "2026-09-09T09:40:20.288Z",
     "sellingPrice": 3100
   },
   "1029": {
@@ -25890,7 +25890,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.573Z",
+    "updatedAt": "2026-09-09T09:40:20.288Z",
     "sellingPrice": 60500
   },
   "1030": {
@@ -25919,7 +25919,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.573Z",
+    "updatedAt": "2026-09-09T09:40:20.288Z",
     "sellingPrice": 4800
   },
   "1031": {
@@ -25950,7 +25950,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.573Z",
+    "updatedAt": "2026-09-09T09:40:20.288Z",
     "sellingPrice": 14000
   },
   "1032": {
@@ -25976,7 +25976,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.573Z",
+    "updatedAt": "2026-09-09T09:40:20.288Z",
     "sellingPrice": 2900
   },
   "1033": {
@@ -26000,7 +26000,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.573Z",
+    "updatedAt": "2026-09-09T09:40:20.288Z",
     "sellingPrice": 1600
   },
   "1034": {
@@ -26025,7 +26025,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.573Z",
+    "updatedAt": "2026-09-09T09:40:20.288Z",
     "sellingPrice": 2500
   },
   "1035": {
@@ -26048,7 +26048,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.573Z",
+    "updatedAt": "2026-09-09T09:40:20.288Z",
     "sellingPrice": 29500
   },
   "1036": {
@@ -26073,7 +26073,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.574Z",
+    "updatedAt": "2026-09-09T09:40:20.288Z",
     "sellingPrice": 2300
   },
   "1037": {
@@ -26098,7 +26098,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.574Z",
+    "updatedAt": "2026-09-09T09:40:20.288Z",
     "sellingPrice": 1900
   },
   "1038": {
@@ -26126,7 +26126,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.574Z",
+    "updatedAt": "2026-09-09T09:40:20.288Z",
     "sellingPrice": 2300
   },
   "1039": {
@@ -26149,7 +26149,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.574Z",
+    "updatedAt": "2026-09-09T09:40:20.288Z",
     "sellingPrice": 2600
   },
   "1040": {
@@ -26178,7 +26178,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.574Z",
+    "updatedAt": "2026-09-09T09:40:20.288Z",
     "sellingPrice": 2600
   },
   "1041": {
@@ -26201,7 +26201,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.574Z",
+    "updatedAt": "2026-09-09T09:40:20.288Z",
     "sellingPrice": 2600
   },
   "1042": {
@@ -26226,7 +26226,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.574Z",
+    "updatedAt": "2026-09-09T09:40:20.288Z",
     "sellingPrice": 4300
   },
   "1043": {
@@ -26254,7 +26254,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.574Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 4150
   },
   "1044": {
@@ -26285,7 +26285,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.574Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 4700
   },
   "1045": {
@@ -26315,7 +26315,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.574Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 2450
   },
   "1046": {
@@ -26342,7 +26342,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.574Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 1400
   },
   "1047": {
@@ -26366,7 +26366,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 4300
   },
   "1048": {
@@ -26397,7 +26397,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 6400
   },
   "1049": {
@@ -26417,7 +26417,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 1500
   },
   "1050": {
@@ -26435,7 +26435,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 2200
   },
   "1051": {
@@ -26478,7 +26478,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 2800
   },
   "1053": {
@@ -26510,7 +26510,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 2600
   },
   "1054": {
@@ -26533,7 +26533,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 2000
   },
   "1055": {
@@ -26555,7 +26555,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 2150
   },
   "1056": {
@@ -26584,7 +26584,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 4300
   },
   "1057": {
@@ -26607,7 +26607,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 2800
   },
   "1058": {
@@ -26630,7 +26630,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 2500
   },
   "1059": {
@@ -26659,7 +26659,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 2600
   },
   "1060": {
@@ -26686,7 +26686,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 4400
   },
   "1061": {
@@ -26717,7 +26717,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 3400
   },
   "1062": {
@@ -26740,7 +26740,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 2450
   },
   "1063": {
@@ -26770,7 +26770,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 3500
   },
   "1064": {
@@ -26803,7 +26803,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 3450
   },
   "1065": {
@@ -26828,7 +26828,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 1450
   },
   "1066": {
@@ -26850,7 +26850,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 3200
   },
   "1067": {
@@ -26873,7 +26873,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 2550
   },
   "1068": {
@@ -26905,7 +26905,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 7700
   },
   "1069": {
@@ -26928,7 +26928,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 3050
   },
   "1070": {
@@ -26959,7 +26959,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 4500
   },
   "1071": {
@@ -26981,7 +26981,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 3300
   },
   "1072": {
@@ -27006,7 +27006,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 2900
   },
   "1073": {
@@ -27028,7 +27028,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 3500
   },
   "1074": {
@@ -27054,7 +27054,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 3250
   },
   "1075": {
@@ -27080,7 +27080,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 2450
   },
   "1076": {
@@ -27126,7 +27126,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 2200
   },
   "1078": {
@@ -27154,7 +27154,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 2200
   },
   "1079": {
@@ -27178,7 +27178,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 1900
   },
   "1080": {
@@ -27206,7 +27206,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 2700
   },
   "1081": {
@@ -27231,7 +27231,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "description": "Espace partenaire Sawa9ly — catalogue, commandes et portefeuille",
     "sellingPrice": 1500
   },
@@ -27255,7 +27255,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "description": "Espace partenaire Sawa9ly — catalogue, commandes et portefeuille",
     "sellingPrice": 2000
   },
@@ -27282,7 +27282,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "description": "Espace partenaire Sawa9ly — catalogue, commandes et portefeuille",
     "sellingPrice": 1400
   },
@@ -27307,7 +27307,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "description": "Espace partenaire Sawa9ly — catalogue, commandes et portefeuille",
     "sellingPrice": 3400
   },
@@ -27336,7 +27336,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.577Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "description": "Espace partenaire Sawa9ly — catalogue, commandes et portefeuille",
     "sellingPrice": 1700
   },
@@ -27360,7 +27360,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.578Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 1200
   },
   "1087": {
@@ -27387,7 +27387,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.578Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 2200
   },
   "1088": {
@@ -27415,7 +27415,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.578Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 2850
   },
   "1089": {
@@ -27444,7 +27444,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.578Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 2400
   },
   "1090": {
@@ -27474,7 +27474,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.578Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 2150
   },
   "1091": {
@@ -27500,7 +27500,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.578Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 2400
   },
   "1092": {
@@ -27524,7 +27524,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.578Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 3500
   },
   "1093": {
@@ -27550,7 +27550,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.578Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 3200
   },
   "1094": {
@@ -27579,7 +27579,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.578Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 1900
   },
   "1095": {
@@ -27605,7 +27605,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.578Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 1850
   },
   "1096": {
@@ -27630,7 +27630,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.578Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 4700
   },
   "1097": {
@@ -27652,7 +27652,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.578Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 1400
   },
   "1098": {
@@ -27683,7 +27683,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.578Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 5300
   },
   "1099": {
@@ -27704,7 +27704,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.578Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 2600
   },
   "1100": {
@@ -27735,7 +27735,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.578Z",
+    "updatedAt": "2026-09-09T09:40:20.290Z",
     "sellingPrice": 2900
   },
   "1101": {
@@ -27760,7 +27760,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.578Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2800
   },
   "1102": {
@@ -27785,7 +27785,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.578Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2300
   },
   "1103": {
@@ -27815,7 +27815,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.578Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2500
   },
   "1104": {
@@ -27842,7 +27842,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.578Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 3550
   },
   "1105": {
@@ -27865,7 +27865,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.578Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2350
   },
   "1106": {
@@ -27894,7 +27894,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.578Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 5100
   },
   "1107": {
@@ -27920,7 +27920,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.578Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 3250
   },
   "1108": {
@@ -27951,7 +27951,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.578Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2800
   },
   "1109": {
@@ -27978,7 +27978,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.578Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 3650
   },
   "1110": {
@@ -28005,7 +28005,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.578Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 4900
   },
   "1111": {
@@ -28031,7 +28031,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.578Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2050
   },
   "1112": {
@@ -28057,7 +28057,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.578Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 4450
   },
   "1113": {
@@ -28080,7 +28080,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.578Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2000
   },
   "1114": {
@@ -28106,7 +28106,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.578Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 1600
   },
   "1115": {
@@ -28130,7 +28130,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.578Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 3800
   },
   "1116": {
@@ -28156,7 +28156,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.578Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 3500
   },
   "1117": {
@@ -28188,7 +28188,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 3900
   },
   "1118": {
@@ -28205,7 +28205,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 6000
   },
   "1119": {
@@ -28233,7 +28233,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 5600
   },
   "1120": {
@@ -28264,7 +28264,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2600
   },
   "1121": {
@@ -28289,7 +28289,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 3500
   },
   "1122": {
@@ -28325,7 +28325,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2400
   },
   "1123": {
@@ -28356,7 +28356,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2600
   },
   "1124": {
@@ -28384,7 +28384,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2800
   },
   "1125": {
@@ -28405,7 +28405,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 4200
   },
   "1126": {
@@ -28425,7 +28425,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2600
   },
   "1127": {
@@ -28461,7 +28461,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 3150
   },
   "1128": {
@@ -28481,7 +28481,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 10000
   },
   "1129": {
@@ -28507,7 +28507,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 3500
   },
   "1130": {
@@ -28531,7 +28531,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 4200
   },
   "1131": {
@@ -28553,7 +28553,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 4800
   },
   "1132": {
@@ -28578,7 +28578,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 3800
   },
   "1133": {
@@ -28602,7 +28602,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2900
   },
   "1134": {
@@ -28627,7 +28627,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2700
   },
   "1135": {
@@ -28655,7 +28655,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 1900
   },
   "1136": {
@@ -28683,7 +28683,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 1400
   },
   "1137": {
@@ -28708,7 +28708,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 1900
   },
   "1138": {
@@ -28737,7 +28737,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2000
   },
   "1139": {
@@ -28763,7 +28763,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 1500
   },
   "1140": {
@@ -28786,7 +28786,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2500
   },
   "1141": {
@@ -28812,7 +28812,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2100
   },
   "1142": {
@@ -28839,7 +28839,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2350
   },
   "1143": {
@@ -28861,7 +28861,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 1100
   },
   "1144": {
@@ -28887,7 +28887,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 1500
   },
   "1145": {
@@ -28917,7 +28917,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 3900
   },
   "1146": {
@@ -28942,7 +28942,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2200
   },
   "1147": {
@@ -28968,7 +28968,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2500
   },
   "1148": {
@@ -28996,7 +28996,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 4100
   },
   "1149": {
@@ -29025,7 +29025,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2900
   },
   "1150": {
@@ -29054,7 +29054,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2300
   },
   "1151": {
@@ -29077,7 +29077,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 4300
   },
   "1152": {
@@ -29104,7 +29104,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 1850
   },
   "1153": {
@@ -29129,7 +29129,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 4400
   },
   "1154": {
@@ -29160,7 +29160,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 4250
   },
   "1155": {
@@ -29185,7 +29185,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2100
   },
   "1156": {
@@ -29212,7 +29212,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2400
   },
   "1157": {
@@ -29236,7 +29236,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 1850
   },
   "1158": {
@@ -29265,7 +29265,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 1600
   },
   "1159": {
@@ -29296,7 +29296,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.579Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2500
   },
   "1160": {
@@ -29323,7 +29323,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 3100
   },
   "1161": {
@@ -29354,7 +29354,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2000
   },
   "1162": {
@@ -29375,7 +29375,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 1600
   },
   "1163": {
@@ -29411,7 +29411,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 4700
   },
   "1164": {
@@ -29439,7 +29439,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 3300
   },
   "1165": {
@@ -29504,7 +29504,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 3100
   },
   "1168": {
@@ -29532,7 +29532,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 6300
   },
   "1169": {
@@ -29560,7 +29560,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 4400
   },
   "1170": {
@@ -29588,7 +29588,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 1300
   },
   "1171": {
@@ -29616,7 +29616,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 1700
   },
   "1172": {
@@ -29643,7 +29643,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2900
   },
   "1173": {
@@ -29667,7 +29667,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 4600
   },
   "1174": {
@@ -29694,7 +29694,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 1600
   },
   "1175": {
@@ -29722,7 +29722,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 3200
   },
   "1176": {
@@ -29757,7 +29757,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 13500
   },
   "1177": {
@@ -29793,7 +29793,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 5000
   },
   "1178": {
@@ -29816,7 +29816,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2650
   },
   "1179": {
@@ -29839,7 +29839,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2600
   },
   "1180": {
@@ -29865,7 +29865,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 7400
   },
   "1181": {
@@ -29891,7 +29891,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 6500
   },
   "1182": {
@@ -29919,7 +29919,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 4300
   },
   "1183": {
@@ -29945,7 +29945,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 6500
   },
   "1184": {
@@ -29967,7 +29967,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 7400
   },
   "1185": {
@@ -29995,7 +29995,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 1700
   },
   "1186": {
@@ -30029,7 +30029,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2800
   },
   "1187": {
@@ -30056,7 +30056,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 4200
   },
   "1188": {
@@ -30100,7 +30100,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 4300
   },
   "1190": {
@@ -30131,7 +30131,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2500
   },
   "1191": {
@@ -30153,7 +30153,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 4100
   },
   "1192": {
@@ -30179,7 +30179,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 3000
   },
   "1193": {
@@ -30206,7 +30206,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 3050
   },
   "1194": {
@@ -30229,7 +30229,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 3150
   },
   "1195": {
@@ -30257,7 +30257,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2700
   },
   "1196": {
@@ -30280,7 +30280,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 1600
   },
   "1197": {
@@ -30305,7 +30305,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2000
   },
   "1198": {
@@ -30330,7 +30330,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2300
   },
   "1199": {
@@ -30359,7 +30359,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 2800
   },
   "1200": {
@@ -30391,7 +30391,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.291Z",
     "sellingPrice": 5200
   },
   "1201": {
@@ -30418,7 +30418,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 1550
   },
   "1202": {
@@ -30447,7 +30447,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 6100
   },
   "1203": {
@@ -30473,7 +30473,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 1200
   },
   "1204": {
@@ -30501,7 +30501,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2950
   },
   "1205": {
@@ -30530,7 +30530,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 1900
   },
   "1206": {
@@ -30564,7 +30564,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.580Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 3100
   },
   "1207": {
@@ -30591,7 +30591,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 3900
   },
   "1208": {
@@ -30616,7 +30616,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2700
   },
   "1209": {
@@ -30639,7 +30639,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 1200
   },
   "1210": {
@@ -30666,7 +30666,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2800
   },
   "1211": {
@@ -30695,7 +30695,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2000
   },
   "1212": {
@@ -30719,7 +30719,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 3000
   },
   "1213": {
@@ -30750,7 +30750,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2400
   },
   "1214": {
@@ -30784,7 +30784,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2450
   },
   "1215": {
@@ -30809,7 +30809,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 4750
   },
   "1216": {
@@ -30842,7 +30842,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 4100
   },
   "1217": {
@@ -30873,7 +30873,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2700
   },
   "1218": {
@@ -30899,7 +30899,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2700
   },
   "1219": {
@@ -30946,7 +30946,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2800
   },
   "1221": {
@@ -30976,7 +30976,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 1700
   },
   "1222": {
@@ -31006,7 +31006,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 3700
   },
   "1223": {
@@ -31035,7 +31035,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 7300
   },
   "1224": {
@@ -31069,7 +31069,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 3900
   },
   "1225": {
@@ -31097,7 +31097,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2950
   },
   "1226": {
@@ -31125,7 +31125,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2400
   },
   "1227": {
@@ -31155,7 +31155,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 16000
   },
   "1228": {
@@ -31192,7 +31192,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2700
   },
   "1230": {
@@ -31227,7 +31227,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 3300
   },
   "1231": {
@@ -31253,7 +31253,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 3250
   },
   "1232": {
@@ -31279,7 +31279,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2200
   },
   "1233": {
@@ -31308,7 +31308,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 6800
   },
   "1234": {
@@ -31336,7 +31336,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2000
   },
   "1235": {
@@ -31371,7 +31371,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 3400
   },
   "1236": {
@@ -31399,7 +31399,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 950
   },
   "1237": {
@@ -31428,7 +31428,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2700
   },
   "1238": {
@@ -31454,7 +31454,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2600
   },
   "1239": {
@@ -31479,7 +31479,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2300
   },
   "1240": {
@@ -31502,7 +31502,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 4150
   },
   "1241": {
@@ -31530,7 +31530,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2950
   },
   "1242": {
@@ -31563,7 +31563,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2200
   },
   "1243": {
@@ -31590,7 +31590,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 3150
   },
   "1244": {
@@ -31614,7 +31614,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 1800
   },
   "1245": {
@@ -31642,7 +31642,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 4000
   },
   "1246": {
@@ -31672,7 +31672,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2550
   },
   "1247": {
@@ -31701,7 +31701,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 16500
   },
   "1248": {
@@ -31728,7 +31728,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 10000
   },
   "1249": {
@@ -31758,7 +31758,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.581Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 4300
   },
   "1250": {
@@ -31780,7 +31780,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2300
   },
   "1251": {
@@ -31809,7 +31809,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 3700
   },
   "1252": {
@@ -31841,7 +31841,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 3700
   },
   "1253": {
@@ -31868,7 +31868,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2100
   },
   "1254": {
@@ -31901,7 +31901,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 1600
   },
   "1255": {
@@ -31932,7 +31932,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2100
   },
   "1256": {
@@ -31957,7 +31957,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 5300
   },
   "1257": {
@@ -31985,7 +31985,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 1700
   },
   "1258": {
@@ -32013,7 +32013,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 1150
   },
   "1259": {
@@ -32059,7 +32059,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2900
   },
   "1261": {
@@ -32087,7 +32087,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 4100
   },
   "1262": {
@@ -32139,7 +32139,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 4300
   },
   "1264": {
@@ -32169,7 +32169,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 1800
   },
   "1265": {
@@ -32195,7 +32195,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2450
   },
   "1266": {
@@ -32221,7 +32221,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2000
   },
   "1267": {
@@ -32245,7 +32245,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 1800
   },
   "1268": {
@@ -32276,7 +32276,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2200
   },
   "1269": {
@@ -32302,7 +32302,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2600
   },
   "1270": {
@@ -32329,7 +32329,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 1700
   },
   "1271": {
@@ -32362,7 +32362,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 3400
   },
   "1272": {
@@ -32386,7 +32386,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 3200
   },
   "1273": {
@@ -32409,7 +32409,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 3200
   },
   "1274": {
@@ -32433,7 +32433,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 3200
   },
   "1275": {
@@ -32462,7 +32462,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2800
   },
   "1276": {
@@ -32487,7 +32487,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2900
   },
   "1277": {
@@ -32512,7 +32512,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 1350
   },
   "1278": {
@@ -32538,7 +32538,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 1700
   },
   "1279": {
@@ -32559,7 +32559,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 1500
   },
   "1280": {
@@ -32581,7 +32581,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 26500
   },
   "1281": {
@@ -32628,7 +32628,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2700
   },
   "1283": {
@@ -32657,7 +32657,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2150
   },
   "1284": {
@@ -32685,7 +32685,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2600
   },
   "1285": {
@@ -32710,7 +32710,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 4200
   },
   "1286": {
@@ -32733,7 +32733,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2600
   },
   "1287": {
@@ -32756,7 +32756,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2450
   },
   "1288": {
@@ -32785,7 +32785,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 6700
   },
   "1289": {
@@ -32813,7 +32813,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 5700
   },
   "1290": {
@@ -32845,7 +32845,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2700
   },
   "1291": {
@@ -32865,7 +32865,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2900
   },
   "1292": {
@@ -32896,7 +32896,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.292Z",
     "sellingPrice": 2800
   },
   "1293": {
@@ -32920,7 +32920,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 3500
   },
   "1294": {
@@ -32951,7 +32951,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 2400
   },
   "1295": {
@@ -32981,7 +32981,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 3500
   },
   "1296": {
@@ -33002,7 +33002,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 5800
   },
   "1297": {
@@ -33024,7 +33024,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 5100
   },
   "1298": {
@@ -33051,7 +33051,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.582Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 2900
   },
   "1299": {
@@ -33084,7 +33084,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 2500
   },
   "1300": {
@@ -33114,7 +33114,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 2100
   },
   "1301": {
@@ -33150,7 +33150,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 3100
   },
   "1302": {
@@ -33173,7 +33173,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 3900
   },
   "1303": {
@@ -33209,7 +33209,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 2900
   },
   "1304": {
@@ -33240,7 +33240,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 3700
   },
   "1305": {
@@ -33269,7 +33269,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 5050
   },
   "1306": {
@@ -33297,7 +33297,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 4300
   },
   "1307": {
@@ -33324,7 +33324,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 1850
   },
   "1308": {
@@ -33351,7 +33351,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 3000
   },
   "1309": {
@@ -33379,7 +33379,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 1600
   },
   "1310": {
@@ -33404,7 +33404,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 2400
   },
   "1311": {
@@ -33433,7 +33433,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 1850
   },
   "1312": {
@@ -33463,7 +33463,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 3550
   },
   "1313": {
@@ -33492,7 +33492,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 3200
   },
   "1314": {
@@ -33527,7 +33527,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 3300
   },
   "1315": {
@@ -33551,7 +33551,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 1800
   },
   "1316": {
@@ -33574,7 +33574,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 2150
   },
   "1317": {
@@ -33604,7 +33604,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 2000
   },
   "1318": {
@@ -33632,7 +33632,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 2000
   },
   "1319": {
@@ -33661,7 +33661,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 2650
   },
   "1320": {
@@ -33688,7 +33688,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 1900
   },
   "1321": {
@@ -33715,13 +33715,13 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 1650
   },
   "1322": {
     "name": "Lampe Télescopique Portable pour la Pêche et le Camping",
     "description": "Espace partenaire Sawa9ly — catalogue, commandes et portefeuille",
-    "price": 6500,
+    "price": 6100,
     "image": "/_next/image?url=https%3A%2F%2Fpub-28310993d61b4793990ba3066dc743c6.r2.dev%2Fproducts%2F3259-marketing-0-1774968211574.jpg&w=3840&q=75",
     "images": [
       "/_next/image?url=https%3A%2F%2Fpub-28310993d61b4793990ba3066dc743c6.r2.dev%2Fproducts%2F3259-marketing-0-1774968211574.jpg&w=3840&q=75",
@@ -33741,12 +33741,12 @@ const storeData = {
     ],
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3259",
     "sawa9lyId": "3259",
-    "basePrice": 6000,
+    "basePrice": 5600,
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
-    "sellingPrice": 6500
+    "updatedAt": "2026-09-09T09:40:20.293Z",
+    "sellingPrice": 6100
   },
   "1323": {
     "name": "Tapis de rangement pour outils de coiffeur magnétique flexible et antidérapant",
@@ -33772,7 +33772,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 4050
   },
   "1324": {
@@ -33799,7 +33799,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 3600
   },
   "1325": {
@@ -33830,7 +33830,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 5000
   },
   "1326": {
@@ -33873,7 +33873,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 1900
   },
   "1328": {
@@ -33901,7 +33901,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 4900
   },
   "1329": {
@@ -33931,7 +33931,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 4600
   },
   "1330": {
@@ -33966,7 +33966,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 5000
   },
   "1331": {
@@ -34000,7 +34000,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 5100
   },
   "1332": {
@@ -34030,7 +34030,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 5400
   },
   "1333": {
@@ -34066,7 +34066,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 5200
   },
   "1334": {
@@ -34102,7 +34102,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 4500
   },
   "1335": {
@@ -34132,7 +34132,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.583Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 2950
   },
   "1336": {
@@ -34158,7 +34158,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 2300
   },
   "1337": {
@@ -34191,7 +34191,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 2650
   },
   "1338": {
@@ -34220,7 +34220,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 4450
   },
   "1339": {
@@ -34251,7 +34251,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 2550
   },
   "1340": {
@@ -34279,7 +34279,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 1900
   },
   "1341": {
@@ -34307,7 +34307,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 2000
   },
   "1342": {
@@ -34340,7 +34340,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 2700
   },
   "1343": {
@@ -34368,7 +34368,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 1450
   },
   "1344": {
@@ -34394,7 +34394,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 1500
   },
   "1345": {
@@ -34422,7 +34422,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 2700
   },
   "1346": {
@@ -34453,7 +34453,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 1900
   },
   "1347": {
@@ -34484,7 +34484,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.293Z",
     "sellingPrice": 2800
   },
   "1348": {
@@ -34516,7 +34516,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 3600
   },
   "1349": {
@@ -34544,7 +34544,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 3700
   },
   "1350": {
@@ -34573,7 +34573,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 1400
   },
   "1351": {
@@ -34607,7 +34607,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 2950
   },
   "1352": {
@@ -34635,7 +34635,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 2400
   },
   "1353": {
@@ -34667,7 +34667,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 2650
   },
   "1354": {
@@ -34695,7 +34695,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 2800
   },
   "1355": {
@@ -34731,7 +34731,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 3200
   },
   "1356": {
@@ -34751,7 +34751,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 1450
   },
   "1357": {
@@ -34783,7 +34783,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 2100
   },
   "1358": {
@@ -34811,7 +34811,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 10500
   },
   "1359": {
@@ -34835,7 +34835,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 3400
   },
   "1360": {
@@ -34862,7 +34862,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 1450
   },
   "1361": {
@@ -34892,7 +34892,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 2250
   },
   "1362": {
@@ -34913,7 +34913,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 2450
   },
   "1363": {
@@ -34944,7 +34944,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 2500
   },
   "1364": {
@@ -34973,7 +34973,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 1300
   },
   "1365": {
@@ -35002,7 +35002,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 2100
   },
   "1366": {
@@ -35035,7 +35035,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 3300
   },
   "1367": {
@@ -35064,7 +35064,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 1900
   },
   "1368": {
@@ -35095,7 +35095,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 4950
   },
   "1369": {
@@ -35126,7 +35126,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 2100
   },
   "1370": {
@@ -35150,7 +35150,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 2900
   },
   "1371": {
@@ -35178,7 +35178,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 1500
   },
   "1372": {
@@ -35207,7 +35207,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 1400
   },
   "1373": {
@@ -35227,7 +35227,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 2350
   },
   "1374": {
@@ -35254,7 +35254,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 2300
   },
   "1375": {
@@ -35283,7 +35283,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 1250
   },
   "1376": {
@@ -35315,7 +35315,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 1850
   },
   "1377": {
@@ -35361,7 +35361,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 4300
   },
   "1379": {
@@ -35383,7 +35383,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 2300
   },
   "1380": {
@@ -35410,7 +35410,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 3000
   },
   "1381": {
@@ -35442,7 +35442,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 1800
   },
   "1382": {
@@ -35464,7 +35464,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 2200
   },
   "1383": {
@@ -35495,7 +35495,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 1600
   },
   "1384": {
@@ -35518,7 +35518,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 1300
   },
   "1385": {
@@ -35539,7 +35539,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 2850
   },
   "1386": {
@@ -35564,7 +35564,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 3900
   },
   "1387": {
@@ -35593,7 +35593,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 1500
   },
   "1388": {
@@ -35614,7 +35614,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 1000
   },
   "1389": {
@@ -35642,7 +35642,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.584Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 2150
   },
   "1390": {
@@ -35666,7 +35666,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 3500
   },
   "1391": {
@@ -35694,7 +35694,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 3500
   },
   "1392": {
@@ -35715,7 +35715,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 1700
   },
   "1393": {
@@ -35741,7 +35741,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 2400
   },
   "1394": {
@@ -35764,7 +35764,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 2700
   },
   "1395": {
@@ -35794,7 +35794,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 3200
   },
   "1396": {
@@ -35816,7 +35816,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 6700
   },
   "1397": {
@@ -35865,7 +35865,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 5700
   },
   "1399": {
@@ -35902,7 +35902,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 1700
   },
   "1401": {
@@ -35938,7 +35938,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.294Z",
     "sellingPrice": 1800
   },
   "1402": {
@@ -35967,7 +35967,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 2700
   },
   "1403": {
@@ -35997,7 +35997,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 2150
   },
   "1404": {
@@ -36029,7 +36029,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 1700
   },
   "1405": {
@@ -36057,7 +36057,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 1950
   },
   "1406": {
@@ -36087,7 +36087,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 1450
   },
   "1407": {
@@ -36121,7 +36121,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 2350
   },
   "1408": {
@@ -36162,7 +36162,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 4300
   },
   "1410": {
@@ -36184,7 +36184,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 1350
   },
   "1411": {
@@ -36216,7 +36216,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 2000
   },
   "1412": {
@@ -36239,7 +36239,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 5000
   },
   "1413": {
@@ -36267,7 +36267,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 3950
   },
   "1414": {
@@ -36294,7 +36294,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 1750
   },
   "1415": {
@@ -36316,7 +36316,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 2450
   },
   "1416": {
@@ -36338,7 +36338,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 3750
   },
   "1417": {
@@ -36365,7 +36365,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 6300
   },
   "1418": {
@@ -36397,7 +36397,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 5500
   },
   "1419": {
@@ -36427,7 +36427,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 7100
   },
   "1420": {
@@ -36452,7 +36452,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 2850
   },
   "1421": {
@@ -36472,7 +36472,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 1550
   },
   "1422": {
@@ -36500,7 +36500,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 7100
   },
   "1423": {
@@ -36526,7 +36526,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 1900
   },
   "1424": {
@@ -36546,7 +36546,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 2350
   },
   "1425": {
@@ -36569,7 +36569,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 3600
   },
   "1426": {
@@ -36594,7 +36594,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 3150
   },
   "1427": {
@@ -36623,7 +36623,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 1900
   },
   "1428": {
@@ -36650,7 +36650,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 18500
   },
   "1429": {
@@ -36676,7 +36676,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 5500
   },
   "1430": {
@@ -36697,7 +36697,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 2200
   },
   "1431": {
@@ -36718,7 +36718,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 3800
   },
   "1432": {
@@ -36748,7 +36748,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 2400
   },
   "1433": {
@@ -36778,7 +36778,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 1600
   },
   "1434": {
@@ -36807,7 +36807,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 2800
   },
   "1435": {
@@ -36841,7 +36841,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 1700
   },
   "1436": {
@@ -36865,7 +36865,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 1700
   },
   "1437": {
@@ -36890,7 +36890,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 5000
   },
   "1438": {
@@ -36911,7 +36911,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 2000
   },
   "1439": {
@@ -36938,7 +36938,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 1700
   },
   "1440": {
@@ -36964,7 +36964,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 1700
   },
   "1441": {
@@ -36990,7 +36990,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 2150
   },
   "1442": {
@@ -37048,7 +37048,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 1900
   },
   "1445": {
@@ -37072,7 +37072,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 2800
   },
   "1446": {
@@ -37093,7 +37093,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 2800
   },
   "1447": {
@@ -37116,7 +37116,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 2800
   },
   "1448": {
@@ -37141,7 +37141,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 1850
   },
   "1449": {
@@ -37181,7 +37181,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 1900
   },
   "1451": {
@@ -37207,7 +37207,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 2200
   },
   "1452": {
@@ -37230,7 +37230,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 2500
   },
   "1453": {
@@ -37255,7 +37255,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 1550
   },
   "1454": {
@@ -37282,7 +37282,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 2400
   },
   "1455": {
@@ -37310,7 +37310,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.295Z",
     "sellingPrice": 2050
   },
   "1456": {
@@ -37345,7 +37345,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 1400
   },
   "1458": {
@@ -37374,7 +37374,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 2700
   },
   "1459": {
@@ -37407,7 +37407,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 7000
   },
   "1460": {
@@ -37434,7 +37434,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 4800
   },
   "1461": {
@@ -37459,7 +37459,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 1900
   },
   "1462": {
@@ -37489,7 +37489,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 1600
   },
   "1463": {
@@ -37511,7 +37511,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 4800
   },
   "1464": {
@@ -37532,7 +37532,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 3500
   },
   "1465": {
@@ -37560,7 +37560,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.585Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 3500
   },
   "1466": {
@@ -37579,7 +37579,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 1750
   },
   "1467": {
@@ -37608,7 +37608,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 2850
   },
   "1468": {
@@ -37637,7 +37637,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 43500
   },
   "1469": {
@@ -37662,7 +37662,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 3200
   },
   "1470": {
@@ -37687,7 +37687,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 2150
   },
   "1471": {
@@ -37712,7 +37712,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 1300
   },
   "1472": {
@@ -37736,7 +37736,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 3500
   },
   "1473": {
@@ -37758,7 +37758,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 2750
   },
   "1474": {
@@ -37779,7 +37779,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 2200
   },
   "1475": {
@@ -37800,7 +37800,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 2200
   },
   "1476": {
@@ -37824,7 +37824,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 2200
   },
   "1477": {
@@ -37845,7 +37845,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 2250
   },
   "1478": {
@@ -37870,7 +37870,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 2850
   },
   "1479": {
@@ -37891,7 +37891,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 1650
   },
   "1480": {
@@ -37913,7 +37913,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 2200
   },
   "1481": {
@@ -37932,7 +37932,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 2600
   },
   "1482": {
@@ -37957,7 +37957,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 2900
   },
   "1483": {
@@ -37993,7 +37993,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 4000
   },
   "1485": {
@@ -38019,7 +38019,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 4200
   },
   "1486": {
@@ -38050,7 +38050,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 3900
   },
   "1487": {
@@ -38074,7 +38074,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 2500
   },
   "1488": {
@@ -38098,7 +38098,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 2000
   },
   "1489": {
@@ -38120,7 +38120,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 4850
   },
   "1490": {
@@ -38141,7 +38141,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 2000
   },
   "1491": {
@@ -38165,7 +38165,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 1900
   },
   "1492": {
@@ -38184,7 +38184,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 2750
   },
   "1493": {
@@ -38209,7 +38209,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 2050
   },
   "1494": {
@@ -38233,7 +38233,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 2700
   },
   "1495": {
@@ -38257,7 +38257,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 1400
   },
   "1496": {
@@ -38277,7 +38277,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 2300
   },
   "1497": {
@@ -38299,7 +38299,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 2250
   },
   "1498": {
@@ -38325,7 +38325,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 2250
   },
   "1499": {
@@ -38350,7 +38350,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 1750
   },
   "1500": {
@@ -38373,7 +38373,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 2450
   },
   "1501": {
@@ -38394,7 +38394,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 1550
   },
   "1502": {
@@ -38416,7 +38416,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 2000
   },
   "1503": {
@@ -38441,7 +38441,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 1750
   },
   "1504": {
@@ -38471,7 +38471,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 3350
   },
   "1505": {
@@ -38494,7 +38494,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 4000
   },
   "1506": {
@@ -38514,7 +38514,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 1500
   },
   "1507": {
@@ -38541,7 +38541,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 2600
   },
   "1508": {
@@ -38563,7 +38563,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 2500
   },
   "1509": {
@@ -38586,7 +38586,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 4150
   },
   "1510": {
@@ -38630,7 +38630,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.296Z",
     "sellingPrice": 2950
   },
   "1512": {
@@ -38663,7 +38663,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 6600
   },
   "1513": {
@@ -38681,7 +38681,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 1350
   },
   "1514": {
@@ -38704,7 +38704,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 4100
   },
   "1515": {
@@ -38727,7 +38727,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 1800
   },
   "1516": {
@@ -38756,7 +38756,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 2500
   },
   "1517": {
@@ -38779,7 +38779,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 2550
   },
   "1518": {
@@ -38803,7 +38803,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 2750
   },
   "1519": {
@@ -38831,7 +38831,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 2500
   },
   "1520": {
@@ -38867,7 +38867,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 3600
   },
   "1521": {
@@ -38893,7 +38893,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 6000
   },
   "1522": {
@@ -38915,7 +38915,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 5000
   },
   "1523": {
@@ -38938,7 +38938,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 2250
   },
   "1524": {
@@ -38959,7 +38959,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 3500
   },
   "1525": {
@@ -38980,7 +38980,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 2150
   },
   "1526": {
@@ -39001,7 +39001,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 2800
   },
   "1527": {
@@ -39026,7 +39026,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 2250
   },
   "1528": {
@@ -39049,7 +39049,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 2000
   },
   "1529": {
@@ -39067,7 +39067,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 2800
   },
   "1530": {
@@ -39087,7 +39087,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 1800
   },
   "1531": {
@@ -39108,7 +39108,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 2300
   },
   "1532": {
@@ -39147,7 +39147,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 5000
   },
   "1534": {
@@ -39173,7 +39173,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 25000
   },
   "1535": {
@@ -39196,7 +39196,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 7500
   },
   "1536": {
@@ -39224,7 +39224,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 46500
   },
   "1537": {
@@ -39247,7 +39247,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 51500
   },
   "1538": {
@@ -39269,7 +39269,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 75500
   },
   "1539": {
@@ -39309,7 +39309,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 27500
   },
   "1541": {
@@ -39331,7 +39331,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 35500
   },
   "1542": {
@@ -39356,7 +39356,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 59500
   },
   "1543": {
@@ -39379,7 +39379,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.586Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 46500
   },
   "1544": {
@@ -39413,7 +39413,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 6200
   },
   "1545": {
@@ -39441,7 +39441,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 3400
   },
   "1546": {
@@ -39460,7 +39460,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 1150
   },
   "1547": {
@@ -39480,7 +39480,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 1600
   },
   "1548": {
@@ -39508,7 +39508,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 2750
   },
   "1549": {
@@ -39544,7 +39544,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 3700
   },
   "1550": {
@@ -39566,7 +39566,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 3000
   },
   "1551": {
@@ -39595,7 +39595,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 5000
   },
   "1552": {
@@ -39616,7 +39616,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 4300
   },
   "1553": {
@@ -39640,7 +39640,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 6900
   },
   "1554": {
@@ -39660,7 +39660,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 4100
   },
   "1555": {
@@ -39746,7 +39746,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 2000
   },
   "1559": {
@@ -39773,7 +39773,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 6450
   },
   "1560": {
@@ -39804,7 +39804,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 15000
   },
   "1561": {
@@ -39830,7 +39830,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 9700
   },
   "1562": {
@@ -39858,7 +39858,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 5500
   },
   "1563": {
@@ -39889,7 +39889,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 1150
   },
   "1564": {
@@ -39920,7 +39920,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 4150
   },
   "1565": {
@@ -39945,7 +39945,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 1800
   },
   "1566": {
@@ -39972,7 +39972,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 7000
   },
   "1567": {
@@ -40006,7 +40006,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 1650
   },
   "1568": {
@@ -40042,7 +40042,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 1950
   },
   "1569": {
@@ -40074,7 +40074,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 2700
   },
   "1570": {
@@ -40106,7 +40106,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.297Z",
     "sellingPrice": 2050
   },
   "1571": {
@@ -40135,7 +40135,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 2150
   },
   "1572": {
@@ -40169,7 +40169,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 5700
   },
   "1573": {
@@ -40198,7 +40198,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 1850
   },
   "1574": {
@@ -40232,7 +40232,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 5000
   },
   "1575": {
@@ -40267,7 +40267,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 1850
   },
   "1576": {
@@ -40291,7 +40291,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 5700
   },
   "1577": {
@@ -40316,7 +40316,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 2000
   },
   "1578": {
@@ -40344,7 +40344,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 2700
   },
   "1579": {
@@ -40372,7 +40372,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 1900
   },
   "1580": {
@@ -40399,7 +40399,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 3100
   },
   "1581": {
@@ -40428,7 +40428,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 2550
   },
   "1582": {
@@ -40456,7 +40456,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 3100
   },
   "1583": {
@@ -40482,7 +40482,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 3250
   },
   "1584": {
@@ -40506,7 +40506,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 3200
   },
   "1585": {
@@ -40533,7 +40533,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 3750
   },
   "1586": {
@@ -40559,7 +40559,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 3700
   },
   "1587": {
@@ -40580,7 +40580,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 4950
   },
   "1588": {
@@ -40607,7 +40607,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 3450
   },
   "1589": {
@@ -40630,7 +40630,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 5700
   },
   "1590": {
@@ -40660,7 +40660,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 5500
   },
   "1591": {
@@ -40689,7 +40689,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 4150
   },
   "1592": {
@@ -40729,7 +40729,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 2300
   },
   "1594": {
@@ -40757,7 +40757,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 3700
   },
   "1595": {
@@ -40784,7 +40784,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 2300
   },
   "1596": {
@@ -40808,7 +40808,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 2250
   },
   "1597": {
@@ -40829,7 +40829,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 3450
   },
   "1598": {
@@ -40857,7 +40857,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 2700
   },
   "1599": {
@@ -40876,7 +40876,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 3200
   },
   "1600": {
@@ -40898,7 +40898,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 2950
   },
   "1601": {
@@ -40920,7 +40920,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 3200
   },
   "1602": {
@@ -40947,7 +40947,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 3900
   },
   "1603": {
@@ -40968,7 +40968,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 5000
   },
   "1604": {
@@ -41004,7 +41004,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 10000
   },
   "1605": {
@@ -41025,7 +41025,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 4250
   },
   "1606": {
@@ -41061,7 +41061,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 5200
   },
   "1607": {
@@ -41087,7 +41087,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 1950
   },
   "1608": {
@@ -41121,7 +41121,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 8000
   },
   "1609": {
@@ -41151,7 +41151,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 27500
   },
   "1610": {
@@ -41180,7 +41180,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.587Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 3600
   },
   "1611": {
@@ -41205,7 +41205,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 2150
   },
   "1612": {
@@ -41235,7 +41235,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 3200
   },
   "1613": {
@@ -41253,7 +41253,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 2200
   },
   "1614": {
@@ -41272,7 +41272,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 4900
   },
   "1615": {
@@ -41292,7 +41292,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 5400
   },
   "1616": {
@@ -41311,7 +41311,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 4900
   },
   "1617": {
@@ -41332,7 +41332,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 1450
   },
   "1618": {
@@ -41359,7 +41359,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 2750
   },
   "1619": {
@@ -41390,7 +41390,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 3200
   },
   "1620": {
@@ -41416,7 +41416,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 2150
   },
   "1621": {
@@ -41442,7 +41442,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 2000
   },
   "1622": {
@@ -41467,7 +41467,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.298Z",
     "sellingPrice": 1950
   },
   "1623": {
@@ -41500,7 +41500,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 2700
   },
   "1624": {
@@ -41531,7 +41531,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 1700
   },
   "1625": {
@@ -41561,7 +41561,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 11400
   },
   "1626": {
@@ -41589,7 +41589,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 38000
   },
   "1627": {
@@ -41621,7 +41621,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 3600
   },
   "1628": {
@@ -41644,7 +41644,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 1450
   },
   "1629": {
@@ -41671,7 +41671,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 1700
   },
   "1630": {
@@ -41695,7 +41695,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 1250
   },
   "1631": {
@@ -41719,7 +41719,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 1600
   },
   "1632": {
@@ -41743,7 +41743,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 1500
   },
   "1633": {
@@ -41765,7 +41765,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 1200
   },
   "1634": {
@@ -41788,7 +41788,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 1400
   },
   "1635": {
@@ -41813,7 +41813,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 5100
   },
   "1636": {
@@ -41842,7 +41842,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 1400
   },
   "1637": {
@@ -41872,7 +41872,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 3150
   },
   "1638": {
@@ -41902,7 +41902,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 3200
   },
   "1639": {
@@ -41924,7 +41924,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 2350
   },
   "1640": {
@@ -41951,7 +41951,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 1500
   },
   "1641": {
@@ -41975,7 +41975,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 1950
   },
   "1642": {
@@ -42003,7 +42003,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 6400
   },
   "1643": {
@@ -42029,7 +42029,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 9500
   },
   "1644": {
@@ -42052,7 +42052,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 3950
   },
   "1645": {
@@ -42075,7 +42075,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 3900
   },
   "1646": {
@@ -42093,7 +42093,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 5300
   },
   "1647": {
@@ -42121,7 +42121,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 4000
   },
   "1648": {
@@ -42146,7 +42146,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 3050
   },
   "1649": {
@@ -42170,7 +42170,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 1900
   },
   "1650": {
@@ -42191,7 +42191,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 1850
   },
   "1651": {
@@ -42214,7 +42214,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 2000
   },
   "1652": {
@@ -42242,7 +42242,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 1400
   },
   "1653": {
@@ -42262,7 +42262,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 2000
   },
   "1654": {
@@ -42282,7 +42282,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 2500
   },
   "1655": {
@@ -42309,7 +42309,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.588Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 1500
   },
   "1656": {
@@ -42332,7 +42332,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 9400
   },
   "1657": {
@@ -42361,7 +42361,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 3400
   },
   "1658": {
@@ -42386,7 +42386,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 3500
   },
   "1659": {
@@ -42410,7 +42410,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 1350
   },
   "1660": {
@@ -42437,7 +42437,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 3550
   },
   "1661": {
@@ -42471,7 +42471,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 3000
   },
   "1662": {
@@ -42491,7 +42491,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 2900
   },
   "1663": {
@@ -42515,7 +42515,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 2550
   },
   "1664": {
@@ -42533,7 +42533,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 11000
   },
   "1665": {
@@ -42563,7 +42563,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 1750
   },
   "1666": {
@@ -42589,7 +42589,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 3300
   },
   "1667": {
@@ -42614,7 +42614,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 2150
   },
   "1668": {
@@ -42639,7 +42639,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 1350
   },
   "1669": {
@@ -42666,7 +42666,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 3500
   },
   "1670": {
@@ -42692,7 +42692,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 2100
   },
   "1671": {
@@ -42715,7 +42715,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 4000
   },
   "1672": {
@@ -42740,7 +42740,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.299Z",
     "sellingPrice": 1500
   },
   "1673": {
@@ -42763,7 +42763,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 2300
   },
   "1674": {
@@ -42784,7 +42784,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 2800
   },
   "1675": {
@@ -42811,7 +42811,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 2300
   },
   "1676": {
@@ -42831,7 +42831,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 2350
   },
   "1677": {
@@ -42848,7 +42848,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 2800
   },
   "1678": {
@@ -42876,7 +42876,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 2500
   },
   "1679": {
@@ -42898,7 +42898,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 3000
   },
   "1680": {
@@ -42918,7 +42918,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 2900
   },
   "1681": {
@@ -42950,7 +42950,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 22000
   },
   "1682": {
@@ -42976,7 +42976,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 1650
   },
   "1683": {
@@ -43003,7 +43003,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 1750
   },
   "1684": {
@@ -43023,7 +43023,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 2600
   },
   "1685": {
@@ -43052,7 +43052,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 2600
   },
   "1686": {
@@ -43085,7 +43085,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 2300
   },
   "1687": {
@@ -43112,7 +43112,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 1950
   },
   "1688": {
@@ -43154,7 +43154,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 1300
   },
   "1690": {
@@ -43176,7 +43176,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 2150
   },
   "1691": {
@@ -43199,7 +43199,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 2000
   },
   "1692": {
@@ -43227,7 +43227,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 3850
   },
   "1693": {
@@ -43256,7 +43256,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 1950
   },
   "1694": {
@@ -43281,7 +43281,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 1750
   },
   "1695": {
@@ -43313,7 +43313,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 3350
   },
   "1696": {
@@ -43335,7 +43335,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 1600
   },
   "1697": {
@@ -43360,7 +43360,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.589Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 1600
   },
   "1698": {
@@ -43388,7 +43388,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.590Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 2300
   },
   "1699": {
@@ -43415,7 +43415,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.590Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 1400
   },
   "1700": {
@@ -43438,7 +43438,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.590Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 2150
   },
   "1701": {
@@ -43464,7 +43464,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.590Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 2100
   },
   "1702": {
@@ -43497,7 +43497,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.590Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 3650
   },
   "1703": {
@@ -43530,7 +43530,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 2400
   },
   "1704": {
@@ -43552,7 +43552,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 3000
   },
   "1705": {
@@ -43579,7 +43579,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 2150
   },
   "1706": {
@@ -43603,7 +43603,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 3700
   },
   "1707": {
@@ -43628,7 +43628,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 1500
   },
   "1708": {
@@ -43664,7 +43664,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 2850
   },
   "1709": {
@@ -43684,7 +43684,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 1300
   },
   "1710": {
@@ -43703,7 +43703,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 1550
   },
   "1711": {
@@ -43724,7 +43724,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 2800
   },
   "1712": {
@@ -43751,7 +43751,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 2600
   },
   "1713": {
@@ -43770,7 +43770,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 2450
   },
   "1714": {
@@ -43806,7 +43806,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 12500
   },
   "1715": {
@@ -43827,7 +43827,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 2950
   },
   "1716": {
@@ -43856,7 +43856,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 2900
   },
   "1717": {
@@ -43885,7 +43885,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 2650
   },
   "1718": {
@@ -43911,7 +43911,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 2900
   },
   "1719": {
@@ -43937,7 +43937,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 2150
   },
   "1720": {
@@ -43960,7 +43960,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.300Z",
     "sellingPrice": 2700
   },
   "1721": {
@@ -43980,7 +43980,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 2150
   },
   "1722": {
@@ -44006,7 +44006,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 2450
   },
   "1723": {
@@ -44032,7 +44032,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 3900
   },
   "1724": {
@@ -44062,7 +44062,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 3600
   },
   "1725": {
@@ -44084,7 +44084,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 3000
   },
   "1726": {
@@ -44108,7 +44108,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 2700
   },
   "1727": {
@@ -44138,7 +44138,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 2350
   },
   "1728": {
@@ -44168,7 +44168,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 2650
   },
   "1729": {
@@ -44193,7 +44193,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 3100
   },
   "1730": {
@@ -44221,7 +44221,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 3000
   },
   "1731": {
@@ -44254,7 +44254,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 3900
   },
   "1732": {
@@ -44279,7 +44279,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 1800
   },
   "1733": {
@@ -44308,7 +44308,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 1850
   },
   "1734": {
@@ -44327,7 +44327,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 3100
   },
   "1735": {
@@ -44348,7 +44348,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 2800
   },
   "1736": {
@@ -44369,7 +44369,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 3450
   },
   "1737": {
@@ -44392,7 +44392,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 1550
   },
   "1738": {
@@ -44426,7 +44426,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 5600
   },
   "1739": {
@@ -44443,7 +44443,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 4900
   },
   "1740": {
@@ -44463,7 +44463,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 25000
   },
   "1741": {
@@ -44486,7 +44486,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 1450
   },
   "1742": {
@@ -44505,7 +44505,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.592Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 2750
   },
   "1743": {
@@ -44532,7 +44532,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 6400
   },
   "1744": {
@@ -44556,7 +44556,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 12500
   },
   "1745": {
@@ -44587,7 +44587,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 1600
   },
   "1746": {
@@ -44609,7 +44609,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 30500
   },
   "1747": {
@@ -44628,7 +44628,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 1550
   },
   "1748": {
@@ -44645,7 +44645,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 2300
   },
   "1749": {
@@ -44666,7 +44666,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 1500
   },
   "1750": {
@@ -44684,7 +44684,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 4300
   },
   "1751": {
@@ -44709,7 +44709,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 3300
   },
   "1752": {
@@ -44735,7 +44735,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 2100
   },
   "1753": {
@@ -44771,7 +44771,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 6000
   },
   "1754": {
@@ -44803,7 +44803,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 3300
   },
   "1755": {
@@ -44838,7 +44838,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 4000
   },
   "1756": {
@@ -44879,7 +44879,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 2500
   },
   "1758": {
@@ -44925,7 +44925,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 1750
   },
   "1760": {
@@ -44957,7 +44957,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 2250
   },
   "1761": {
@@ -44985,7 +44985,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 1450
   },
   "1762": {
@@ -45012,7 +45012,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 1450
   },
   "1763": {
@@ -45046,7 +45046,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 2500
   },
   "1765": {
@@ -45076,7 +45076,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 1600
   },
   "1766": {
@@ -45109,7 +45109,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 2300
   },
   "1767": {
@@ -45135,7 +45135,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 1950
   },
   "1768": {
@@ -45164,7 +45164,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 4000
   },
   "1769": {
@@ -45184,7 +45184,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.301Z",
     "sellingPrice": 3000
   },
   "1770": {
@@ -45207,7 +45207,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 2350
   },
   "1771": {
@@ -45232,7 +45232,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 1700
   },
   "1772": {
@@ -45257,7 +45257,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 2950
   },
   "1773": {
@@ -45289,7 +45289,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 2900
   },
   "1774": {
@@ -45310,7 +45310,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 5900
   },
   "1775": {
@@ -45331,7 +45331,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 2900
   },
   "1776": {
@@ -45348,7 +45348,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 24000
   },
   "1777": {
@@ -45365,7 +45365,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 4600
   },
   "1778": {
@@ -45382,7 +45382,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 4150
   },
   "1779": {
@@ -45404,7 +45404,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 2800
   },
   "1780": {
@@ -45424,7 +45424,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 2550
   },
   "1781": {
@@ -45441,7 +45441,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 1700
   },
   "1782": {
@@ -45470,7 +45470,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 4500
   },
   "1783": {
@@ -45491,7 +45491,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 1600
   },
   "1784": {
@@ -45508,7 +45508,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 3600
   },
   "1785": {
@@ -45525,7 +45525,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 5000
   },
   "1786": {
@@ -45545,7 +45545,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 1800
   },
   "1787": {
@@ -45574,7 +45574,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 5000
   },
   "1788": {
@@ -45603,7 +45603,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 4350
   },
   "1789": {
@@ -45628,7 +45628,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.593Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 1300
   },
   "1790": {
@@ -45645,7 +45645,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 1200
   },
   "1791": {
@@ -45662,7 +45662,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 1450
   },
   "1792": {
@@ -45705,7 +45705,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 4300
   },
   "1794": {
@@ -45722,7 +45722,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 3000
   },
   "1795": {
@@ -45739,7 +45739,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 1700
   },
   "1796": {
@@ -45756,7 +45756,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 1650
   },
   "1797": {
@@ -45796,7 +45796,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 2250
   },
   "1799": {
@@ -45820,7 +45820,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 3300
   },
   "1800": {
@@ -45837,7 +45837,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 4200
   },
   "1801": {
@@ -45864,7 +45864,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 3800
   },
   "1802": {
@@ -45892,7 +45892,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 2900
   },
   "1803": {
@@ -45909,7 +45909,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 1750
   },
   "1804": {
@@ -45951,7 +45951,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 2100
   },
   "1806": {
@@ -45979,7 +45979,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 2100
   },
   "1807": {
@@ -46017,7 +46017,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 1500
   },
   "1809": {
@@ -46044,7 +46044,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 2200
   },
   "1810": {
@@ -46074,7 +46074,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 2300
   },
   "1811": {
@@ -46100,7 +46100,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 2450
   },
   "1812": {
@@ -46140,7 +46140,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 2300
   },
   "1814": {
@@ -46166,7 +46166,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 2550
   },
   "1815": {
@@ -46192,7 +46192,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 4300
   },
   "1816": {
@@ -46209,7 +46209,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 2900
   },
   "1817": {
@@ -46236,7 +46236,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 1750
   },
   "1818": {
@@ -46256,7 +46256,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 2100
   },
   "1819": {
@@ -46280,7 +46280,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 3350
   },
   "1820": {
@@ -46311,7 +46311,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 2500
   },
   "1821": {
@@ -46328,7 +46328,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 3750
   },
   "1822": {
@@ -46358,7 +46358,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 4200
   },
   "1823": {
@@ -46391,7 +46391,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 2900
   },
   "1824": {
@@ -46408,7 +46408,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 1300
   },
   "1825": {
@@ -46432,7 +46432,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 2400
   },
   "1826": {
@@ -46459,7 +46459,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 2250
   },
   "1827": {
@@ -46488,7 +46488,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 2400
   },
   "1828": {
@@ -46514,7 +46514,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.302Z",
     "sellingPrice": 2700
   },
   "1829": {
@@ -46550,7 +46550,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 3900
   },
   "1830": {
@@ -46576,7 +46576,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 3100
   },
   "1831": {
@@ -46600,7 +46600,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 3000
   },
   "1832": {
@@ -46617,7 +46617,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 2400
   },
   "1833": {
@@ -46649,7 +46649,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 2150
   },
   "1834": {
@@ -46678,7 +46678,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 1550
   },
   "1835": {
@@ -46705,7 +46705,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 2300
   },
   "1836": {
@@ -46722,7 +46722,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 1900
   },
   "1837": {
@@ -46751,7 +46751,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 3900
   },
   "1838": {
@@ -46768,7 +46768,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 2850
   },
   "1839": {
@@ -46796,7 +46796,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 2100
   },
   "1840": {
@@ -46821,7 +46821,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 1950
   },
   "1841": {
@@ -46839,7 +46839,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 2700
   },
   "1842": {
@@ -46870,7 +46870,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 2700
   },
   "1843": {
@@ -46901,7 +46901,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.594Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 1900
   },
   "1844": {
@@ -46931,7 +46931,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 2700
   },
   "1845": {
@@ -46955,7 +46955,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 1500
   },
   "1846": {
@@ -46982,7 +46982,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 2650
   },
   "1847": {
@@ -47006,7 +47006,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 1950
   },
   "1848": {
@@ -47035,7 +47035,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 2650
   },
   "1849": {
@@ -47064,7 +47064,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 1350
   },
   "1850": {
@@ -47096,7 +47096,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 2400
   },
   "1851": {
@@ -47124,7 +47124,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 1650
   },
   "1852": {
@@ -47150,7 +47150,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 4000
   },
   "1853": {
@@ -47178,7 +47178,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 1950
   },
   "1854": {
@@ -47208,7 +47208,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 3100
   },
   "1855": {
@@ -47237,7 +47237,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 2700
   },
   "1856": {
@@ -47270,7 +47270,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 4250
   },
   "1857": {
@@ -47296,7 +47296,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 2000
   },
   "1858": {
@@ -47330,7 +47330,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 2300
   },
   "1859": {
@@ -47366,7 +47366,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 4500
   },
   "1860": {
@@ -47383,7 +47383,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 1300
   },
   "1861": {
@@ -47417,7 +47417,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 2550
   },
   "1862": {
@@ -47443,7 +47443,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 1900
   },
   "1863": {
@@ -47460,7 +47460,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 2350
   },
   "1864": {
@@ -47485,7 +47485,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 2900
   },
   "1865": {
@@ -47512,7 +47512,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 2450
   },
   "1866": {
@@ -47531,7 +47531,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 5100
   },
   "1867": {
@@ -47567,7 +47567,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 3900
   },
   "1868": {
@@ -47602,7 +47602,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 4100
   },
   "1870": {
@@ -47619,7 +47619,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 2000
   },
   "1871": {
@@ -47636,7 +47636,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 1400
   },
   "1872": {
@@ -47657,7 +47657,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 1950
   },
   "1873": {
@@ -47681,7 +47681,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 3900
   },
   "1874": {
@@ -47710,7 +47710,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 2650
   },
   "1875": {
@@ -47735,7 +47735,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 4250
   },
   "1876": {
@@ -47763,7 +47763,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 3100
   },
   "1877": {
@@ -47796,7 +47796,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 3700
   },
   "1878": {
@@ -47819,7 +47819,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 1700
   },
   "1879": {
@@ -47856,7 +47856,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 2900
   },
   "1881": {
@@ -47881,7 +47881,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 2300
   },
   "1882": {
@@ -47917,7 +47917,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 2500
   },
   "1883": {
@@ -47944,7 +47944,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 2200
   },
   "1884": {
@@ -47977,7 +47977,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 1500
   },
   "1885": {
@@ -48002,7 +48002,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 1600
   },
   "1886": {
@@ -48023,7 +48023,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.595Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 2600
   },
   "1887": {
@@ -48063,7 +48063,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 1800
   },
   "1889": {
@@ -48080,7 +48080,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 2000
   },
   "1890": {
@@ -48114,7 +48114,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 3900
   },
   "1891": {
@@ -48142,7 +48142,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 2200
   },
   "1892": {
@@ -48168,7 +48168,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.303Z",
     "sellingPrice": 1650
   },
   "1893": {
@@ -48207,7 +48207,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 3000
   },
   "1895": {
@@ -48239,7 +48239,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 4300
   },
   "1896": {
@@ -48287,7 +48287,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 3500
   },
   "1898": {
@@ -48304,7 +48304,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2100
   },
   "1899": {
@@ -48335,7 +48335,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 3100
   },
   "1900": {
@@ -48353,7 +48353,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2250
   },
   "1901": {
@@ -48370,7 +48370,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1300
   },
   "1902": {
@@ -48387,7 +48387,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1350
   },
   "1903": {
@@ -48404,7 +48404,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1700
   },
   "1904": {
@@ -48429,7 +48429,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1500
   },
   "1905": {
@@ -48453,7 +48453,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1850
   },
   "1906": {
@@ -48474,7 +48474,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1350
   },
   "1907": {
@@ -48498,7 +48498,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2000
   },
   "1908": {
@@ -48524,7 +48524,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2300
   },
   "1909": {
@@ -48548,7 +48548,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1080
   },
   "1910": {
@@ -48569,7 +48569,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2600
   },
   "1911": {
@@ -48589,7 +48589,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1600
   },
   "1912": {
@@ -48608,7 +48608,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1450
   },
   "1913": {
@@ -48632,7 +48632,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 3000
   },
   "1914": {
@@ -48649,7 +48649,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2600
   },
   "1915": {
@@ -48669,7 +48669,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2050
   },
   "1916": {
@@ -48686,7 +48686,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2700
   },
   "1917": {
@@ -48705,7 +48705,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2300
   },
   "1918": {
@@ -48725,7 +48725,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 45500
   },
   "1919": {
@@ -48749,7 +48749,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1800
   },
   "1920": {
@@ -48771,7 +48771,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 3250
   },
   "1921": {
@@ -48792,7 +48792,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1300
   },
   "1922": {
@@ -48813,7 +48813,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 5900
   },
   "1923": {
@@ -48831,7 +48831,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 16500
   },
   "1924": {
@@ -48853,7 +48853,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2500
   },
   "1925": {
@@ -48870,7 +48870,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1700
   },
   "1926": {
@@ -48887,7 +48887,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1400
   },
   "1927": {
@@ -48909,7 +48909,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2200
   },
   "1928": {
@@ -48931,7 +48931,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2500
   },
   "1929": {
@@ -48965,7 +48965,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1650
   },
   "1931": {
@@ -48982,7 +48982,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2550
   },
   "1932": {
@@ -49003,7 +49003,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2450
   },
   "1933": {
@@ -49020,7 +49020,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1450
   },
   "1934": {
@@ -49041,7 +49041,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2200
   },
   "1935": {
@@ -49063,7 +49063,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1700
   },
   "1936": {
@@ -49088,7 +49088,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.596Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1850
   },
   "1937": {
@@ -49111,7 +49111,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2500
   },
   "1938": {
@@ -49132,7 +49132,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2500
   },
   "1939": {
@@ -49153,7 +49153,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1650
   },
   "1940": {
@@ -49179,7 +49179,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 3300
   },
   "1941": {
@@ -49202,7 +49202,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1900
   },
   "1942": {
@@ -49231,7 +49231,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2100
   },
   "1943": {
@@ -49258,7 +49258,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 3250
   },
   "1944": {
@@ -49278,7 +49278,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1850
   },
   "1945": {
@@ -49298,7 +49298,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2500
   },
   "1946": {
@@ -49328,7 +49328,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2650
   },
   "1947": {
@@ -49352,7 +49352,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2000
   },
   "1948": {
@@ -49374,7 +49374,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2700
   },
   "1949": {
@@ -49394,7 +49394,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2300
   },
   "1950": {
@@ -49412,7 +49412,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2350
   },
   "1951": {
@@ -49429,7 +49429,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2050
   },
   "1952": {
@@ -49446,7 +49446,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2300
   },
   "1953": {
@@ -49469,7 +49469,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2450
   },
   "1954": {
@@ -49486,7 +49486,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1400
   },
   "1955": {
@@ -49508,7 +49508,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1700
   },
   "1956": {
@@ -49530,7 +49530,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2250
   },
   "1957": {
@@ -49553,7 +49553,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2150
   },
   "1958": {
@@ -49572,7 +49572,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2100
   },
   "1959": {
@@ -49594,7 +49594,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2200
   },
   "1960": {
@@ -49617,7 +49617,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2350
   },
   "1961": {
@@ -49640,7 +49640,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1650
   },
   "1962": {
@@ -49661,7 +49661,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1800
   },
   "1963": {
@@ -49678,7 +49678,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1950
   },
   "1964": {
@@ -49695,7 +49695,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1350
   },
   "1965": {
@@ -49718,7 +49718,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 3300
   },
   "1966": {
@@ -49745,7 +49745,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1650
   },
   "1967": {
@@ -49768,7 +49768,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 4650
   },
   "1968": {
@@ -49811,7 +49811,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1250
   },
   "1970": {
@@ -49834,7 +49834,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1800
   },
   "1971": {
@@ -49856,7 +49856,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1700
   },
   "1972": {
@@ -49880,7 +49880,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2500
   },
   "1973": {
@@ -49920,7 +49920,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1550
   },
   "1975": {
@@ -49937,7 +49937,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2700
   },
   "1976": {
@@ -49954,7 +49954,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2200
   },
   "1977": {
@@ -49974,7 +49974,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1350
   },
   "1978": {
@@ -49995,7 +49995,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1350
   },
   "1979": {
@@ -50012,7 +50012,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2150
   },
   "1980": {
@@ -50029,7 +50029,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2700
   },
   "1981": {
@@ -50046,7 +50046,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1600
   },
   "1982": {
@@ -50063,7 +50063,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1850
   },
   "1983": {
@@ -50080,7 +50080,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2200
   },
   "1984": {
@@ -50100,7 +50100,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2200
   },
   "1985": {
@@ -50129,7 +50129,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2400
   },
   "1986": {
@@ -50148,7 +50148,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 2250
   },
   "1987": {
@@ -50165,7 +50165,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.597Z",
+    "updatedAt": "2026-09-09T09:40:20.304Z",
     "sellingPrice": 1250
   },
   "1988": {
@@ -50188,7 +50188,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 4300
   },
   "1989": {
@@ -50222,7 +50222,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 2250
   },
   "1991": {
@@ -50239,7 +50239,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 4450
   },
   "1992": {
@@ -50265,7 +50265,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 2400
   },
   "1993": {
@@ -50287,7 +50287,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 1900
   },
   "1994": {
@@ -50308,7 +50308,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 6700
   },
   "1995": {
@@ -50326,7 +50326,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 1600
   },
   "1996": {
@@ -50349,7 +50349,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 2300
   },
   "1997": {
@@ -50369,7 +50369,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 2250
   },
   "1998": {
@@ -50388,7 +50388,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 1700
   },
   "1999": {
@@ -50418,7 +50418,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 2700
   },
   "2000": {
@@ -50443,7 +50443,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 1150
   },
   "2001": {
@@ -50472,7 +50472,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 5300
   },
   "2002": {
@@ -50497,7 +50497,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 1750
   },
   "2003": {
@@ -50519,7 +50519,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 3800
   },
   "2004": {
@@ -50541,7 +50541,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 2700
   },
   "2005": {
@@ -50561,7 +50561,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 12900
   },
   "2006": {
@@ -50617,7 +50617,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 5050
   },
   "2009": {
@@ -50638,7 +50638,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 4000
   },
   "2010": {
@@ -50661,7 +50661,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 1700
   },
   "2011": {
@@ -50681,7 +50681,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 3100
   },
   "2012": {
@@ -50701,7 +50701,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 1650
   },
   "2013": {
@@ -50725,7 +50725,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 6700
   },
   "2014": {
@@ -50756,7 +50756,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 2200
   },
   "2015": {
@@ -50779,7 +50779,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 2000
   },
   "2016": {
@@ -50807,7 +50807,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 2850
   },
   "2017": {
@@ -50830,7 +50830,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 2200
   },
   "2018": {
@@ -50852,7 +50852,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 2500
   },
   "2019": {
@@ -50869,7 +50869,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 1450
   },
   "2020": {
@@ -50890,7 +50890,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 2350
   },
   "2021": {
@@ -50907,7 +50907,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 1700
   },
   "2022": {
@@ -50927,7 +50927,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 3000
   },
   "2023": {
@@ -50968,7 +50968,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 1850
   },
   "2025": {
@@ -51004,7 +51004,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 5800
   },
   "2026": {
@@ -51025,7 +51025,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 1750
   },
   "2027": {
@@ -51066,7 +51066,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 3700
   },
   "2029": {
@@ -51083,7 +51083,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 2200
   },
   "2030": {
@@ -51108,7 +51108,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 2700
   },
   "2031": {
@@ -51125,7 +51125,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 4400
   },
   "2032": {
@@ -51143,7 +51143,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 5700
   },
   "2033": {
@@ -51160,7 +51160,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 3700
   },
   "2034": {
@@ -51179,7 +51179,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 1800
   },
   "2035": {
@@ -51198,7 +51198,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 1800
   },
   "2036": {
@@ -51220,7 +51220,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 1850
   },
   "2037": {
@@ -51244,7 +51244,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 1600
   },
   "2038": {
@@ -51266,7 +51266,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.598Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 1550
   },
   "2039": {
@@ -51290,7 +51290,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 2250
   },
   "2040": {
@@ -51315,7 +51315,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 2900
   },
   "2041": {
@@ -51343,7 +51343,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 2250
   },
   "2042": {
@@ -51395,7 +51395,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 2100
   },
   "2044": {
@@ -51419,7 +51419,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 1900
   },
   "2045": {
@@ -51447,7 +51447,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 3000
   },
   "2046": {
@@ -51469,7 +51469,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 2100
   },
   "2047": {
@@ -51492,7 +51492,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 5800
   },
   "2048": {
@@ -51521,7 +51521,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 6000
   },
   "2049": {
@@ -51547,7 +51547,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 2000
   },
   "2050": {
@@ -51571,7 +51571,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 2850
   },
   "2051": {
@@ -51596,7 +51596,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 2350
   },
   "2052": {
@@ -51618,7 +51618,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 2050
   },
   "2053": {
@@ -51647,7 +51647,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 2000
   },
   "2054": {
@@ -51669,7 +51669,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 1900
   },
   "2055": {
@@ -51692,7 +51692,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 1450
   },
   "2056": {
@@ -51714,7 +51714,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 1300
   },
   "2057": {
@@ -51738,7 +51738,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 1700
   },
   "2058": {
@@ -51755,7 +51755,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 4200
   },
   "2059": {
@@ -51782,7 +51782,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 1700
   },
   "2060": {
@@ -51807,7 +51807,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 2750
   },
   "2061": {
@@ -51834,7 +51834,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 3700
   },
   "2062": {
@@ -51857,7 +51857,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 4300
   },
   "2063": {
@@ -51878,7 +51878,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 1900
   },
   "2064": {
@@ -51927,7 +51927,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 2900
   },
   "2066": {
@@ -51951,7 +51951,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 1700
   },
   "2067": {
@@ -51971,7 +51971,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 1300
   },
   "2068": {
@@ -51999,7 +51999,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 5000
   },
   "2069": {
@@ -52020,7 +52020,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 2100
   },
   "2070": {
@@ -52058,7 +52058,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 2100
   },
   "2072": {
@@ -52083,7 +52083,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 2600
   },
   "2073": {
@@ -52107,7 +52107,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 1700
   },
   "2074": {
@@ -52124,7 +52124,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 2550
   },
   "2075": {
@@ -52148,7 +52148,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 7300
   },
   "2076": {
@@ -52175,7 +52175,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 2000
   },
   "2077": {
@@ -52192,7 +52192,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 1400
   },
   "2078": {
@@ -52213,7 +52213,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 2200
   },
   "2079": {
@@ -52233,7 +52233,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 5100
   },
   "2080": {
@@ -52254,7 +52254,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 11500
   },
   "2081": {
@@ -52284,7 +52284,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 2600
   },
   "2082": {
@@ -52309,7 +52309,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 8500
   },
   "2083": {
@@ -52330,7 +52330,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.305Z",
     "sellingPrice": 1350
   },
   "2084": {
@@ -52355,7 +52355,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 6300
   },
   "2085": {
@@ -52393,7 +52393,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 33500
   },
   "2087": {
@@ -52416,7 +52416,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.599Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 58500
   },
   "2088": {
@@ -52444,7 +52444,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 65500
   },
   "2089": {
@@ -52474,7 +52474,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 65500
   },
   "2090": {
@@ -52496,7 +52496,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 1900
   },
   "2091": {
@@ -52520,7 +52520,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 7600
   },
   "2092": {
@@ -52550,7 +52550,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 62500
   },
   "2093": {
@@ -52574,7 +52574,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 2050
   },
   "2094": {
@@ -52598,7 +52598,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 5300
   },
   "2095": {
@@ -52619,7 +52619,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 5450
   },
   "2096": {
@@ -52636,7 +52636,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 3700
   },
   "2097": {
@@ -52657,7 +52657,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 3250
   },
   "2098": {
@@ -52674,7 +52674,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 2750
   },
   "2099": {
@@ -52694,7 +52694,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 1800
   },
   "2100": {
@@ -52711,7 +52711,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 2000
   },
   "2101": {
@@ -52735,7 +52735,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 3050
   },
   "2102": {
@@ -52760,7 +52760,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 6500
   },
   "2103": {
@@ -52779,7 +52779,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 1450
   },
   "2104": {
@@ -52796,7 +52796,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 3600
   },
   "2105": {
@@ -52813,7 +52813,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 6200
   },
   "2106": {
@@ -52830,7 +52830,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 1900
   },
   "2107": {
@@ -52852,7 +52852,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 2000
   },
   "2108": {
@@ -52870,7 +52870,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 1950
   },
   "2109": {
@@ -52899,7 +52899,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 2450
   },
   "2110": {
@@ -52921,7 +52921,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 1900
   },
   "2111": {
@@ -52940,7 +52940,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 1950
   },
   "2112": {
@@ -52979,7 +52979,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 1750
   },
   "2114": {
@@ -53001,7 +53001,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 2100
   },
   "2115": {
@@ -53026,7 +53026,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 2400
   },
   "2116": {
@@ -53048,7 +53048,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 2050
   },
   "2117": {
@@ -53074,7 +53074,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 2400
   },
   "2118": {
@@ -53097,7 +53097,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 5000
   },
   "2119": {
@@ -53117,7 +53117,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 1300
   },
   "2120": {
@@ -53141,7 +53141,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 1850
   },
   "2121": {
@@ -53165,7 +53165,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 2500
   },
   "2122": {
@@ -53191,7 +53191,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 2050
   },
   "2123": {
@@ -53217,7 +53217,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 1250
   },
   "2124": {
@@ -53234,7 +53234,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.600Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 2300
   },
   "2125": {
@@ -53270,7 +53270,7 @@ const storeData = {
     "profit": 500,
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z",
+    "updatedAt": "2026-09-09T09:40:20.306Z",
     "sellingPrice": 7200
   },
   "2126": {
@@ -53315,7 +53315,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/62",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.306Z"
   },
   "2128": {
     "sawa9lyId": "195",
@@ -53341,7 +53341,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/195",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.306Z"
   },
   "2129": {
     "sawa9lyId": "220",
@@ -53369,7 +53369,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/220",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.306Z"
   },
   "2130": {
     "sawa9lyId": "242",
@@ -53391,7 +53391,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/242",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.306Z"
   },
   "2131": {
     "sawa9lyId": "271",
@@ -53423,7 +53423,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/271",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.306Z"
   },
   "2132": {
     "sawa9lyId": "331",
@@ -53440,7 +53440,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/331",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.306Z"
   },
   "2133": {
     "sawa9lyId": "352",
@@ -53457,7 +53457,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/352",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.306Z"
   },
   "2134": {
     "sawa9lyId": "390",
@@ -53479,7 +53479,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/390",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.306Z"
   },
   "2135": {
     "sawa9lyId": "434",
@@ -53508,7 +53508,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/434",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.306Z"
   },
   "2136": {
     "sawa9lyId": "481",
@@ -53525,7 +53525,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/481",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.306Z"
   },
   "2137": {
     "sawa9lyId": "739",
@@ -53546,7 +53546,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/739",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.306Z"
   },
   "2138": {
     "sawa9lyId": "771",
@@ -53570,7 +53570,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/771",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.306Z"
   },
   "2139": {
     "sawa9lyId": "875",
@@ -53594,7 +53594,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/875",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.306Z"
   },
   "2140": {
     "sawa9lyId": "925",
@@ -53611,7 +53611,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/925",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.306Z"
   },
   "2141": {
     "sawa9lyId": "932",
@@ -53638,7 +53638,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/932",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.306Z"
   },
   "2142": {
     "sawa9lyId": "1027",
@@ -53671,7 +53671,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/1027",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.306Z"
   },
   "2143": {
     "sawa9lyId": "1052",
@@ -53688,7 +53688,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/1052",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.306Z"
   },
   "2144": {
     "sawa9lyId": "1072",
@@ -53711,7 +53711,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/1072",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.306Z"
   },
   "2145": {
     "sawa9lyId": "1088",
@@ -53728,7 +53728,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/1088",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.306Z"
   },
   "2146": {
     "sawa9lyId": "1188",
@@ -53754,7 +53754,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/1188",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.306Z"
   },
   "2147": {
     "sawa9lyId": "1328",
@@ -53784,7 +53784,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/1328",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.306Z"
   },
   "2148": {
     "sawa9lyId": "1395",
@@ -53812,7 +53812,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/1395",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.306Z"
   },
   "2149": {
     "sawa9lyId": "1412",
@@ -53829,7 +53829,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/1412",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.306Z"
   },
   "2150": {
     "sawa9lyId": "1463",
@@ -53856,7 +53856,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/1463",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.306Z"
   },
   "2151": {
     "sawa9lyId": "1471",
@@ -53876,7 +53876,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/1471",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.306Z"
   },
   "2152": {
     "sawa9lyId": "1473",
@@ -53903,7 +53903,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/1473",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.306Z"
   },
   "2153": {
     "sawa9lyId": "1531",
@@ -53923,7 +53923,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/1531",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.306Z"
   },
   "2154": {
     "sawa9lyId": "1581",
@@ -53946,7 +53946,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/1581",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.306Z"
   },
   "2155": {
     "sawa9lyId": "1608",
@@ -53963,7 +53963,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/1608",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.306Z"
   },
   "2156": {
     "sawa9lyId": "1638",
@@ -53986,7 +53986,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/1638",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2157": {
     "sawa9lyId": "1655",
@@ -54015,7 +54015,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/1655",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2158": {
     "sawa9lyId": "1679",
@@ -54033,7 +54033,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/1679",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2159": {
     "sawa9lyId": "1727",
@@ -54063,7 +54063,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/1727",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2160": {
     "sawa9lyId": "1738",
@@ -54087,7 +54087,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/1738",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2161": {
     "sawa9lyId": "1807",
@@ -54123,7 +54123,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/1807",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2162": {
     "sawa9lyId": "1874",
@@ -54159,7 +54159,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/1874",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2163": {
     "sawa9lyId": "1927",
@@ -54185,7 +54185,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/1927",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2164": {
     "sawa9lyId": "1937",
@@ -54204,7 +54204,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/1937",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2165": {
     "sawa9lyId": "1955",
@@ -54228,7 +54228,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/1955",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2166": {
     "sawa9lyId": "1996",
@@ -54254,7 +54254,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/1996",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2167": {
     "sawa9lyId": "2075",
@@ -54277,7 +54277,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/2075",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2168": {
     "sawa9lyId": "2112",
@@ -54302,7 +54302,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/2112",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2169": {
     "sawa9lyId": "2249",
@@ -54335,7 +54335,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/2249",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2170": {
     "sawa9lyId": "2275",
@@ -54368,7 +54368,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/2275",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2171": {
     "sawa9lyId": "2327",
@@ -54404,7 +54404,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/2327",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2172": {
     "sawa9lyId": "2418",
@@ -54430,7 +54430,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/2418",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2173": {
     "sawa9lyId": "2424",
@@ -54454,7 +54454,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/2424",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2174": {
     "sawa9lyId": "2508",
@@ -54476,7 +54476,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/2508",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2175": {
     "sawa9lyId": "2548",
@@ -54497,7 +54497,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/2548",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2176": {
     "sawa9lyId": "2595",
@@ -54520,7 +54520,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/2595",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2177": {
     "sawa9lyId": "2617",
@@ -54548,7 +54548,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/2617",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2178": {
     "sawa9lyId": "2622",
@@ -54571,7 +54571,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/2622",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2179": {
     "sawa9lyId": "2623",
@@ -54596,7 +54596,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/2623",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2180": {
     "sawa9lyId": "2687",
@@ -54619,7 +54619,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/2687",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2181": {
     "sawa9lyId": "2832",
@@ -54646,7 +54646,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/2832",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2182": {
     "sawa9lyId": "2833",
@@ -54668,7 +54668,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/2833",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2183": {
     "sawa9lyId": "2873",
@@ -54696,7 +54696,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/2873",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2184": {
     "sawa9lyId": "2877",
@@ -54720,7 +54720,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/2877",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2185": {
     "sawa9lyId": "2896",
@@ -54744,7 +54744,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/2896",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2186": {
     "sawa9lyId": "2902",
@@ -54767,7 +54767,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/2902",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2187": {
     "sawa9lyId": "2936",
@@ -54801,7 +54801,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/2936",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.604Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2188": {
     "sawa9lyId": "2944",
@@ -54830,7 +54830,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/2944",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2189": {
     "sawa9lyId": "2955",
@@ -54860,7 +54860,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/2955",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2190": {
     "sawa9lyId": "2998",
@@ -54886,7 +54886,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/2998",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2191": {
     "sawa9lyId": "3005",
@@ -54914,7 +54914,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3005",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2192": {
     "sawa9lyId": "3007",
@@ -54950,7 +54950,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3007",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2193": {
     "sawa9lyId": "3018",
@@ -54974,7 +54974,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3018",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2194": {
     "sawa9lyId": "3020",
@@ -55003,7 +55003,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3020",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2195": {
     "sawa9lyId": "3049",
@@ -55038,7 +55038,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3049",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2196": {
     "sawa9lyId": "3059",
@@ -55067,7 +55067,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3059",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2197": {
     "sawa9lyId": "3115",
@@ -55097,7 +55097,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3115",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2198": {
     "sawa9lyId": "3164",
@@ -55132,7 +55132,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3164",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2199": {
     "sawa9lyId": "3171",
@@ -55164,7 +55164,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3171",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2200": {
     "sawa9lyId": "3199",
@@ -55188,7 +55188,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3199",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2201": {
     "sawa9lyId": "3221",
@@ -55219,7 +55219,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3221",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2202": {
     "sawa9lyId": "3227",
@@ -55247,7 +55247,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3227",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2203": {
     "sawa9lyId": "3232",
@@ -55282,7 +55282,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3232",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2204": {
     "sawa9lyId": "3256",
@@ -55308,7 +55308,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3256",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2205": {
     "sawa9lyId": "3386",
@@ -55334,7 +55334,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3386",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2206": {
     "sawa9lyId": "3413",
@@ -55368,7 +55368,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3413",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2207": {
     "sawa9lyId": "3416",
@@ -55396,7 +55396,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3416",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2208": {
     "sawa9lyId": "3427",
@@ -55415,7 +55415,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3427",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2209": {
     "sawa9lyId": "3438",
@@ -55444,7 +55444,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3438",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2210": {
     "sawa9lyId": "3450",
@@ -55474,7 +55474,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3450",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2211": {
     "sawa9lyId": "3455",
@@ -55510,7 +55510,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3455",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2212": {
     "sawa9lyId": "3471",
@@ -55542,7 +55542,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3471",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2213": {
     "sawa9lyId": "3528",
@@ -55572,7 +55572,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3528",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2214": {
     "sawa9lyId": "3585",
@@ -55593,7 +55593,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3585",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2215": {
     "sawa9lyId": "3601",
@@ -55622,7 +55622,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3601",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2216": {
     "sawa9lyId": "3626",
@@ -55649,7 +55649,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3626",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2217": {
     "sawa9lyId": "3656",
@@ -55681,7 +55681,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3656",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2218": {
     "sawa9lyId": "3712",
@@ -55709,7 +55709,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3712",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2219": {
     "sawa9lyId": "3723",
@@ -55744,7 +55744,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3723",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2220": {
     "sawa9lyId": "3745",
@@ -55774,7 +55774,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3745",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2221": {
     "sawa9lyId": "3755",
@@ -55798,7 +55798,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3755",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2222": {
     "sawa9lyId": "3770",
@@ -55820,7 +55820,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3770",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2223": {
     "sawa9lyId": "3793",
@@ -55847,7 +55847,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3793",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2224": {
     "sawa9lyId": "3796",
@@ -55871,7 +55871,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3796",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2225": {
     "sawa9lyId": "3927",
@@ -55896,7 +55896,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/3927",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2226": {
     "sawa9lyId": "4013",
@@ -55926,7 +55926,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4013",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.307Z"
   },
   "2227": {
     "sawa9lyId": "4046",
@@ -55950,7 +55950,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4046",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2228": {
     "sawa9lyId": "4100",
@@ -55974,7 +55974,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4100",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2229": {
     "sawa9lyId": "4104",
@@ -56004,7 +56004,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4104",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2230": {
     "sawa9lyId": "4146",
@@ -56039,7 +56039,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4146",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2231": {
     "sawa9lyId": "4155",
@@ -56067,7 +56067,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4155",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2232": {
     "sawa9lyId": "4179",
@@ -56093,7 +56093,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4179",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2233": {
     "sawa9lyId": "4231",
@@ -56124,7 +56124,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4231",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2234": {
     "sawa9lyId": "4256",
@@ -56153,7 +56153,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4256",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2235": {
     "sawa9lyId": "4279",
@@ -56179,7 +56179,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4279",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2236": {
     "sawa9lyId": "4293",
@@ -56210,7 +56210,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4293",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2237": {
     "sawa9lyId": "4381",
@@ -56238,7 +56238,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4381",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2238": {
     "sawa9lyId": "4384",
@@ -56261,7 +56261,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4384",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2239": {
     "sawa9lyId": "4391",
@@ -56284,7 +56284,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4391",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2240": {
     "sawa9lyId": "4406",
@@ -56310,7 +56310,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4406",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2241": {
     "sawa9lyId": "4460",
@@ -56333,7 +56333,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4460",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2242": {
     "sawa9lyId": "4467",
@@ -56363,7 +56363,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4467",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2243": {
     "sawa9lyId": "4473",
@@ -56392,7 +56392,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4473",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2244": {
     "sawa9lyId": "4528",
@@ -56423,7 +56423,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4528",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2245": {
     "sawa9lyId": "4570",
@@ -56459,7 +56459,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4570",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2246": {
     "sawa9lyId": "4571",
@@ -56495,7 +56495,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4571",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2247": {
     "sawa9lyId": "4572",
@@ -56530,7 +56530,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4572",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2248": {
     "sawa9lyId": "4573",
@@ -56566,7 +56566,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4573",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.605Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2249": {
     "sawa9lyId": "4579",
@@ -56602,7 +56602,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4579",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2250": {
     "sawa9lyId": "4631",
@@ -56632,7 +56632,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4631",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2251": {
     "sawa9lyId": "4637",
@@ -56668,7 +56668,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4637",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2252": {
     "sawa9lyId": "4651",
@@ -56698,7 +56698,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4651",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2253": {
     "sawa9lyId": "4655",
@@ -56719,7 +56719,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4655",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2254": {
     "sawa9lyId": "4685",
@@ -56749,7 +56749,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4685",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2255": {
     "sawa9lyId": "4702",
@@ -56774,7 +56774,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4702",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2256": {
     "sawa9lyId": "4703",
@@ -56797,7 +56797,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4703",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2257": {
     "sawa9lyId": "4729",
@@ -56831,7 +56831,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4729",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2258": {
     "sawa9lyId": "4731",
@@ -56865,7 +56865,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4731",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2259": {
     "sawa9lyId": "4776",
@@ -56894,7 +56894,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4776",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2260": {
     "sawa9lyId": "4784",
@@ -56921,7 +56921,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4784",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2261": {
     "sawa9lyId": "4785",
@@ -56948,7 +56948,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4785",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2262": {
     "sawa9lyId": "4882",
@@ -56975,7 +56975,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4882",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2263": {
     "sawa9lyId": "4957",
@@ -57001,7 +57001,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4957",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2264": {
     "sawa9lyId": "4973",
@@ -57030,7 +57030,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4973",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2265": {
     "sawa9lyId": "4976",
@@ -57058,7 +57058,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4976",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2266": {
     "sawa9lyId": "4991",
@@ -57083,7 +57083,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/4991",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2267": {
     "sawa9lyId": "5019",
@@ -57112,7 +57112,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5019",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2268": {
     "sawa9lyId": "5039",
@@ -57142,7 +57142,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5039",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2269": {
     "sawa9lyId": "5048",
@@ -57173,7 +57173,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5048",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2270": {
     "sawa9lyId": "5053",
@@ -57198,7 +57198,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5053",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2271": {
     "sawa9lyId": "5060",
@@ -57218,7 +57218,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5060",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2272": {
     "sawa9lyId": "5075",
@@ -57244,7 +57244,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5075",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2273": {
     "sawa9lyId": "5095",
@@ -57271,7 +57271,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5095",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2274": {
     "sawa9lyId": "5098",
@@ -57296,7 +57296,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5098",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2275": {
     "sawa9lyId": "5124",
@@ -57323,7 +57323,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5124",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2276": {
     "sawa9lyId": "5168",
@@ -57357,7 +57357,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5168",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2277": {
     "sawa9lyId": "5169",
@@ -57384,7 +57384,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5169",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2278": {
     "sawa9lyId": "5178",
@@ -57409,7 +57409,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5178",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2279": {
     "sawa9lyId": "5223",
@@ -57436,7 +57436,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5223",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2280": {
     "sawa9lyId": "5227",
@@ -57467,7 +57467,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5227",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2281": {
     "sawa9lyId": "5243",
@@ -57497,7 +57497,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5243",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2282": {
     "sawa9lyId": "5301",
@@ -57526,15 +57526,15 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5301",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2283": {
     "sawa9lyId": "5310",
     "name": "Robinet chauffant électrique avec douchette pour salle de bain – سخان مياه سريع للحمام",
     "description": "Espace partenaire Sawa9ly — catalogue, commandes et portefeuille",
-    "price": 5300,
-    "basePrice": 4800,
-    "sellingPrice": 5300,
+    "price": 5100,
+    "basePrice": 4600,
+    "sellingPrice": 5100,
     "profit": 500,
     "image": "/_next/image?url=https%3A%2F%2Fpub-28310993d61b4793990ba3066dc743c6.r2.dev%2Fproducts%2F5310-marketing-0-1774877424093.jpg&w=3840&q=75",
     "images": [
@@ -57555,7 +57555,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5310",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2284": {
     "sawa9lyId": "5312",
@@ -57581,7 +57581,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5312",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2285": {
     "sawa9lyId": "5321",
@@ -57608,7 +57608,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5321",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2286": {
     "sawa9lyId": "5322",
@@ -57632,7 +57632,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5322",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2287": {
     "sawa9lyId": "5368",
@@ -57660,7 +57660,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5368",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2288": {
     "sawa9lyId": "5381",
@@ -57696,7 +57696,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5381",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2289": {
     "sawa9lyId": "5410",
@@ -57727,7 +57727,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5410",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2290": {
     "sawa9lyId": "5415",
@@ -57754,7 +57754,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5415",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2291": {
     "sawa9lyId": "5422",
@@ -57782,7 +57782,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5422",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.308Z"
   },
   "2292": {
     "sawa9lyId": "5424",
@@ -57812,7 +57812,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5424",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2293": {
     "sawa9lyId": "5445",
@@ -57836,7 +57836,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5445",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2294": {
     "sawa9lyId": "5459",
@@ -57862,7 +57862,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5459",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2295": {
     "sawa9lyId": "5617",
@@ -57897,7 +57897,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5617",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2296": {
     "sawa9lyId": "5644",
@@ -57923,7 +57923,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5644",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2297": {
     "sawa9lyId": "5714",
@@ -57948,7 +57948,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5714",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2298": {
     "sawa9lyId": "5798",
@@ -57977,7 +57977,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5798",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2299": {
     "sawa9lyId": "5825",
@@ -58005,7 +58005,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5825",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2300": {
     "sawa9lyId": "5862",
@@ -58032,7 +58032,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5862",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2301": {
     "sawa9lyId": "5889",
@@ -58062,7 +58062,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5889",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.606Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2302": {
     "sawa9lyId": "5918",
@@ -58098,7 +58098,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5918",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2303": {
     "sawa9lyId": "5922",
@@ -58124,7 +58124,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5922",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2304": {
     "sawa9lyId": "5941",
@@ -58158,7 +58158,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5941",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2305": {
     "sawa9lyId": "5960",
@@ -58182,7 +58182,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5960",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2306": {
     "sawa9lyId": "5964",
@@ -58204,7 +58204,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5964",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2307": {
     "sawa9lyId": "5969",
@@ -58231,7 +58231,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5969",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2308": {
     "sawa9lyId": "5972",
@@ -58263,7 +58263,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5972",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2309": {
     "sawa9lyId": "5973",
@@ -58288,7 +58288,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5973",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2310": {
     "sawa9lyId": "5977",
@@ -58317,7 +58317,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5977",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2311": {
     "sawa9lyId": "5984",
@@ -58344,7 +58344,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5984",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2312": {
     "sawa9lyId": "5989",
@@ -58367,7 +58367,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5989",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2313": {
     "sawa9lyId": "5995",
@@ -58390,7 +58390,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5995",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2314": {
     "sawa9lyId": "5996",
@@ -58423,7 +58423,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5996",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2315": {
     "sawa9lyId": "6011",
@@ -58447,7 +58447,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6011",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2316": {
     "sawa9lyId": "6019",
@@ -58474,7 +58474,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6019",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2317": {
     "sawa9lyId": "6022",
@@ -58503,7 +58503,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6022",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2318": {
     "sawa9lyId": "6033",
@@ -58533,7 +58533,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6033",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2319": {
     "sawa9lyId": "6042",
@@ -58557,7 +58557,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6042",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2320": {
     "sawa9lyId": "6052",
@@ -58585,7 +58585,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6052",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2321": {
     "sawa9lyId": "6057",
@@ -58616,7 +58616,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6057",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2322": {
     "sawa9lyId": "6073",
@@ -58643,7 +58643,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6073",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2323": {
     "sawa9lyId": "6077",
@@ -58676,7 +58676,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6077",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2324": {
     "sawa9lyId": "6078",
@@ -58709,7 +58709,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6078",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2325": {
     "sawa9lyId": "6082",
@@ -58736,7 +58736,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6082",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2326": {
     "sawa9lyId": "6091",
@@ -58756,7 +58756,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6091",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2327": {
     "sawa9lyId": "6093",
@@ -58782,7 +58782,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6093",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2328": {
     "sawa9lyId": "6097",
@@ -58800,7 +58800,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6097",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2329": {
     "sawa9lyId": "6102",
@@ -58821,7 +58821,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6102",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2330": {
     "sawa9lyId": "6104",
@@ -58842,7 +58842,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6104",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2331": {
     "sawa9lyId": "6107",
@@ -58865,7 +58865,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6107",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2332": {
     "sawa9lyId": "6116",
@@ -58887,7 +58887,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6116",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2333": {
     "sawa9lyId": "6127",
@@ -58909,7 +58909,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6127",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2334": {
     "sawa9lyId": "6128",
@@ -58930,7 +58930,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6128",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2335": {
     "sawa9lyId": "6130",
@@ -58952,7 +58952,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6130",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2336": {
     "sawa9lyId": "6137",
@@ -58982,7 +58982,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6137",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2337": {
     "sawa9lyId": "6138",
@@ -59012,7 +59012,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6138",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2338": {
     "sawa9lyId": "6139",
@@ -59041,7 +59041,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6139",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.607Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2339": {
     "sawa9lyId": "6140",
@@ -59061,7 +59061,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6140",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2340": {
     "sawa9lyId": "6145",
@@ -59082,7 +59082,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6145",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2341": {
     "sawa9lyId": "6152",
@@ -59103,7 +59103,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6152",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2342": {
     "sawa9lyId": "6159",
@@ -59126,7 +59126,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6159",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2343": {
     "sawa9lyId": "6160",
@@ -59150,7 +59150,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6160",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2344": {
     "sawa9lyId": "6161",
@@ -59171,7 +59171,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6161",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2345": {
     "sawa9lyId": "6171",
@@ -59190,7 +59190,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6171",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2346": {
     "sawa9lyId": "6172",
@@ -59218,7 +59218,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6172",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2347": {
     "sawa9lyId": "6173",
@@ -59237,7 +59237,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6173",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2348": {
     "sawa9lyId": "6183",
@@ -59256,7 +59256,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6183",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2349": {
     "sawa9lyId": "6188",
@@ -59277,7 +59277,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6188",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2350": {
     "sawa9lyId": "6191",
@@ -59299,7 +59299,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6191",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2351": {
     "sawa9lyId": "6192",
@@ -59318,7 +59318,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6192",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2352": {
     "sawa9lyId": "6193",
@@ -59337,7 +59337,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6193",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2353": {
     "sawa9lyId": "6202",
@@ -59381,7 +59381,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6204",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2355": {
     "sawa9lyId": "6205",
@@ -59409,7 +59409,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6205",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.309Z"
   },
   "2356": {
     "sawa9lyId": "6212",
@@ -59439,7 +59439,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6212",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.310Z"
   },
   "2357": {
     "sawa9lyId": "6243",
@@ -59459,7 +59459,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6243",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.310Z"
   },
   "2358": {
     "sawa9lyId": "6246",
@@ -59481,7 +59481,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6246",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.310Z"
   },
   "2359": {
     "sawa9lyId": "6248",
@@ -59503,7 +59503,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6248",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.310Z"
   },
   "2360": {
     "sawa9lyId": "6249",
@@ -59527,7 +59527,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6249",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.310Z"
   },
   "2361": {
     "sawa9lyId": "6254",
@@ -59556,7 +59556,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6254",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.310Z"
   },
   "2362": {
     "sawa9lyId": "6258",
@@ -59578,7 +59578,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6258",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.310Z"
   },
   "2363": {
     "sawa9lyId": "6270",
@@ -59604,7 +59604,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6270",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.310Z"
   },
   "2364": {
     "sawa9lyId": "6271",
@@ -59628,7 +59628,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6271",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.310Z"
   },
   "2365": {
     "sawa9lyId": "6274",
@@ -59652,7 +59652,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6274",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.310Z"
   },
   "2366": {
     "sawa9lyId": "6275",
@@ -59675,7 +59675,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6275",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.310Z"
   },
   "2367": {
     "sawa9lyId": "6278",
@@ -59707,7 +59707,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6278",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.310Z"
   },
   "2368": {
     "sawa9lyId": "6279",
@@ -59734,7 +59734,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6279",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.310Z"
   },
   "2369": {
     "sawa9lyId": "6280",
@@ -59762,7 +59762,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6280",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.310Z"
   },
   "2370": {
     "sawa9lyId": "6281",
@@ -59784,7 +59784,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6281",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.310Z"
   },
   "2371": {
     "sawa9lyId": "6282",
@@ -59818,7 +59818,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6282",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.310Z"
   },
   "2372": {
     "sawa9lyId": "6284",
@@ -59847,7 +59847,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6284",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.310Z"
   },
   "2373": {
     "sawa9lyId": "6285",
@@ -59868,7 +59868,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6285",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.310Z"
   },
   "2374": {
     "sawa9lyId": "6286",
@@ -59896,7 +59896,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6286",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.310Z"
   },
   "2375": {
     "sawa9lyId": "6287",
@@ -59920,7 +59920,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6287",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.310Z"
   },
   "2376": {
     "sawa9lyId": "6288",
@@ -59944,7 +59944,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6288",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.310Z"
   },
   "2377": {
     "sawa9lyId": "6292",
@@ -59980,7 +59980,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6292",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.310Z"
   },
   "2378": {
     "sawa9lyId": "6293",
@@ -59997,7 +59997,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6293",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.310Z"
   },
   "2379": {
     "sawa9lyId": "6294",
@@ -60014,7 +60014,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6294",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.310Z"
   },
   "2380": {
     "sawa9lyId": "6295",
@@ -60031,7 +60031,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6295",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.310Z"
   },
   "2381": {
     "sawa9lyId": "6296",
@@ -60048,7 +60048,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6296",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.310Z"
   },
   "2382": {
     "sawa9lyId": "6297",
@@ -60065,7 +60065,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6297",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.310Z"
   },
   "2383": {
     "sawa9lyId": "6298",
@@ -60082,7 +60082,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6298",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.310Z"
   },
   "2384": {
     "sawa9lyId": "6299",
@@ -60099,7 +60099,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6299",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.310Z"
   },
   "2385": {
     "sawa9lyId": "6300",
@@ -60116,7 +60116,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6300",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.310Z"
   },
   "2386": {
     "sawa9lyId": "6302",
@@ -60133,7 +60133,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6302",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.310Z"
   },
   "2387": {
     "sawa9lyId": "6303",
@@ -60163,7 +60163,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6303",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.310Z"
   },
   "2388": {
     "sawa9lyId": "6304",
@@ -60180,7 +60180,7 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/6304",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.608Z"
+    "updatedAt": "2026-09-09T09:40:20.310Z"
   },
   "2389": {
     "sawa9lyId": "5802",
@@ -60200,6 +60200,6 @@ const storeData = {
     "sawa9lyLink": "https://affiliate.sawa9ly.pro/store/5802",
     "automated": true,
     "available": true,
-    "updatedAt": "2026-09-09T06:48:09.609Z"
+    "updatedAt": "2026-09-09T09:40:20.310Z"
   }
 };
