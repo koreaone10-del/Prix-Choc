@@ -426,135 +426,882 @@ async function extractImages(page) {
   const rawCandidates = await page.evaluate(() => {
     const result = [];
 
-    const add = (value, score = 0, width = 0, height = 0, source = "") => {
+    const add = (
+      value,
+      score = 0,
+      width = 0,
+      height = 0,
+      source = ""
+    ) => {
       if (!value) return;
-      const text = String(value).trim();
-      if (!text || text.startsWith("data:") || text.startsWith("blob:")) return;
-      result.push({ url: text, score, width: Number(width) || 0, height: Number(height) || 0, source });
+
+      const text =
+        String(value).trim();
+
+      if (
+        !text ||
+        text.startsWith("data:") ||
+        text.startsWith("blob:")
+      ) {
+        return;
+      }
+
+      result.push({
+        url: text,
+        score,
+        width:
+          Number(width) || 0,
+        height:
+          Number(height) || 0,
+        source,
+      });
     };
 
-    const parseSrcset = (value, baseScore, source) => {
+    const parseSrcset = (
+      value,
+      baseScore,
+      source
+    ) => {
       if (!value) return;
-      for (const part of String(value).split(",")) {
-        const bits = part.trim().split(/\s+/);
+
+      for (
+        const part of
+          String(value).split(",")
+      ) {
+        const bits =
+          part.trim().split(/\s+/);
+
         const url = bits[0];
+
         if (!url) continue;
+
         let width = 0;
         let density = 0;
-        const descriptor = bits[1] || "";
-        if (/^\d+w$/i.test(descriptor)) width = parseInt(descriptor, 10) || 0;
-        if (/^\d+(?:\.\d+)?x$/i.test(descriptor)) density = parseFloat(descriptor) || 0;
-        add(url, baseScore + Math.min(width / 100, 25) + density * 4, width, 0, source);
+
+        const descriptor =
+          bits[1] || "";
+
+        if (
+          /^\d+w$/i.test(
+            descriptor
+          )
+        ) {
+          width =
+            parseInt(
+              descriptor,
+              10
+            ) || 0;
+        }
+
+        if (
+          /^\d+(?:\.\d+)?x$/i.test(
+            descriptor
+          )
+        ) {
+          density =
+            parseFloat(
+              descriptor
+            ) || 0;
+        }
+
+        add(
+          url,
+          baseScore +
+            Math.min(
+              width / 100,
+              25
+            ) +
+            density * 4,
+          width,
+          0,
+          source
+        );
       }
     };
 
     const addImage = (el) => {
       if (!el) return;
+
       const attrs = [
-        ["data-zoom-image", 100], ["data-full-image", 98], ["data-full", 96],
-        ["data-large-image", 94], ["data-large", 92], ["data-original", 90],
-        ["data-image-url", 88], ["data-image", 86], ["data-src", 82],
-        ["data-lazy-src", 80], ["src", 70]
+        ["data-zoom-image", 100],
+        ["data-full-image", 98],
+        ["data-full", 96],
+        ["data-large-image", 94],
+        ["data-large", 92],
+        ["data-original", 90],
+        ["data-image-url", 88],
+        ["data-image", 86],
+        ["data-src", 82],
+        ["data-lazy-src", 80],
+        ["src", 70],
       ];
-      for (const [attr, score] of attrs) {
-        const v = el.getAttribute(attr);
-        if (v) add(v, score, el.naturalWidth, el.naturalHeight, attr);
+
+      for (
+        const [attr, score] of attrs
+      ) {
+        const value =
+          el.getAttribute(attr);
+
+        if (value) {
+          add(
+            value,
+            score,
+            el.naturalWidth,
+            el.naturalHeight,
+            attr
+          );
+        }
       }
-      parseSrcset(el.getAttribute("srcset"), 78, "srcset");
-      parseSrcset(el.getAttribute("data-srcset"), 84, "data-srcset");
-      const src = el.currentSrc || el.src || "";
-      if (src) add(src, 76, el.naturalWidth, el.naturalHeight, "currentSrc");
+
+      parseSrcset(
+        el.getAttribute("srcset"),
+        78,
+        "srcset"
+      );
+
+      parseSrcset(
+        el.getAttribute("data-srcset"),
+        84,
+        "data-srcset"
+      );
+
+      const src =
+        el.currentSrc ||
+        el.src ||
+        "";
+
+      if (src) {
+        add(
+          src,
+          76,
+          el.naturalWidth,
+          el.naturalHeight,
+          "currentSrc"
+        );
+      }
     };
 
     const selectors = [
-      "main img", "article img", '[class*="product"] img', '[class*="Product"] img',
-      '[class*="gallery"] img', '[class*="Gallery"] img', '[class*="swiper"] img',
-      '[class*="Swiper"] img', '[class*="carousel"] img', '[class*="Carousel"] img',
-      '[class*="slider"] img', '[class*="Slider"] img', '[class*="thumb"] img',
-      '[class*="Thumb"] img', '[class*="thumbnail"] img', '[class*="Thumbnail"] img',
-      "[data-thumbnail] img", "[data-gallery] img", "[data-product-image] img", "picture img"
+      "main img",
+      "article img",
+      '[class*="product"] img',
+      '[class*="Product"] img',
+      '[class*="gallery"] img',
+      '[class*="Gallery"] img',
+      '[class*="swiper"] img',
+      '[class*="Swiper"] img',
+      '[class*="carousel"] img',
+      '[class*="Carousel"] img',
+      '[class*="slider"] img',
+      '[class*="Slider"] img',
+      '[class*="thumb"] img',
+      '[class*="Thumb"] img',
+      '[class*="thumbnail"] img',
+      '[class*="Thumbnail"] img',
+      "[data-thumbnail] img",
+      "[data-gallery] img",
+      "[data-product-image] img",
+      "picture img",
     ];
-    for (const selector of selectors) {
-      for (const el of document.querySelectorAll(selector)) addImage(el);
+
+    for (
+      const selector of selectors
+    ) {
+      for (
+        const el of
+          document.querySelectorAll(
+            selector
+          )
+      ) {
+        addImage(el);
+      }
     }
 
-    for (const source of document.querySelectorAll("source")) {
-      parseSrcset(source.getAttribute("srcset"), 72, "source-srcset");
-      add(source.getAttribute("src"), 68, 0, 0, "source");
+    for (
+      const source of
+        document.querySelectorAll(
+          "source"
+        )
+    ) {
+      parseSrcset(
+        source.getAttribute(
+          "srcset"
+        ),
+        72,
+        "source-srcset"
+      );
+
+      add(
+        source.getAttribute("src"),
+        68,
+        0,
+        0,
+        "source"
+      );
     }
 
-    for (const link of document.querySelectorAll("a[href]")) {
-      const href = link.getAttribute("href") || "";
-      if (/\.(jpe?g|png|webp|avif|gif)(\?|#|$)/i.test(href)) add(href, 65, 0, 0, "link");
+    for (
+      const link of
+        document.querySelectorAll(
+          "a[href]"
+        )
+    ) {
+      const href =
+        link.getAttribute(
+          "href"
+        ) || "";
+
+      if (
+        /\.(jpe?g|png|webp|avif|gif)(\?|#|$)/i.test(
+          href
+        )
+      ) {
+        add(
+          href,
+          65,
+          0,
+          0,
+          "link"
+        );
+      }
     }
 
-    for (const selector of [
-      'meta[property="og:image"]', 'meta[property="og:image:url"]',
-      'meta[property="og:image:secure_url"]', 'meta[name="twitter:image"]',
-      'meta[name="twitter:image:src"]'
-    ]) {
-      const meta = document.querySelector(selector);
-      if (meta?.content) add(meta.content, 60, 0, 0, "meta");
+    for (
+      const selector of [
+        'meta[property="og:image"]',
+        'meta[property="og:image:url"]',
+        'meta[property="og:image:secure_url"]',
+        'meta[name="twitter:image"]',
+        'meta[name="twitter:image:src"]',
+      ]
+    ) {
+      const meta =
+        document.querySelector(
+          selector
+        );
+
+      if (meta?.content) {
+        add(
+          meta.content,
+          60,
+          0,
+          0,
+          "meta"
+        );
+      }
     }
 
-    for (const script of document.querySelectorAll('script[type="application/ld+json"]')) {
+    for (
+      const script of
+        document.querySelectorAll(
+          'script[type="application/ld+json"]'
+        )
+    ) {
       try {
-        const data = JSON.parse(script.textContent || "");
-        const objects = Array.isArray(data) ? data : [data];
-        const addObj = (image) => {
-          if (typeof image === "string") add(image, 74, 0, 0, "jsonld");
-          else if (image && typeof image === "object") {
-            add(image.url, 74, 0, 0, "jsonld");
-            add(image.contentUrl, 74, 0, 0, "jsonld");
+        const data =
+          JSON.parse(
+            script.textContent ||
+              ""
+          );
+
+        const objects =
+          Array.isArray(data)
+            ? data
+            : [data];
+
+        const addObj = (
+          image
+        ) => {
+          if (
+            typeof image ===
+            "string"
+          ) {
+            add(
+              image,
+              74,
+              0,
+              0,
+              "jsonld"
+            );
+          } else if (
+            image &&
+            typeof image ===
+              "object"
+          ) {
+            add(
+              image.url,
+              74,
+              0,
+              0,
+              "jsonld"
+            );
+
+            add(
+              image.contentUrl,
+              74,
+              0,
+              0,
+              "jsonld"
+            );
           }
         };
-        for (const obj of objects) {
+
+        for (
+          const obj of objects
+        ) {
           if (!obj) continue;
-          if (Array.isArray(obj.image)) obj.image.forEach(addObj); else addObj(obj.image);
-          if (Array.isArray(obj.images)) obj.images.forEach(addObj);
+
+          if (
+            Array.isArray(
+              obj.image
+            )
+          ) {
+            obj.image.forEach(
+              addObj
+            );
+          } else {
+            addObj(
+              obj.image
+            );
+          }
+
+          if (
+            Array.isArray(
+              obj.images
+            )
+          ) {
+            obj.images.forEach(
+              addObj
+            );
+          }
         }
-      } catch (_) {}
+      } catch (_) {
+        // Ignore invalid JSON-LD.
+      }
     }
 
     return result;
   });
 
-  const bestBySource = new Map();
+  const bestBySource =
+    new Map();
+
   const sourceKey = (url) => {
     try {
-      const u = new URL(url, page.url());
-      // Next/Image URLs wrap the real source in ?url=. Deduplicate all sizes
-      // of the same original image so 3840/1920/640 variants are not treated
-      // as separate gallery pictures.
-      const wrapped = u.searchParams.get("url");
-      if (wrapped) return wrapped;
-      u.searchParams.delete("w");
-      u.searchParams.delete("q");
+      const u =
+        new URL(
+          url,
+          page.url()
+        );
+
+      /*
+      Next/Image URLs wrap the real
+      source inside ?url=.
+
+      URLSearchParams.get("url")
+      already decodes the parameter,
+      therefore do NOT call
+      decodeURIComponent() again.
+      */
+
+      const wrapped =
+        u.searchParams.get(
+          "url"
+        );
+
+      if (wrapped) {
+        return wrapped;
+      }
+
+      /*
+      Remove Next/Image size and
+      quality parameters.
+      */
+
+      u.searchParams.delete(
+        "w"
+      );
+
+      u.searchParams.delete(
+        "q"
+      );
+
       return u.toString();
     } catch (_) {
-      return String(url).replace(/[?&](?:w|q)=\d+/g, "");
+      return String(url)
+        .replace(
+          /[?&](?:w|q)=\d+/g,
+          ""
+        );
     }
   };
 
-  for (const item of rawCandidates) {
-    if (!isUsableImageUrl(item.url)) continue;
-    const key = sourceKey(item.url);
-    const score = Number(item.score || 0) + Math.min(Number(item.width || 0) / 100, 30);
-    const candidate = { ...item, score, key };
-    const previous = bestBySource.get(key);
-    if (!previous || candidate.score > previous.score || (candidate.width || 0) > (previous.width || 0)) {
-      bestBySource.set(key, candidate);
+  for (
+    const item of rawCandidates
+  ) {
+    if (
+      !isUsableImageUrl(
+        item.url
+      )
+    ) {
+      continue;
+    }
+
+    if (
+      !looksLikeProductImage(
+        item.url
+      )
+    ) {
+      continue;
+    }
+
+    const key =
+      sourceKey(item.url);
+
+    const score =
+      Number(
+        item.score || 0
+      ) +
+      Math.min(
+        Number(
+          item.width || 0
+        ) / 100,
+        30
+      );
+
+    const candidate = {
+      ...item,
+      score,
+      key,
+    };
+
+    const previous =
+      bestBySource.get(key);
+
+    if (
+      !previous ||
+      candidate.score >
+        previous.score ||
+      (
+        candidate.width || 0
+      ) >
+        (
+          previous.width || 0
+        )
+    ) {
+      bestBySource.set(
+        key,
+        candidate
+      );
     }
   }
 
-  const ranked = [...bestBySource.values()].sort((a, b) => {
-    if (b.score !== a.score) return b.score - a.score;
-    return (b.width * b.height) - (a.width * a.height);
-  });
+  const ranked =
+    [
+      ...bestBySource.values(),
+    ].sort(
+      (a, b) => {
+        if (
+          b.score !==
+          a.score
+        ) {
+          return (
+            b.score -
+            a.score
+          );
+        }
 
-  const images = ranked.map(x => x.url).slice(0, 20);
-  return { image: images[0] || "", images };
+        return (
+          (b.width *
+            b.height) -
+          (a.width *
+            a.height)
+        );
+      }
+    );
+
+  /*
+  Maximum 20 distinct real
+  product image sources.
+  */
+
+  const images =
+    ranked
+      .map(
+        (item) =>
+          item.url
+      )
+      .slice(0, 20);
+
+  return {
+    image:
+      images[0] || "",
+
+    images,
+  };
 }
+
+/*
+=========================================================
+ EXTRACT PRODUCT NAME
+=========================================================
+*/
+
+async function extractName(page) {
+  const candidates =
+    await page.evaluate(() => {
+      const values = [];
+
+      const add = (
+        value
+      ) => {
+        if (
+          value !== null &&
+          value !== undefined &&
+          String(value).trim()
+        ) {
+          values.push(
+            String(value).trim()
+          );
+        }
+      };
+
+      /*
+      Main product heading.
+      */
+
+      for (
+        const selector of [
+          "main h1",
+          "article h1",
+          "h1",
+          '[class*="product-title"]',
+          '[class*="Product-title"]',
+          '[class*="productTitle"]',
+          '[class*="product-name"]',
+          '[class*="Product-name"]',
+          '[class*="productName"]',
+        ]
+      ) {
+        const element =
+          document.querySelector(
+            selector
+          );
+
+        if (element) {
+          add(
+            element.innerText
+          );
+        }
+      }
+
+      /*
+      OpenGraph / metadata.
+      */
+
+      for (
+        const selector of [
+          'meta[property="og:title"]',
+          'meta[name="twitter:title"]',
+        ]
+      ) {
+        const element =
+          document.querySelector(
+            selector
+          );
+
+        if (
+          element?.content
+        ) {
+          add(
+            element.content
+          );
+        }
+      }
+
+      /*
+      JSON-LD Product.
+      */
+
+      for (
+        const script of
+          document.querySelectorAll(
+            'script[type="application/ld+json"]'
+          )
+      ) {
+        try {
+          const data =
+            JSON.parse(
+              script.textContent ||
+                ""
+            );
+
+          const objects =
+            Array.isArray(data)
+              ? data
+              : [data];
+
+          for (
+            const object of
+              objects
+          ) {
+            if (!object) {
+              continue;
+            }
+
+            if (
+              typeof object.name ===
+              "string"
+            ) {
+              add(
+                object.name
+              );
+            }
+
+            if (
+              Array.isArray(
+                object["@graph"]
+              )
+            ) {
+              for (
+                const item of
+                  object["@graph"]
+              ) {
+                if (
+                  typeof item?.name ===
+                  "string"
+                ) {
+                  add(
+                    item.name
+                  );
+                }
+              }
+            }
+          }
+        } catch {
+          // Ignore invalid JSON-LD.
+        }
+      }
+
+      /*
+      Document title as fallback.
+      */
+
+      if (
+        document.title
+      ) {
+        add(
+          document.title
+        );
+      }
+
+      return values;
+    });
+
+  for (
+    const candidate of
+      candidates
+  ) {
+    const value =
+      cleanText(candidate);
+
+    if (
+      value &&
+      value.length >= 2 &&
+      value.length <= 500
+    ) {
+      return value;
+    }
+  }
+
+  return "";
+}
+
+/*
+=========================================================
+ EXTRACT PRODUCT DESCRIPTION
+=========================================================
+*/
+
+async function extractDescription(
+  page,
+  productName = ""
+) {
+  const candidates =
+    await page.evaluate(() => {
+      const values = [];
+
+      const add = (
+        value
+      ) => {
+        if (
+          value !== null &&
+          value !== undefined &&
+          String(value).trim()
+        ) {
+          values.push(
+            String(value).trim()
+          );
+        }
+      };
+
+      /*
+      JSON-LD Product description.
+      */
+
+      for (
+        const script of
+          document.querySelectorAll(
+            'script[type="application/ld+json"]'
+          )
+      ) {
+        try {
+          const data =
+            JSON.parse(
+              script.textContent ||
+                ""
+            );
+
+          const objects =
+            Array.isArray(data)
+              ? data
+              : [data];
+
+          for (
+            const object of
+              objects
+          ) {
+            if (!object) {
+              continue;
+            }
+
+            if (
+              typeof object.description ===
+              "string"
+            ) {
+              add(
+                object.description
+              );
+            }
+
+            if (
+              Array.isArray(
+                object["@graph"]
+              )
+            ) {
+              for (
+                const item of
+                  object["@graph"]
+              ) {
+                if (
+                  typeof item?.description ===
+                  "string"
+                ) {
+                  add(
+                    item.description
+                  );
+                }
+              }
+            }
+          }
+        } catch {
+          // Ignore invalid JSON-LD.
+        }
+      }
+
+      /*
+      Meta description.
+      */
+
+      for (
+        const selector of [
+          'meta[name="description"]',
+          'meta[property="og:description"]',
+          'meta[name="twitter:description"]',
+        ]
+      ) {
+        const element =
+          document.querySelector(
+            selector
+          );
+
+        if (
+          element?.content
+        ) {
+          add(
+            element.content
+          );
+        }
+      }
+
+      /*
+      Product description elements.
+      */
+
+      for (
+        const selector of [
+          '[class*="product-description"]',
+          '[class*="Product-description"]',
+          '[class*="productDescription"]',
+          '[class*="description"]',
+          '[class*="Description"]',
+          '[id*="description"]',
+          '[id*="Description"]',
+        ]
+      ) {
+        for (
+          const element of
+            document.querySelectorAll(
+              selector
+            )
+        ) {
+          add(
+            element.innerText
+          );
+        }
+      }
+
+      return values;
+    });
+
+  for (
+    const candidate of
+      candidates
+  ) {
+    const value =
+      cleanText(candidate);
+
+    if (
+      value.length >= 20 &&
+      value.length <= 10000
+    ) {
+      /*
+      Avoid using product name
+      itself as description.
+      */
+
+      if (
+        productName &&
+        value ===
+          cleanText(
+            productName
+          )
+      ) {
+        continue;
+      }
+
+      return value;
+    }
+  }
+
+  return "";
+}
+
+/*
+=========================================================
+ EXTRACT BASE PRICE
+=========================================================
+*/
 
 async function extractBasePrice(
   page
@@ -796,7 +1543,9 @@ async function extractCanonical(
         'link[rel="canonical"]'
       )
       .getAttribute("href")
-      .catch(() => null);
+      .catch(
+        () => null
+      );
 
   const canonicalUrl =
     normalizeUrl(
@@ -829,10 +1578,12 @@ async function extractCanonical(
 /*
 =========================================================
  LOGIN PAGE DETECTION
+=========================================================
 
- لا نفحص body كله بحثًا عن كلمة login،
- لأن صفحة المنتج يمكن أن تحتوي كلمات مشابهة.
- نعتمد أولاً على URL وحقول login.
+لا نفحص body كله بحثًا عن كلمة login،
+لأن صفحة المنتج يمكن أن تحتوي كلمات مشابهة.
+
+نعتمد أولاً على URL وحقول login.
 =========================================================
 */
 
@@ -856,7 +1607,9 @@ async function isLoginPage(
         'input[type="password"]'
       )
       .count()
-      .catch(() => 0);
+      .catch(
+        () => 0
+      );
 
   if (
     passwordCount > 0
@@ -936,7 +1689,11 @@ async function login(
         .first();
 
     if (
-      await locator.count()
+      await locator
+        .count()
+        .catch(
+          () => 0
+        )
     ) {
       emailInput =
         locator;
@@ -963,7 +1720,11 @@ async function login(
       .first();
 
   if (
-    !(await passwordInput.count())
+    !(await passwordInput
+      .count()
+      .catch(
+        () => 0
+      ))
   ) {
     throw new Error(
       "Could not find Sawa9ly password input."
@@ -998,7 +1759,9 @@ async function login(
     if (
       await button
         .count()
-        .catch(() => 0)
+        .catch(
+          () => 0
+        )
     ) {
       await button.click();
 
@@ -1056,7 +1819,9 @@ async function prepareProductPage(
           PAGE_TIMEOUT,
       }
     )
-    .catch(() => {});
+    .catch(
+      () => {}
+    );
 
   await page.waitForTimeout(
     RENDER_WAIT
@@ -1075,7 +1840,9 @@ async function prepareProductPage(
           timeout: 8000,
         }
       )
-      .catch(() => {}),
+      .catch(
+        () => {}
+      ),
 
     page
       .waitForSelector(
@@ -1084,7 +1851,9 @@ async function prepareProductPage(
           timeout: 8000,
         }
       )
-      .catch(() => {}),
+      .catch(
+        () => {}
+      ),
 
     page
       .waitForSelector(
@@ -1093,7 +1862,9 @@ async function prepareProductPage(
           timeout: 8000,
         }
       )
-      .catch(() => {}),
+      .catch(
+        () => {}
+      ),
   ]);
 
   await page.waitForTimeout(
@@ -1165,7 +1936,9 @@ async function extractProduct(
       await page
         .locator("body")
         .innerText()
-        .catch(() => "")
+        .catch(
+          () => ""
+        )
     );
 
   if (
@@ -1190,6 +1963,10 @@ async function extractProduct(
     );
   }
 
+  /*
+  NAME
+  */
+
   const name =
     await extractName(
       page
@@ -1201,11 +1978,19 @@ async function extractProduct(
     );
   }
 
+  /*
+  DESCRIPTION
+  */
+
   const description =
     await extractDescription(
       page,
       name
     );
+
+  /*
+  BASE PRICE
+  */
 
   const basePrice =
     await extractBasePrice(
@@ -1221,6 +2006,10 @@ async function extractProduct(
     );
   }
 
+  /*
+  IMAGES
+  */
+
   const imageData =
     await extractImages(
       page
@@ -1235,6 +2024,10 @@ async function extractProduct(
     );
   }
 
+  /*
+  PRICING
+  */
+
   const sellingPrice =
     calculateSellingPrice(
       basePrice
@@ -1245,6 +2038,10 @@ async function extractProduct(
       basePrice,
       sellingPrice
     );
+
+  /*
+  CANONICAL SAWA9LY LINK
+  */
 
   const sawa9lyLink =
     await extractCanonical(
@@ -1447,9 +2244,9 @@ function validateDiscoverySafety(
   }
 
   /*
-  Important:
-  product-links should not suddenly become
-  dramatically smaller than Discovery.
+  Product links should not suddenly
+  become dramatically smaller
+  than Discovery.
   */
 
   if (
@@ -1515,15 +2312,19 @@ function saveProgress({
 
 async function main() {
   console.log("");
+
   console.log(
     "=================================================="
   );
+
   console.log(
     " PRIX CHOC - SAWA9LY PRODUCT SCRAPER"
   );
+
   console.log(
     "=================================================="
   );
+
   console.log("");
 
   /*
@@ -1562,10 +2363,6 @@ async function main() {
 
   /*
   3. SAFETY FOR PARTIAL SCRAPE
-
-  إذا كان scrapeLimit أقل من عدد
-  المنتجات المكتشفة، لا يجوز اعتبار
-  النتيجة الكاملة قاعدة للمزامنة.
   */
 
   const fullCatalogSelected =
@@ -1598,6 +2395,7 @@ async function main() {
     !fullCatalogSelected
   ) {
     console.warn("");
+
     console.warn(
       "⚠️ SCRAPE_LIMIT is smaller than the discovered catalog."
     );
@@ -1666,14 +2464,18 @@ async function main() {
       ) {
         await route
           .abort()
-          .catch(() => {});
+          .catch(
+            () => {}
+          );
 
         return;
       }
 
       await route
         .continue()
-        .catch(() => {});
+        .catch(
+          () => {}
+        );
     }
   );
 
@@ -1691,7 +2493,9 @@ async function main() {
   } finally {
     await loginPage
       .close()
-      .catch(() => {});
+      .catch(
+        () => {}
+      );
   }
 
   /*
@@ -1857,16 +2661,22 @@ async function main() {
     ) {
       await page
         .close()
-        .catch(() => {});
+        .catch(
+          () => {}
+        );
     }
 
     await context
       .close()
-      .catch(() => {});
+      .catch(
+        () => {}
+      );
 
     await browser
       .close()
-      .catch(() => {});
+      .catch(
+        () => {}
+      );
   }
 
   /*
@@ -2000,7 +2810,6 @@ async function main() {
     coverageSafe,
 
     fullCatalogSelected:
-
       fullCatalogSelected,
 
     completeCatalog,
@@ -2026,12 +2835,15 @@ async function main() {
   */
 
   console.log("");
+
   console.log(
     "=================================================="
   );
+
   console.log(
     " SCRAPER FINISHED"
   );
+
   console.log(
     "=================================================="
   );
@@ -2137,12 +2949,15 @@ async function main() {
 main().catch(
   (error) => {
     console.error("");
+
     console.error(
       "=================================================="
     );
+
     console.error(
       " SCRAPER ERROR"
     );
+
     console.error(
       "=================================================="
     );
