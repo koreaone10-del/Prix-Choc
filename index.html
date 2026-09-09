@@ -4,8 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
 <title>Prix-Choc 🇩🇿 | صفقات تستاهلها</title>
-<script src="database.js"></script>
 <script src="products.js"></script>
+<script>
+// Stable data bridge: products.js is the single source of truth.
+// Do not depend on window.storeData because products.js declares a global lexical const.
+try {
+  if (typeof storeData !== "undefined" && storeData && typeof storeData === "object") {
+    window.__PRIX_CHOC_STORE_DATA__ = storeData;
+  }
+} catch (e) { console.error("Prix-Choc data bridge error", e); }
+</script>
+<script src="database.js"></script>
 <script>
 const _prixChocParams=new URLSearchParams(location.search);
 const _prixChocP=_prixChocParams.get("p");
@@ -312,6 +321,15 @@ body{color:#111816;background:linear-gradient(180deg,#F7F9F7 0,#FFFFFF 45%,#EEF3
 /* Replace remaining cool blue/purple accents with the same Algerian emerald/neutral family. */
 .home-products .catalog-tag{background:#EAF2EE;color:#006B4F}
 </style>
+<style id="prix-choc-contrast-fix">
+/* Contrast-only layer; no catalogue/order logic is changed. */
+:root{--green:#008f5a;--green2:#00b56f;--ink:#10231b;--muted:#52685f;--cream:#f3f7f4;--line:#dce8e1;--shadow:0 18px 50px rgba(5,35,22,.14)}
+body{background:#f3f7f4!important;color:#10231b!important}
+.catalog,.catalog-section,.home-section,.home-categories,.content,.card,.product-card,.order-panel{color:#10231b}
+.catalog-name,.product-title,.catalog-price,.rail-name,.home-category-title{color:#10231b!important}
+.catalog-subtitle,.catalog p,.home-section p,.footer p{color:#52685f!important}
+.form-input{color:#10231b!important;background:#fff!important;font-size:14px!important}
+</style>
 </head>
 <body>
 
@@ -378,12 +396,12 @@ body{color:#111816;background:linear-gradient(180deg,#F7F9F7 0,#FFFFFF 45%,#EEF3
 
 document.addEventListener("DOMContentLoaded",function(){
 const $=id=>document.getElementById(id),params=_prixChocParams,productId=_prixChocHome?null:params.get("p");
-const STORE_DATA=(typeof storeData!=="undefined"&&storeData)?storeData:(window.storeData||globalThis.storeData||{});
+const STORE_DATA=(window.__PRIX_CHOC_STORE_DATA__&&typeof window.__PRIX_CHOC_STORE_DATA__==="object")?window.__PRIX_CHOC_STORE_DATA__:((typeof storeData!=="undefined"&&storeData&&typeof storeData==="object")?storeData:{});
 const product=STORE_DATA[productId]||null;
 const orderForm=$("orderForm");
 function money(n){return Number(n||0).toLocaleString("ar-DZ")+" د.ج"}
 function esc(v){return String(v??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\"/g,"&quot;").replace(/'/g,"&#039;")}
-function valid(p){return p&&Number.isFinite(Number(p.price))&&Number(p.price)>0&&typeof p.name==="string"&&p.name&&typeof p.image==="string"&&p.image&&p.image!=="رابط_الصورة"&&typeof p.sawa9lyLink==="string"&&p.sawa9lyLink!=="رابط_سوقلي"}
+function valid(p){return p&&Number.isFinite(Number(p.price))&&Number(p.price)>0&&typeof p.name==="string"&&p.name&&typeof p.image==="string"&&p.image&&p.image!=="رابط_الصورة"}
 function sourceId(p){const m=String(p?.sawa9lyLink||"").match(/product\/(\d+)/i);return m?Number(m[1]):0}
 function referencePrice(price){let r=.25;if(price>=15000)r=.15;else if(price>=10000)r=.18;else if(price>=5000)r=.20;return Math.ceil((price/(1-r))/50)*50}
 
@@ -429,7 +447,8 @@ wilaya.addEventListener("change",function(){const w=this.value;const d=legacyDat
 // Catalog — catalog data
 // ---------------------------------------------------------
 const grid=$("allProductsGrid"),featured=$("featuredProducts"),newGrid=$("newProducts"),search=$("productSearch"),cats=$("categoryList"),more=$("loadMoreBtn"),count=$("productCountBadge"),label=$("allProductsLabel");
-const catalogProducts=[];try{if(STORE_DATA&&typeof STORE_DATA==="object")Object.keys(STORE_DATA).forEach(id=>{const p=STORE_DATA[id];if(valid(p))catalogProducts.push({id,item:p})})}catch(e){}
+const catalogProducts=[];try{if(STORE_DATA&&typeof STORE_DATA==="object")Object.keys(STORE_DATA).forEach(id=>{const p=STORE_DATA[id];if(valid(p))catalogProducts.push({id,item:p})})}catch(e){console.error("Prix-Choc catalog build error",e)}
+if(!catalogProducts.length){console.error("Prix-Choc: products.js loaded but no valid catalogue products were found.",STORE_DATA)}
 function category(p){const t=((p.name||"")+" "+(p.title||"")).toLowerCase();if(/سيارة|سيارات|سيار|auto|car|automobile|voiture|moto|véhicule/.test(t))return"car";if(/مطبخ|خلاط|عصارة|طبخ|طهي|kitchen|cooking|blender|cuisine/.test(t))return"kitchen";if(/هاتف|سماعة|سماعات|بروجيكتور|شاحن|إلكترون|الكترون|phone|headphone|earbuds|projector|usb|led|electronic|bluetooth|écouteur/.test(t))return"electronics";if(/ساعة|ساعات|watch|watches|montre/.test(t))return"watches";if(/جمال|عناية|beauty|makeup|skin|شعر|مكياج|massage|تدليك/.test(t))return"beauty";if(/حقيبة|حقائب|ملابس|لباس|فستان|قميص|أحذية|حذاء|bag|sac|fashion|clothing|chaussure/.test(t))return"fashion";if(/رياضة|كرة|fitness|sport|gym|training/.test(t))return"sports";if(/منزل|بيت|home|house|ديكور|تنظيف|أثاث|منزلي/.test(t))return"home";if(/أطفال|طفل|لعبة|العاب|kids|children|toy|jouet/.test(t))return"kids";return"other"}
 const names={all:"🔥 الكل",electronics:"📱 إلكترونيات",kitchen:"🍳 المطبخ",car:"🚗 السيارات",watches:"⌚ الساعات",fashion:"👜 الموضة",home:"🏠 المنزل",beauty:"💄 الجمال",sports:"🏋️ الرياضة",kids:"🧸 الأطفال",other:"✨ متنوع"};let active="all",PAGE=12,visible=PAGE;
 function card(x){const p=x.item,price=Number(p.price)||0,un=p.available===false,title=esc(p.name),img=esc(p.image);return `<a class="catalog-card ${un?"is-unavailable":""}" href="?p=${encodeURIComponent(x.id)}"><div class="catalog-image-wrap"><img class="catalog-image" src="${img}" alt="${title}" loading="lazy" onerror="this.style.opacity='.2'"><div class="catalog-tag">${un?"🔴 غير متوفر":"🟢 متوفر"}</div><button type="button" class="catalog-heart" onclick="event.preventDefault();event.stopPropagation();this.textContent=this.textContent==='♥'?'♡':'♥'">♡</button></div><div class="catalog-body"><div class="catalog-name">${title}</div><div class="catalog-price-row"><div class="catalog-price">${money(price)}</div></div><div class="catalog-order ${un?"unavailable":""}">${un?"🔴 غير متوفر":"🛍️ اطلب الآن"}</div></div></a>`}
@@ -519,99 +538,6 @@ if(valid(product)&&product.available!==false){orderForm.addEventListener("submit
 if(_prixChocHome){
   document.documentElement.classList.add("hide-home-product-area");
 }
-</script>
-
-
-<style id="prix-choc-safe-catalog-recovery">
-/* Safe visual layer: keep the existing layout, only improve contrast and consistency. */
-:root{--green:#00a878;--green2:#00c48c;--ink:#eef8f3;--muted:#a9beb6;--line:#21453b;--cream:#0b1512;}
-body{background:linear-gradient(180deg,#07110e 0%,#0b1713 55%,#06100d 100%) !important;color:#eef8f3 !important;}
-.catalog,.catalog-section,.home-products,.home-deals-section{background:transparent !important;color:#eef8f3 !important;}
-.catalog-card,.rail-card,.trust-card,.search-wrap,.search,.chips,.category-scroll,.order-panel,.order-form,.product-panel{background:#0f201b !important;border-color:#21453b !important;color:#eef8f3 !important;}
-.catalog-name,.rail-name,h1,h2,h3,p,.catalog-subtitle,.section-title,.catalog-head,.catalog-brand{color:#eef8f3 !important;}
-.catalog-price,.rail-price{color:#20d39a !important;}
-.catalog-image-wrap,.rail-card img{background:#142a24 !important;}
-.catalog-card:hover,.rail-card:hover{border-color:#00a878 !important;box-shadow:0 10px 28px rgba(0,168,120,.16) !important;}
-input,select,textarea{background:#0b1814 !important;color:#eef8f3 !important;border-color:#31564b !important;}
-input::placeholder,textarea::placeholder{color:#8fa79e !important;}
-.category-page-nav{display:flex;justify-content:center;gap:7px;flex-wrap:wrap;margin:22px auto 8px;padding:0 8px;direction:rtl}
-.category-page-nav button{min-width:38px;height:38px;border-radius:12px;border:1px solid #31564b;background:#10251f;color:#dff7ed;font-weight:900;cursor:pointer}
-.category-page-nav button.active{background:#00a878;color:#04110d;border-color:#00a878}
-.category-page-nav button:disabled{opacity:.45;cursor:not-allowed}
-</style>
-<script id="prix-choc-safe-catalog-recovery">
-/*
-  Catalog recovery guard.
-  It runs independently from the main DOMContentLoaded handler so an earlier
-  order/location error can never leave the catalog at 0 products.
-*/
-(function(){
-  function esc(v){return String(v??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\"/g,"&quot;").replace(/'/g,"&#039;")}
-  function money(n){return Number(n||0).toLocaleString("ar-DZ")+" د.ج"}
-  function imageUrl(v){
-    const s=String(v||"").trim(); if(!s)return "";
-    try{const u=new URL(s,location.href); if(u.pathname==="/_next/image"){const raw=u.searchParams.get("url"); if(raw)return raw} }catch(e){}
-    return s;
-  }
-  function valid(p){return p&&Number.isFinite(Number(p.price))&&Number(p.price)>0&&typeof p.name==="string"&&p.name&&typeof imageUrl(p.image)==="string"&&imageUrl(p.image)}
-  function cat(p){
-    const t=((p.name||"")+" "+(p.title||"")).toLowerCase();
-    if(/سيارة|سيارات|سيار|auto|car|automobile|voiture|moto|véhicule/.test(t))return"car";
-    if(/مطبخ|خلاط|عصارة|طبخ|طهي|kitchen|cooking|blender|cuisine/.test(t))return"kitchen";
-    if(/هاتف|سماعة|سماعات|بروجيكتور|شاحن|إلكترون|الكترون|phone|headphone|earbuds|projector|usb|led|electronic|bluetooth|écouteur/.test(t))return"electronics";
-    if(/ساعة|ساعات|watch|watches|montre/.test(t))return"watches";
-    if(/جمال|عناية|beauty|makeup|skin|شعر|مكياج|massage|تدليك/.test(t))return"beauty";
-    if(/حقيبة|حقائب|ملابس|لباس|فستان|قميص|أحذية|حذاء|bag|sac|fashion|clothing|chaussure/.test(t))return"fashion";
-    if(/رياضة|كرة|fitness|sport|gym|training/.test(t))return"sports";
-    if(/منزل|بيت|home|house|ديكور|تنظيف|أثاث|منزلي/.test(t))return"home";
-    if(/أطفال|طفل|لعبة|العاب|kids|children|toy|jouet/.test(t))return"kids";
-    return"other";
-  }
-  const names={all:"🔥 الكل",electronics:"📱 إلكترونيات",kitchen:"🍳 المطبخ",car:"🚗 السيارات",watches:"⌚ الساعات",fashion:"👜 الموضة",home:"🏠 المنزل",beauty:"💄 الجمال",sports:"🏋️ الرياضة",kids:"🧸 الأطفال",other:"✨ متنوع"};
-  function getData(){
-    try{if(typeof storeData!=="undefined"&&storeData&&typeof storeData==="object")return storeData}catch(e){}
-    try{if(window.storeData&&typeof window.storeData==="object")return window.storeData}catch(e){}
-    return null;
-  }
-  async function loadData(){
-    const direct=getData(); if(direct&&Object.keys(direct).length)return direct;
-    try{
-      const r=await fetch("products.js",{cache:"no-store"});
-      if(!r.ok)throw new Error("products.js HTTP "+r.status);
-      const text=await r.text();
-      const fn=new Function(text+"\n;return (typeof storeData!==\"undefined\"?storeData:null);");
-      const data=fn();
-      if(data&&typeof data==="object")return data;
-    }catch(e){console.error("Prix-Choc catalog recovery failed",e)}
-    return {};
-  }
-  function card(x){
-    const p=x.item,un=p.available===false,title=esc(p.name),img=esc(imageUrl(p.image));
-    return `<a class="catalog-card ${un?"is-unavailable":""}" href="?p=${encodeURIComponent(x.id)}"><div class="catalog-image-wrap"><img class="catalog-image" src="${img}" alt="${title}" loading="lazy" onerror="this.style.opacity='.25'"><div class="catalog-tag">${un?"🔴 غير متوفر":"🟢 متوفر"}</div><button type="button" class="catalog-heart" onclick="event.preventDefault();event.stopPropagation();this.textContent=this.textContent==='♥'?'♡':'♥'">♡</button></div><div class="catalog-body"><div class="catalog-name">${title}</div><div class="catalog-price-row"><div class="catalog-price">${money(p.price)}</div></div><div class="catalog-order ${un?"unavailable":""}">${un?"🔴 غير متوفر":"🛍️ اطلب الآن"}</div></div></a>`;
-  }
-  function rail(x){const p=x.item,title=esc(p.name),un=p.available===false;return `<a class="rail-card ${un?"is-unavailable":""}" href="?p=${encodeURIComponent(x.id)}"><img src="${esc(imageUrl(p.image))}" alt="${title}" loading="lazy"><div class="rail-body"><div class="rail-name">${title}</div><div class="rail-price">${un?"غير متوفر":money(p.price)}</div></div></a>`}
-  async function run(){
-    const count=document.getElementById("productCountBadge"),grid=document.getElementById("allProductsGrid");
-    if(!count||!grid)return;
-    await new Promise(r=>setTimeout(r,900));
-    if(!count.textContent.trim().startsWith("0"))return;
-    const data=await loadData();
-    const products=[];Object.keys(data||{}).forEach(id=>{const p=data[id];if(valid(p))products.push({id,item:p})});
-    if(!products.length){console.error("Prix-Choc: products.js loaded but no valid products",Object.keys(data||{}).length);return}
-    let active="all",page=1,perPage=24;
-    const featured=document.getElementById("featuredProducts"),fresh=document.getElementById("newProducts"),search=document.getElementById("productSearch"),cats=document.getElementById("categoryList"),label=document.getElementById("allProductsLabel"),oldMore=document.getElementById("loadMoreBtn");
-    if(oldMore)oldMore.style.display="none";
-    let nav=document.getElementById("safeCatalogPagination");if(!nav){nav=document.createElement("div");nav.id="safeCatalogPagination";nav.className="category-page-nav";grid.insertAdjacentElement("afterend",nav)}
-    function filtered(){let a=active==="all"?products:products.filter(x=>cat(x.item)===active);const q=(search?.value||"").trim().toLowerCase();return q?a.filter(x=>String(x.item.name||"").toLowerCase().includes(q)):a}
-    function renderCats(){if(!cats)return;const c={};products.forEach(x=>{const k=cat(x.item);c[k]=(c[k]||0)+1});cats.innerHTML="";Object.keys(names).forEach(k=>{const b=document.createElement("button");b.type="button";b.className="chip"+(active===k?" active":"");b.textContent=names[k]+" ("+(k==="all"?products.length:c[k]||0)+")";b.onclick=()=>{active=k;page=1;renderCats();render()};cats.appendChild(b)})}
-    function render(){const f=filtered(),pages=Math.max(1,Math.ceil(f.length/perPage));if(page>pages)page=pages;const v=f.slice((page-1)*perPage,page*perPage);grid.innerHTML=v.map(card).join("");label.textContent=f.length.toLocaleString("ar-DZ");count.textContent=products.length.toLocaleString("ar-DZ")+" منتج";renderNav(pages);if(featured){featured.innerHTML=products.slice(0,8).map(rail).join("")}if(fresh){fresh.innerHTML=products.slice(-8).reverse().map(rail).join("")}}
-    function renderNav(pages){nav.innerHTML="";if(pages<=1)return;const prev=document.createElement("button");prev.textContent="‹";prev.disabled=page===1;prev.onclick=()=>{page--;render()};nav.appendChild(prev);let start=Math.max(1,page-2),end=Math.min(pages,start+4);start=Math.max(1,end-4);for(let i=start;i<=end;i++){const b=document.createElement("button");b.textContent=i;b.className=i===page?"active":"";b.onclick=()=>{page=i;render();document.getElementById("catalog")?.scrollIntoView({behavior:"smooth",block:"start"})};nav.appendChild(b)}const next=document.createElement("button");next.textContent="›";next.disabled=page===pages;next.onclick=()=>{page++;render()};nav.appendChild(next)}
-    if(search)search.addEventListener("input",()=>{page=1;render()});
-    renderCats();render();
-    console.info("Prix-Choc catalog recovery: "+products.length+" products loaded");
-  }
-  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",run,{once:true});else run();
-})();
 </script>
 
 </body>
