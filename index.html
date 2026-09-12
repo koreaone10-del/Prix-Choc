@@ -450,7 +450,23 @@ wilaya.addEventListener("change",function(){const w=this.value;const d=legacyDat
 // Catalog — catalog data
 // ---------------------------------------------------------
 const grid=$("allProductsGrid"),featured=$("featuredProducts"),newGrid=$("newProducts"),search=$("productSearch"),cats=$("categoryList"),more=$("loadMoreBtn"),count=$("productCountBadge"),label=$("allProductsLabel");
-const catalogProducts=[];try{if(STORE_DATA&&typeof STORE_DATA==="object")Object.keys(STORE_DATA).forEach(id=>{const p=STORE_DATA[id];if(valid(p))catalogProducts.push({id,item:p})})}catch(e){console.error("Prix-Choc catalog build error",e)}
+const catalogProducts=[];
+try{
+  if(STORE_DATA&&typeof STORE_DATA==="object")
+    Object.keys(STORE_DATA).forEach(id=>{
+      const p=STORE_DATA[id];
+      if(valid(p)&&p.available!==false)
+        catalogProducts.push({id,item:p})
+    });
+
+  catalogProducts.sort(
+    (a,b)=>
+      sourceId(b.item)-sourceId(a.item) ||
+      Number(b.id)-Number(a.id)
+  );
+}catch(e){
+  console.error("Prix-Choc catalog build error",e)
+}
 if(!catalogProducts.length){console.error("Prix-Choc: products.js loaded but no valid catalogue products were found.",STORE_DATA)}
 function category(p){const t=((p.name||"")+" "+(p.title||"")).toLowerCase();if(/سيارة|سيارات|سيار|auto|car|automobile|voiture|moto|véhicule/.test(t))return"car";if(/مطبخ|خلاط|عصارة|طبخ|طهي|kitchen|cooking|blender|cuisine/.test(t))return"kitchen";if(/هاتف|سماعة|سماعات|بروجيكتور|شاحن|إلكترون|الكترون|phone|headphone|earbuds|projector|usb|led|electronic|bluetooth|écouteur/.test(t))return"electronics";if(/ساعة|ساعات|watch|watches|montre/.test(t))return"watches";if(/جمال|عناية|beauty|makeup|skin|شعر|مكياج|massage|تدليك/.test(t))return"beauty";if(/حقيبة|حقائب|ملابس|لباس|فستان|قميص|أحذية|حذاء|bag|sac|fashion|clothing|chaussure/.test(t))return"fashion";if(/رياضة|كرة|fitness|sport|gym|training/.test(t))return"sports";if(/منزل|بيت|home|house|ديكور|تنظيف|أثاث|منزلي/.test(t))return"home";if(/أطفال|طفل|لعبة|العاب|kids|children|toy|jouet/.test(t))return"kids";return"other"}
 const names={all:"🔥 الكل",electronics:"📱 إلكترونيات",kitchen:"🍳 المطبخ",car:"🚗 السيارات",watches:"⌚ الساعات",fashion:"👜 الموضة",home:"🏠 المنزل",beauty:"💄 الجمال",sports:"🏋️ الرياضة",kids:"🧸 الأطفال",other:"✨ متنوع"};let active="all",PAGE=12,visible=PAGE;
